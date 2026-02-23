@@ -1,4 +1,4 @@
-OPERATING SYSTEM (OS)
+OPERATING SYSTEM (OS)  DAY 1 20/02/26
 
 A bridge between user/applications and hardware [CPU AND RAM...].
 
