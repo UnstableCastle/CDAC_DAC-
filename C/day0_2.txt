@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 DAY 3 23/02/26
 
 ----------------------------------------------------------------------------------------------------------------------------
@@ -206,3 +207,213 @@ Allocate and free memory properly.
 
 If pointer goes beyond allocated address space → program may crash (segmentation fault).
 
+=======
+DAY 3 23/02/26
+
+----------------------------------------------------------------------------------------------------------------------------
+WHILE LOOP
+
+WHILE(CONDITION){
+
+// COMPOUNT STATEMENT
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+DO WHILE 
+
+do
+{
+    // compound statement
+}
+while (condition);
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+NESTED LOOPS : LOOPS WITHIN LOOPS
+
+In nested loops, the inner loop runs fully for every single iteration of the outer loop.
+
+#include <stdio.h>
+
+int main()
+{
+    for(int i = 1; i <= 3; i++)        // Outer loop
+    {
+        for(int j = 1; j <= 2; j++)    // Inner loop
+        {
+            printf("i = %d, j = %d\n", i, j);
+        }
+    }
+    return 0;
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+FUNCTIONS 
+
+
+
+Function: Block of code, performs specific task. Executes when called
+
+Types: 1. built in / library
+
+	2. User Defined
+
+Reusability, Can perform a task independently. function returns only one value.
+
+Modularity. One program->  sub program
+
+Function take input in form of parameter.
+
+
+function is defined as: RETURN_TYPE FUNCTION_NAME (PARAMETER) 
+	
+
+1.Function declaration.
+
+2.Function call
+
+3.Function definition
+
+
+
+#include <stdio.h>
+
+int fun (void); ............Declaration
+
+int main () {
+
+int x=10;
+
+x= fun();................... Call
+
+printf ("Pod in ", 2), 
+
+return 0;
+
+}
+
+int fun (void) ........ Definition
+{
+
+print("function");
+
+}
+
+
+------------------------------------------------------------------------------------------------------
+
+Functions – Parameters
+
+Value of actual parameters is assigned to formal parameters.
+
+Actual parameters are variables/values used in the function call.
+
+Formal parameters are variables defined in the function definition.
+
+Data types of both must be the same.
+
+
+
+Function parameters can have some names.
+
+Formal parameters must always be variables.
+
+Parameters should match in number, order, and data type.
+
+The return value goes back to main() (caller function) for further execution.
+
+-------------------------------------------------------------------------------------------------------------
+
+
+Pointers
+
+A pointer is a variable that stores the address of another variable within the same process address space.
+
+Any address of a variable, structure, function, etc., exists in the same process address space.
+
+Syntax :  int *ptr;
+
+* → Dereferencing operator
+
+& → Address-of operator
+
+
+
+Pointer Arithmetic
+
+Pointers support:
+
++
+
+-
+
+++
+
+--
+
+We cannot: 1. Add two pointers 2. Multiply or divide pointers
+
+
+Void Pointer: 
+
+Cannot be dereferenced directly.
+
+Does not have a fixed data type.
+
+Does not support pointer arithmetic directly.
+
+Must be typecast before dereferencing.
+
+----------------------------------------------------------------------------------------------------
+
+Dynamic Memory Allocation:
+
+malloc()
+
+int *ptr;
+
+ptr = (int*) malloc(40);   // Allocates 40 bytes
+
+malloc() allocates memory at runtime.
+
+
+TYPE CASTING VOID POINTER
+
+ptr = (int*) malloc(sizeof(int));
+
+
+
+free(ptr);
+
+Used to deallocate memory.
+Prevents memory leaks.
+
+
+-----------------------------------------------------------------------------------------------------
+
+
+Pointers Are Used
+
+To access a variable across functions (Call by Address).
+
+To return more than one value from a function.
+
+For Dynamic Memory Allocation.
+
+
+Important Responsibility
+
+Pointers come with responsibility:
+
+Maintain the size of allocated memory.
+
+Allocate and free memory properly.
+
+If pointer goes beyond allocated address space → program may crash (segmentation fault).
+
+>>>>>>> 9a2f9a9b0c404d4f7aad7d08d894f249fe0fc037

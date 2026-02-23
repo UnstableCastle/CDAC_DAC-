@@ -47,13 +47,6 @@ int main(void) {
 
     printf("a = %d  , b = %d \n",a,b );
 
-    printf()
-
-
-
-
-
-
-
-
+    printf("%d , %u \n",__INT_MAX__,__UINTMAX_MAX__);
+    return 0;
 }
