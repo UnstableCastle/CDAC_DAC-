@@ -356,7 +356,9 @@ Pointers support:
 
 --
 
-We cannot: 1. Add two pointers 2. Multiply or divide pointers
+We cannot:
+ 1. Add two pointers 
+	2. Multiply or divide pointers
 
 
 Void Pointer: 
@@ -373,7 +375,11 @@ Must be typecast before dereferencing.
 
 Dynamic Memory Allocation:
 
-malloc()
+malloc() : a low level function that is used to allocate memory at runtime with interactions with OS
+ THIS MEMORY IS VOID POINTER WITH PLAIN ADDRESS TO MEMORY
+ NO SUPPORT TO POINTER ARITHMETIC
+ CAN BE TYPE CASTED ANY DATATYPE
+
 
 int *ptr;
 
@@ -416,4 +422,6 @@ Allocate and free memory properly.
 
 If pointer goes beyond allocated address space → program may crash (segmentation fault).
 
->>>>>>> 9a2f9a9b0c404d4f7aad7d08d894f249fe0fc037
+---------------------------------------------------------------------------------------------
+
+
