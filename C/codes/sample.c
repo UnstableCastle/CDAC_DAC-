@@ -11,7 +11,7 @@ for ( i = 0; i <5 ; i++)
 {
 
 printf("enter a number ");
-scanf("%d", )
+scanf("%d", );
 
 
 }
