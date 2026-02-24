@@ -1,0 +1,90 @@
+24/02/26
+
+ARRAY IN C
+
+Definition
+Array is a collection of elements of the same data type.
+
+Important Properties
+
+• Array stores elements of same data type only.
+• Elements are stored in contiguous (continuous) memory locations.
+• Elements are accessed using index (subscript).
+• Index always starts from 0.
+
+ARRAY IS ALWAYS PASS BY ADDRESS
+
+Array is Called Constant Pointer
+
+Because array name always holds the same base address during execution.
+It cannot be reassigned to another address.
+
+Example:
+If array size is 5, valid indexes are:
+0, 1, 2, 3, 4
+
+Memory Representation
+
+If:
+int arr[5];
+
+And base address is 1000
+Assuming int = 4 bytes
+
+arr[0] → 1000
+arr[1] → 1004
+arr[2] → 1008
+arr[3] → 1012
+arr[4] → 1016
+
+Array Name
+• Array name itself is the base address of the array.
+• Array name is a constant pointer.
+• It cannot be changed.
+
+Example:
+arr = arr + 1 → Not allowed
+
+Subscript Operator []
+
+arr[i] means:
+
+arr[i] = *(arr + i)
+
+Example:
+
+arr[0] = *(arr + 0)
+arr[1] = *(arr + 1)
+arr[2] = *(arr + 2)
+
+Access Outside Array
+
+If array size is 10:
+
+arr[10] or arr[11]
+
+This is outside the array boundary.
+This causes undefined behavior.
+
+Pointer and Array
+
+Pointer arithmetic is used to access array elements.
+
+If:
+int arr[10];
+
+Then:
+
+arr → address of first element
+*arr → value of first element
+(arr + i) → address of ith element
+*(arr + i) → value of ith element
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
