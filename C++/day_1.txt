@@ -1,0 +1,158 @@
+DATE: 25/02/26
+
+C++
+
+C++ is a general-purpose programming language.
+It is used to develop software for small microcomputers to large supercomputers.
+It works on almost all operating systems.
+
+C++ is a superset of C language.
+It includes all features of C and also provides additional features.
+C++ allows programmers to define new data types.
+It supports system programming.
+
+Programming Styles Supported by C++
+
+1. Procedural Programming
+2. Data Abstraction
+3. Object-Oriented Programming
+4. Generic Programming
+
+History of C++
+
+C++ was developed by Bjarne Stroustrup in 1979 at AT&T Bell Laboratories.
+
+It was developed by combining:
+- The class concept from Simula language
+- The efficiency and flexibility of C language
+
+-------------------------------------------------------------------------------------------------------------
+
+1979:
+Work started as "C with Classes".
+Features included:
+- Classes and derived classes
+- Public and private access control
+- Constructors and destructors
+- Function declarations with argument checking
+
+1984:
+"C with Classes" was renamed to C++.
+Added features:
+- Virtual functions
+- Function and operator overloading
+- References
+- I/O streams
+- Number libraries
+
+1985:
+First commercial release of C++.
+
+1991:
+Second edition introduced:
+- Templates (Generic programming)
+- Exception handling
+
+1997:
+ISO C++ standard introduced:
+- Namespaces
+- dynamic_cast
+- STL (Standard Template Library)
+
+2011:
+ISO C++11 standard approved.
+
+2012:
+First complete C++11 implementations appeared.
+Work started on C++14 and C++17.
+
+2017:
+Final C++17 standard published.
+
+---------------------------------------------------------------------------------------------------------
+
+Need of C++
+
+C++ is mainly used for systems programming and native applications.
+
+Software written in C++ is used in:
+- Computers
+- Mobile phones
+- Cars
+- Electronic devices
+
+Operating systems written using C++ include:
+- Windows
+- Linux
+- macOS
+
+C++ is used to write:
+- Device drivers
+- Real-time systems
+- Hardware-level software
+
+Major technology companies use C++ in critical systems:
+- Amazon
+- Google
+- Facebook
+
+Advanced technologies that depend on C++:
+- Java Virtual Machine (JVM)
+- Microsoft .NET framework
+- Web browsers like Chrome, Firefox, Safari
+
+C++ is widely used in:
+- Game development
+- Embedded systems
+- Flight control software
+- Automobile software
+- Engineering computations
+
+-----------------------------------------------------------------------------------------------------------
+
+Tokens in C++
+
+Tokens are the smallest units of a C++ program.
+
+Types of tokens:
+1. Keywords
+2. Identifiers
+3. Constants
+4. Strings
+5. Operators
+6. Special symbols
+7. Escape sequence
+
+------------------------------------------------------------------------------------------------------------
+
+IDENTIFIER
+
+An identifier is a user-defined name.
+It is used to name variables, functions, arrays, classes, objects, and other user-defined data types.
+
+Rules to Define an Identifier:
+
+1. It should start with an alphabet (A–Z or a–z) or an underscore (_).
+
+2. White spaces and special characters are NOT allowed in the name of an identifier.
+
+3. It can contain alphabets, digits (0–9), and underscore (_).
+
+4. It cannot be a C++ keyword.
+
+5. It must be unique within its scope (cannot be declared more than once in the same namespace or scope).
+
+6. C++ is case sensitive.
+   Example:
+   total, Total, and TOTAL are different identifiers.
+
+
+----------------------------------------------------------------------------------------------------------------
+
+Keywords : C++ is case sensitive. All keywords are in lower-case.
+	
+total 64 : 
+c had 32
+
+c++ has 
+
