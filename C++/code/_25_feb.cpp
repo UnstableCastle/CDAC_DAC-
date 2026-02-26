@@ -162,7 +162,7 @@ if(word[0] == 'Z' || word[0]=='z')
 
 // 4 first and last letter same
 if(word[0] == word[len-1])
-count;
+count++;
 
 //5 The word has two halves which are same.
 
