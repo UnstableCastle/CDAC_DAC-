@@ -1,0 +1,266 @@
+mysql> CREATE DATABASE PRACTICALS;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE PRACTICALS
+Database changed
+
+mysql> SELECT DATABASE();
++------------+
+| DATABASE() |
++------------+
+| practicals |
++------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE PERSON(NAME VARCHAR(10), `PHONE NUMBER` INT , EMAIL VARCHAR(20) , ID INT PRIMARY KEY AUTO_INCREMENT);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> DESC PERSON;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| NAME         | varchar(10) | YES  |     | NULL    |                |
+| PHONE NUMBER | int(11)     | YES  |     | NULL    |                |
+| EMAIL        | varchar(20) | YES  |     | NULL    |                |
+| ID           | int(11)     | NO   | PRI | NULL    | auto_increment |
++--------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.02 sec)
+
+mysql> INSERT INTO PERSON VALUES('P1',123,'P1@XYZ',DEFAULT);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO PERSON VALUES
+    -> ('P1',123,'P1@XYZ',DEFAULT),
+    -> ('P2',124,'P2@XYZ',DEFAULT),
+    -> ('P3',125,'P3@XYZ',DEFAULT),
+    -> ('P4',126,'P4@XYZ',DEFAULT),
+    -> ('P5',127,'P5@XYZ',DEFAULT),
+    -> ('P6',128,'P6@XYZ',DEFAULT),
+    -> ('P7',129,'P7@XYZ',DEFAULT),
+    -> ('P8',130,'P8@XYZ',DEFAULT),
+    -> ('P9',131,'P9@XYZ',DEFAULT),
+    -> ('P10',132,'P10@XYZ',DEFAULT);
+Query OK, 10 rows affected (0.00 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM PERSON;
++------+--------------+---------+----+
+| NAME | PHONE NUMBER | EMAIL   | ID |
++------+--------------+---------+----+
+| P1   |          123 | P1@XYZ  |  1 |
+| P1   |          123 | P1@XYZ  |  2 |
+| P2   |          124 | P2@XYZ  |  3 |
+| P3   |          125 | P3@XYZ  |  4 |
+| P4   |          126 | P4@XYZ  |  5 |
+| P5   |          127 | P5@XYZ  |  6 |
+| P6   |          128 | P6@XYZ  |  7 |
+| P7   |          129 | P7@XYZ  |  8 |
+| P8   |          130 | P8@XYZ  |  9 |
+| P9   |          131 | P9@XYZ  | 10 |
+| P10  |          132 | P10@XYZ | 11 |
++------+--------------+---------+----+
+11 rows in set (0.00 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| practicals         |
+| startersql         |
+| test               |
++--------------------+
+7 rows in set (0.00 sec)
+
+
+mysql> CREATE TABLE CHECK_ENUM (X varchar(10 ),COLOR enum('red','blue','green'));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> DESC CHECK_ENUM;
++-------+----------------------------+------+-----+---------+-------+
+| Field | Type                       | Null | Key | Default | Extra |
++-------+----------------------------+------+-----+---------+-------+
+| X     | varchar(10)                | YES  |     | NULL    |       |
+| COLOR | enum('red','blue','green') | YES  |     | NULL    |       |
++-------+----------------------------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
+
+mysql> INSERT INTO CHECK_ENUM VALUES('A',1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CHECK_ENUM VALUES('B',2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CHECK_ENUM (X) VALUES('C');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CHECK_ENUM (X,COLOR) VALUES('C',3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM CHECK_ENUM;
++------+-------+
+| X    | COLOR |
++------+-------+
+| A    | red   |
+| B    | blue  |
+| C    | NULL  |
+| C    | green |
++------+-------+
+4 rows in set (0.01 sec)
+
+mysql> DROP TABLE CHECK_ENUM;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE CHECK_SET (X varchar(10 ),COLOR SET('red','blue','green'));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> DESC CHECK_SET;
++-------+---------------------------+------+-----+---------+-------+
+| Field | Type                      | Null | Key | Default | Extra |
++-------+---------------------------+------+-----+---------+-------+
+| X     | varchar(10)               | YES  |     | NULL    |       |
+| COLOR | set('red','blue','green') | YES  |     | NULL    |       |
++-------+---------------------------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
+
+
+mysql> INSERT INTO CHECK_SET VALUES('A',1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CHECK_SET VALUES('B',2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CHECK_SET VALUES('C',3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CHECK_SET VALUES('A',1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CHECK_SET VALUES('B',2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CHECK_SET VALUES('C',3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CHECK_SET VALUES('D',4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM CHECK_SET;
++------+----------+
+| X    | COLOR    |
++------+----------+
+| A    | red      |
+| B    | blue     |
+| C    | red,blue |
+| A    | NULL     |
+| D    | green    |
++------+----------+
+5 rows in set (0.00 sec)
+
+
+mysql> SELECT X , FIND_IN_SET('RED',COLOR) FROM CHECK_SET;
++------+--------------------------+
+| X    | FIND_IN_SET('RED',COLOR) |
++------+--------------------------+
+| A    |                        1 |
+| B    |                        0 |
+| C    |                        1 |
+| A    |                     NULL |
+| D    |                        0 |
++------+--------------------------+
+5 rows in set (0.00 sec)
+
+mysql>  SELECT X , FIND_IN_SET('GREEN',COLOR) FROM CHECK_SET;
++------+----------------------------+
+| X    | FIND_IN_SET('GREEN',COLOR) |
++------+----------------------------+
+| A    |                          0 |
+| B    |                          0 |
+| C    |                          0 |
+| A    |                       NULL |
+| D    |                          3 |
++------+----------------------------+
+5 rows in set (0.00 sec)
+
+mysql> SHOW TABLES;
++----------------------+
+| Tables_in_practicals |
++----------------------+
+| check_set            |
+| person               |
++----------------------+
+2 rows in set (0.00 sec)
+
+mysql> DROP TABLE check_set,person;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW TABLES;
+Empty set (0.00 sec)
+
+mysql> CREATE TABLE emp (
+    ->     id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     ename VARCHAR(20),
+    ->     city VARCHAR(15),
+    ->     salary INT DEFAULT 1000
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc emp;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| ename  | varchar(20) | YES  |     | NULL    |                |
+| city   | varchar(15) | YES  |     | NULL    |                |
+| salary | int(11)     | YES  |     | 1000    |                |
++--------+-------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

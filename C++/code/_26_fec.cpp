@@ -373,3 +373,166 @@ for(int i=1;i<=10;i++)
     cout<<"\t"<<num*i;
 }
 
+// table with for loop
+#include<iostream>
+using namespace std;
+void table(int);
+int main(){
+
+int i ;
+ cout<<"Enter number to calculate table: "; 
+    cin >> i ; 
+
+    table(i);
+return 0;
+
+}
+
+void table(int num){
+int res;
+    for(int a=1 ; a<=10 ;a++){
+     res = num * a;
+     cout<<""<<num<<"*"<<a<<"="<<"  "<<res<<"\n";
+    }
+
+}
+
+//1 to 100
+#include<iostream>
+using namespace std;
+void count();
+int main(){
+
+count();
+    
+return 0;
+
+}
+
+void count(){
+
+    for(int a=1 ; a<=100 ;a++){
+
+     cout<<a<<"\n";
+    }
+
+}
+
+// fact
+#include<iostream>
+using namespace std;
+void fact(int);
+int main(){
+
+int i ;
+ cout<<"Enter number to calculate fact: "; 
+    cin >> i ; 
+
+    fact(i);
+return 0;
+
+}
+
+void fact (int num){   
+int res = 1;
+    for(int a=num ; a>0 ;a--){
+     res = res * a;
+     
+     cout<<"factorial = "<<res; ;  
+    }
+}
+
+// square till 25
+#include<iostream>
+using namespace std;
+void square(int);
+int main(){
+
+int i ;
+ cout<<"square of numbers \n"; 
+  i = 25;
+    square(i);
+return 0;
+
+}
+
+void square (int num){   
+int res = 1;
+    for(int a=0 ; a<=num;a++){
+     res = a * a;
+     cout<<"\n"<<res; 
+     
+     
+    }
+}
+
+// even
+#include<iostream>
+using namespace std;
+void even(int);
+int main(){
+
+int i ;
+ cout<<"even of numbers till  200 \n"; 
+  i = 200;
+    even(i);
+return 0;
+
+}
+
+void even (int num){   
+
+    for(int a=0; a<=num;a++){
+     if(a%2==0)
+     cout<<"\n"<<a; 
+     
+    
+          
+    }
+}
+
+// odd
+#include<iostream>
+using namespace std;
+void odd(int);
+int main(){
+
+int i ;
+ cout<<"odd of numbers till  200 \n"; 
+  i = 200;
+    odd(i);
+return 0;
+
+}
+
+void odd (int num){   
+for(int a=0; a<=num;a++){
+     if(a%2!=0)
+     cout<<"\n"<<a;  
+    }
+}
+
+//#include<iostream>
+using namespace std;
+void sum(int);
+int main(){
+
+int i ;
+ cout<<"sum of numbers till  200 \n"; 
+  i = 200;
+    sum(i);
+return 0;
+
+}
+
+void sum(int num)
+{
+    int total = 0;
+
+    for(int a = 1; a <= num; a++)
+    {
+        total = total * a;
+    }
+
+    cout << "\tSum = " << total;
+}
