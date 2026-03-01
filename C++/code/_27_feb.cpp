@@ -143,3 +143,4 @@ int main()
 }
 
 //dynamic memory alloc
+// 1 d array
