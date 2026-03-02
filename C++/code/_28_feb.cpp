@@ -47,8 +47,9 @@ int main(){
 
 void swap_byValue(int a,int b){
     int temp;
-    a = b;
-    b=
+    a = temp;
+    b= a;
+    b =temp;
 }
 
 

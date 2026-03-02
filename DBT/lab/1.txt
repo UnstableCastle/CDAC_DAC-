@@ -219,30 +219,113 @@ mysql> desc emp;
 +--------+-------------+------+-----+---------+----------------+
 4 rows in set (0.01 sec)
 
+mysql> select * from emp;
+Empty set (0.03 sec)
+
+mysql> INSERT INTO emp (ename, city, salary) VALUES
+    -> ('Amaan', 'Pune', 25000),
+    -> ('Rahul', 'Mumbai', 30000),
+    -> ('Sneha', 'Delhi', 28000),
+    -> ('Priya', 'Bangalore', 32000);
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from emp;
++----+-------+-----------+--------+
+| id | ename | city      | salary |
++----+-------+-----------+--------+
+|  1 | Amaan | Pune      |  25000 |
+|  2 | Rahul | Mumbai    |  30000 |
+|  3 | Sneha | Delhi     |  28000 |
+|  4 | Priya | Bangalore |  32000 |
++----+-------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select ename NAME, SALARY , SALARY*.2 HR from emp;
++-------+--------+--------+
+| NAME  | SALARY | HR     |
++-------+--------+--------+
+| Amaan |  25000 | 5000.0 |
+| Rahul |  30000 | 6000.0 |
+| Sneha |  28000 | 5600.0 |
+| Priya |  32000 | 6400.0 |
++-------+--------+--------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE TABLE YEAR(SR INT , YEAR DATE);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc YEAR;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| SR    | int(11) | YES  |     | NULL    |       |
+| YEAR  | date    | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
 
 
 
+SELECT  HIREDATE , YEAR(HIREDATE) ,
+CASE WHEN (YEAR(HIREDATE) % 4 = 0
+AND 
+YEAR(HIREDATE)%100<>0)
+OR
+YEAR(HIREDATE)%400= 0
+THEN 'LEAP YEAR' 
+ELSE 'NOT LEAP YEAR' 
+END 'CHECK LEAP' FROM EMP;
+
+mysql> SELECT  HIREDATE , YEAR(HIREDATE) ,
+    -> CASE WHEN (YEAR(HIREDATE) % 4 = 0
+    -> AND
+    -> YEAR(HIREDATE)%100<>0)
+    -> OR
+    -> YEAR(HIREDATE)%400= 0
+    -> THEN 'LEAP YEAR'
+    -> ELSE 'NOT LEAP YEAR'
+    -> END 'CHECK LEAP' FROM EMP;
++------------+----------------+---------------+
+| HIREDATE   | YEAR(HIREDATE) | CHECK LEAP    |
++------------+----------------+---------------+
+| 1981-07-19 |           1981 | NOT LEAP YEAR |
+| 1981-07-19 |           1981 | NOT LEAP YEAR |
+| 1981-07-19 |           1981 | NOT LEAP YEAR |
+| 1981-07-19 |           1981 | NOT LEAP YEAR |
+| 1980-12-17 |           1980 | LEAP YEAR     |
+| 1981-12-31 |           1981 | NOT LEAP YEAR |
+| 1981-07-19 |           1981 | NOT LEAP YEAR |
+| 1981-02-20 |           1981 | NOT LEAP YEAR |
+| 1981-02-22 |           1981 | NOT LEAP YEAR |
+| 1981-04-02 |           1981 | NOT LEAP YEAR |
+| 1981-09-28 |           1981 | NOT LEAP YEAR |
+| 1981-05-01 |           1981 | NOT LEAP YEAR |
+| 1981-06-09 |           1981 | NOT LEAP YEAR |
+| 1982-12-09 |           1982 | NOT LEAP YEAR |
+| 1981-11-17 |           1981 | NOT LEAP YEAR |
+| 1983-08-09 |           1983 | NOT LEAP YEAR |
+| 1981-09-08 |           1981 | NOT LEAP YEAR |
+| 1983-01-12 |           1983 | NOT LEAP YEAR |
+| 1983-08-09 |           1983 | NOT LEAP YEAR |
+| 1983-08-09 |           1983 | NOT LEAP YEAR |
+| 1981-12-03 |           1981 | NOT LEAP YEAR |
+| 1981-12-03 |           1981 | NOT LEAP YEAR |
+| 1982-03-24 |           1982 | NOT LEAP YEAR |
+| 1980-02-14 |           1980 | LEAP YEAR     |
+| 1982-01-23 |           1982 | NOT LEAP YEAR |
+| 1980-02-14 |           1980 | LEAP YEAR     |
+| 1982-01-24 |           1982 | NOT LEAP YEAR |
+| 1981-07-19 |           1981 | NOT LEAP YEAR |
+| 1981-07-19 |           1981 | NOT LEAP YEAR |
+| 1981-07-19 |           1981 | NOT LEAP YEAR |
++------------+----------------+---------------+
+30 rows in set (0.00 sec)
 
 
+///
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+mysql> SELECT NAME,RNK,CASE WHEN RNK = 1 THEN 'A' WHEN RNK = 2 THEN = 'B' WHEN RNK = 3 THEN 'C' ELSE 'F' END GRADE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= 'B' WHEN RNK = 3 THEN 'C' ELSE 'F' END GRADE' at line 1
 
 
 
