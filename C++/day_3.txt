@@ -1,0 +1,446 @@
+27/02/26
+
+====================================================
+FUNCTIONS IN C++
+====================================================
+
+A function is a group of statements executed when called.
+
+• Provides modularity
+• Supports reusability (write once, call multiple times)
+• Also called module / sub-program / procedure
+• main() is entry point of every C++ program
+• Every function must be called directly or indirectly from main()
+
+A function can:
+• Take input (parameters)
+• Return a value (optional)
+
+====================================================
+FUNCTION SYNTAX
+====================================================
+
+return_type function_name(parameter_list)
+{
+    statements;
+}
+
+Where:
+
+• return_type → data type of value returned
+• function_name → identifier used to call function
+• parameters → input variables (optional)
+• statements → body inside { }
+
+====================================================
+FORMS OF FUNCTIONS
+====================================================
+
+1) No arguments, no return value
+2) Arguments, no return value
+3) No arguments, returns value
+4) Arguments and returns value
+
+====================================================
+FUNCTION DECLARATION, DEFINITION, CALL
+====================================================
+
+1) Declaration (Prototype)
+   return_type function_name(parameters);
+
+2) Definition
+   return_type function_name(parameters)
+   {
+       body;
+   }
+
+3) Call
+   function_name(arguments);
+
+Declaration, definition and call must match:
+• Same number of parameters
+• Same data types
+• Same order
+
+====================================================
+ACTUAL AND FORMAL PARAMETERS
+====================================================
+
+Actual Parameters:
+• Values passed during function call
+
+Formal Parameters:
+• Variables in function definition
+
+Rules:
+• Number must be same
+• Data types must match
+• Actual can be constant, variable, or expression
+• Formal must be variables
+
+Example:
+add(num1, 10);
+
+num1, 10 → Actual parameters
+int x, int y → Formal parameters
+
+====================================================
+MEMORY ALLOCATION (FUNCTION CALL)
+====================================================
+
+Memory Segments:
+
+1) Code Segment
+   • Stores compiled program instructions
+
+2) Data Segment
+   • Stores global and static variables
+
+3) Stack Segment
+   • Stores local variables
+   • Stores function parameters
+   • Memory released when function returns
+
+Each function call creates a new stack frame.
+
+====================================================
+RETURN STATEMENT
+====================================================
+
+• Used to return value from function
+• Immediately exits function
+• Function with return type must return value
+
+Example:
+int add(int x, int y)
+{
+    return x + y;
+}
+
+====================================================
+IMPORTANT CONCEPTS
+====================================================
+
+• Control transfers to function when called
+• After execution, control returns to calling point
+• Local variables exist only inside function
+• Functions improve readability and maintenance
+
+====================================================
+PRACTICE ASSIGNMENTS ✅
+====================================================
+
+1) Write functions for:
+   • Addition
+   • Subtraction
+   • Multiplication
+   • Division
+   Create menu-driven program to call appropriate function.✅
+
+2) Menu driven program:✅
+   • Factorial
+   • Sum of digits
+   • Reverse number
+   • Print prime numbers in range
+   • Square of number
+   • Exit
+
+3) Menu driven program:✅
+   • isPrime
+   • isEven
+   • isOdd
+   • isDigit
+   • isPositive
+   • Exit
+
+4) Implement power function:
+   pow(x, n) → calculate x^n
+
+5) Write function:
+   int max_of_four(int a, int b, int c, int d)
+
+6) Special Number:
+   A number is special if
+   sum of digits % 4 == 0
+
+====================================================
+EXAM KEY POINTS
+====================================================
+
+• main() is mandatory
+• Prototype required before function call
+• Parameters are passed by value (default)
+• Each function call creates new stack frame
+• Functions help avoid code repetition
+
+---------------------------------------------------------------------------------------------------------------
+
+====================================================
+CALL BY VALUE AND CALL BY ADDRESS
+====================================================
+
+1) Call by Value
+
+• Copy of actual parameter is passed.
+• Different memory for actual and formal parameters.
+• Changes inside function do NOT affect original variable.
+
+Example:
+
+void change(int num)
+{
+    num = num + 100;
+}
+
+int main()
+{
+    int x = 100;
+    change(x);
+    // x remains 100
+}
+
+----------------------------------------------------
+
+2) Call by Address (Using Pointer)
+
+• Address of variable is passed.
+• Formal parameter receives address.
+• Changes affect original variable.
+• Uses * (valueAt) operator.
+
+Example:
+
+void change(int *num)
+{
+    *num = *num + 100;
+}
+
+int main()
+{
+    int x = 100;
+    change(&x);
+    // x becomes 200
+}
+
+====================================================
+POINTERS IN C++
+====================================================
+
+Definition:
+Pointer is a variable that stores address of another variable.
+
+Syntax:
+int *ptr;
+
+Operators:
+&  → addressOf operator
+*  → valueAt operator (dereference)
+
+Uses:
+• Call by address
+• Dynamic memory allocation (new)
+• Access array elements
+• Efficient memory handling
+
+Important:
+Pointer must store valid address before dereferencing.
+
+====================================================
+DYNAMIC MEMORY ALLOCATION
+====================================================
+
+new operator:
+• Allocates memory on heap at runtime
+• Returns address
+
+Example:
+int *ptr = new int;
+char *cptr = new char[5];
+
+delete operator:
+• Frees heap memory
+
+delete ptr;
+delete[] cptr;
+
+After delete:
+ptr = NULL;
+
+====================================================
+ARRAY IN C++
+====================================================
+
+Definition:
+Collection of similar data type elements stored in contiguous memory.
+
+Properties:
+• Fixed size
+• Index starts from 0
+• Random access possible
+• Array name is base address
+• Array is constant pointer
+• Passed by address
+
+Syntax:
+datatype arrayName[size];
+
+Example:
+int arr[5];
+
+Access:
+arr[i]
+*(arr + i)
+
+Relation:
+arr[i]  =  *(arr + i)
+i[arr]  =  *(i + arr)
+
+====================================================
+POINTER ARITHMETIC
+====================================================
+
+Pointer arithmetic depends on data type size.
+
+If int pointer:
+ptr + 1 → increases by 4 bytes (on 32-bit int)
+
+Valid operations:
+• Increment
+• Decrement
+• Addition
+• Subtraction
+• Comparison
+
+====================================================
+2-D ARRAY
+====================================================
+
+Definition:
+Array of arrays.
+
+Syntax:
+int arr[3][3];
+
+Access:
+arr[i][j]
+
+Passed as:
+int (*ptr)[3];
+
+====================================================
+REFERENCE VARIABLE
+====================================================
+
+Definition:
+Alias of existing variable.
+
+Syntax:
+int var = 50;
+int &ref = var;
+
+Properties:
+• No separate memory
+• Must initialize at declaration
+• Cannot be reassigned
+• Used for call by reference
+
+====================================================
+POINTER vs REFERENCE
+====================================================
+
+Pointer:
+• Can be NULL
+• Can be reassigned
+• Can have pointer to pointer
+• Can create array of pointers
+• Initialization not compulsory
+
+Reference:
+• Cannot be NULL
+• Cannot be reassigned
+• No reference to reference
+• Cannot create array of references
+• Must initialize at declaration
+
+====================================================
+SWAP USING POINTER (CALL BY ADDRESS)
+====================================================
+
+void swap(int *a, int *b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+Call:
+swap(&num1, &num2);
+
+====================================================
+SWAP USING REFERENCE (CALL BY REFERENCE)
+====================================================
+
+void swap(int &a, int &b)
+{
+    int t = a;
+    a = b;
+    b = t;
+}
+
+Call:
+swap(num1, num2);
+
+====================================================
+FUNCTION OVERLOADING
+====================================================
+
+Definition:
+Same function name with different parameter list.
+
+Rules:
+• Different number of parameters OR
+• Different data types OR
+• Different order of parameters
+• Return type alone is NOT sufficient
+
+Example:
+
+int sum(int a, int b);
+int sum(int a, int b, int c);
+float sum(float a, float b);
+float sum(int a, float b);
+
+====================================================
+AMBIGUITY EXAMPLE
+====================================================
+
+double cube(double x);
+double cube(double &x);
+
+Calling:
+cube(x);
+
+This causes ambiguity because both match.
+
+====================================================
+NAME MANGLING
+====================================================
+
+• Compiler modifies function names internally.
+• Used to differentiate overloaded functions.
+• Based on function signature.
+
+====================================================
+IMPORTANT EXAM POINTS
+====================================================
+
+• Call by value → no change in original
+• Call by address/reference → changes original
+• Array always passed by address
+• Pointer arithmetic depends on data type
+• Reference must be initialized
+• Overloading requires different signature
+• Return type not considered in overloading
+
+
+
