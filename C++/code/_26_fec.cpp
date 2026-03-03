@@ -512,7 +512,9 @@ for(int a=0; a<=num;a++){
     }
 }
 
-//#include<iostream>
+// sum till 200
+
+#include<iostream>
 using namespace std;
 void sum(int);
 int main(){
@@ -535,4 +537,28 @@ void sum(int num)
     }
 
     cout << "\tSum = " << total;
+}
+
+//factors of a number
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter number to find factors: ";
+    cin>>n;
+    if(n <= 0)
+    {
+        cout<<"No factors";
+        return 0;
+    }
+    cout<<"Factors of "<<n<<" are:";
+    for(int i = 1; i <= n; i++)
+    {
+        if(n % i == 0)
+        {
+            cout<<" "<<i;
+        }
+    }
+    return 0;
 }
