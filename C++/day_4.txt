@@ -1,0 +1,479 @@
+28/02/26
+====================================================
+CALL BY VALUE AND CALL BY ADDRESS
+====================================================
+
+1) Call by Value
+
+• Copy of actual parameter is passed.
+• Different memory for actual and formal parameters.
+• Changes inside function do NOT affect original variable.
+
+Example:
+
+void change(int num)
+{
+    num = num + 100;
+}
+
+int main()
+{
+    int x = 100;
+    change(x);
+    // x remains 100
+}
+
+----------------------------------------------------
+
+2) Call by Address (Using Pointer)
+
+• Address of variable is passed.
+• Formal parameter receives address.
+• Changes affect original variable.
+• Uses * (valueAt) operator.
+
+Example:
+
+void change(int *num)
+{
+    *num = *num + 100;
+}
+
+int main()
+{
+    int x = 100;
+    change(&x);
+    // x becomes 200
+}
+
+====================================================
+POINTERS IN C++
+====================================================
+
+Definition:
+Pointer is a variable that stores address of another variable.
+
+Syntax:
+int *ptr;
+
+Operators:
+&  → addressOf operator
+*  → valueAt operator (dereference)
+
+Uses:
+• Call by address
+• Dynamic memory allocation (new)
+• Access array elements
+• Efficient memory handling
+
+Important:
+Pointer must store valid address before dereferencing.
+
+====================================================
+DYNAMIC MEMORY ALLOCATION
+====================================================
+
+new operator:
+• Allocates memory on heap at runtime
+• Returns address
+
+Example:
+int *ptr = new int;
+char *cptr = new char[5];
+
+delete operator:
+• Frees heap memory
+
+delete ptr;
+delete[] cptr;
+
+After delete:
+ptr = NULL;
+
+====================================================
+ARRAY IN C++
+====================================================
+
+Definition:
+Collection of similar data type elements stored in contiguous memory.
+
+Properties:
+• Fixed size
+• Index starts from 0
+• Random access possible
+• Array name is base address
+• Array is constant pointer
+• Passed by address
+
+Syntax:
+datatype arrayName[size];
+
+Example:
+int arr[5];
+
+Access:
+arr[i]
+*(arr + i)
+
+Relation:
+arr[i]  =  *(arr + i)
+i[arr]  =  *(i + arr)
+
+====================================================
+POINTER ARITHMETIC
+====================================================
+
+Pointer arithmetic depends on data type size.
+
+If int pointer:
+ptr + 1 → increases by 4 bytes (on 32-bit int)
+
+Valid operations:
+• Increment
+• Decrement
+• Addition
+• Subtraction
+• Comparison
+
+====================================================
+2-D ARRAY
+====================================================
+
+Definition:
+Array of arrays.
+
+Syntax:
+int arr[3][3];
+
+Access:
+arr[i][j]
+
+Passed as:
+int (*ptr)[3];
+
+====================================================
+REFERENCE VARIABLE
+====================================================
+
+Definition:
+Alias of existing variable.
+
+Syntax:
+int var = 50;
+int &ref = var;
+
+Properties:
+• No separate memory
+• Must initialize at declaration
+• Cannot be reassigned
+• Used for call by reference
+
+====================================================
+POINTER vs REFERENCE
+====================================================
+
+Pointer:
+• Can be NULL
+• Can be reassigned
+• Can have pointer to pointer
+• Can create array of pointers
+• Initialization not compulsory
+
+Reference:
+• Cannot be NULL
+• Cannot be reassigned
+• No reference to reference
+• Cannot create array of references
+• Must initialize at declaration
+
+====================================================
+SWAP USING POINTER (CALL BY ADDRESS)
+====================================================
+
+void swap(int *a, int *b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+Call:
+swap(&num1, &num2);
+
+====================================================
+SWAP USING REFERENCE (CALL BY REFERENCE)
+====================================================
+
+void swap(int &a, int &b)
+{
+    int t = a;
+    a = b;
+    b = t;
+}
+
+Call:
+swap(num1, num2);
+
+====================================================
+FUNCTION OVERLOADING
+====================================================
+
+Definition:
+Same function name with different parameter list.
+
+Rules:
+• Different number of parameters OR
+• Different data types OR
+• Different order of parameters
+• Return type alone is NOT sufficient
+
+Example:
+
+int sum(int a, int b);
+int sum(int a, int b, int c);
+float sum(float a, float b);
+float sum(int a, float b);
+
+====================================================
+AMBIGUITY EXAMPLE
+====================================================
+
+double cube(double x);
+double cube(double &x);
+
+Calling:
+cube(x);
+
+This causes ambiguity because both match.
+
+====================================================
+NAME MANGLING
+====================================================
+
+• Compiler modifies function names internally.
+• Used to differentiate overloaded functions.
+• Based on function signature.
+
+====================================================
+IMPORTANT EXAM POINTS
+====================================================
+
+• Call by value → no change in original
+• Call by address/reference → changes original
+• Array always passed by address
+• Pointer arithmetic depends on data type
+• Reference must be initialized
+• Overloading requires different signature
+• Return type not considered in overloading
+
+----------------------------------------------------------------------------
+=============================================================================================
+------------------------
+====================================================================
+C++ POINTERS, ARRAYS, FUNCTIONS & MEMORY – COMPLETE NOTES
+====================================================================
+
+1) CALL BY VALUE
+----------------
+• Different memory allocated for actual & formal parameters.
+• Value is copied.
+• Changes inside function do NOT affect original variable.
+
+Example:
+
+void change(int num)
+{
+    num = num + 100;
+}
+
+int main()
+{
+    int x = 100;
+    change(x);
+    // x remains 100
+}
+
+
+2) CALL BY ADDRESS
+------------------
+• Address of variable is passed.
+• Changes affect original variable.
+• Uses pointer (*).
+
+void change(int *num)
+{
+    *num = *num + 100;
+}
+
+int main()
+{
+    int x = 100;
+    change(&x);
+    // x becomes 200
+}
+
+
+3) CALL BY REFERENCE
+--------------------
+• Alias of original variable is passed.
+• No separate memory allocated.
+• Must be initialized.
+
+void change(int &num)
+{
+    num = num + 100;
+}
+
+
+4) POINTERS IN C++
+------------------
+Pointer = variable that stores address of another variable.
+
+Syntax:
+    int *ptr;
+
+Operators:
+    &  → addressOf
+    *  → valueAt (dereference)
+
+Example:
+
+int var = 50;
+int *ptr = &var;
+
+var  → 50
+ptr  → address of var
+*ptr → 50
+
+
+5) POINTER ARITHMETIC
+---------------------
+• Works based on datatype size.
+• If int pointer → +1 increases by 4 bytes.
+
+ptr + 1
+ptr - 1
+ptr++
+
+
+6) DYNAMIC MEMORY ALLOCATION
+-----------------------------
+• new → allocate memory on heap
+• delete → release memory
+
+int *ptr = new int;
+*ptr = 30;
+
+delete ptr;
+ptr = NULL;
+
+Array allocation:
+int *arr = new int[5];
+delete[] arr;
+
+
+7) ARRAY IN C++
+---------------
+• Collection of similar data type
+• Contiguous memory
+• Fixed size
+• Index starts from 0
+• Array name is base address
+• Always passed by address
+
+Syntax:
+    int arr[5];
+
+Access methods:
+    arr[i]
+    *(arr + i)
+    i[arr]
+
+Note:
+    nameOfArray[n]  ≡  *(nameOfArray + n)
+
+
+8) POINTER & ARRAY RELATION
+---------------------------
+• Array is constant pointer.
+• arr = base address of first element.
+• Arrays are never passed by value.
+
+
+9) POINTER VS REFERENCE
+------------------------
+
+Pointer:
+    int *p;
+    p = &a;
+    p = NULL;          (Valid)
+    int *arr[5];       (Valid)
+    Can use pointer to pointer.
+
+Reference:
+    int &r = a;        (Must initialize)
+    int &r;            (Error)
+    r = NULL;          (Error)
+    Cannot create array of reference.
+    Cannot create reference to reference.
+
+
+10) SWAP USING CALL BY ADDRESS
+------------------------------
+
+void swap(int *a, int *b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+
+11) SWAP USING CALL BY REFERENCE
+--------------------------------
+
+void swap(int &a, int &b)
+{
+    int t = a;
+    a = b;
+    b = t;
+}
+
+
+12) FUNCTION OVERLOADING
+------------------------
+• Same function name
+• Different number/type of parameters
+• Return type alone cannot differentiate
+
+Example:
+
+int sum(int a, int b);
+int sum(int a, int b, int c);
+float sum(float a, float b);
+
+
+13) DEFAULT PARAMETERS
+----------------------
+int sum(int a, int b = 20);
+
+• Cannot overload if parameter list (excluding default) is same.
+
+
+14) NAME MANGLING
+-----------------
+• Compiler changes function name internally
+• Used to manage overloaded functions
+
+
+15) DYNAMIC MEMORY IN C (for theory)
+-------------------------------------
+malloc()   → single block allocation
+calloc()   → multiple blocks, initializes to 0
+realloc()  → reallocate memory
+free()     → deallocate memory
+
+All return void* pointer.
+
+
+
