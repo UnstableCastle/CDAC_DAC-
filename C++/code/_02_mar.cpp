@@ -1,6 +1,4 @@
 // STRING FUNCTIONS
-
-// STRING FUNCTIONS
 #include<iostream>
 using namespace std;
 

@@ -1,0 +1,364 @@
+====================================================
+TYPE CONVERSION IN C++
+====================================================
+
+1) Implicit Type Conversion (Automatic)
+   - Done automatically by compiler.
+   - Smaller type converts to larger type.
+   - Possible data loss when converting float → int.
+
+Examples:
+int i = 80.56;     → i becomes 80
+float f = 12;      → f becomes 12.0
+char c = 80;       → ASCII value 80 stored
+int x = 'H';       → ASCII of 'H' = 72
+
+2) Explicit Type Conversion (Type Casting)
+
+Syntax:
+(type) expression
+
+Example:
+float q = (float)x / y;
+
+3) Integer Division vs Float Division
+
+int x = 5, y = 2;
+
+x / y        → 2      (integer division)
+(float)x / y → 2.5    (floating division)
+
+====================================================
+OVERFLOW IN C++
+====================================================
+
+Unsigned Overflow:
+If unsigned int exceeds maximum value,
+it wraps around to 0.
+
+Example:
+UINT_MAX = 4294967295
+After +1 → 0
+
+Signed Overflow:
+If int exceeds INT_MAX,
+result is undefined (commonly wraps to negative).
+
+Example:
+INT_MAX = 2147483647
+After +1 → -2147483648 (system dependent)
+
+====================================================
+CONTROL STRUCTURES IN C++
+====================================================
+
+1) Conditional Structure:
+   if
+   if-else
+   if-else if-else
+
+Forms:
+
+if(condition)
+    statement;
+
+if(condition){
+    statement1;
+    statement2;
+}
+
+if(condition)
+    statement1;
+else
+    statement2;
+
+====================================================
+RELATIONAL OPERATORS
+====================================================
+
+==   Equal to
+!=   Not equal to
+>    Greater than
+<    Less than
+>=   Greater than or equal to
+<=   Less than or equal to
+
+====================================================
+LOOP STRUCTURES
+====================================================
+
+1) for loop
+2) while loop
+3) do-while loop
+
+Loop Keywords:
+break     → exits loop
+continue  → skips current iteration
+
+====================================================
+PROGRAM LOGIC NOTES
+====================================================
+
+1) Find Biggest of 3 Numbers
+
+Logic:
+If a > b and a > c → biggest = a
+Else if b > c      → biggest = b
+Else               → biggest = c
+
+----------------------------------------------------
+
+2) Leap Year Logic
+
+If year % 100 != 0
+    If year % 4 == 0 → Leap Year
+    Else → Not Leap Year
+Else
+    If year % 400 == 0 → Leap Year
+    Else → Not Leap Year
+
+----------------------------------------------------
+
+3) Grade Calculation
+
+percentage = total / 4
+
+If percentage >= 85       → Grade A
+Else if percentage >= 70  → Grade B
+Else if percentage >= 55  → Grade C
+Else if percentage >= 40  → Grade D
+Else                      → Grade E
+
+====================================================
+IMPORTANT CONCEPTS
+====================================================
+
+• Assignment works from RIGHT to LEFT
+• Multiple assignment allowed: a = b = c = 5;
+• Integer division removes decimal part
+• Explicit casting prevents unintended truncation
+• Overflow behavior differs for signed and unsigned
+
+---------------------------------------------------------------------------------------------
+
+
+====================================================
+SWITCH – CASE STATEMENT
+====================================================
+
+Syntax:
+
+switch(expression)
+{
+    case constant1:
+        statements;
+        break;
+
+    case constant2:
+        statements;
+        break;
+
+    default:
+        statements;
+}
+
+----------------------------------------------------
+
+RULES:
+
+• Works only with int, char, and enum types.
+• Case value and switch variable must be same type.
+• Case values must be constant.
+• break statement exits switch.
+• If break is not used → fall-through occurs.
+• default block is optional.
+• Nested switch is allowed.
+• Commonly used in menu-driven programs.
+
+----------------------------------------------------
+
+FALL-THROUGH EXAMPLE:
+
+If break is not written:
+
+Input: 1
+
+case 1:
+    prints First
+case 2:
+    prints Second
+case 3:
+    prints Third
+default:
+    prints Wrong choice
+
+All statements execute after matching case.
+
+----------------------------------------------------
+
+MULTIPLE CASE EXAMPLE:
+
+switch(ch)
+{
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+        print "Vowel";
+        break;
+    default:
+        print "Consonant";
+}
+
+====================================================
+LOOP STATEMENTS
+====================================================
+
+Loops are used to execute statements multiple times.
+Also called iterative statements.
+
+Types:
+1) for loop
+2) while loop
+3) do-while loop
+
+====================================================
+FOR LOOP
+====================================================
+
+Syntax:
+
+for(initialization; condition; increment/decrement)
+{
+    statements;
+}
+
+----------------------------------------------------
+
+INITIALIZATION:
+• Executes only once.
+• Multiple initializations allowed (comma separated).
+• Not compulsory.
+
+CONDITION:
+• Checked every iteration.
+• Must return true or false.
+• If omitted → infinite loop.
+• break can terminate loop.
+
+INCREMENT / DECREMENT:
+• Executes after each iteration.
+• Multiple statements allowed.
+• Not compulsory.
+
+----------------------------------------------------
+
+FLOW OF FOR LOOP:
+
+Step 1: Initialization
+Step 2: Check condition
+Step 3: Execute statements
+Step 4: Increment/Decrement
+Repeat Step 2–4 until condition becomes false
+
+Pre-condition loop (condition checked before execution)
+
+====================================================
+WHILE LOOP
+====================================================
+
+Syntax:
+
+while(condition)
+{
+    statements;
+}
+
+• Pre-condition loop
+• Executes only if condition is true
+• Condition checked before execution
+• Must update condition inside loop
+
+====================================================
+DO-WHILE LOOP
+====================================================
+
+Syntax:
+
+do
+{
+    statements;
+}
+while(condition);
+
+• Post-condition loop
+• Executes at least one time
+• Condition checked after execution
+
+====================================================
+NESTED LOOPS
+====================================================
+
+Loop inside another loop.
+
+Example:
+
+for(...)
+{
+    for(...)
+    {
+        statements;
+    }
+}
+
+For each iteration of outer loop,
+all iterations of inner loop execute.
+
+Any loop can be nested inside another loop.
+
+====================================================
+PRACTICE ASSIGNMENTS – FOR LOOP
+====================================================
+
+• Print Hello 5 times✅
+• Print numbers 1 to 100✅
+• Print multiplication table of a number✅
+• Find factorial of a number✅
+• Print Fibonacci series✅
+• Print squares 1 to 25✅
+• Print even numbers 0 to 200✅
+• Print odd numbers 1 to 200✅
+• Sum of numbers 1 to 100✅
+• Sum of squares 1 to 25✅
+• Find maximum of 15 numbers✅
+• Find minimum of 15 numbers✅
+• Print factors of a number✅
+• Check Prime number✅
+
+====================================================
+PRACTICE ASSIGNMENTS – WHILE LOOP ✅
+====================================================
+
+• Sum of digits
+• Reverse a number
+• Check Palindrome
+• Check Armstrong number
+• Check Perfect number
+
+====================================================
+PRACTICE ASSIGNMENTS – SWITCH + DO-WHILE ✅
+====================================================
+
+• Menu driven calculator:
+  1. Addition
+  2. Subtraction
+  3. Multiplication
+  4. Division
+  5. Exit
+
+  Display menu repeatedly until Exit selected.
+
+• Hotel billing menu program ✅
+
+====================================================

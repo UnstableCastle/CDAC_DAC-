@@ -150,9 +150,200 @@ Rules to Define an Identifier:
 ----------------------------------------------------------------------------------------------------------------
 
 Keywords : C++ is case sensitive. All keywords are in lower-case.
-	
-total 64 : 
-c had 32
 
-c++ has 
+
+asm        auto       bool       break      case       catch
+char       class      const      const_cast continue   default
+delete     do         double     dynamic_cast else     enum
+explicit   export     extern     false      float      for
+friend     goto       if         inline     int        long
+mutable    namespace  new        operator   private    protected
+public     register   reinterpret_cast      return     short
+signed     sizeof     static     static_cast struct    switch
+template   this       throw      true       try        typedef
+typeid     typename   union      unsigned   using      virtual
+void       volatile   wchar_t    while
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Datatypes: 
+
+| Data Type             | Description                       | Size*                                    | Range*                                                                    |
+| --------------------- | --------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------- |
+| **char**              | Character or small integer        | 1 byte                                   | signed: -128 to 127 <br> unsigned: 0 to 255                               |
+| **short int (short)** | Short integer                     | 2 bytes                                  | signed: -32,768 to 32,767 <br> unsigned: 0 to 65,535                      |
+| **int**               | Integer                           | 4 bytes                                  | signed: -2,147,483,648 to 2,147,483,647 <br> unsigned: 0 to 4,294,967,295 |
+| **long int (long)**   | Long integer                      | 4 bytes (commonly)                       | signed: -2,147,483,648 to 2,147,483,647 <br> unsigned: 0 to 4,294,967,295 |
+| **bool**              | Boolean value                     | 1 byte                                   | true or false                                                             |
+| **float**             | Floating point number             | 4 bytes                                  | ±3.4 × 10^38 (~7 decimal digits precision)                                |
+| **double**            | Double precision floating point   | 8 bytes                                  | ±1.7 × 10^308 (~15 decimal digits precision)                              |
+| **long double**       | Extended precision floating point | 8, 12, or 16 bytes (depends on compiler) | Larger than double (compiler dependent)                                   |
+| **wchar_t**           | Wide character                    | 2 or 4 bytes                             | Stores one wide character                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+===========================
+STRING IN C++
+===========================
+
+Strings are variables that store non-numerical values longer than a single character.
+
+C++ provides string support through the standard string class
+(from the <string> library).
+
+It is not a primitive type, but behaves like one in basic usage.
+
+Example:
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string name = "Amaan";
+    cout << name;
+    return 0;
+}
+
+
+===========================
+OPERATORS IN C++
+===========================
+
+C++ has a rich set of operators.
+
+
+---------------------------
+1) Assignment Operator (=)
+---------------------------
+
+Left side  -> lvalue  (must be a variable)
+Right side -> rvalue  (constant, variable, expression)
+
+Assignment happens from RIGHT to LEFT.
+
+Example:
+a = b;
+
+Value of b is assigned to a.
+Previous value of a is lost.
+
+
+Assignment used as rvalue:
+
+a = 2 + (b = 5);
+
+Equivalent to:
+b = 5;
+a = 2 + b;
+
+Final value of a = 7
+
+
+Multiple assignment:
+
+a = b = c = 5;
+
+All variables get value 5.
+
+
+---------------------------
+2) Arithmetic Operators
+---------------------------
+
++  Addition
+-  Subtraction
+*  Multiplication
+/  Division
+%  Modulo
+
+(Require two operands)
+
+
+---------------------------
+3) Compound Assignment
+---------------------------
+
++=   -=   *=   /=   %= 
+>>=  <<=  &=   ^=   |=
+
+
+---------------------------
+4) Increment / Decrement
+---------------------------
+
+++  Increment
+--  Decrement
+
+
+---------------------------
+5) Relational Operators
+---------------------------
+
+==   Equal to
+!=   Not equal to
+>    Greater than
+<    Less than
+>=   Greater than or equal to
+<=   Less than or equal to
+
+
+---------------------------
+6) Logical Operators
+---------------------------
+
+!    NOT
+&&   AND
+||   OR
+
+
+---------------------------
+7) Conditional (Ternary) Operator
+---------------------------
+
+? : 
+
+Example:
+(a > b) ? a : b;
+
+
+---------------------------
+8) Other Operators
+---------------------------
+
+,     Comma operator
+&     Bitwise AND
+|     Bitwise OR
+^     Bitwise XOR
+~     Bitwise NOT
+<<    Left shift
+>>    Right shift
+sizeof()   Size operator
+.          Dot operator
+::         Scope resolution operator
+->         Arrow operator
+
+
+===========================
+ESCAPE SEQUENCES
+===========================
+
+\a   Alert
+\b   Backspace
+\f   Form feed
+\n   Newline
+\r   Carriage return
+\t   Horizontal tab
+\v   Vertical tab
+\\   Backslash
+\'   Single quote
+\"   Double quote
+\?   Question mark
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
 
