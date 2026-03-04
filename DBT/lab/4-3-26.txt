@@ -1,0 +1,145 @@
+
+mysql> select * from course;
++----+---------+----------+------------------------------------+
+| ID | name    | duration | summery                            |
++----+---------+----------+------------------------------------+
+|  1 | PG-DAC  |        6 | This course is designed by CDAC    |
+|  2 | DBDA    |        6 | This course is designed by CDAC    |
+|  3 | Pre-DAC |        2 | This course is designed by CDAC    |
+|  4 | JAVA    |        3 | This course is designed by Infoway |
+|  5 | .NET    |        3 | This course is designed by Infoway |
+|  6 | DMC     |        6 | This course is designed by CDAC    |
+|  7 | DSSD    |        6 | This course is designed by CDAC    |
++----+---------+----------+------------------------------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student;
++----+-----------+----------+------------+--------------------------+
+| ID | namefirst | namelast | DOB        | emailID                  |
++----+-----------+----------+------------+--------------------------+
+|  1 | saleel    | bagde    | 1984-06-12 | saleel.bagde@gmail.com   |
+|  2 | omkar     | rokde    | 1969-10-25 | omkar.rakde@gmail.com    |
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com     |
+|  4 | rahul     | patil    | 1982-10-31 | rahul.patil@gmail.com    |
+|  5 | ruhan     | bagde    | 1984-01-12 | ruhan.bagde@gmail.com    |
+|  6 | lala      | prasad   | 1980-12-01 | lala.prasad@gmail.com    |
+|  7 | sharmin   | bagde    | 1986-12-14 | sharmin.bagde@gmail.com  |
+|  8 | vrushali  | bagde    | 1984-12-29 | vrushali.bagde@gmail.com |
+|  9 | vasant    | khande   | 1992-10-26 | vasant.khande@gmail.com  |
+| 10 | nitish    | patil    | 1990-10-26 | nitish.patil@gmail.com   |
+| 11 | neel      | save     | 1975-10-30 | neel.save@gmail.com      |
+| 12 | deep      | save     | 1986-11-30 | deep.save@gmail.com      |
+| 13 | nrupali   | save     | 1981-12-01 | nrupali.save@gmail.com   |
+| 14 | supriya   | karnik   | 1983-12-15 | supriya.karnik@gmail.com |
+| 15 | bandish   | karnik   | 1987-12-30 | bandish.karnik@gmail.com |
+| 16 | sangita   | karnik   | 1990-12-01 | sangita.karnik@gmail.com |
+| 17 | sangita   | menon    | 1989-10-26 | sangita.menon@gmail.com  |
+| 18 | rahul     | shah     | 1982-06-12 | rahul.shah@gmail.com     |
+| 19 | bhavin    | patel    | 1983-11-13 | bhavin.patel@gmail.com   |
+| 20 | kaushal   | patil    | 1982-07-30 | kaushal.patil@gmail.com  |
+| 21 | pankaj    | gandhi   | 1982-07-30 | pankaj.gandhi@gmail.com  |
+| 22 | rajan     | patel    | 1982-07-30 | rajan.patel@gmail.com    |
+| 23 | bhavin    | patel    | 1982-07-30 | bhavin.patel@gmail.com   |
+| 24 | mukesh    | bhavsar  | 1982-07-30 | mukesh.bhavsar@gmail.com |
+| 25 | dilu      | khande   | 1982-07-30 | dilu.khande@gmail.com    |
+| 26 | sonam     | khan     | 1972-05-13 | sonam.khan@gmail.com     |
+| 27 | rohit     | patil    | 1976-12-31 | rohit.patil@gmail.com    |
+| 28 | raj       | bubber   | 1982-02-28 | raj.bubber@gmail.com     |
++----+-----------+----------+------------+--------------------------+
+28 rows in set (0.00 sec)
+
+mysql> select namefirst,namelast from student;
++-----------+----------+
+| namefirst | namelast |
++-----------+----------+
+| saleel    | bagde    |
+| omkar     | rokde    |
+| ulka      | joshi    |
+| rahul     | patil    |
+| ruhan     | bagde    |
+| lala      | prasad   |
+| sharmin   | bagde    |
+| vrushali  | bagde    |
+| vasant    | khande   |
+| nitish    | patil    |
+| neel      | save     |
+| deep      | save     |
+| nrupali   | save     |
+| supriya   | karnik   |
+| bandish   | karnik   |
+| sangita   | karnik   |
+| sangita   | menon    |
+| rahul     | shah     |
+| bhavin    | patel    |
+| kaushal   | patil    |
+| pankaj    | gandhi   |
+| rajan     | patel    |
+| bhavin    | patel    |
+| mukesh    | bhavsar  |
+| dilu      | khande   |
+| sonam     | khan     |
+| rohit     | patil    |
+| raj       | bubber   |
++-----------+----------+
+28 rows in set (0.00 sec)
+
+
+mysql> select * from student where id = 15;
++----+-----------+----------+------------+--------------------------+
+| ID | namefirst | namelast | DOB        | emailID                  |
++----+-----------+----------+------------+--------------------------+
+| 15 | bandish   | karnik   | 1987-12-30 | bandish.karnik@gmail.com |
++----+-----------+----------+------------+--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select namefirst,namelast,emailid from student where namefirst = 'nitish';
++-----------+----------+------------------------+
+| namefirst | namelast | emailid                |
++-----------+----------+------------------------+
+| nitish    | patil    | nitish.patil@gmail.com |
++-----------+----------+------------------------+
+1 row in set (0.00 sec)
+
+
+mysql> select namefirst,namelast,emailid from student where id<15;
++-----------+----------+--------------------------+
+| namefirst | namelast | emailid                  |
++-----------+----------+--------------------------+
+| saleel    | bagde    | saleel.bagde@gmail.com   |
+| omkar     | rokde    | omkar.rakde@gmail.com    |
+| ulka      | joshi    | ulka.joshi@gmail.com     |
+| rahul     | patil    | rahul.patil@gmail.com    |
+| ruhan     | bagde    | ruhan.bagde@gmail.com    |
+| lala      | prasad   | lala.prasad@gmail.com    |
+| sharmin   | bagde    | sharmin.bagde@gmail.com  |
+| vrushali  | bagde    | vrushali.bagde@gmail.com |
+| vasant    | khande   | vasant.khande@gmail.com  |
+| nitish    | patil    | nitish.patil@gmail.com   |
+| neel      | save     | neel.save@gmail.com      |
+| deep      | save     | deep.save@gmail.com      |
+| nrupali   | save     | nrupali.save@gmail.com   |
+| supriya   | karnik   | supriya.karnik@gmail.com |
++-----------+----------+--------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from student where Dob ='1980-12-01';
++----+-----------+----------+------------+-----------------------+
+| ID | namefirst | namelast | DOB        | emailID               |
++----+-----------+----------+------------+-----------------------+
+|  6 | lala      | prasad   | 1980-12-01 | lala.prasad@gmail.com |
++----+-----------+----------+------------+-----------------------+
+1 row in set (0.00 sec)
+
+
+mysql> select number from student_phone where id = 5;
++------------+
+| number     |
++------------+
+| 7032300001 |
++------------+
+1 row in set (0.00 sec)
+
+
+
+
+
