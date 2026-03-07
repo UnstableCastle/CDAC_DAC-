@@ -1,0 +1,978 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 5.5.5-10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SELECT *,
+    -> DAYNAME(dob) AS weekday
+    -> FROM student
+    -> ORDER BY FIELD(DAYNAME(dob),
+    -> 'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
+ERROR 1046 (3D000): No database selected
+mysql> use test
+Database changed
+mysql> SELECT *,
+    -> DAYNAME(dob) AS weekday
+    -> FROM student
+    -> ORDER BY FIELD(DAYNAME(dob),
+    -> 'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
++----+-----------+----------+------------+--------------------------+-----------+
+| ID | namefirst | namelast | DOB        | emailID                  | weekday   |
++----+-----------+----------+------------+--------------------------+-----------+
+|  9 | vasant    | khande   | 1992-10-26 | vasant.khande@gmail.com  | Monday    |
+|  6 | lala      | prasad   | 1980-12-01 | lala.prasad@gmail.com    | Monday    |
+|  1 | saleel    | bagde    | 1984-06-12 | saleel.bagde@gmail.com   | Tuesday   |
+| 13 | nrupali   | save     | 1981-12-01 | nrupali.save@gmail.com   | Tuesday   |
+| 15 | bandish   | karnik   | 1987-12-30 | bandish.karnik@gmail.com | Wednesday |
+|  5 | ruhan     | bagde    | 1984-01-12 | ruhan.bagde@gmail.com    | Thursday  |
+| 17 | sangita   | menon    | 1989-10-26 | sangita.menon@gmail.com  | Thursday  |
+| 14 | supriya   | karnik   | 1983-12-15 | supriya.karnik@gmail.com | Thursday  |
+| 11 | neel      | save     | 1975-10-30 | neel.save@gmail.com      | Thursday  |
+| 10 | nitish    | patil    | 1990-10-26 | nitish.patil@gmail.com   | Friday    |
+| 21 | pankaj    | gandhi   | 1982-07-30 | pankaj.gandhi@gmail.com  | Friday    |
+| 20 | kaushal   | patil    | 1982-07-30 | kaushal.patil@gmail.com  | Friday    |
+| 23 | bhavin    | patel    | 1982-07-30 | bhavin.patel@gmail.com   | Friday    |
+| 24 | mukesh    | bhavsar  | 1982-07-30 | mukesh.bhavsar@gmail.com | Friday    |
+| 22 | rajan     | patel    | 1982-07-30 | rajan.patel@gmail.com    | Friday    |
+| 25 | dilu      | khande   | 1982-07-30 | dilu.khande@gmail.com    | Friday    |
+| 27 | rohit     | patil    | 1976-12-31 | rohit.patil@gmail.com    | Friday    |
+|  2 | omkar     | rokde    | 1969-10-25 | omkar.rakde@gmail.com    | Saturday  |
+|  8 | vrushali  | bagde    | 1984-12-29 | vrushali.bagde@gmail.com | Saturday  |
+| 18 | rahul     | shah     | 1982-06-12 | rahul.shah@gmail.com     | Saturday  |
+| 26 | sonam     | khan     | 1972-05-13 | sonam.khan@gmail.com     | Saturday  |
+| 16 | sangita   | karnik   | 1990-12-01 | sangita.karnik@gmail.com | Saturday  |
+| 19 | bhavin    | patel    | 1983-11-13 | bhavin.patel@gmail.com   | Sunday    |
+|  7 | sharmin   | bagde    | 1986-12-14 | sharmin.bagde@gmail.com  | Sunday    |
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com     | Sunday    |
+| 12 | deep      | save     | 1986-11-30 | deep.save@gmail.com      | Sunday    |
+|  4 | rahul     | patil    | 1982-10-31 | rahul.patil@gmail.com    | Sunday    |
+| 28 | raj       | bubber   | 1982-02-28 | raj.bubber@gmail.com     | Sunday    |
++----+-----------+----------+------------+--------------------------+-----------+
+28 rows in set (0.04 sec)
+
+mysql> select * from student where quarter(dob) = 4;
++----+-----------+----------+------------+--------------------------+
+| ID | namefirst | namelast | DOB        | emailID                  |
++----+-----------+----------+------------+--------------------------+
+|  2 | omkar     | rokde    | 1969-10-25 | omkar.rakde@gmail.com    |
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com     |
+|  4 | rahul     | patil    | 1982-10-31 | rahul.patil@gmail.com    |
+|  6 | lala      | prasad   | 1980-12-01 | lala.prasad@gmail.com    |
+|  7 | sharmin   | bagde    | 1986-12-14 | sharmin.bagde@gmail.com  |
+|  8 | vrushali  | bagde    | 1984-12-29 | vrushali.bagde@gmail.com |
+|  9 | vasant    | khande   | 1992-10-26 | vasant.khande@gmail.com  |
+| 10 | nitish    | patil    | 1990-10-26 | nitish.patil@gmail.com   |
+| 11 | neel      | save     | 1975-10-30 | neel.save@gmail.com      |
+| 12 | deep      | save     | 1986-11-30 | deep.save@gmail.com      |
+| 13 | nrupali   | save     | 1981-12-01 | nrupali.save@gmail.com   |
+| 14 | supriya   | karnik   | 1983-12-15 | supriya.karnik@gmail.com |
+| 15 | bandish   | karnik   | 1987-12-30 | bandish.karnik@gmail.com |
+| 16 | sangita   | karnik   | 1990-12-01 | sangita.karnik@gmail.com |
+| 17 | sangita   | menon    | 1989-10-26 | sangita.menon@gmail.com  |
+| 19 | bhavin    | patel    | 1983-11-13 | bhavin.patel@gmail.com   |
+| 27 | rohit     | patil    | 1976-12-31 | rohit.patil@gmail.com    |
++----+-----------+----------+------------+--------------------------+
+17 rows in set (0.00 sec)
+
+mysql> select namefirst,quarter(dob) = 4 as DOB from student where quarter(dob) = 4;
++-----------+------+
+| namefirst | DOB  |
++-----------+------+
+| omkar     |    1 |
+| ulka      |    1 |
+| rahul     |    1 |
+| lala      |    1 |
+| sharmin   |    1 |
+| vrushali  |    1 |
+| vasant    |    1 |
+| nitish    |    1 |
+| neel      |    1 |
+| deep      |    1 |
+| nrupali   |    1 |
+| supriya   |    1 |
+| bandish   |    1 |
+| sangita   |    1 |
+| sangita   |    1 |
+| bhavin    |    1 |
+| rohit     |    1 |
++-----------+------+
+17 rows in set (0.00 sec)
+
+mysql> select * from student where day_month(dob) = 0;
+ERROR 1305 (42000): FUNCTION test.day_month does not exist
+mysql> select * from student where dayofweek(dob) = 0;
+Empty set (0.01 sec)
+
+mysql> select * from student where dayofweek(dob) = 'sunday';
+Empty set, 1 warning (0.00 sec)
+
+mysql> select dob , day(dob) ,month(dob),year(dob) from student;
++------------+----------+------------+-----------+
+| dob        | day(dob) | month(dob) | year(dob) |
++------------+----------+------------+-----------+
+| 1984-06-12 |       12 |          6 |      1984 |
+| 1969-10-25 |       25 |         10 |      1969 |
+| 1970-10-25 |       25 |         10 |      1970 |
+| 1982-10-31 |       31 |         10 |      1982 |
+| 1984-01-12 |       12 |          1 |      1984 |
+| 1980-12-01 |        1 |         12 |      1980 |
+| 1986-12-14 |       14 |         12 |      1986 |
+| 1984-12-29 |       29 |         12 |      1984 |
+| 1992-10-26 |       26 |         10 |      1992 |
+| 1990-10-26 |       26 |         10 |      1990 |
+| 1975-10-30 |       30 |         10 |      1975 |
+| 1986-11-30 |       30 |         11 |      1986 |
+| 1981-12-01 |        1 |         12 |      1981 |
+| 1983-12-15 |       15 |         12 |      1983 |
+| 1987-12-30 |       30 |         12 |      1987 |
+| 1990-12-01 |        1 |         12 |      1990 |
+| 1989-10-26 |       26 |         10 |      1989 |
+| 1982-06-12 |       12 |          6 |      1982 |
+| 1983-11-13 |       13 |         11 |      1983 |
+| 1982-07-30 |       30 |          7 |      1982 |
+| 1982-07-30 |       30 |          7 |      1982 |
+| 1982-07-30 |       30 |          7 |      1982 |
+| 1982-07-30 |       30 |          7 |      1982 |
+| 1982-07-30 |       30 |          7 |      1982 |
+| 1982-07-30 |       30 |          7 |      1982 |
+| 1972-05-13 |       13 |          5 |      1972 |
+| 1976-12-31 |       31 |         12 |      1976 |
+| 1982-02-28 |       28 |          2 |      1982 |
++------------+----------+------------+-----------+
+28 rows in set (0.00 sec)
+
+mysql> select dob , concat(day(dob) ,month(dob),year(dob)) dob from student;
++------------+----------+
+| dob        | dob      |
++------------+----------+
+| 1984-06-12 | 1261984  |
+| 1969-10-25 | 25101969 |
+| 1970-10-25 | 25101970 |
+| 1982-10-31 | 31101982 |
+| 1984-01-12 | 1211984  |
+| 1980-12-01 | 1121980  |
+| 1986-12-14 | 14121986 |
+| 1984-12-29 | 29121984 |
+| 1992-10-26 | 26101992 |
+| 1990-10-26 | 26101990 |
+| 1975-10-30 | 30101975 |
+| 1986-11-30 | 30111986 |
+| 1981-12-01 | 1121981  |
+| 1983-12-15 | 15121983 |
+| 1987-12-30 | 30121987 |
+| 1990-12-01 | 1121990  |
+| 1989-10-26 | 26101989 |
+| 1982-06-12 | 1261982  |
+| 1983-11-13 | 13111983 |
+| 1982-07-30 | 3071982  |
+| 1982-07-30 | 3071982  |
+| 1982-07-30 | 3071982  |
+| 1982-07-30 | 3071982  |
+| 1982-07-30 | 3071982  |
+| 1982-07-30 | 3071982  |
+| 1972-05-13 | 1351972  |
+| 1976-12-31 | 31121976 |
+| 1982-02-28 | 2821982  |
++------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select dob , concat(day(dob) ,month(dob),year(dob),%m) dob from student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%m) dob from student' at line 1
+mysql> select dob , concat(day(dob) ,month(dob),year(dob),%m) dob from student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%m) dob from student' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT dob,CONCAT(DAY(dob),'th of ',DATE_FORMAT(dob,'%M %Y')) AS formatted_dobFROM student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'student' at line 1
+mysql> SELECT dob,CONCAT(DAY(dob),'th of ',DATE_FORMAT(dob,'%M %Y')) AS formatted_dob FROM student;
++------------+-----------------------+
+| dob        | formatted_dob         |
++------------+-----------------------+
+| 1984-06-12 | 12th of June 1984     |
+| 1969-10-25 | 25th of October 1969  |
+| 1970-10-25 | 25th of October 1970  |
+| 1982-10-31 | 31th of October 1982  |
+| 1984-01-12 | 12th of January 1984  |
+| 1980-12-01 | 1th of December 1980  |
+| 1986-12-14 | 14th of December 1986 |
+| 1984-12-29 | 29th of December 1984 |
+| 1992-10-26 | 26th of October 1992  |
+| 1990-10-26 | 26th of October 1990  |
+| 1975-10-30 | 30th of October 1975  |
+| 1986-11-30 | 30th of November 1986 |
+| 1981-12-01 | 1th of December 1981  |
+| 1983-12-15 | 15th of December 1983 |
+| 1987-12-30 | 30th of December 1987 |
+| 1990-12-01 | 1th of December 1990  |
+| 1989-10-26 | 26th of October 1989  |
+| 1982-06-12 | 12th of June 1982     |
+| 1983-11-13 | 13th of November 1983 |
+| 1982-07-30 | 30th of July 1982     |
+| 1982-07-30 | 30th of July 1982     |
+| 1982-07-30 | 30th of July 1982     |
+| 1982-07-30 | 30th of July 1982     |
+| 1982-07-30 | 30th of July 1982     |
+| 1982-07-30 | 30th of July 1982     |
+| 1972-05-13 | 13th of May 1972      |
+| 1976-12-31 | 31th of December 1976 |
+| 1982-02-28 | 28th of February 1982 |
++------------+-----------------------+
+28 rows in set (0.00 sec)
+
+mysql> select * from student where day(dob) in (between 10 and 19);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'between 10 and 19)' at line 1
+mysql> select * from student where day(dob) (between 10 and 19);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(between 10 and 19)' at line 1
+mysql> select * from student where day(dob)between 10 and 19;
++----+-----------+----------+------------+--------------------------+
+| ID | namefirst | namelast | DOB        | emailID                  |
++----+-----------+----------+------------+--------------------------+
+|  1 | saleel    | bagde    | 1984-06-12 | saleel.bagde@gmail.com   |
+|  5 | ruhan     | bagde    | 1984-01-12 | ruhan.bagde@gmail.com    |
+|  7 | sharmin   | bagde    | 1986-12-14 | sharmin.bagde@gmail.com  |
+| 14 | supriya   | karnik   | 1983-12-15 | supriya.karnik@gmail.com |
+| 18 | rahul     | shah     | 1982-06-12 | rahul.shah@gmail.com     |
+| 19 | bhavin    | patel    | 1983-11-13 | bhavin.patel@gmail.com   |
+| 26 | sonam     | khan     | 1972-05-13 | sonam.khan@gmail.com     |
++----+-----------+----------+------------+--------------------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from course;
++----+---------+----------+------------------------------------+
+| ID | name    | duration | summery                            |
++----+---------+----------+------------------------------------+
+|  1 | PG-DAC  |        6 | This course is designed by CDAC    |
+|  2 | DBDA    |        6 | This course is designed by CDAC    |
+|  3 | Pre-DAC |        2 | This course is designed by CDAC    |
+|  4 | JAVA    |        3 | This course is designed by Infoway |
+|  5 | .NET    |        3 | This course is designed by Infoway |
+|  6 | DMC     |        6 | This course is designed by CDAC    |
+|  7 | DSSD    |        6 | This course is designed by CDAC    |
++----+---------+----------+------------------------------------+
+7 rows in set (0.02 sec)
+
+mysql> select * from course_batch;
+ERROR 1146 (42S02): Table 'test.course_batch' doesn't exist
+mysql>
+mysql>
+mysql> select * from course%;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%' at line 1
+mysql> show tables;
++------------------------+
+| Tables_in_test         |
++------------------------+
+| a                      |
+| activity               |
+| agent                  |
+| airline_seats          |
+| andor                  |
+| atm                    |
+| b                      |
+| bankloan               |
+| batch_schedule         |
+| batch_students         |
+| betweensalary          |
+| bitwise                |
+| blanktablea            |
+| blanktableb            |
+| blog                   |
+| bonus                  |
+| books                  |
+| brands                 |
+| bus_stops              |
+| cafe                   |
+| candidate              |
+| cardpayments           |
+| cars                   |
+| cashpayments           |
+| categories             |
+| category               |
+| city                   |
+| classandsubjects       |
+| client                 |
+| cnumbers               |
+| coalesce               |
+| comments               |
+| company                |
+| countnulls             |
+| countnumbers           |
+| course                 |
+| course_batches         |
+| course_modules         |
+| cricketwinnerteam      |
+| customer               |
+| customers              |
+| demodept1              |
+| demodept2              |
+| dept                   |
+| dept1                  |
+| dhl                    |
+| docs                   |
+| doctor                 |
+| doctorvisits           |
+| dummy                  |
+| duplicate              |
+| emp                    |
+| emp1                   |
+| emp2                   |
+| emp_attendance         |
+| emp_cards              |
+| emp_phone              |
+| empj                   |
+| envelope               |
+| facebook               |
+| faculty                |
+| faculty_address        |
+| faculty_phone          |
+| faculty_qualifications |
+| fedex                  |
+| food                   |
+| food_category_tags     |
+| food_items             |
+| fromstoreorders        |
+| fruits                 |
+| fullname               |
+| hall_ticket            |
+| hobby                  |
+| ipl                    |
+| item                   |
+| job_list               |
+| key_parts              |
+| labtestlist            |
+| leading_zeroes         |
+| leadtable              |
+| licence                |
+| linkedin               |
+| location               |
+| managers               |
+| mass_table             |
+| medicinelist           |
+| menucard               |
+| missingnumbers         |
+| modules                |
+| nearest                |
+| new                    |
+| newbooks               |
+| null1                  |
+| null2                  |
+| nullif                 |
+| numberstring           |
+| onlineorders           |
+| ord                    |
+| order1                 |
+| order_items            |
+| orderdetails           |
+| orders                 |
+| overlapping_dates      |
+| overtime               |
+| patient                |
+| phonecall              |
+| pivot_table            |
+| plumber                |
+| plumber_service_map    |
+| points                 |
+| population             |
+| price                  |
+| product                |
+| product_sales          |
+| products               |
+| pune_metro_stations    |
+| quarterly_revenue      |
+| r                      |
+| r1                     |
+| r2                     |
+| races                  |
+| regexpr                |
+| repeatingnumbers       |
+| replacedept            |
+| reservations           |
+| revenue                |
+| rockets                |
+| room_assigned          |
+| room_staff             |
+| rooms                  |
+| runners                |
+| runningserver          |
+| sales                  |
+| sales1                 |
+| sales_channel          |
+| salespeople            |
+| salesperson            |
+| salgrade               |
+| server                 |
+| service                |
+| seta                   |
+| setb                   |
+| shop                   |
+| softdrink              |
+| sort                   |
+| sourcecity             |
+| sourcenames            |
+| stadium                |
+| stages                 |
+| states                 |
+| station                |
+| status                 |
+| stocks                 |
+| stringnumber           |
+| student                |
+| student_address        |
+| student_cards          |
+| student_order          |
+| student_phone          |
+| student_qualifications |
+| swapcity               |
+| tablea                 |
+| tableaa                |
+| tableb                 |
+| tablebb                |
+| targetcity             |
+| targetnames            |
+| tasks                  |
+| teams                  |
+| temp1                  |
+| trainers               |
+| trains                 |
+| traintimetable         |
+| transactions           |
+| unpivot_table          |
+| ups                    |
+| vote_response          |
+| votes                  |
+| warehouse              |
+| x                      |
+| year_of_service        |
+| yearly_revenue         |
+| years                  |
+| z                      |
++------------------------+
+184 rows in set (0.01 sec)
+
+mysql>
+mysql> show course_modules;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'course_modules' at line 1
+mysql> show table course_modules;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'course_modules' at line 1
+mysql> select * from course_modules;
++----+----------+----------+
+| ID | courseID | moduleID |
++----+----------+----------+
+|  1 |        1 |        1 |
+|  2 |        1 |        2 |
+|  3 |        1 |        3 |
+|  4 |        1 |        4 |
+|  5 |        1 |        5 |
+|  6 |        1 |        6 |
+|  7 |        1 |        7 |
+|  8 |        1 |        8 |
+|  9 |        1 |        9 |
+| 10 |        2 |        1 |
+| 11 |        2 |        2 |
+| 12 |        2 |        3 |
+| 13 |        2 |       11 |
+| 14 |        2 |       12 |
+| 15 |        2 |        9 |
+| 16 |        3 |       13 |
+| 17 |        3 |        5 |
+| 18 |        3 |        6 |
+| 19 |        4 |        1 |
+| 20 |        4 |        7 |
+| 21 |        4 |        8 |
+| 22 |        5 |        1 |
+| 23 |        5 |        7 |
+| 24 |        5 |        8 |
+| 25 |        6 |       14 |
+| 26 |        6 |       15 |
+| 27 |        6 |       16 |
+| 28 |        6 |       17 |
++----+----------+----------+
+28 rows in set (0.01 sec)
+
+mysql> select * from course_batches;
++----+---------+----------+------------+------------+----------+
+| ID | name    | courseID | starton    | endson     | capacity |
++----+---------+----------+------------+------------+----------+
+|  1 | Batch1  |        1 | 2016-02-01 | 2016-08-31 |       80 |
+|  2 | Batch2  |        2 | 2016-02-01 | 2016-08-31 |       30 |
+|  3 | Batch3  |        3 | 2016-02-01 | 2016-03-31 |       35 |
+|  4 | Batch4  |        4 | 2016-07-01 | 2016-09-30 |       25 |
+|  5 | Batch5  |        5 | 2016-07-01 | 2016-09-30 |       25 |
+|  6 | Batch6  |        1 | 2015-02-01 | 2015-08-31 |       80 |
+|  7 | Batch7  |        2 | 2015-02-01 | 2015-08-31 |       30 |
+|  8 | Batch8  |        3 | 2017-04-01 | 2017-05-31 |       30 |
+|  9 | Batch9  |        4 | 2018-07-01 | 2018-09-30 |       25 |
+| 10 | Batch10 |        5 | 2018-09-01 | 2018-11-30 |       25 |
+| 11 | Batch11 |        1 | 2017-08-01 | 2018-02-28 |       80 |
+| 12 | Batch12 |        2 | 2017-08-01 | 2018-02-28 |       30 |
+| 13 | Batch13 |        3 | 2017-07-01 | 2017-08-31 |       30 |
+| 14 | Batch14 |        4 | 2018-05-01 | 2018-07-31 |       25 |
+| 15 | Batch15 |        5 | 2018-06-01 | 2018-08-30 |       25 |
+| 16 | Batch16 |        1 | 2014-08-01 | 2015-02-28 |       80 |
+| 17 | Batch17 |        2 | 2014-08-01 | 2015-02-28 |       30 |
+| 18 | Batch18 |        3 | 2018-03-01 | 2018-04-30 |       35 |
+| 19 | Batch19 |        4 | 2019-01-01 | 2019-03-30 |       25 |
+| 20 | Batch20 |        5 | 2018-12-01 | 2019-02-28 |       25 |
+| 21 | Batch21 |        1 | 2015-08-01 | 2016-02-28 |       80 |
+| 22 | Batch22 |        2 | 2015-08-01 | 2016-02-28 |       30 |
+| 23 | Batch23 |        3 | 2019-03-01 | 2019-04-30 |       40 |
+| 24 | Batch24 |        4 | 2019-01-01 | 2019-03-30 |       30 |
+| 25 | Batch25 |        6 | 2019-01-01 | 2019-03-30 |       30 |
++----+---------+----------+------------+------------+----------+
+25 rows in set (0.01 sec)
+
+mysql> select * from course_batches where day(starton)='sunday';
+Empty set, 1 warning (0.00 sec)
+
+mysql> select * from course_batches where day(starton)='0';
+Empty set (0.00 sec)
+
+mysql> select * from course_batches where day(endson)='0';
+Empty set (0.00 sec)
+
+mysql> select * from course_batches where day(endson)='sunday';
+Empty set, 1 warning (0.00 sec)
+
+mysql> SELECT *
+    -> FROM course_batches
+    -> WHERE DAYOFWEEK(endson) = 1;
++----+---------+----------+------------+------------+----------+
+| ID | name    | courseID | starton    | endson     | capacity |
++----+---------+----------+------------+------------+----------+
+|  9 | Batch9  |        4 | 2018-07-01 | 2018-09-30 |       25 |
+| 21 | Batch21 |        1 | 2015-08-01 | 2016-02-28 |       80 |
+| 22 | Batch22 |        2 | 2015-08-01 | 2016-02-28 |       30 |
++----+---------+----------+------------+------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select number from studentphone;
+ERROR 1146 (42S02): Table 'test.studentphone' doesn't exist
+mysql> select number from student_phone;
++------------+
+| number     |
++------------+
+| 7032300034 |
+| 7032300039 |
+| 7032300050 |
+| 7032300027 |
+| 7032300001 |
+| 7032300079 |
+| 7032300081 |
+| 7032300054 |
+| 7032300059 |
+| 7032300086 |
+| 7032300082 |
+| 7032300042 |
+| 7032300055 |
+| 7032300013 |
+| 7032300099 |
+| 7032300023 |
+| 7032300084 |
+| 7032300011 |
+| 7032300066 |
+| 7032300096 |
+| 7132300034 |
+| 7132300039 |
+| 7132300050 |
+| 7132300027 |
+| 7032300001 |
+| 7132300079 |
+| 7132300081 |
+| 7132300054 |
+| 7132300059 |
+| 7132300086 |
+| 7132300082 |
+| 7132300042 |
+| 7132300055 |
+| 7132300055 |
+| 7132300055 |
+| 7134567123 |
+| 7156567123 |
+| 7156567134 |
+| 7156563423 |
+| 7156567183 |
+| 7146566412 |
++------------+
+41 rows in set (0.01 sec)
+
+mysql> select number, concat(substr(number,5),'*****') from student_phone;
++------------+----------------------------------+
+| number     | concat(substr(number,5),'*****') |
++------------+----------------------------------+
+| 7032300034 | 300034*****                      |
+| 7032300039 | 300039*****                      |
+| 7032300050 | 300050*****                      |
+| 7032300027 | 300027*****                      |
+| 7032300001 | 300001*****                      |
+| 7032300079 | 300079*****                      |
+| 7032300081 | 300081*****                      |
+| 7032300054 | 300054*****                      |
+| 7032300059 | 300059*****                      |
+| 7032300086 | 300086*****                      |
+| 7032300082 | 300082*****                      |
+| 7032300042 | 300042*****                      |
+| 7032300055 | 300055*****                      |
+| 7032300013 | 300013*****                      |
+| 7032300099 | 300099*****                      |
+| 7032300023 | 300023*****                      |
+| 7032300084 | 300084*****                      |
+| 7032300011 | 300011*****                      |
+| 7032300066 | 300066*****                      |
+| 7032300096 | 300096*****                      |
+| 7132300034 | 300034*****                      |
+| 7132300039 | 300039*****                      |
+| 7132300050 | 300050*****                      |
+| 7132300027 | 300027*****                      |
+| 7032300001 | 300001*****                      |
+| 7132300079 | 300079*****                      |
+| 7132300081 | 300081*****                      |
+| 7132300054 | 300054*****                      |
+| 7132300059 | 300059*****                      |
+| 7132300086 | 300086*****                      |
+| 7132300082 | 300082*****                      |
+| 7132300042 | 300042*****                      |
+| 7132300055 | 300055*****                      |
+| 7132300055 | 300055*****                      |
+| 7132300055 | 300055*****                      |
+| 7134567123 | 567123*****                      |
+| 7156567123 | 567123*****                      |
+| 7156567134 | 567134*****                      |
+| 7156563423 | 563423*****                      |
+| 7156567183 | 567183*****                      |
+| 7146566412 | 566412*****                      |
++------------+----------------------------------+
+41 rows in set (0.00 sec)
+
+mysql> select number, concat(substr(number,5),'*') from student_phone;
++------------+------------------------------+
+| number     | concat(substr(number,5),'*') |
++------------+------------------------------+
+| 7032300034 | 300034*                      |
+| 7032300039 | 300039*                      |
+| 7032300050 | 300050*                      |
+| 7032300027 | 300027*                      |
+| 7032300001 | 300001*                      |
+| 7032300079 | 300079*                      |
+| 7032300081 | 300081*                      |
+| 7032300054 | 300054*                      |
+| 7032300059 | 300059*                      |
+| 7032300086 | 300086*                      |
+| 7032300082 | 300082*                      |
+| 7032300042 | 300042*                      |
+| 7032300055 | 300055*                      |
+| 7032300013 | 300013*                      |
+| 7032300099 | 300099*                      |
+| 7032300023 | 300023*                      |
+| 7032300084 | 300084*                      |
+| 7032300011 | 300011*                      |
+| 7032300066 | 300066*                      |
+| 7032300096 | 300096*                      |
+| 7132300034 | 300034*                      |
+| 7132300039 | 300039*                      |
+| 7132300050 | 300050*                      |
+| 7132300027 | 300027*                      |
+| 7032300001 | 300001*                      |
+| 7132300079 | 300079*                      |
+| 7132300081 | 300081*                      |
+| 7132300054 | 300054*                      |
+| 7132300059 | 300059*                      |
+| 7132300086 | 300086*                      |
+| 7132300082 | 300082*                      |
+| 7132300042 | 300042*                      |
+| 7132300055 | 300055*                      |
+| 7132300055 | 300055*                      |
+| 7132300055 | 300055*                      |
+| 7134567123 | 567123*                      |
+| 7156567123 | 567123*                      |
+| 7156567134 | 567134*                      |
+| 7156563423 | 563423*                      |
+| 7156567183 | 567183*                      |
+| 7146566412 | 566412*                      |
++------------+------------------------------+
+41 rows in set (0.00 sec)
+
+mysql> select number, concat(substr(number,5),'*',substr(number,-5,'*') from student_phone;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from student_phone' at line 1
+mysql> select number, concat(substr(number,5),'*',substr(number,-5,'*')) from student_phone;
++------------+----------------------------------------------------+
+| number     | concat(substr(number,5),'*',substr(number,-5,'*')) |
++------------+----------------------------------------------------+
+| 7032300034 | 300034*                                            |
+| 7032300039 | 300039*                                            |
+| 7032300050 | 300050*                                            |
+| 7032300027 | 300027*                                            |
+| 7032300001 | 300001*                                            |
+| 7032300079 | 300079*                                            |
+| 7032300081 | 300081*                                            |
+| 7032300054 | 300054*                                            |
+| 7032300059 | 300059*                                            |
+| 7032300086 | 300086*                                            |
+| 7032300082 | 300082*                                            |
+| 7032300042 | 300042*                                            |
+| 7032300055 | 300055*                                            |
+| 7032300013 | 300013*                                            |
+| 7032300099 | 300099*                                            |
+| 7032300023 | 300023*                                            |
+| 7032300084 | 300084*                                            |
+| 7032300011 | 300011*                                            |
+| 7032300066 | 300066*                                            |
+| 7032300096 | 300096*                                            |
+| 7132300034 | 300034*                                            |
+| 7132300039 | 300039*                                            |
+| 7132300050 | 300050*                                            |
+| 7132300027 | 300027*                                            |
+| 7032300001 | 300001*                                            |
+| 7132300079 | 300079*                                            |
+| 7132300081 | 300081*                                            |
+| 7132300054 | 300054*                                            |
+| 7132300059 | 300059*                                            |
+| 7132300086 | 300086*                                            |
+| 7132300082 | 300082*                                            |
+| 7132300042 | 300042*                                            |
+| 7132300055 | 300055*                                            |
+| 7132300055 | 300055*                                            |
+| 7132300055 | 300055*                                            |
+| 7134567123 | 567123*                                            |
+| 7156567123 | 567123*                                            |
+| 7156567134 | 567134*                                            |
+| 7156563423 | 563423*                                            |
+| 7156567183 | 567183*                                            |
+| 7146566412 | 566412*                                            |
++------------+----------------------------------------------------+
+41 rows in set, 42 warnings (0.00 sec)
+
+mysql> select number, concat(substr(number,5,'*'),substr(number,-5,'*')) from student_phone;
++------------+----------------------------------------------------+
+| number     | concat(substr(number,5,'*'),substr(number,-5,'*')) |
++------------+----------------------------------------------------+
+| 7032300034 |                                                    |
+| 7032300039 |                                                    |
+| 7032300050 |                                                    |
+| 7032300027 |                                                    |
+| 7032300001 |                                                    |
+| 7032300079 |                                                    |
+| 7032300081 |                                                    |
+| 7032300054 |                                                    |
+| 7032300059 |                                                    |
+| 7032300086 |                                                    |
+| 7032300082 |                                                    |
+| 7032300042 |                                                    |
+| 7032300055 |                                                    |
+| 7032300013 |                                                    |
+| 7032300099 |                                                    |
+| 7032300023 |                                                    |
+| 7032300084 |                                                    |
+| 7032300011 |                                                    |
+| 7032300066 |                                                    |
+| 7032300096 |                                                    |
+| 7132300034 |                                                    |
+| 7132300039 |                                                    |
+| 7132300050 |                                                    |
+| 7132300027 |                                                    |
+| 7032300001 |                                                    |
+| 7132300079 |                                                    |
+| 7132300081 |                                                    |
+| 7132300054 |                                                    |
+| 7132300059 |                                                    |
+| 7132300086 |                                                    |
+| 7132300082 |                                                    |
+| 7132300042 |                                                    |
+| 7132300055 |                                                    |
+| 7132300055 |                                                    |
+| 7132300055 |                                                    |
+| 7134567123 |                                                    |
+| 7156567123 |                                                    |
+| 7156567134 |                                                    |
+| 7156563423 |                                                    |
+| 7156567183 |                                                    |
+| 7146566412 |                                                    |
++------------+----------------------------------------------------+
+41 rows in set, 84 warnings (0.00 sec)
+
+mysql> select number, concat(substr(number,5),'*') from student_phone;
++------------+------------------------------+
+| number     | concat(substr(number,5),'*') |
++------------+------------------------------+
+| 7032300034 | 300034*                      |
+| 7032300039 | 300039*                      |
+| 7032300050 | 300050*                      |
+| 7032300027 | 300027*                      |
+| 7032300001 | 300001*                      |
+| 7032300079 | 300079*                      |
+| 7032300081 | 300081*                      |
+| 7032300054 | 300054*                      |
+| 7032300059 | 300059*                      |
+| 7032300086 | 300086*                      |
+| 7032300082 | 300082*                      |
+| 7032300042 | 300042*                      |
+| 7032300055 | 300055*                      |
+| 7032300013 | 300013*                      |
+| 7032300099 | 300099*                      |
+| 7032300023 | 300023*                      |
+| 7032300084 | 300084*                      |
+| 7032300011 | 300011*                      |
+| 7032300066 | 300066*                      |
+| 7032300096 | 300096*                      |
+| 7132300034 | 300034*                      |
+| 7132300039 | 300039*                      |
+| 7132300050 | 300050*                      |
+| 7132300027 | 300027*                      |
+| 7032300001 | 300001*                      |
+| 7132300079 | 300079*                      |
+| 7132300081 | 300081*                      |
+| 7132300054 | 300054*                      |
+| 7132300059 | 300059*                      |
+| 7132300086 | 300086*                      |
+| 7132300082 | 300082*                      |
+| 7132300042 | 300042*                      |
+| 7132300055 | 300055*                      |
+| 7132300055 | 300055*                      |
+| 7132300055 | 300055*                      |
+| 7134567123 | 567123*                      |
+| 7156567123 | 567123*                      |
+| 7156567134 | 567134*                      |
+| 7156563423 | 563423*                      |
+| 7156567183 | 567183*                      |
+| 7146566412 | 566412*                      |
++------------+------------------------------+
+41 rows in set (0.00 sec)
+
+mysql> select number, concat(right(number,5),'*',left(number,-5,'*') from student_phone;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''*') from student_phone' at line 1
+mysql> select number, concat(substr(number,1,4),'**',substr(number,-4,1) from student_phone;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from student_phone' at line 1
+mysql> select number, concat(substr(number,1,4),'**',substr(number,4,1) from student_phone;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from student_phone' at line 1
+mysql> select number, concat(right(number,5),'*',left(number,-5,'*') from student_phone;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''*') from student_phone' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select number, concat(substr(number,5),'*') from student_phone;
++------------+------------------------------+
+| number     | concat(substr(number,5),'*') |
++------------+------------------------------+
+| 7032300034 | 300034*                      |
+| 7032300039 | 300039*                      |
+| 7032300050 | 300050*                      |
+| 7032300027 | 300027*                      |
+| 7032300001 | 300001*                      |
+| 7032300079 | 300079*                      |
+| 7032300081 | 300081*                      |
+| 7032300054 | 300054*                      |
+| 7032300059 | 300059*                      |
+| 7032300086 | 300086*                      |
+| 7032300082 | 300082*                      |
+| 7032300042 | 300042*                      |
+| 7032300055 | 300055*                      |
+| 7032300013 | 300013*                      |
+| 7032300099 | 300099*                      |
+| 7032300023 | 300023*                      |
+| 7032300084 | 300084*                      |
+| 7032300011 | 300011*                      |
+| 7032300066 | 300066*                      |
+| 7032300096 | 300096*                      |
+| 7132300034 | 300034*                      |
+| 7132300039 | 300039*                      |
+| 7132300050 | 300050*                      |
+| 7132300027 | 300027*                      |
+| 7032300001 | 300001*                      |
+| 7132300079 | 300079*                      |
+| 7132300081 | 300081*                      |
+| 7132300054 | 300054*                      |
+| 7132300059 | 300059*                      |
+| 7132300086 | 300086*                      |
+| 7132300082 | 300082*                      |
+| 7132300042 | 300042*                      |
+| 7132300055 | 300055*                      |
+| 7132300055 | 300055*                      |
+| 7132300055 | 300055*                      |
+| 7134567123 | 567123*                      |
+| 7156567123 | 567123*                      |
+| 7156567134 | 567134*                      |
+| 7156563423 | 563423*                      |
+| 7156567183 | 567183*                      |
+| 7146566412 | 566412*                      |
++------------+------------------------------+
+41 rows in set (0.00 sec)
+
+mysql> select number, concat(right(number,5),'*',left(number,-5,'*') from student_phone;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''*') from student_phone' at line 1
+mysql> select * from student where dayofweek(dob) = 'sunday';
+Empty set, 1 warning (0.00 sec)
+
+mysql> SELECT dob,CONCAT(DAY(dob),'th of ',DATE_FORMAT(dob,'%M %Y')) AS formatted_dobFROM student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'student' at line 1
+mysql> SELECT dob,CONCAT(DAY(dob),'th of ',DATE_FORMAT(dob,'%M %Y')) AS formatted_dobFROM student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'student' at line 1
+mysql> SELECT dob,CONCAT(DAY(dob),'th of ',DATE_FORMAT(dob,'%M %Y')) AS formatted_dobFROM student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'student' at line 1
+mysql> SELECT dob,CONCAT(DAY(dob),'th of ',DATE_FORMAT(dob,'%M %Y')) AS formatted_dob FROM student;
++------------+-----------------------+
+| dob        | formatted_dob         |
++------------+-----------------------+
+| 1984-06-12 | 12th of June 1984     |
+| 1969-10-25 | 25th of October 1969  |
+| 1970-10-25 | 25th of October 1970  |
+| 1982-10-31 | 31th of October 1982  |
+| 1984-01-12 | 12th of January 1984  |
+| 1980-12-01 | 1th of December 1980  |
+| 1986-12-14 | 14th of December 1986 |
+| 1984-12-29 | 29th of December 1984 |
+| 1992-10-26 | 26th of October 1992  |
+| 1990-10-26 | 26th of October 1990  |
+| 1975-10-30 | 30th of October 1975  |
+| 1986-11-30 | 30th of November 1986 |
+| 1981-12-01 | 1th of December 1981  |
+| 1983-12-15 | 15th of December 1983 |
+| 1987-12-30 | 30th of December 1987 |
+| 1990-12-01 | 1th of December 1990  |
+| 1989-10-26 | 26th of October 1989  |
+| 1982-06-12 | 12th of June 1982     |
+| 1983-11-13 | 13th of November 1983 |
+| 1982-07-30 | 30th of July 1982     |
+| 1982-07-30 | 30th of July 1982     |
+| 1982-07-30 | 30th of July 1982     |
+| 1982-07-30 | 30th of July 1982     |
+| 1982-07-30 | 30th of July 1982     |
+| 1982-07-30 | 30th of July 1982     |
+| 1972-05-13 | 13th of May 1972      |
+| 1976-12-31 | 31th of December 1976 |
+| 1982-02-28 | 28th of February 1982 |
++------------+-----------------------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT dob,CONCAT(DAY(dob),'th of ',DATE_FORMAT(dob,'%M %Y')) AS formatted_dobFROM student;
