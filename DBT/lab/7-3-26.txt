@@ -1,0 +1,50 @@
+// all dispatched shipments
+
+ select * from fedex where status = "dispatched" union select * from ups where status = 'dispatched' union select * from dhl where status = 'dispatched' ;
++-------------+---------+------------+---------------+
+| tracking_id | carrier | status     | delivery_date |
++-------------+---------+------------+---------------+
+| FEDEX100001 | FedEx   | Dispatched | 2025-07-04    |
+| UPS100033   | UPS     | Dispatched | 2025-07-07    |
+| UPS100038   | UPS     | Dispatched | 2025-07-06    |
+| DHL100023   | DHL     | Dispatched | 2025-07-06    |
++-------------+---------+------------+---------------+
+4 rows in set (0.00 sec)
+
+
+// pending vs delivered 
+
+ select carrier ,status , count(status) as D from (select * from ups union select * from dhl union select * from fedex ) as Company  group by status , carrier having status in ('pending','delivered');
++---------+-----------+---+
+| carrier | status    | D |
++---------+-----------+---+
+| DHL     | Delivered | 1 |
+| FedEx   | Delivered | 1 |
+| UPS     | Delivered | 2 |
+| DHL     | Pending   | 2 |
+| FedEx   | Pending   | 2 |
+| UPS     | Pending   | 1 |
++---------+-----------+---+
+6 rows in set (0.00 sec)
+
+
+
+select carrier ,status ,delivery_date, count(status) as D from (select * from ups union select * from dhl union select * from fedex ) as Company  group by status ,delivery_date, carrier having status in ('delivered') order by delivery_date desc limit 1;
++---------+-----------+---------------+---+
+| carrier | status    | delivery_date | D |
++---------+-----------+---------------+---+
+| UPS     | Delivered | 2025-07-05    | 1 |
++---------+-----------+---------------+---+
+1 row in set (0.00 sec)
+
+mysql> select carrier ,status ,delivery_date from (select * from ups union select * from dhl union select * from fedex ) as Company  group by status ,delivery_date, carrier having status in ('pending') order by status ;
++---------+---------+---------------+
+| carrier | status  | delivery_date |
++---------+---------+---------------+
+| UPS     | Pending | 2025-11-11    |
+| DHL     | Pending | 2025-07-23    |
+| DHL     | Pending | 2025-12-23    |
+| FedEx   | Pending | 2025-06-29    |
+| FedEx   | Pending | 2025-01-09    |
++---------+---------+---------------+
+5 rows in set (0.00 sec)

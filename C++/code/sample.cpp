@@ -1,31 +1,59 @@
 #include <iostream>
 using namespace std;
 
-class values {
-    int x, y;
+class Shape{
+protected:
+    int para;
 
 public:
 
-    void set_values(int d, int m) {
-        this->x = d;
-        this->y = m;
-    cout<<"\n";    
-        cout<<"address 0f x \n"<<&x;
-        cout<<"\n";
-           cout<<"address 0f Y \n"<<&y;
+    Shape(){}
+
+    Shape(int n){
+        para = n;
     }
 
-    void display() {
-        cout << "Values = X" << this->x << "\tY = "<< this->y;
+    void accept_number(){
+        cout<<"Enter para : \n";
+        cin>>para;
     }
 };
 
-int main() {
-    values d1;
-    d1.set_values(1, 12);
-    cout<<"address 0f d1 \n"<<&d1;
-    cout<<"\n";
- 
-    cout<<"\n";
-    d1.display();
+class Circle : public Shape{
+
+public:
+
+    double calArea(){
+        return 3.14 * para * para;
+    }
+
+    void display(){
+        cout<<"Area of Circle = \n"<<calArea()<<"\n";
+    }
+};
+
+class Square : public Shape{
+
+public:
+
+    double calArea(){
+        return para * para;
+    }
+
+    void display(){
+        cout<<"Area of Square = \n"<<calArea()<<"\n";
+    }
+};
+
+int main(){
+
+    Circle c1;
+    Square s1;
+
+    c1.accept_number();
+    c1.display();
+
+    s1.accept_number();
+    s1.display();
+
 }

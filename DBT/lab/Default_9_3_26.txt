@@ -1,0 +1,756 @@
+    ->
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'scJLLC
+scjnCn
+ASANclndL' at line 1
+mysql> use test;
+Database changed
+mysql> select * from store;
+ERROR 1146 (42S02): Table 'test.store' doesn't exist
+mysql> show tables;
++------------------------+
+| Tables_in_test         |
++------------------------+
+| a                      |
+| activity               |
+| agent                  |
+| airline_seats          |
+| andor                  |
+| atm                    |
+| b                      |
+| bankloan               |
+| batch_schedule         |
+| batch_students         |
+| betweensalary          |
+| bitwise                |
+| blanktablea            |
+| blanktableb            |
+| blog                   |
+| bonus                  |
+| books                  |
+| brands                 |
+| bus_stops              |
+| cafe                   |
+| candidate              |
+| cardpayments           |
+| cars                   |
+| cashpayments           |
+| categories             |
+| category               |
+| city                   |
+| classandsubjects       |
+| client                 |
+| cnumbers               |
+| coalesce               |
+| comments               |
+| company                |
+| countnulls             |
+| countnumbers           |
+| course                 |
+| course_batches         |
+| course_modules         |
+| cricketwinnerteam      |
+| customer               |
+| customers              |
+| demodept1              |
+| demodept2              |
+| dept                   |
+| dept1                  |
+| dhl                    |
+| docs                   |
+| doctor                 |
+| doctorvisits           |
+| dummy                  |
+| duplicate              |
+| emp                    |
+| emp1                   |
+| emp2                   |
+| emp_attendance         |
+| emp_cards              |
+| emp_phone              |
+| empj                   |
+| envelope               |
+| facebook               |
+| faculty                |
+| faculty_address        |
+| faculty_phone          |
+| faculty_qualifications |
+| fedex                  |
+| food                   |
+| food_category_tags     |
+| food_items             |
+| fromstoreorders        |
+| fruits                 |
+| fullname               |
+| hall_ticket            |
+| hobby                  |
+| ipl                    |
+| item                   |
+| job_list               |
+| key_parts              |
+| labtestlist            |
+| leading_zeroes         |
+| leadtable              |
+| licence                |
+| linkedin               |
+| location               |
+| managers               |
+| mass_table             |
+| medicinelist           |
+| menucard               |
+| missingnumbers         |
+| modules                |
+| nearest                |
+| new                    |
+| newbooks               |
+| null1                  |
+| null2                  |
+| nullif                 |
+| numberstring           |
+| onlineorders           |
+| ord                    |
+| order1                 |
+| order_items            |
+| orderdetails           |
+| orders                 |
+| overlapping_dates      |
+| overtime               |
+| patient                |
+| phonecall              |
+| pivot_table            |
+| plumber                |
+| plumber_service_map    |
+| points                 |
+| population             |
+| price                  |
+| product                |
+| product_sales          |
+| products               |
+| pune_metro_stations    |
+| quarterly_revenue      |
+| r                      |
+| r1                     |
+| r2                     |
+| races                  |
+| regexpr                |
+| repeatingnumbers       |
+| replacedept            |
+| reservations           |
+| revenue                |
+| rockets                |
+| room_assigned          |
+| room_staff             |
+| rooms                  |
+| runners                |
+| runningserver          |
+| sales                  |
+| sales1                 |
+| sales_channel          |
+| salespeople            |
+| salesperson            |
+| salgrade               |
+| server                 |
+| service                |
+| seta                   |
+| setb                   |
+| shop                   |
+| softdrink              |
+| sort                   |
+| sourcecity             |
+| sourcenames            |
+| stadium                |
+| stages                 |
+| states                 |
+| station                |
+| status                 |
+| stocks                 |
+| stringnumber           |
+| student                |
+| student_address        |
+| student_cards          |
+| student_order          |
+| student_phone          |
+| student_qualifications |
+| swapcity               |
+| tablea                 |
+| tableaa                |
+| tableb                 |
+| tablebb                |
+| targetcity             |
+| targetnames            |
+| tasks                  |
+| teams                  |
+| temp1                  |
+| trainers               |
+| trains                 |
+| traintimetable         |
+| transactions           |
+| unpivot_table          |
+| ups                    |
+| vote_response          |
+| votes                  |
+| warehouse              |
+| x                      |
+| year_of_service        |
+| yearly_revenue         |
+| years                  |
+| z                      |
++------------------------+
+184 rows in set (0.00 sec)
+
+mysql> select * from order1;
++------------+--------+-----------+----------+-------+
+| CustomerId | ItemId | ItemName  | Quantity | Price |
++------------+--------+-----------+----------+-------+
+|          1 |      1 | Butter    |        3 |    35 |
+|          1 |      2 | Bread     |        1 |    20 |
+|          1 |      3 | Soap      |        4 |    23 |
+|          1 |      4 | Biscuit   |        2 |    15 |
+|          2 |     10 | Chocolate |        8 |    10 |
+|          2 |     11 | Ice-Cream |        1 |    40 |
+|          2 |     12 | Almonds   |        2 |   110 |
+|          2 |     13 | Coke      |        5 |    25 |
+|          3 |     12 | Almonds   |        7 |   110 |
+|          3 |     13 | Coke      |        8 |    25 |
++------------+--------+-----------+----------+-------+
+10 rows in set (0.02 sec)
+
+mysql> select * from order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'order' at line 1
+mysql> select * from orders;
++------+---------+---------------------+------+------+--------+--------------+------------+------------------+
+| ONUM | AMT     | ODATE               | CNUM | SNUM | type   | paymentType  | registered | delivery_partner |
++------+---------+---------------------+------+------+--------+--------------+------------+------------------+
+| 2322 |   750.1 | 1996-10-03 12:05:00 | NULL | 1004 | Online | PhonePe      |          0 | NULL             |
+| 2364 |   750.1 | 1996-10-03 12:07:00 | NULL | 1004 | Online | PhonePe      |          0 | NULL             |
+| 2475 |   750.1 | 1996-10-03 12:05:00 | NULL | 1004 | Online | PhonePe      |          0 | NULL             |
+| 3001 |   18.69 | 1996-10-03 12:30:00 | 2008 | 1007 | Online | Credit Cards |          1 | NULL             |
+| 3002 |  1900.1 | 1996-10-03 12:30:00 | 2007 | 1004 | Online | Wallets      |          1 | NULL             |
+| 3003 |  767.19 | 1996-10-03 13:45:00 | 2001 | 1001 | Online | Debit Cards  |          1 | NULL             |
+| 3005 | 5160.45 | 1996-10-03 14:00:00 | 2003 | 1002 | Online | Debit Cards  |          1 | NULL             |
+| 3006 | 1098.16 | 1996-10-03 13:37:00 | 2008 | 1007 | Online | Wallets      |          1 | NULL             |
+| 3007 |   75.75 | 1996-10-04 15:21:00 | 2002 | 1003 | Online | Credit Cards |          1 | NULL             |
+| 3008 |    4723 | 1996-10-05 12:07:00 | 2006 | 1001 | Cash   | COD          |          0 | NULL             |
+| 3009 | 1713.23 | 1996-10-04 15:21:00 | 2002 | 1003 | Online | Credit Cards |          1 | NULL             |
+| 3010 | 1309.95 | 1996-10-06 13:12:00 | 2004 | 1002 | Online | EMI Options  |          1 | NULL             |
+| 3011 | 9891.88 | 1996-10-06 13:09:00 | 2006 | 1001 | Online | EMI Options  |          1 | NULL             |
+| 3012 | 3455.78 | 1996-10-04 15:21:00 | 2002 | 1003 | Cash   | COD          |          0 | NULL             |
+| 3013 | 1245.98 | 1996-10-04 16:32:00 | 2002 | 1003 | Online | EMI Options  |          1 | NULL             |
+| 3014 | 3721.53 | 1996-10-05 12:45:00 | 2006 | 1001 | Cash   | COD          |          0 | NULL             |
+| 3015 |   734.5 | 1996-10-06 13:16:00 | 2004 | 1002 | Online | EMI Options  |          1 | NULL             |
+| 3016 | 1729.67 | 1996-10-06 13:18:00 | 2006 | 1001 | Online | Wallets      |          1 | NULL             |
+| 3017 |   18.69 | 1996-10-03 12:30:00 | 2001 | 1007 | Online | Credit Cards |          1 | NULL             |
+| 3018 |  767.19 | 1996-10-03 12:05:00 | 2002 | 1001 | Online | Wallets      |          1 | NULL             |
+| 3019 |  1900.1 | 1996-10-03 12:05:00 | 2007 | 1004 | Online | EMI Options  |          1 | NULL             |
+| 3020 | 5160.45 | 1996-10-03 14:00:00 | 2003 | 1007 | Cash   | COD          |          0 | NULL             |
+| 3021 | 1098.16 | 1996-10-03 13:37:00 | 2008 | 1007 | Online | Debit Cards  |          1 | NULL             |
+| 3022 | 1713.23 | 1996-10-04 15:21:00 | 2002 | 1003 | Cash   | COD          |          0 | NULL             |
+| 3023 |   75.75 | 1996-10-04 16:02:00 | 2002 | 1004 | Online | Wallets      |          1 | NULL             |
+| 3024 |    4723 | 1996-10-05 12:07:00 | 2006 | 1002 | Online | Credit Cards |          1 | NULL             |
+| 3025 | 1309.95 | 1996-10-06 13:12:00 | 2002 | 1002 | Online | Wallets      |          1 | NULL             |
+| 3026 | 9891.88 | 1996-10-06 13:09:00 | 2006 | 1001 | Online | Wallets      |          1 | NULL             |
+| 3027 | 3455.78 | 1996-10-04 15:21:00 | 2002 | 1003 | Cash   | COD          |          0 | NULL             |
+| 3028 | 1245.98 | 1996-10-04 16:32:00 | 2002 | 1003 | Online | Debit Cards  |          1 | NULL             |
+| 3029 | 3721.53 | 1996-10-05 12:45:00 | 2006 | 1001 | Online | Credit Cards |          1 | NULL             |
+| 3030 |   734.5 | 1996-10-06 13:16:00 | 2004 | 1002 | Cash   | COD          |          0 | NULL             |
+| 3031 | 1729.67 | 1996-10-06 13:07:00 | 2006 | 1007 | Online | Wallets      |          1 | NULL             |
+| 3032 | 3434.55 | 1996-01-26 17:09:12 | 2006 | 1007 | Online | Wallets      |          1 | NULL             |
+| 3033 |  522.23 | 1996-12-24 14:23:00 | 2002 | 1002 | Cash   | COD          |          0 | NULL             |
+| 3049 |  500.58 | 1996-03-14 07:45:19 | 2001 | 1003 | Cash   | COD          |          0 | NULL             |
+| 3050 |  1900.1 | 1996-10-03 12:05:00 | NULL | 1004 | Online | PhonePe      |          0 | NULL             |
+| 3074 |   457.4 | 1996-04-19 05:13:00 | 2008 | 1007 | Online | EMI Options  |          1 | NULL             |
+| 3119 |   125.5 | 1996-07-26 18:37:00 | 2007 | 1001 | Online | Wallets      |          1 | NULL             |
+| 4001 |   145.2 | 1996-05-13 20:47:00 | 2008 | 1003 | Online | EMI Options  |          1 | NULL             |
+| 4012 |   245.6 | 1996-03-06 13:07:00 | 2001 | 1002 | Online | Wallets      |          1 | NULL             |
+| 4021 |  600.65 | 1996-08-12 13:07:00 | 2001 | 1002 | Online | Wallets      |          1 | NULL             |
+| 4054 |  1200.8 | 1996-11-22 13:07:00 | 2004 | 1003 | Cash   | COD          |          0 | NULL             |
+| 5001 |  325.23 | 1996-11-04 15:21:00 | NULL | 1002 | Online | GPay         |          0 | NULL             |
+| 5011 |  138.35 | 1996-09-14 13:07:00 | 2001 | 1007 | Cash   | COD          |          0 | NULL             |
+| 5014 |  980.65 | 1996-08-23 13:07:00 | 2002 | 1007 | Online | Wallets      |          1 | NULL             |
+| 5015 | 2133.35 | 1996-06-23 13:07:00 | 2004 | 1007 | Online | EMI Options  |          1 | NULL             |
+| 5016 | 1000.95 | 1996-03-12 13:07:00 | 2002 | 1007 | Cash   | COD          |          0 | NULL             |
+| 5020 |  950.45 | 1996-10-03 14:00:00 | NULL | 1007 | Online | Paytm        |          0 | NULL             |
+| 5034 |  120.16 | 1996-11-03 13:37:00 | NULL | 1003 | Cash   | COD          |          0 | NULL             |
+| 5053 |  1500.5 | 1996-01-01 13:07:00 | 2006 | 1007 | Online | EMI Options  |          1 | NULL             |
+| 5056 |   750.1 | 1996-10-03 12:05:00 | NULL | 1007 | Online | PhonePe      |          0 | NULL             |
+| 5099 |  790.75 | 1996-04-24 13:07:00 | 2002 | 1007 | Online | EMI Options  |          1 | NULL             |
+| 6501 |  125.45 | 1996-06-13 13:07:00 | 2001 | 1001 | Online | EMI Options  |          1 | NULL             |
+| 6502 |  535.25 | 1996-08-24 13:07:00 | 2006 | 1004 | Cash   | COD          |          0 | NULL             |
+| 6503 | 1100.25 | 1996-07-26 13:07:00 | 2006 | 1007 | Online | Wallets      |          1 | NULL             |
+| 6504 | 1350.75 | 1996-07-21 13:07:00 | 2008 | 1007 | Cash   | COD          |          0 | NULL             |
+| 6605 |  1900.1 | 1996-10-03 12:05:00 | NULL | 1004 | Online | PhonePe      |          0 | NULL             |
+| 6606 | 5160.45 | 1996-10-03 14:00:00 | NULL | 1002 | Online | Paytm        |          0 | NULL             |
+| 6607 | 1098.16 | 1996-11-03 13:37:00 | NULL | 1007 | Cash   | COD          |          0 | NULL             |
+| 6608 | 1713.23 | 1996-11-04 15:21:00 | NULL | 1003 | Online | GPay         |          0 | NULL             |
++------+---------+---------------------+------+------+--------+--------------+------------+------------------+
+61 rows in set (0.00 sec)
+
+mysql> select * from onlineorders;
++---------+------------+------------+-------------+----------+------------+--------+
+| orderID | customerID | product    | category    | quantity | orderDate  | amount |
++---------+------------+------------+-------------+----------+------------+--------+
+|    1001 | C001       | Laptop     | Electronics |        1 | 2025-07-01 |  83000 |
+|    1002 | C002       | Smartphone | Electronics |        2 | 2025-07-02 |  47000 |
+|    1003 | C003       | Headphones | Electronics |        1 | 2025-07-02 |   2500 |
+|    1004 | C004       | T-shirt    | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers   | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book       | Books       |        2 | 2025-07-04 |    800 |
+|    1007 | C001       | Power Bank | Electronics |        1 | 2025-07-04 |   1700 |
++---------+------------+------------+-------------+----------+------------+--------+
+7 rows in set (0.02 sec)
+
+mysql> select * from fromstoreoreders;
+ERROR 1146 (42S02): Table 'test.fromstoreoreders' doesn't exist
+mysql> select * from storeoreders;
+ERROR 1146 (42S02): Table 'test.storeoreders' doesn't exist
+mysql> select * from storeorders;
+ERROR 1146 (42S02): Table 'test.storeorders' doesn't exist
+mysql> select * from fromstoreorders;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 |
++---------+------------+--------------+-------------+----------+------------+--------+
+9 rows in set (0.01 sec)
+
+mysql> select * from onlineorders;
++---------+------------+------------+-------------+----------+------------+--------+
+| orderID | customerID | product    | category    | quantity | orderDate  | amount |
++---------+------------+------------+-------------+----------+------------+--------+
+|    1001 | C001       | Laptop     | Electronics |        1 | 2025-07-01 |  83000 |
+|    1002 | C002       | Smartphone | Electronics |        2 | 2025-07-02 |  47000 |
+|    1003 | C003       | Headphones | Electronics |        1 | 2025-07-02 |   2500 |
+|    1004 | C004       | T-shirt    | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers   | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book       | Books       |        2 | 2025-07-04 |    800 |
+|    1007 | C001       | Power Bank | Electronics |        1 | 2025-07-04 |   1700 |
++---------+------------+------------+-------------+----------+------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select (* from onlineorders  select * from fromstoreorders);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from onlineorders  select * from fromstoreorders)' at line 1
+mysql> select (* from onlineorders  select * from fromstoreorders) as a;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from onlineorders  select * from fromstoreorders)as a' at line 1
+mysql> select * from onlineorders union select * from fromstoreorders ;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 |
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 |
++---------+------------+--------------+-------------+----------+------------+--------+
+16 rows in set (0.00 sec)
+
+mysql> select * from onlineorders union select * from fromstoreorders order by customerID;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
++---------+------------+--------------+-------------+----------+------------+--------+
+16 rows in set (0.00 sec)
+
+mysql> select * from onlineorders union select * from fromstoreorders group by customerID ;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 |
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
++---------+------------+--------------+-------------+----------+------------+--------+
+15 rows in set (0.00 sec)
+
+mysql> select * from onlineorders union select * from fromstoreorders group by customerID order by customerID ;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
++---------+------------+--------------+-------------+----------+------------+--------+
+15 rows in set (0.00 sec)
+
+mysql> select * from onlineorders union select * from fromstoreorders group by customerID order by category\ ;
+ERROR:
+Unknown command '\ '.
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\' at line 1
+mysql> select * from onlineorders union select * from fromstoreorders group by customerID order by category ;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 |
++---------+------------+--------------+-------------+----------+------------+--------+
+15 rows in set (0.00 sec)
+
+mysql> select * from onlineorders union select * from fromstoreorders group by customerID order by category desc;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 |
++---------+------------+--------------+-------------+----------+------------+--------+
+15 rows in set (0.00 sec)
+
+mysql> select * from onlineorders union select * from fromstoreorders group by category order by customerID;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 |
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
++---------+------------+--------------+-------------+----------+------------+--------+
+11 rows in set (0.00 sec)
+
+mysql> select * from onlineorders union select * from fromstoreorders group by category order by customerID 1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1' at line 1
+mysql> select * from onlineorders union select * from fromstoreorders group by category order by customerID;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
++---------+------------+--------------+-------------+----------+------------+--------+
+11 rows in set (0.00 sec)
+
+mysql> select * from onlineorders except select * from fromstoreorders group by category order by customerID;
++---------+------------+------------+-------------+----------+------------+--------+
+| orderID | customerID | product    | category    | quantity | orderDate  | amount |
++---------+------------+------------+-------------+----------+------------+--------+
+|    1007 | C001       | Power Bank | Electronics |        1 | 2025-07-04 |   1700 |
+|    1001 | C001       | Laptop     | Electronics |        1 | 2025-07-01 |  83000 |
+|    1002 | C002       | Smartphone | Electronics |        2 | 2025-07-02 |  47000 |
+|    1003 | C003       | Headphones | Electronics |        1 | 2025-07-02 |   2500 |
+|    1004 | C004       | T-shirt    | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers   | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book       | Books       |        2 | 2025-07-04 |    800 |
++---------+------------+------------+-------------+----------+------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from fromstoreorders  except select * from onlineorders group by category order by customerID;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
++---------+------------+--------------+-------------+----------+------------+--------+
+9 rows in set (0.00 sec)
+
+mysql> select * from fromstoreorders  except select * from onlineorders  where product = 'laptop' group by category order by customerID;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
++---------+------------+--------------+-------------+----------+------------+--------+
+9 rows in set (0.00 sec)
+
+mysql> select * from fromstoreorders union select * from onlineorders  where product = 'laptop' group by category order by customerID;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
++---------+------------+--------------+-------------+----------+------------+--------+
+10 rows in set (0.00 sec)
+
+mysql> select * from fromstoreorders union select * from onlineorders  where product = 'laptop';
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 |
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
++---------+------------+--------------+-------------+----------+------------+--------+
+10 rows in set (0.00 sec)
+
+mysql> select procuct from fromstoreorders union select product from onlineorders  where product = 'laptop';
+ERROR 1054 (42S22): Unknown column 'procuct' in 'field list'
+mysql> select procuct from fromstoreorders union select product from onlineorders  where product = 'laptop';
+ERROR 1054 (42S22): Unknown column 'procuct' in 'field list'
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select * from onlineorders union select * from fromstoreorders , case when orderID like "2%" then 'purchased online' else 'purchased offline' group by category order by customerID;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'case when orderID like "2%" then 'purchased online'else 'purchased offline' ...' at line 1
+mysql>
+mysql>
+mysql>
+mysql> select *, case when orderID like '2%' then 'purchased online' else 'purchased offline' end as type_order select * from onlineorders union select * from fromstoreorders group by category order by customerID;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select * from onlineorders union select * from fromstoreorders group by categ...' at line 1
+mysql> select *, case when orderID like '2%' then 'purchased online' else 'purchased offline' end as type_order select * from onlineorders union select * from f^Z^Z^Z;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select * from onlineorders union select * from f' at line 1
+mysql>
+mysql>
+mysql>
+mysql> select *, case when orderID like '2%' then 'purchased online' else 'purchased offline' end as type_order select * from onlineorders union select * from fromstoreorders as A;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select * from onlineorders union select * from fromstoreorders as A' at line 1
+mysql> select *, case when orderID like '2%' then 'purchased online' else 'purchased offline' end as type_order from(select * from onlineorders union select * from fromstoreorders) as A;
++---------+------------+--------------+-------------+----------+------------+--------+-------------------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount | type_order        |
++---------+------------+--------------+-------------+----------+------------+--------+-------------------+
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 | purchased offline |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 | purchased offline |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 | purchased offline |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 | purchased offline |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 | purchased offline |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 | purchased offline |
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 | purchased offline |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 | purchased online  |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 | purchased online  |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 | purchased online  |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 | purchased online  |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 | purchased online  |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 | purchased online  |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 | purchased online  |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 | purchased online  |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 | purchased online  |
++---------+------------+--------------+-------------+----------+------------+--------+-------------------+
+16 rows in set (0.00 sec)
+
+mysql> select product = 'laptop' from(select * from onlineorders union select * from fromstoreorders) as A;
++--------------------+
+| product = 'laptop' |
++--------------------+
+|                  1 |
+|                  0 |
+|                  0 |
+|                  0 |
+|                  0 |
+|                  0 |
+|                  0 |
+|                  0 |
+|                  0 |
+|                  0 |
+|                  0 |
+|                  0 |
+|                  1 |
+|                  0 |
+|                  0 |
+|                  0 |
++--------------------+
+16 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> select *,product = 'laptop' from(select * from onlineorders union select * from fromstoreorders) as A;
++---------+------------+--------------+-------------+----------+------------+--------+--------------------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount | product = 'laptop' |
++---------+------------+--------------+-------------+----------+------------+--------+--------------------+
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |                  1 |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 |                  0 |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 |                  0 |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 |                  0 |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 |                  0 |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 |                  0 |
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 |                  0 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |                  0 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |                  0 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |                  0 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |                  0 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |                  0 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |                  1 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |                  0 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |                  0 |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 |                  0 |
++---------+------------+--------------+-------------+----------+------------+--------+--------------------+
+16 rows in set (0.00 sec)
+
+mysql> select customerID,product = 'laptop' from(select * from onlineorders union select * from fromstoreorders) as A;
++------------+--------------------+
+| customerID | product = 'laptop' |
++------------+--------------------+
+| C001       |                  1 |
+| C002       |                  0 |
+| C003       |                  0 |
+| C004       |                  0 |
+| C005       |                  0 |
+| C006       |                  0 |
+| C001       |                  0 |
+| C001       |                  0 |
+| C003       |                  0 |
+| C007       |                  0 |
+| C004       |                  0 |
+| C008       |                  0 |
+| C002       |                  1 |
+| C009       |                  0 |
+| C021       |                  0 |
+| C002       |                  0 |
++------------+--------------------+
+16 rows in set (0.00 sec)
+
+mysql> select customerID,product = 'laptop' from(select * from onlineorders intersection select * from fromstoreorders) as A;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select * from fromstoreorders) as A' at line 1
+mysql> select customerID,product = 'laptop' from(select * from onlineorders union select * from fromstoreorders) as A;
++------------+--------------------+
+| customerID | product = 'laptop' |
++------------+--------------------+
+| C001       |                  1 |
+| C002       |                  0 |
+| C003       |                  0 |
+| C004       |                  0 |
+| C005       |                  0 |
+| C006       |                  0 |
+| C001       |                  0 |
+| C001       |                  0 |
+| C003       |                  0 |
+| C007       |                  0 |
+| C004       |                  0 |
+| C008       |                  0 |
+| C002       |                  1 |
+| C009       |                  0 |
+| C021       |                  0 |
+| C002       |                  0 |
++------------+--------------------+
+16 rows in set (0.00 sec)
+
+mysql> select customerID,product = 'laptop' from(select * from onlineorders union select * from fromstoreorders) as A;select *,product = 'laptop' from(select * from onlineorders union select * from fromstoreorders) as A;select *,product = 'laptop' from(select * from onlineorders union select * from fromstoreorders) as A;
