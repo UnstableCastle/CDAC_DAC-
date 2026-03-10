@@ -1,0 +1,281 @@
+mysql> show tables;
++------------------------+
+| Tables_in_test         |
++------------------------+
+| a                      |
+| activity               |
+| agent                  |
+| airline_seats          |
+| andor                  |
+| atm                    |
+| b                      |
+| bankloan               |
+| batch_schedule         |
+| batch_students         |
+| betweensalary          |
+| bitwise                |
+| blanktablea            |
+| blanktableb            |
+| blog                   |
+| bonus                  |
+| books                  |
+| brands                 |
+| bus_stops              |
+| cafe                   |
+| candidate              |
+| cardpayments           |
+| cars                   |
+| cashpayments           |
+| categories             |
+| category               |
+| city                   |
+| classandsubjects       |
+| client                 |
+| cnumbers               |
+| coalesce               |
+| comments               |
+| company                |
+| countnulls             |
+| countnumbers           |
+| course                 |
+| course_batches         |
+| course_modules         |
+| cricketwinnerteam      |
+| customer               |
+| customers              |
+| demodept1              |
+| demodept2              |
+| dept                   |
+| dept1                  |
+| dhl                    |
+| docs                   |
+| doctor                 |
+| doctorvisits           |
+| dummy                  |
+| duplicate              |
+| emp                    |
+| emp1                   |
+| emp2                   |
+| emp_attendance         |
+| emp_cards              |
+| emp_phone              |
+| empj                   |
+| envelope               |
+| facebook               |
+| faculty                |
+| faculty_address        |
+| faculty_phone          |
+| faculty_qualifications |
+| fedex                  |
+| food                   |
+| food_category_tags     |
+| food_items             |
+| fromstoreorders        |
+| fruits                 |
+| fullname               |
+| hall_ticket            |
+| hobby                  |
+| ipl                    |
+| item                   |
+| job_list               |
+| key_parts              |
+| labtestlist            |
+| leading_zeroes         |
+| leadtable              |
+| licence                |
+| linkedin               |
+| location               |
+| managers               |
+| mass_table             |
+| medicinelist           |
+| menucard               |
+| missingnumbers         |
+| modules                |
+| nearest                |
+| new                    |
+| newbooks               |
+| null1                  |
+| null2                  |
+| nullif                 |
+| numberstring           |
+| onlineorders           |
+| ord                    |
+| order1                 |
+| order_items            |
+| orderdetails           |
+| orders                 |
+| overlapping_dates      |
+| overtime               |
+| patient                |
+| phonecall              |
+| pivot_table            |
+| plumber                |
+| plumber_service_map    |
+| points                 |
+| population             |
+| price                  |
+| product                |
+| product_sales          |
+| products               |
+| pune_metro_stations    |
+| quarterly_revenue      |
+| r                      |
+| r1                     |
+| r2                     |
+| races                  |
+| regexpr                |
+| repeatingnumbers       |
+| replacedept            |
+| reservations           |
+| revenue                |
+| rockets                |
+| room_assigned          |
+| room_staff             |
+| rooms                  |
+| runners                |
+| runningserver          |
+| sales                  |
+| sales1                 |
+| sales_channel          |
+| salespeople            |
+| salesperson            |
+| salgrade               |
+| server                 |
+| service                |
+| seta                   |
+| setb                   |
+| shop                   |
+| softdrink              |
+| sort                   |
+| sourcecity             |
+| sourcenames            |
+| stadium                |
+| stages                 |
+| states                 |
+| station                |
+| status                 |
+| stocks                 |
+| stringnumber           |
+| student                |
+| student_address        |
+| student_cards          |
+| student_order          |
+| student_phone          |
+| student_qualifications |
+| swapcity               |
+| tablea                 |
+| tableaa                |
+| tableb                 |
+| tablebb                |
+| targetcity             |
+| targetnames            |
+| tasks                  |
+| teams                  |
+| temp1                  |
+| trainers               |
+| trains                 |
+| traintimetable         |
+| transactions           |
+| unpivot_table          |
+| ups                    |
+| vote_response          |
+| votes                  |
+| warehouse              |
+| x                      |
+| year_of_service        |
+| yearly_revenue         |
+| years                  |
+| z                      |
++------------------------+
+184 rows in set (0.00 sec)
+
+mysql> select * from onlineorders union select * from fromstoreorders group by category order by customerID;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
++---------+------------+--------------+-------------+----------+------------+--------+
+11 rows in set (0.00 sec)
+
+mysql> select * from onlineorders except select * from fromstoreorders group by category order by customerID;
++---------+------------+------------+-------------+----------+------------+--------+
+| orderID | customerID | product    | category    | quantity | orderDate  | amount |
++---------+------------+------------+-------------+----------+------------+--------+
+|    1007 | C001       | Power Bank | Electronics |        1 | 2025-07-04 |   1700 |
+|    1001 | C001       | Laptop     | Electronics |        1 | 2025-07-01 |  83000 |
+|    1002 | C002       | Smartphone | Electronics |        2 | 2025-07-02 |  47000 |
+|    1003 | C003       | Headphones | Electronics |        1 | 2025-07-02 |   2500 |
+|    1004 | C004       | T-shirt    | Clothing    |        3 | 2025-07-03 |   1200 |
+|    1005 | C005       | Sneakers   | Footwear    |        1 | 2025-07-03 |   3200 |
+|    1006 | C006       | Book       | Books       |        2 | 2025-07-04 |    800 |
++---------+------------+------------+-------------+----------+------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from fromstoreorders  except select * from onlineorders group by category order by customerID;
++---------+------------+--------------+-------------+----------+------------+--------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount |
++---------+------------+--------------+-------------+----------+------------+--------+
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 |
++---------+------------+--------------+-------------+----------+------------+--------+
+9 rows in set (0.00 sec)
+
+
+select *, case when orderID like '2%' then 'purchased online' else 'purchased offline' end as type_order from(select * from onlineorders union select * from fromstoreorders) as A;
++---------+------------+--------------+-------------+----------+------------+--------+-------------------+
+| orderID | customerID | product      | category    | quantity | orderDate  | amount | type_order        |
++---------+------------+--------------+-------------+----------+------------+--------+-------------------+
+|    1001 | C001       | Laptop       | Electronics |        1 | 2025-07-01 |  83000 | purchased offline |
+|    1002 | C002       | Smartphone   | Electronics |        2 | 2025-07-02 |  47000 | purchased offline |
+|    1003 | C003       | Headphones   | Electronics |        1 | 2025-07-02 |   2500 | purchased offline |
+|    1004 | C004       | T-shirt      | Clothing    |        3 | 2025-07-03 |   1200 | purchased offline |
+|    1005 | C005       | Sneakers     | Footwear    |        1 | 2025-07-03 |   3200 | purchased offline |
+|    1006 | C006       | Book         | Books       |        2 | 2025-07-04 |    800 | purchased offline |
+|    1007 | C001       | Power Bank   | Electronics |        1 | 2025-07-04 |   1700 | purchased offline |
+|    2001 | C001       | T-shirt      | Clothing    |        2 | 2025-07-01 |   1200 | purchased online  |
+|    2002 | C003       | Smartphone   | Electronics |        1 | 2025-07-01 |  35000 | purchased online  |
+|    2003 | C007       | Formal Shoes | Footwear    |        1 | 2025-07-02 |   2000 | purchased online  |
+|    2004 | C004       | Jeans        | Clothing    |        1 | 2025-07-03 |   3500 | purchased online  |
+|    2005 | C008       | Book         | Books       |        3 | 2025-07-04 |    700 | purchased online  |
+|    2006 | C002       | Laptop       | Electronics |        1 | 2025-07-04 |  93500 | purchased online  |
+|    2007 | C009       | Power Bank   | Electronics |        1 | 2025-07-05 |   1800 | purchased online  |
+|    2008 | C021       | Mouse        | Electronics |        7 | 2025-07-09 |    350 | purchased online  |
+|    2009 | C002       | Smartphone   | Electronics |        1 | 2025-07-02 |  82000 | purchased online  |
++---------+------------+--------------+-------------+----------+------------+--------+-------------------+
+
+
+
+
+select *,product = 'laptop' from(select * from onlineorders union select * from fromstoreorders) as A;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
