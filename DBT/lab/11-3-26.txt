@@ -1,0 +1,160 @@
+mysql> select ename , emp.empno , emp_cards.empID , name , emp_cards.isActive from emp , emp_cards where emp.empno = emp_cards.empId;
++--------+-------+-------+-----------------+----------+
+| ename  | empno | empID | name            | isActive |
++--------+-------+-------+-----------------+----------+
+| KING   |  7839 |  7839 | Aadhaar         |        1 |
+| KING   |  7839 |  7839 | Driving Licence |        1 |
+| KING   |  7839 |  7839 | PAN             |        1 |
+| KING   |  7839 |  7839 | Voter ID        |        1 |
+| KING   |  7839 |  7839 | Passport        |        1 |
+| KING   |  7839 |  7839 | Debit           |        1 |
+| KING   |  7839 |  7839 | Credit          |        1 |
+| BLAKE  |  7698 |  7698 | Aadhaar         |        1 |
+| BLAKE  |  7698 |  7698 | Driving Licence |        0 |
+| BLAKE  |  7698 |  7698 | PAN             |        1 |
+| BLAKE  |  7698 |  7698 | Voter ID        |        1 |
+| BLAKE  |  7698 |  7698 | Debit           |        1 |
+| CLARK  |  7782 |  7782 | Aadhaar         |        1 |
+| CLARK  |  7782 |  7782 | Driving Licence |        1 |
+| CLARK  |  7782 |  7782 | PAN             |        1 |
+| CLARK  |  7782 |  7782 | Passport        |        1 |
+| CLARK  |  7782 |  7782 | Debit           |        1 |
+| JONES  |  7566 |  7566 | Aadhaar         |        1 |
+| JONES  |  7566 |  7566 | Driving Licence |        1 |
+| JONES  |  7566 |  7566 | PAN             |        1 |
+| JONES  |  7566 |  7566 | Passport        |        1 |
+| JONES  |  7566 |  7566 | Debit           |        1 |
+| JONES  |  7566 |  7566 | Credit          |        1 |
+| MARTIN |  7654 |  7654 | Aadhaar         |        1 |
+| MARTIN |  7654 |  7654 | Driving Licence |        0 |
+| MARTIN |  7654 |  7654 | PAN             |        1 |
+| MARTIN |  7654 |  7654 | Voter ID        |        1 |
+| MARTIN |  7654 |  7654 | Passport        |        1 |
+| MARTIN |  7654 |  7654 | Debit           |        1 |
+| MARTIN |  7654 |  7654 | Credit          |        1 |
+| ALLEN  |  7499 |  7499 | PAN             |        1 |
+| ALLEN  |  7499 |  7499 | Driving Licence |        1 |
+| TURNER |  7844 |  7844 | Aadhaar         |        1 |
+| TURNER |  7844 |  7844 | Driving Licence |        1 |
+| JAMES  |  7900 |  7900 | Aadhaar         |        1 |
+| JAMES  |  7900 |  7900 | Driving Licence |        1 |
+| JAMES  |  7900 |  7900 | PAN             |        1 |
+| JAMES  |  7900 |  7900 | Voter ID        |        1 |
+| WARD   |  7521 |  7521 | Driving Licence |        0 |
+| WARD   |  7521 |  7521 | PAN             |        1 |
+| WARD   |  7521 |  7521 | Debit           |        1 |
+| WARD   |  7521 |  7521 | Credit          |        1 |
+| FORD   |  7902 |  7902 | Aadhaar         |        1 |
+| FORD   |  7902 |  7902 | PAN             |        1 |
+| FORD   |  7902 |  7902 | Passport        |        1 |
+| FORD   |  7902 |  7902 | Voter ID        |        1 |
+| SMITH  |  7369 |  7369 | Aadhaar         |        1 |
+| SCOTT  |  7788 |  7788 | Aadhaar         |        1 |
+| SCOTT  |  7788 |  7788 | Driving Licence |        1 |
+| SCOTT  |  7788 |  7788 | PAN             |        1 |
+| ADAMS  |  7876 |  7876 | Aadhaar         |        1 |
+| ADAMS  |  7876 |  7876 | Driving Licence |        1 |
+| ADAMS  |  7876 |  7876 | PAN             |        1 |
+| ADAMS  |  7876 |  7876 | Voter ID        |        1 |
++--------+-------+-------+-----------------+----------+
+54 rows in set (0.00 sec)
+
+mysql> select * from trains inner join reservations using(trainID);
++---------+--------------+--------+-------------+---------------+---------------+-----------+
+| trainID | trainName    | source | destination | reservationID | passengerName | status    |
++---------+--------------+--------+-------------+---------------+---------------+-----------+
+|       1 | Rajdhani     | Delhi  | Mumbai      |           201 | Saleel        | Confirmed |
+|       5 | Deccan Queen | Pune   | Mumbai      |           204 | Ruhan         | Confirmed |
+|       5 | Deccan Queen | Pune   | Mumbai      |           205 | Nitish        | Confirmed |
+|       1 | Rajdhani     | Delhi  | Mumbai      |           207 | Boy           | Cancelled |
++---------+--------------+--------+-------------+---------------+---------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from trains inner join reservations on trains.trainID = reservations.trainID;
++---------+--------------+--------+-------------+---------------+---------+---------------+-----------+
+| trainID | trainName    | source | destination | reservationID | trainID | passengerName | status    |
++---------+--------------+--------+-------------+---------------+---------+---------------+-----------+
+|       1 | Rajdhani     | Delhi  | Mumbai      |           201 |       1 | Saleel        | Confirmed |
+|       5 | Deccan Queen | Pune   | Mumbai      |           204 |       5 | Ruhan         | Confirmed |
+|       5 | Deccan Queen | Pune   | Mumbai      |           205 |       5 | Nitish        | Confirmed |
+|       1 | Rajdhani     | Delhi  | Mumbai      |           207 |       1 | Boy           | Cancelled |
++---------+--------------+--------+-------------+---------------+---------+---------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp join dept on emp.deptno = dept.deptno and emp.pwd= dept.pwd;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+--------+------------+----------+------------+------------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive | DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+--------+------------+----------+------------+------------+
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+--------+------------+----------+------------+------------+
+26 rows in set (0.01 sec)
+
+
+mysql> SELECT * FROM R1 LEFT JOIN R2 USING(C1) UNION SELECT * FROM R1 RIGHT JOIN R2 USING(C1);
++------+------+
+| C1   | C2   |
++------+------+
+|    1 | A    |
+|    2 | B    |
+|    3 | C    |
+|    4 | D    |
+|    5 |      |
++------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM R1 LEFT JOIN R2 USING(C1);
++------+------+
+| C1   | C2   |
++------+------+
+|    1 | A    |
+|    2 | B    |
+|    3 | C    |
+|    4 | D    |
+|    1 | A    |
+|    2 | B    |
+|    3 | C    |
+|    4 | D    |
++------+------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT * FROM R1 LEFT JOIN R2 USING(C1) UNION SELECT * FROM R1 RIGHT JOIN R2 USING(C1);
++------+------+
+| C1   | C2   |
++------+------+
+|    1 | A    |
+|    2 | B    |
+|    3 | C    |
+|    4 | D    |
+|    5 |      |
++------+------+
+5 rows in set (0.00 sec)
+
+
+
+
+

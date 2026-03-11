@@ -1,0 +1,287 @@
+mysql> select 1;
++---+
+| 1 |
++---+
+| 1 |
++---+
+1 row in set (0.00 sec)
+
+mysql> select 1 union select 1+1;
++---+
+| 1 |
++---+
+| 1 |
+| 2 |
++---+
+2 rows in set (0.01 sec)
+
+mysql> select ename , sal , sal+1000 R1 from test.emp;
++----------+------+------+
+| ename    | sal  | R1   |
++----------+------+------+
+| GITA     | 1750 | 2750 |
+| VRUSHALI | 1750 | 2750 |
+| SHARMIN  | 1750 | 2750 |
+| BANDISH  | 1750 | 2750 |
+| SMITH    |  800 | 1800 |
+| AARAV    | 3350 | 4350 |
+| THOMAS   | 1750 | 2750 |
+| ALLEN    | 1600 | 2600 |
+| WARD     | 1250 | 2250 |
+| JONES    | 2975 | 3975 |
+| MARTIN   | 1250 | 2250 |
+| BLAKE    | 2850 | 3850 |
+| CLARK    | 2450 | 3450 |
+| SCOTT    | 3000 | 4000 |
+| KING     | 5000 | 6000 |
+| FRED     | 5000 | 6000 |
+| TURNER   | 1500 | 2500 |
+| ADAMS    | 1100 | 2100 |
+| Ruhan    | 2000 | 3000 |
+| Neel     | 1000 | 2000 |
+| JAMES    |  950 | 1950 |
+| FORD     | 3000 | 4000 |
+| HOFFMAN  | 4150 | 5150 |
+| GRASS    | 2575 | 3575 |
+| MILLER   | 1300 | 2300 |
+| AARUSH   | 1350 | 2350 |
+| ALEX     | 1250 | 2250 |
+| NATASHA  | 1750 | 2750 |
+| SANGITA  | 1750 | 2750 |
+| SUPRIYA  | 1750 | 2750 |
++----------+------+------+
+30 rows in set (0.04 sec)
+
+Database changed
+mysql> select ename , sal , sal+1000 R1 from emp where sal+1000 > 3000;
++---------+------+------+
+| ename   | sal  | R1   |
++---------+------+------+
+| AARAV   | 3350 | 4350 |
+| JONES   | 2975 | 3975 |
+| BLAKE   | 2850 | 3850 |
+| CLARK   | 2450 | 3450 |
+| SCOTT   | 3000 | 4000 |
+| KING    | 5000 | 6000 |
+| FRED    | 5000 | 6000 |
+| FORD    | 3000 | 4000 |
+| HOFFMAN | 4150 | 5150 |
+| GRASS   | 2575 | 3575 |
++---------+------+------+
+10 rows in set (0.00 sec)
+
+mysql> with x as (select * from dept ) select deptno,dname from x;
++--------+------------+
+| DEPTNO | DNAME      |
++--------+------------+
+|     10 | ACCOUNTING |
+|     20 | RESEARCH   |
+|     30 | SALES      |
+|     40 | OPERATIONS |
+|     50 | HR         |
+|     60 | IT         |
++--------+------------+
+6 rows in set (0.00 sec)
+
+
+mysql> with x as (select  ename , sal, sal+1000 from emp ) select * from x;
++----------+------+----------+
+| ename    | sal  | sal+1000 |
++----------+------+----------+
+| GITA     | 1750 |     2750 |
+| VRUSHALI | 1750 |     2750 |
+| SHARMIN  | 1750 |     2750 |
+| BANDISH  | 1750 |     2750 |
+| SMITH    |  800 |     1800 |
+| AARAV    | 3350 |     4350 |
+| THOMAS   | 1750 |     2750 |
+| ALLEN    | 1600 |     2600 |
+| WARD     | 1250 |     2250 |
+| JONES    | 2975 |     3975 |
+| MARTIN   | 1250 |     2250 |
+| BLAKE    | 2850 |     3850 |
+| CLARK    | 2450 |     3450 |
+| SCOTT    | 3000 |     4000 |
+| KING     | 5000 |     6000 |
+| FRED     | 5000 |     6000 |
+| TURNER   | 1500 |     2500 |
+| ADAMS    | 1100 |     2100 |
+| Ruhan    | 2000 |     3000 |
+| Neel     | 1000 |     2000 |
+| JAMES    |  950 |     1950 |
+| FORD     | 3000 |     4000 |
+| HOFFMAN  | 4150 |     5150 |
+| GRASS    | 2575 |     3575 |
+| MILLER   | 1300 |     2300 |
+| AARUSH   | 1350 |     2350 |
+| ALEX     | 1250 |     2250 |
+| NATASHA  | 1750 |     2750 |
+| SANGITA  | 1750 |     2750 |
+| SUPRIYA  | 1750 |     2750 |
++----------+------+----------+
+30 rows in set (0.00 sec)
+
+mysql> with x as (select dense_rank() over (order by sal desc) R1,ename,sal from emp) select * from x where r1 =2;
++----+---------+------+
+| R1 | ename   | sal  |
++----+---------+------+
+|  2 | HOFFMAN | 4150 |
++----+---------+------+
+1 row in set (0.00 sec)
+
+mysql> with x as (select dense_rank() over (order by sal desc) R1,ename,sal from emp) select * from x where r1 =12;
++----+--------+------+
+| R1 | ename  | sal  |
++----+--------+------+
+| 12 | TURNER | 1500 |
++----+--------+------+
+1 row in set (0.00 sec)
+
+
+select row_number() over() R1 , ename , job , hiredate, sal from emp;
++----+----------+---------------------+------------+------+
+| R1 | ename    | job                 | hiredate   | sal  |
++----+----------+---------------------+------------+------+
+|  1 | ALLEN    | SALESMAN            | 1981-02-20 | 1600 |
+|  2 | FORD     | ANALYST             | 1981-12-03 | 3000 |
+|  3 | CLARK    | MANAGER             | 1981-06-09 | 2450 |
+|  4 | BANDISH  | Public Relation     | 1981-07-19 | 1750 |
+|  5 | ALEX     | MANAGER             | 1982-01-24 | 1250 |
+|  6 | ADAMS    | CLERK               | 1983-01-12 | 1100 |
+|  7 | WARD     | SALESMAN            | 1981-02-22 | 1250 |
+|  8 | HOFFMAN  | MANAGER             | 1982-03-24 | 4150 |
+|  9 | SCOTT    | ANALYST             | 1982-12-09 | 3000 |
+| 10 | SMITH    | CLERK               | 1980-12-17 |  800 |
+| 11 | NATASHA  | CLERK               | 1981-07-19 | 1750 |
+| 12 | Ruhan    | Network             | 1983-08-09 | 2000 |
+| 13 | JONES    | MANAGER             | 1981-04-02 | 2975 |
+| 14 | GITA     | Compliance officers | 1981-07-19 | 1750 |
+| 15 | GRASS    | SALESMAN            | 1980-02-14 | 2575 |
+| 16 | KING     | PRESIDENT           | 1981-11-17 | 5000 |
+| 17 | AARAV    | CLERK               | 1981-12-31 | 3350 |
+| 18 | SANGITA  | Compliance officers | 1981-07-19 | 1750 |
+| 19 | Neel     | vice PRESIDENT      | 1983-08-09 | 1000 |
+| 20 | MARTIN   | SALESMAN            | 1981-09-28 | 1250 |
+| 21 | VRUSHALI | Compliance officers | 1981-07-19 | 1750 |
+| 22 | MILLER   | CLERK               | 1982-01-23 | 1300 |
+| 23 | FRED     | vice PRESIDENT      | 1983-08-09 | 5000 |
+| 24 | THOMAS   | CLERK               | 1981-07-19 | 1750 |
+| 25 | SUPRIYA  | ANALYST             | 1981-07-19 | 1750 |
+| 26 | JAMES    | CLERK               | 1981-12-03 |  950 |
+| 27 | BLAKE    | MANAGER             | 1981-05-01 | 2850 |
+| 28 | SHARMIN  | Public Relation     | 1981-07-19 | 1750 |
+| 29 | AARUSH   | SALESMAN            | 1980-02-14 | 1350 |
+| 30 | TURNER   | SALESMAN            | 1981-09-08 | 1500 |
++----+----------+---------------------+------------+------+
+30 rows in set (0.00 sec)
+
+
+mysql> with cte as (select row_number() over() r1, ename, job,hiredate, sal from emp) select * from cte where r1 = 26;
++----+-------+-----------+------------+------+
+| r1 | ename | job       | hiredate   | sal  |
++----+-------+-----------+------------+------+
+| 26 | KING  | PRESIDENT | 1981-11-17 | 5000 |
++----+-------+-----------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> with cte as (select row_number() over() r1, row_number() over() mod 5 r2, ename , job hiredate , sal from emp) select * from cte where r2 = 0;
++----+------+---------+-----------------+------+
+| r1 | r2   | ename   | hiredate        | sal  |
++----+------+---------+-----------------+------+
+|  5 |    0 | MILLER  | CLERK           | 1300 |
+| 10 |    0 | FORD    | ANALYST         | 3000 |
+| 15 |    0 | Ruhan   | Network         | 2000 |
+| 20 |    0 | FRED    | vice PRESIDENT  | 5000 |
+| 25 |    0 | CLARK   | MANAGER         | 2450 |
+| 30 |    0 | SHARMIN | Public Relation | 1750 |
++----+------+---------+-----------------+------+
+6 rows in set (0.00 sec)
+
+mysql> with cte as (select row_number() over() r1, row_number() over() mod 5 r2, ename , job hiredate , sal from emp) select * from cte where r2 = 0 order by rand() desc limit 1;
++----+------+----------+---------------------+------+
+| r1 | r2   | ename    | hiredate            | sal  |
++----+------+----------+---------------------+------+
+| 15 |    0 | VRUSHALI | Compliance officers | 1750 |
++----+------+----------+---------------------+------+
+1 row in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select * from cte;
++------+
+| n    |
++------+
+|    1 |
+|    2 |
+|    3 |
+|    4 |
+|    5 |
+|    6 |
+|    7 |
+|    8 |
+|    9 |
+|   10 |
++------+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select rand() from cte;
++---------------------+
+| rand()              |
++---------------------+
+|  0.8464119553998224 |
+| 0.15065075471126546 |
+|   0.214017938090505 |
+|  0.6181374570523738 |
+|  0.4486335017239987 |
+|  0.3887551681965172 |
+|  0.5978753665442349 |
+|   0.823111358865268 |
+|  0.3219307254272799 |
+| 0.14031958127424082 |
++---------------------+
+10 rows in set (0.00 sec)
+
+
+mysql> with recursive cte as (select 10 n union select n - 1 from cte where n > 1) select rand() from cte;
++---------------------+
+| rand()              |
++---------------------+
+|  0.9444233644236096 |
+| 0.11704713023924002 |
+|  0.7519655886590161 |
+|  0.4086865833110051 |
+|  0.7875361813116224 |
+|  0.7116211873587418 |
+|  0.1954974235924868 |
+|  0.8426235866198536 |
+|  0.6266256930554525 |
+|  0.6052577361513467 |
++---------------------+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 10 n union select n - 1 from cte where n > 1) select * from cte;
++------+
+| n    |
++------+
+|   10 |
+|    9 |
+|    8 |
+|    7 |
+|    6 |
+|    5 |
+|    4 |
+|    3 |
+|    2 |
+|    1 |
++------+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 5 n union select n - 1 from cte where n > 1) select * from cte;
++------+
+| n    |
++------+
+|    5 |
+|    4 |
+|    3 |
+|    2 |
+|    1 |
++------+
+5 rows in set (0.00 sec)
