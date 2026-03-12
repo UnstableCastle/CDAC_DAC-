@@ -1,0 +1,91 @@
+mysql> desc null1;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | YES  |     | NULL    |       |
+| productName | varchar(10) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+2 rows in set (0.06 sec)
+
+mysql> desc null1;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | YES  |     | NULL    |       |
+| productName | varchar(10) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+2 rows in set (0.06 sec)
+
+
+mysql> SELECT * FROM null1 JOIN null2 ON null1.id = null2.id OR (null1.id IS NULL AND null2.id IS NULL);
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+|    1 | Bread       |    1 |    45 |
+|    2 | Cheese      |    2 |   175 |
+|    3 | Butter      |    3 |   125 |
+| NULL | Jam         | NULL |   120 |
+| NULL | Jam         | NULL |   140 |
++------+-------------+------+-------+
+5 rows in set (0.07 sec)
+
+mysql> select job , group_concat(ename) r1 from emp group by job;
++---------------------+-----------------------------------------------+
+| job                 | r1                                            |
++---------------------+-----------------------------------------------+
+| ANALYST             | SUPRIYA,FORD,SCOTT                            |
+| CLERK               | MILLER,SMITH,AARAV,NATASHA,JAMES,ADAMS,THOMAS |
+| Compliance officers | SANGITA,GITA,VRUSHALI                         |
+| MANAGER             | CLARK,ALEX,JONES,BLAKE,HOFFMAN                |
+| Network             | Ruhan                                         |
+| PRESIDENT           | KING                                          |
+| Public Relation     | SHARMIN,BANDISH                               |
+| SALESMAN            | AARUSH,GRASS,ALLEN,WARD,TURNER,MARTIN         |
+| vice PRESIDENT      | Neel,FRED                                     |
++---------------------+-----------------------------------------------+
+9 rows in set (0.02 sec)
+
+mysql> select job , group_concat(deptno) r1 from emp group by job;
++---------------------+----------------------+
+| job                 | r1                   |
++---------------------+----------------------+
+| ANALYST             | 50,20,20             |
+| CLERK               | 10,20,10,30,30,20,10 |
+| Compliance officers | 50,30,50             |
+| MANAGER             | 10,30,20,30,30       |
+| Network             | 60                   |
+| PRESIDENT           | 10                   |
+| Public Relation     | 20,20                |
+| SALESMAN            | 30,30,30,30,30,30    |
+| vice PRESIDENT      | 60,20                |
++---------------------+----------------------+
+9 rows in set (0.00 sec)
+
+mysql> select job , group_concat('----->',ename) r1 from emp group by job;
++---------------------+-----------------------------------------------------------------------------------------+
+| job                 | r1                                                                                      |
++---------------------+-----------------------------------------------------------------------------------------+
+| ANALYST             | ----->SUPRIYA,----->FORD,----->SCOTT                                                    |
+| CLERK               | ----->MILLER,----->SMITH,----->AARAV,----->NATASHA,----->JAMES,----->ADAMS,----->THOMAS |
+| Compliance officers | ----->SANGITA,----->GITA,----->VRUSHALI                                                 |
+| MANAGER             | ----->CLARK,----->ALEX,----->JONES,----->BLAKE,----->HOFFMAN                            |
+| Network             | ----->Ruhan                                                                             |
+| PRESIDENT           | ----->KING                                                                              |
+| Public Relation     | ----->SHARMIN,----->BANDISH                                                             |
+| SALESMAN            | ----->AARUSH,----->GRASS,----->ALLEN,----->WARD,----->TURNER,----->MARTIN               |
+| vice PRESIDENT      | ----->Neel,----->FRED                                                                   |
++---------------------+-----------------------------------------------------------------------------------------+
+9 rows in set (0.00 sec)
+
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n<10) select group_concat(n) from cte;
++----------------------+
+| group_concat(n)      |
++----------------------+
+| 1,2,3,4,5,6,7,8,9,10 |
++----------------------+
+1 row in set (0.01 sec)
+
+
+
+
