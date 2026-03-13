@@ -11,6 +11,9 @@ class ABC
         }
 
     public:
+~ABC{
+        cout<<"des";
+    }
         static ABC* getInstance();
         static int getref();
 
@@ -40,6 +43,7 @@ int main()
     ABC* ptr = ABC::getInstance();
     ABC* sptr = ABC::getInstance();
     ABC* pptr = ABC::getInstance();
+    ABC* ppptr = ABC::getInstance();
      
     std::cout << ptr << std::endl;
     std::cout << sptr << std::endl;
