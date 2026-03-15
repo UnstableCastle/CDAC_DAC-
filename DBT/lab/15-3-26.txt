@@ -1,0 +1,147 @@
+-- 1. Display all student and with their address from student and student_address tables.
+SELECT s.*, sa.address 
+FROM student s
+JOIN student_address sa ON s.studentID = sa.studentID;
+
+-- 2. Display (namefirst, namelast, emailID, and student_qualification details) from student and student_qualification relations.
+SELECT s.namefirst, s.namelast, s.emailID, sq.* FROM student s
+JOIN student_qualifications sq ON s.studentID = sq.studentID;
+
+-- 3. Display (namefirst, namelast, emailID, college, and university) who have studied in 'Yale University'.
+SELECT s.namefirst, s.namelast, s.emailID, sq.college, sq.university 
+FROM student s
+JOIN student_qualifications sq ON s.studentID = sq.studentID
+WHERE sq.university = 'Yale University';
+
+-- 4. Display all student details his phone details and his qualification details.
+SELECT s.*, sp.phone_number, sq.* FROM student s
+LEFT JOIN student_phone sp ON s.studentID = sp.studentID
+LEFT JOIN student_qualifications sq ON s.studentID = sq.studentID;
+
+-- 5. Display (studentID, namefirst, namelast, name, college, university, and marks) whose name is ‘BE’.
+SELECT s.studentID, s.namefirst, s.namelast, sq.name, sq.college, sq.university, sq.marks 
+FROM student s
+JOIN student_qualifications sq ON s.studentID = sq.studentID
+WHERE sq.name = 'BE';
+
+-- 6. Display the module name and the duration of the module for the batch “Batch1”.
+SELECT m.name, m.duration 
+FROM modules m
+JOIN course_modules cm ON m.moduleID = cm.moduleID
+JOIN course_batches cb ON cm.courseID = cb.courseID
+WHERE cb.name = 'Batch1';
+
+-- 7. Display student information along with his batch details who have joined in “Batch1”.
+SELECT s.*, cb.* FROM student s
+JOIN batch_students bs ON s.studentID = bs.studentID
+JOIN course_batches cb ON bs.batchID = cb.batchID
+WHERE cb.name = 'Batch1';
+
+-- 8. Display module names for “PG-DAC” course.
+SELECT m.name 
+FROM modules m
+JOIN course_modules cm ON m.moduleID = cm.moduleID
+JOIN course c ON cm.courseID = c.courseID
+WHERE c.name = 'PG-DAC';
+
+-- 9. Display namefirst, namelast, and batch name for all students.
+SELECT s.namefirst, s.namelast, cb.name AS batch_name
+FROM student s
+LEFT JOIN batch_students bs ON s.studentID = bs.studentID
+LEFT JOIN course_batches cb ON bs.batchID = cb.batchID;
+
+-- 10. Display (namefirst, namelast, phone number, and emailid) whose student ID is 13.
+SELECT s.namefirst, s.namelast, sp.phone_number, s.emailID 
+FROM student s
+JOIN student_phone sp ON s.studentID = sp.studentID
+WHERE s.studentID = 13;
+
+-- 11. Display (namefirst and count the total number of phones a student is having) for all student.
+SELECT s.namefirst, COUNT(sp.phone_number) AS total_phones
+FROM student s
+LEFT JOIN student_phone sp ON s.studentID = sp.studentID
+GROUP BY s.studentID, s.namefirst;
+
+-- 12. Get student’s (namefirst, namelast, DOB, address, name, college, university, marks, and year).
+SELECT s.namefirst, s.namelast, s.DOB, sa.address, sq.name, sq.college, sq.university, sq.marks, sq.year 
+FROM student s
+LEFT JOIN student_address sa ON s.studentID = sa.studentID
+LEFT JOIN student_qualifications sq ON s.studentID = sq.studentID;
+
+-- 13. Get (namefirst, namelast, emailID, phone number, and address) whose faculty name is ‘ketan’.
+SELECT f.namefirst, f.namelast, f.emailID, fp.phone_number, fa.address 
+FROM faculty f
+LEFT JOIN faculty_phone fp ON f.facultyID = fp.facultyID
+LEFT JOIN faculty_address fa ON f.facultyID = fa.facultyID
+WHERE f.namefirst = 'ketan';
+
+-- 14. Get (course name and batch name) for all courses.
+SELECT c.name AS course_name, cb.name AS batch_name 
+FROM course c
+LEFT JOIN course_batches cb ON c.courseID = cb.courseID;
+
+-- 15. Get all student details who have taken admission in ‘PG-DAC’ course.
+SELECT s.* FROM student s
+JOIN student_order so ON s.studentID = so.studentID
+JOIN course c ON so.courseID = c.courseID
+WHERE c.name = 'PG-DAC';
+
+-- 16. Get all course details which had started on ‘2016-02-01’.
+SELECT c.* FROM course c
+JOIN course_batches cb ON c.courseID = cb.courseID
+WHERE cb.start_date = '2016-02-01';
+
+-- 17. Get all course name and module names which are taught in ‘PG-DAC’ course.
+SELECT c.name AS course_name, m.name AS module_name 
+FROM course c
+JOIN course_modules cm ON c.courseID = cm.courseID
+JOIN modules m ON cm.moduleID = m.moduleID
+WHERE c.name = 'PG-DAC';
+
+-- 18. Display how many modules are taught in each course.
+SELECT c.name, COUNT(cm.moduleID) AS module_count
+FROM course c
+LEFT JOIN course_modules cm ON c.courseID = cm.courseID
+GROUP BY c.courseID, c.name;
+
+-- 19. Display the student detail who are ‘BE’ graduate.
+SELECT s.* FROM student s
+JOIN student_qualifications sq ON s.studentID = sq.studentID
+WHERE sq.name = 'BE';
+
+-- 20. Display all distinct course detail, where module for every course is designed.
+SELECT DISTINCT c.* FROM course c
+JOIN course_modules cm ON c.courseID = cm.courseID;
+
+-- 21. Display studentID who have more than 2 phone numbers.
+SELECT studentID 
+FROM student_phone
+GROUP BY studentID
+HAVING COUNT(phone_number) > 2;
+
+-- 22. Display the courses where ‘JAVA1’ is taught.
+SELECT c.name 
+FROM course c
+JOIN course_modules cm ON c.courseID = cm.courseID
+JOIN modules m ON cm.moduleID = m.moduleID
+WHERE m.name = 'JAVA1';
+
+-- 23. Display all student who have taken admission in 6 months course.
+SELECT s.* FROM student s
+JOIN student_order so ON s.studentID = so.studentID
+JOIN course c ON so.courseID = c.courseID
+WHERE c.duration = 6;
+
+-- 24. Write a query to display the output in the following manner: 'saleel', 'Aadhaar, Driving Licence, PAN...'. Arrange in ascending order of nameFirst.
+SELECT s.namefirst, GROUP_CONCAT(sc.card_name SEPARATOR ', ') AS cards
+FROM student s
+JOIN student_cards sc ON s.studentID = sc.studentID
+GROUP BY s.studentID, s.namefirst
+ORDER BY s.namefirst ASC;
+
+-- 25. Write a query to display the output in the following manner: 'ruhan', 'DBDA, PG-DAC, Pre-DAC'.
+SELECT s.namefirst, GROUP_CONCAT(c.name SEPARATOR ', ') AS courses
+FROM student s
+JOIN student_order so ON s.studentID = so.studentID
+JOIN course c ON so.courseID = c.courseID
+GROUP BY s.studentID, s.namefirst;
