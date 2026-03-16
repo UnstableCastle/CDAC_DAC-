@@ -1,0 +1,462 @@
+mysql> SELECT * FROM dept INTO OUTFILE 'c:/files/abc.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+Query OK, 6 rows affected, 1 warning (0.09 sec)
+
+
+mysql> select * from  v1
+    -> ;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.01 sec)
+
+
+mysql> SELECT s.*, sa.address FROM student s JOIN student_address sa ON s.ID = sa.ID;
++----+-----------+----------+------------+--------------------------+-------------------------------------------------------------------+
+| ID | namefirst | namelast | DOB        | emailID                  | address                                                           |
++----+-----------+----------+------------+--------------------------+-------------------------------------------------------------------+
+|  1 | saleel    | bagde    | 1984-06-12 | saleel.bagde@gmail.com   | 13758 Dogwood, St, Trona, CA, Los Angeles, 93562                  |
+|  2 | omkar     | rokde    | 1969-10-25 | omkar.rakde@gmail.com    | 2263 Ga 17 Hwy N, Millen, GA, Atlanta, 30442                      |
+|  3 | ulka      | joshi    | 1970-10-25 | ulka.joshi@gmail.com     | 409 Berry St, Louisa, KY, San Jose, 41230                         |
+|  4 | rahul     | patil    | 1982-10-31 | rahul.patil@gmail.com    | 7720 Covington Rd, Pink Stand, TN, San Francisco, 37188           |
+|  5 | ruhan     | bagde    | 1984-01-12 | ruhan.bagde@gmail.com    | 15 Hempstead, St, Saugus, MA, Las Vega, 1906                      |
+|  6 | lala      | prasad   | 1980-12-01 | lala.prasad@gmail.com    | 165 Village Dr., P.O. Box 3700, Oakland, TN, Oakland, 38060       |
+|  7 | sharmin   | bagde    | 1986-12-14 | sharmin.bagde@gmail.com  | Po Box 83, Faith, NC, New Jersey, 28041                           |
+|  8 | vrushali  | bagde    | 1984-12-29 | vrushali.bagde@gmail.com | 3402 Buccaneer Rose Ave, Bakersfield, CA, Boston, 93313           |
+|  9 | vasant    | khande   | 1992-10-26 | vasant.khande@gmail.com  | Po Box 77, Linking Road, UK                                       |
+| 10 | nitish    | patil    | 1990-10-26 | nitish.patil@gmail.com   | 7710 Covington Rd , New State Road, New York, 37188               |
+| 11 | neel      | save     | 1975-10-30 | neel.save@gmail.com      | 15 Hempstead St, Saugus, MA, Boston, 1906                         |
+| 12 | deep      | save     | 1986-11-30 | deep.save@gmail.com      | 165 Ken city, P.O. Box 942873, 50 Higuera Street, Oakland, 38060  |
+| 13 | nrupali   | save     | 1981-12-01 | nrupali.save@gmail.com   | Po Box 83, Faith, NC, null, New York, 28041                       |
+| 14 | supriya   | karnik   | 1983-12-15 | supriya.karnik@gmail.com | 808 Rocky Hill Rd, Plymouth 1993 Cross lane, Boston, 32360        |
+| 15 | bandish   | karnik   | 1987-12-30 | bandish.karnik@gmail.com | 118 Lippitt Ave Warwick, 100 S. Main Street, Los Angeles, 12889   |
+| 16 | sangita   | karnik   | 1990-12-01 | sangita.karnik@gmail.com | 5973 Moon Shadow Dr. Herriman, null, Atlanta, 2345                |
+| 17 | sangita   | menon    | 1989-10-26 | sangita.menon@gmaicl.com  | 13758 Dogwood St, Trona, null, San Jose, 93562                    |
+| 18 | rahul     | shah     | 1982-06-12 | rahul.shah@gmail.com     | 2263 Ga 17 Hwy N, Millen, null, Las Vega, 30442                   |
+| 19 | bhavin    | patel    | 1983-11-13 | bhavin.patel@gmail.com   | 321/vimal park, karve road, pune, 411038                          |
+| 20 | kaushal   | patil    | 1982-07-30 | kaushal.patil@gmail.com  | Prashant Society, Kothrud, pune, 411038                           |
+| 21 | pankaj    | gandhi   | 1982-07-30 | pankaj.gandhi@gmail.com  | 8 vaibhav, Ishadan soc, paud road, Pune                           |
+| 22 | rajan     | patel    | 1982-07-30 | rajan.patel@gmail.com    | 9 vaibhav, Ishadan soc, paud road, Pune                           |
+| 23 | bhavin    | patel    | 1982-07-30 | bhavin.patel@gmail.com   | 10  vaibhav, Ishadan soc, paud road, Pune                         |
+| 24 | mukesh    | bhavsar  | 1982-07-30 | mukesh.bhavsar@gmail.com | 4 vaibhav, Ishadan soc, paud road, Pune                           |
+| 25 | dilu      | khande   | 1982-07-30 | dilu.khande@gmail.com    | 7 vaibhav, Ishadan soc, paud road, Pune                           |
+| 26 | sonam     | khan     | 1972-05-13 | sonam.khan@gmail.com     | 19 Hempstead St, go streat, MG, Boston, 19077                     |
+| 27 | rohit     | patil    | 1976-12-31 | rohit.patil@gmail.com    | 1699 Ken city, P.O. Box 942873, 50 Higuera Street, Oakland, 38060 |
+| 28 | raj       | bubber   | 1982-02-28 | raj.bubber@gmail.com     | Po Box 87, Faith, NC, New York, 28045                             |
++----+-----------+----------+------------+--------------------------+-------------------------------------------------------------------+
+28 rows in set (0.00 sec)
+
+
+=---------------------------
+
+
+mysql> select ename , sal from emp where sal = @x;
++-------+------+
+| ename | sal  |
++-------+------+
+| KING  | 5000 |
+| FRED  | 5000 |
++-------+------+
+2 rows in set (0.00 sec)
+
+mysql>  select ename , empno ,sal,'a' from emp;
++----------+-------+------+---+
+| ename    | empno | sal  | a |
++----------+-------+------+---+
+| GITA     |  6001 | 1750 | a |
+| VRUSHALI |  6129 | 1750 | a |
+| SHARMIN  |  6473 | 1750 | a |
+| BANDISH  |  6781 | 1750 | a |
+| SMITH    |  7369 |  800 | a |
+| AARAV    |  7415 | 3350 | a |
+| THOMAS   |  7421 | 1750 | a |
+| ALLEN    |  7499 | 1600 | a |
+| WARD     |  7521 | 1250 | a |
+| JONES    |  7566 | 2975 | a |
+| MARTIN   |  7654 | 1250 | a |
+| BLAKE    |  7698 | 2850 | a |
+| CLARK    |  7782 | 2450 | a |
+| SCOTT    |  7788 | 3000 | a |
+| KING     |  7839 | 5000 | a |
+| FRED     |  7840 | 5000 | a |
+| TURNER   |  7844 | 1500 | a |
+| ADAMS    |  7876 | 1100 | a |
+| Ruhan    |  7888 | 2000 | a |
+| Neel     |  7889 | 1000 | a |
+| JAMES    |  7900 |  950 | a |
+| FORD     |  7902 | 3000 | a |
+| HOFFMAN  |  7919 | 4150 | a |
+| GRASS    |  7920 | 2575 | a |
+| MILLER   |  7934 | 1300 | a |
+| AARUSH   |  7945 | 1350 | a |
+| ALEX     |  7949 | 1250 | a |
+| NATASHA  |  8433 | 1750 | a |
+| SANGITA  |  9400 | 1750 | a |
+| SUPRIYA  |  9473 | 1750 | a |
++----------+-------+------+---+
+30 rows in set (0.00 sec)
+
+mysql>  select ename , empno ,sal,'a' from emp order by 'a';
++----------+-------+------+---+
+| ename    | empno | sal  | a |
++----------+-------+------+---+
+| GITA     |  6001 | 1750 | a |
+| VRUSHALI |  6129 | 1750 | a |
+| SHARMIN  |  6473 | 1750 | a |
+| BANDISH  |  6781 | 1750 | a |
+| SMITH    |  7369 |  800 | a |
+| AARAV    |  7415 | 3350 | a |
+| THOMAS   |  7421 | 1750 | a |
+| ALLEN    |  7499 | 1600 | a |
+| WARD     |  7521 | 1250 | a |
+| JONES    |  7566 | 2975 | a |
+| MARTIN   |  7654 | 1250 | a |
+| BLAKE    |  7698 | 2850 | a |
+| CLARK    |  7782 | 2450 | a |
+| SCOTT    |  7788 | 3000 | a |
+| KING     |  7839 | 5000 | a |
+| FRED     |  7840 | 5000 | a |
+| TURNER   |  7844 | 1500 | a |
+| ADAMS    |  7876 | 1100 | a |
+| Ruhan    |  7888 | 2000 | a |
+| Neel     |  7889 | 1000 | a |
+| JAMES    |  7900 |  950 | a |
+| FORD     |  7902 | 3000 | a |
+| HOFFMAN  |  7919 | 4150 | a |
+| GRASS    |  7920 | 2575 | a |
+| MILLER   |  7934 | 1300 | a |
+| AARUSH   |  7945 | 1350 | a |
+| ALEX     |  7949 | 1250 | a |
+| NATASHA  |  8433 | 1750 | a |
+| SANGITA  |  9400 | 1750 | a |
+| SUPRIYA  |  9473 | 1750 | a |
++----------+-------+------+---+
+30 rows in set (0.00 sec)
+
+mysql>  select ename , empno ,sal,'a' from emp order by `emp`.`ename`;
++----------+-------+------+---+
+| ename    | empno | sal  | a |
++----------+-------+------+---+
+| AARAV    |  7415 | 3350 | a |
+| AARUSH   |  7945 | 1350 | a |
+| ADAMS    |  7876 | 1100 | a |
+| ALEX     |  7949 | 1250 | a |
+| ALLEN    |  7499 | 1600 | a |
+| BANDISH  |  6781 | 1750 | a |
+| BLAKE    |  7698 | 2850 | a |
+| CLARK    |  7782 | 2450 | a |
+| FORD     |  7902 | 3000 | a |
+| FRED     |  7840 | 5000 | a |
+| GITA     |  6001 | 1750 | a |
+| GRASS    |  7920 | 2575 | a |
+| HOFFMAN  |  7919 | 4150 | a |
+| JAMES    |  7900 |  950 | a |
+| JONES    |  7566 | 2975 | a |
+| KING     |  7839 | 5000 | a |
+| MARTIN   |  7654 | 1250 | a |
+| MILLER   |  7934 | 1300 | a |
+| NATASHA  |  8433 | 1750 | a |
+| Neel     |  7889 | 1000 | a |
+| Ruhan    |  7888 | 2000 | a |
+| SANGITA  |  9400 | 1750 | a |
+| SCOTT    |  7788 | 3000 | a |
+| SHARMIN  |  6473 | 1750 | a |
+| SMITH    |  7369 |  800 | a |
+| SUPRIYA  |  9473 | 1750 | a |
+| THOMAS   |  7421 | 1750 | a |
+| TURNER   |  7844 | 1500 | a |
+| VRUSHALI |  6129 | 1750 | a |
+| WARD     |  7521 | 1250 | a |
++----------+-------+------+---+
+30 rows in set (0.00 sec)
+
+mysql> create view x1 as select * from emp;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from x1
+    -> ;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.00 sec)
+
+mysql> desc x1
+    -> ;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int(11)     | NO   |     | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int(11)     | YES  |     | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int(11)     | YES  |     | NULL    |       |
+| COMM      | int(11)     | YES  |     | NULL    |       |
+| DEPTNO    | int(11)     | NO   |     | NULL    |       |
+| BONUSID   | int(11)     | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.01 sec)
+
+mysql> select ename,deptno,sal from emp where deptno = 10;
++--------+--------+------+
+| ename  | deptno | sal  |
++--------+--------+------+
+| AARAV  |     10 | 3350 |
+| THOMAS |     10 | 1750 |
+| CLARK  |     10 | 2450 |
+| KING   |     10 | 5000 |
+| MILLER |     10 | 1300 |
++--------+--------+------+
+5 rows in set (0.00 sec)
+
+mysql> create view x2 as select ename,deptno,sal from emp where deptno = 10;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from x2
+    -> ;
++--------+--------+------+
+| ename  | deptno | sal  |
++--------+--------+------+
+| AARAV  |     10 | 3350 |
+| THOMAS |     10 | 1750 |
+| CLARK  |     10 | 2450 |
+| KING   |     10 | 5000 |
+| MILLER |     10 | 1300 |
++--------+--------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM x3;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> explain select * from emp;
++------+-------------+-------+------+---------------+------+---------+------+------+-------+
+| id   | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra |
++------+-------------+-------+------+---------------+------+---------+------+------+-------+
+|    1 | SIMPLE      | emp   | ALL  | NULL          | NULL | NULL    | NULL | 30   |       |
++------+-------------+-------+------+---------------+------+---------+------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> explain select ename from emp where deptno = 10 ;
++------+-------------+-------+------+------------------------+------------------------+---------+-------+------+-------+
+| id   | select_type | table | type | possible_keys          | key                    | key_len | ref   | rows | Extra |
++------+-------------+-------+------+------------------------+------------------------+---------+-------+------+-------+
+|    1 | SIMPLE      | emp   | ref  | EMP_FOREIGN_KEY_deptno | EMP_FOREIGN_KEY_deptno | 4       | const | 5    |       |
++------+-------------+-------+------+------------------------+------------------------+---------+-------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> explain select * from emp where deptno = 10 ;
++------+-------------+-------+------+------------------------+------------------------+---------+-------+------+-------+
+| id   | select_type | table | type | possible_keys          | key                    | key_len | ref   | rows | Extra |
++------+-------------+-------+------+------------------------+------------------------+---------+-------+------+-------+
+|    1 | SIMPLE      | emp   | ref  | EMP_FOREIGN_KEY_deptno | EMP_FOREIGN_KEY_deptno | 4       | const | 5    |       |
++------+-------------+-------+------+------------------------+------------------------+---------+-------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> explain select * from emp where JOB = 'MANAGER' ;
++------+-------------+-------+------+---------------+------+---------+------+------+-------------+
+| id   | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra       |
++------+-------------+-------+------+---------------+------+---------+------+------+-------------+
+|    1 | SIMPLE      | emp   | ALL  | NULL          | NULL | NULL    | NULL | 30   | Using where |
++------+-------------+-------+------+---------------+------+---------+------+------+-------------+
+1 row in set (0.00 sec)
+
+mysql> explain select ename,job,sal from emp where JOB = 'MANAGER' ;
++------+-------------+-------+------+---------------+------+---------+------+------+-------------+
+| id   | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra       |
++------+-------------+-------+------+---------------+------+---------+------+------+-------------+
+|    1 | SIMPLE      | emp   | ALL  | NULL          | NULL | NULL    | NULL | 30   | Using where |
++------+-------------+-------+------+---------------+------+---------+------+------+-------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE INDEX idx_job ON emp(job);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> explain select ename,job,sal from emp where JOB = 'MANAGER' ;
++------+-------------+-------+------+---------------+---------+---------+-------+------+-----------------------+
+| id   | select_type | table | type | possible_keys | key     | key_len | ref   | rows | Extra                 |
++------+-------------+-------+------+---------------+---------+---------+-------+------+-----------------------+
+|    1 | SIMPLE      | emp   | ref  | idx_job       | idx_job | 23      | const | 5    | Using index condition |
++------+-------------+-------+------+---------------+---------+---------+-------+------+-----------------------+
+1 row in set (0.00 sec)
+
+mysql> show indexes from emp;
++-------+------------+------------------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table | Non_unique | Key_name               | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++-------+------------+------------------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| emp   |          0 | PRIMARY                |            1 | EMPNO       | A         |          30 |     NULL | NULL   |      | BTREE      |         |               |
+| emp   |          1 | EMP_FOREIGN_KEY_deptno |            1 | DEPTNO      | A         |          10 |     NULL | NULL   |      | BTREE      |         |               |
+| emp   |          1 | EMP_FOREIGN_KEY_mgr    |            1 | MGR         | A         |          30 |     NULL | NULL   | YES  | BTREE      |         |               |
+| emp   |          1 | idx_job                |            1 | JOB         | A         |          30 |     NULL | NULL   | YES  | BTREE      |         |               |
++-------+------------+------------------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> SOURCE C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\P1.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CALL PRO1();
++-------------+
+| HELLO WORLD |
++-------------+
+| HELLO WORLD |
++-------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SOURCE C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\P1.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show indexes from emp;
++-------+------------+------------------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table | Non_unique | Key_name               | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++-------+------------+------------------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| emp   |          0 | PRIMARY                |            1 | EMPNO       | A         |          30 |     NULL | NULL   |      | BTREE      |         |               |
+| emp   |          1 | EMP_FOREIGN_KEY_deptno |            1 | DEPTNO      | A         |          10 |     NULL | NULL   |      | BTREE      |         |               |
+| emp   |          1 | EMP_FOREIGN_KEY_mgr    |            1 | MGR         | A         |          30 |     NULL | NULL   | YES  | BTREE      |         |               |
+| emp   |          1 | idx_job                |            1 | JOB         | A         |          30 |     NULL | NULL   | YES  | BTREE      |         |               |
++-------+------------+------------------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+4 rows in set (0.00 sec)
+
+mysql>
+mysql> CALL PRO1();
++-------------+
+| MESSAGE     |
++-------------+
+| HELLO WORLD |
++-------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SOURCE C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\P2.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CALL PRO2(1,2);
++----------+
+| addition |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SOURCE C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\P3.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SOURCE C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\P3.sql
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CALL PRO3(10,2000);
++-------+-------+--------+
+| empno | ename | deptno |
++-------+-------+--------+
+|  7415 | AARAV |     10 |
+|  7782 | CLARK |     10 |
+|  7839 | KING  |     10 |
++-------+-------+--------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SOURCE C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\P3.sql

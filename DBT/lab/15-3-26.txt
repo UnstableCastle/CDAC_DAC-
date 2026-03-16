@@ -1,11 +1,9 @@
 -- 1. Display all student and with their address from student and student_address tables.
-SELECT s.*, sa.address 
-FROM student s
-JOIN student_address sa ON s.studentID = sa.studentID;
+SELECT s.*, sa.address FROM student s JOIN student_address sa ON s.studentID = sa.studentID;
 
 -- 2. Display (namefirst, namelast, emailID, and student_qualification details) from student and student_qualification relations.
-SELECT s.namefirst, s.namelast, s.emailID, sq.* FROM student s
-JOIN student_qualifications sq ON s.studentID = sq.studentID;
+
+SELECT s.namefirst, s.namelast, s.emailID, sq.* FROM student s JOIN student_qualifications sq ON s.studentID = sq.studentID;
 
 -- 3. Display (namefirst, namelast, emailID, college, and university) who have studied in 'Yale University'.
 SELECT s.namefirst, s.namelast, s.emailID, sq.college, sq.university 
