@@ -459,4 +459,86 @@ mysql> CALL PRO3(10,2000);
 
 Query OK, 0 rows affected (0.01 sec)
 
-mysql> SOURCE C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\P3.sql
+mysql> SOURCE C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\P4.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CALL PRO4();
++------+
+| x    |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
++------+
+| x    |
++------+
+|    2 |
++------+
+1 row in set (0.00 sec)
+
++------+
+| x    |
++------+
+|    3 |
++------+
+1 row in set (0.01 sec)
+
++------+
+| x    |
++------+
+|    4 |
++------+
+1 row in set (0.01 sec)
+
++------+
+| x    |
++------+
+|    5 |
++------+
+1 row in set (0.01 sec)
+
++------+
+| x    |
++------+
+|    6 |
++------+
+1 row in set (0.01 sec)
+
++------+
+| x    |
++------+
+|    7 |
++------+
+1 row in set (0.01 sec)
+
++------+
+| x    |
++------+
+|    8 |
++------+
+1 row in set (0.01 sec)
+
++------+
+| x    |
++------+
+|    9 |
++------+
+1 row in set (0.01 sec)
+
++------+
+| x    |
++------+
+|   10 |
++------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+
+
+
+

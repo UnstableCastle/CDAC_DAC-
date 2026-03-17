@@ -1,0 +1,16 @@
+DROP PROCEDURE IF EXISTS PRO8;
+DELIMITER $
+
+CREATE PROCEDURE PRO8(IN num INT)
+BEGIN
+    -- Define the recursive CTE
+    WITH RECURSIVE cte AS (
+    
+ SELECT 1 AS n UNION ALL SELECT n + 1  FROM cte WHERE n < num
+    )
+    
+    SELECT n FROM cte;
+    
+END $
+
+DELIMITER ;

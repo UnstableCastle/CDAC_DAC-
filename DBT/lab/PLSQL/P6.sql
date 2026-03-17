@@ -16,7 +16,7 @@ BEGIN
     
     SET autocommit = 0;
 
-    START TRANSACTION READ WRITE;
+    START TRANSACTION;
     
         INSERT INTO test1(X1) VALUES(p_val);
         

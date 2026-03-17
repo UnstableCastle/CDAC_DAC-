@@ -1,0 +1,20 @@
+DROP PROCEDURE IF EXISTS PRO7;
+DELIMITER $
+
+CREATE PROCEDURE PRO7(IN y VARCHAR(1000), IN iname VARCHAR(65))
+BEGIN
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+    BEGIN
+        SELECT "NOT FOUND OR SQL ERROR" AS ALERT;
+    END;
+    
+
+    SET @S := CONCAT("SELECT ", y, " FROM ", iname);
+    
+    PREPARE statement FROM @S;
+    EXECUTE statement; 
+    DEALLOCATE PREPARE statement; -- Frees up resources
+    
+END $
+
+DELIMITER ;
