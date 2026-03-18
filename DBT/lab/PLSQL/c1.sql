@@ -1,0 +1,24 @@
+DROP PROCEDURE IF EXISTS PRO9;
+DELIMITER $
+
+CREATE PROCEDURE PRO9(IN X INT , OUT A INT , OUT B INT)
+BEGIN
+    SET A := X * X;
+    SET B := X * X * X;
+END $
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS display;
+DELIMITER $
+
+CREATE PROCEDURE display(num int)
+BEGIN
+    DECLARE s, c INT;
+ 
+    CALL PRO9(num, s, c);
+ 
+    SELECT num AS 'Number' , s AS 'Square', c AS 'Cube';
+    
+END $
+DELIMITER ;

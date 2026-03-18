@@ -1,6 +1,6 @@
 DROP PROCEDURE IF exists PRO2;
 DELIMITER $
-CREATE procedure PRO2(IN X INT ,IN Y INT)
+CREATE procedure PRO2()
 begin
 
 select 'HELLO WORLD';
