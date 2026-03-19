@@ -127,21 +127,15 @@ return bike_rent;
 
 
     int main() {
-    // Car constructor: Car(FuelType, DailyRent, ModelName, Days)
-    // v1: Diesel car (D), base rent 1000, model "Thar", 4 days
+
     Vehicle* v1 = new Car("D", 1000, "Thar", 4);
 
-    // v2: Petrol car (P), base rent 1200, model "Swift", 3 days
     Vehicle* v2 = new Car("P", 1200, "Swift", 3);
 
-    // Bike constructor: Bike(CC, DailyRent, ModelName, Days)
-    // v3: High CC bike (500cc), base rent 300, model "Bullet", 3 days
     Vehicle* v3 = new Bike(500, 300, "Bullet", 3);
 
-    // v4: Standard bike (150cc), base rent 200, model "Pulsar", 3 days
     Vehicle* v4 = new Bike(150, 200, "Pulsar", 3);
 
-    // Display and Calculate
     cout << "\n--- Processing Vehicle 1 ---" << endl;
     v1->ShowSpecs();
     cout << "Total Rent: " << v1->CalRent() << endl;
@@ -158,7 +152,6 @@ return bike_rent;
     v4->ShowSpecs();
     cout << "Total Rent: " << v4->CalRent() << endl;
 
-    // Correct cleanup: each pointer needs its own delete line
     delete v1;
     delete v2;
     delete v3;
@@ -167,32 +160,4 @@ return bike_rent;
     return 0;
 }
 
-
-// Vehicle * v1 = new Car("CAR1","D",4);
-
-// Vehicle * v2 = new Car("CAR2","F",3);
-
-
-// Vehicle * v3 = new Bike("CAR2",255,3);
-
-// Vehicle * v4 = new Bike("CAR2",255,3);
-
-// v1->ShowSpecs();
-// v1->CalRent();
-
-
-// v2->ShowSpecs();
-// v2->CalRent();
-
-// v3->ShowSpecs();
-// v3->CalRent();
-
-
-// v4->ShowSpecs();
-// v4->CalRent();
-
-// delete v1;
-// delete v2;
-// delete v3;
-// delete v4;
 
