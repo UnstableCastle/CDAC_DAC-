@@ -1,0 +1,1718 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 5.5.5-10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use test
+Database changed
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\fun1.sql
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select fun1();
++-----------+
+| fun1()    |
++-----------+
+| hello 123 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\fun_sumsal.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select sumsal(10);
+ERROR 1054 (42S22): Unknown column 'detpno' in 'where clause'
+mysql> select deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     50 |
+|     50 |
+|     50 |
+|     60 |
+|     60 |
++--------+
+30 rows in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\fun_sumsal.sql
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select sumsal(10);
+ERROR 1054 (42S22): Unknown column 'idetpno' in 'where clause'
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\fun_sumsal.sql
+Query OK, 0 rows affected (0.00 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'deterministic
+declare sum int;
+
+select sum(sal) into sum from emp where deptn...' at line 3
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\fun_sumsal.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select sumsal(10);
++------------+
+| sumsal(10) |
++------------+
+|      13850 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select sumsal(30);
++------------+
+| sumsal(30) |
++------------+
+|      22225 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> create table student_new(studentID int , namefirst varchar(20), namelast varchar(20), DOB date , emailID varchar(20));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc student_new;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| studentID | int(11)     | YES  |     | NULL    |       |
+| namefirst | varchar(20) | YES  |     | NULL    |       |
+| namelast  | varchar(20) | YES  |     | NULL    |       |
+| DOB       | date        | YES  |     | NULL    |       |
+| emailID   | varchar(20) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\names.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select names();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '()' at line 1
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\names.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select names();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '()' at line 1
+mysql> call names();
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> select * from student_new;
++-----------+-----------+----------+------+---------+
+| studentID | namefirst | namelast | DOB  | emailID |
++-----------+-----------+----------+------+---------+
+|         1 | NULL      | NULL     | NULL | NULL    |
++-----------+-----------+----------+------+---------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\names.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select names();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '()' at line 1
+mysql> select names();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '()' at line 1
+mysql> select * from student_new;
++-----------+-----------+----------+------+---------+
+| studentID | namefirst | namelast | DOB  | emailID |
++-----------+-----------+----------+------+---------+
+|         1 | NULL      | NULL     | NULL | NULL    |
++-----------+-----------+----------+------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.00 sec)
+       source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\names.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call names();
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> call names();
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> select * from student_new;
++-----------+-----------+----------+------+---------+
+| studentID | namefirst | namelast | DOB  | emailID |
++-----------+-----------+----------+------+---------+
+|         1 | NULL      | NULL     | NULL | NULL    |
+|         2 | NULL      | NULL     | NULL | NULL    |
+|         3 | NULL      | NULL     | NULL | NULL    |
++-----------+-----------+----------+------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * fro login;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'fro login' at line 1
+mysql> select * from login;
++-------+----------+-----------+
+| user  | password | emailID   |
++-------+----------+-----------+
+| abc   | def      | abc@a.com |
+| USER1 | 123      | ABC@A.COM |
+| USER2 | 456      | NULL      |
++-------+----------+-----------+
+3 rows in set (0.01 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+ERROR 1327 (42000): Undeclared variable: emailid
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+ERROR 1327 (42000): Undeclared variable: detais
+mysql> select * fro login;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'fro login' at line 1
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\names.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select checkemail('abc@a.com');
+ERROR 1305 (42000): FUNCTION test.checkemail does not exist
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+ERROR 1327 (42000): Undeclared variable: detais
+mysql> select checkemail('abc@a.com');
+ERROR 1305 (42000): FUNCTION test.checkemail does not exist
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\names.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into student_new(autoNumber(),'abc','abc','1-1-1111','abc@a.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(),'abc','abc','1-1-1111','abc@a.com')' at line 1
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select checkemail('abc@a.com');
++-------------------------+
+| checkemail('abc@a.com') |
++-------------------------+
+| abc@a.com               |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> select checkemail('aaaa@a.com');
++--------------------------+
+| checkemail('aaaa@a.com') |
++--------------------------+
+| employee not exists      |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select checkemail();
+ERROR 1318 (42000): Incorrect number of arguments for FUNCTION test.checkemail; expected 1, got 0
+mysql> select checkemail("");
++---------------------+
+| checkemail("")      |
++---------------------+
+| employee not exists |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select checkemail('aaaa@a.com');
++--------------------------+
+| checkemail('aaaa@a.com') |
++--------------------------+
+| employee not exists      |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select checkemail('abc@a.com');
+ERROR 1054 (42S22): Unknown column 'pass' in 'field list'
+mysql>
+mysql>
+mysql>
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select checkemail('abc@a.com');
+ERROR 1222 (21000): The used SELECT statements have a different number of columns
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select checkemail('abc@a.com');
++-------------------------+
+| checkemail('abc@a.com') |
++-------------------------+
+| abc | def               |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select checkemail('abc@a.com');
++-------------------------+
+| checkemail('abc@a.com') |
++-------------------------+
+| user abc | passworddef  |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select checkemail("");
++---------------------+
+| checkemail("")      |
++---------------------+
+| employee not exists |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select checkemail('abc@a.com');
++---------------------------+
+| checkemail('abc@a.com')   |
++---------------------------+
+| User :abc | Password :def |
++---------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select checkemail('aaaa@a.com');
++--------------------------+
+| checkemail('aaaa@a.com') |
++--------------------------+
+| employee not exists      |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select checkemail('abc@a.com');
++-----------------------------+
+| checkemail('abc@a.com')     |
++-----------------------------+
+| User : abc | Password : def |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from university;
+ERROR 1146 (42S02): Table 'test.university' doesn't exist
+mysql> select * from universities;
+ERROR 1146 (42S02): Table 'test.universities' doesn't exist
+mysql> show tables;
++------------------------+
+| Tables_in_test         |
++------------------------+
+| a                      |
+| accounts               |
+| activity               |
+| agent                  |
+| airline_seats          |
+| andor                  |
+| atm                    |
+| b                      |
+| bankloan               |
+| batch_schedule         |
+| batch_students         |
+| betweensalary          |
+| bitwise                |
+| blanktablea            |
+| blanktableb            |
+| blog                   |
+| bonus                  |
+| books                  |
+| brands                 |
+| bus_stops              |
+| cafe                   |
+| candidate              |
+| cardpayments           |
+| cars                   |
+| cashpayments           |
+| categories             |
+| category               |
+| city                   |
+| classandsubjects       |
+| client                 |
+| cnumbers               |
+| coalesce               |
+| comments               |
+| company                |
+| countnulls             |
+| countnumbers           |
+| course                 |
+| course_batches         |
+| course_modules         |
+| cricketwinnerteam      |
+| customer               |
+| customers              |
+| demodept1              |
+| demodept2              |
+| dept                   |
+| dept1                  |
+| dhl                    |
+| docs                   |
+| doctor                 |
+| doctorvisits           |
+| dummy                  |
+| duplicate              |
+| emp                    |
+| emp1                   |
+| emp2                   |
+| emp_attendance         |
+| emp_cards              |
+| emp_cur                |
+| emp_phone              |
+| empj                   |
+| envelope               |
+| facebook               |
+| faculty                |
+| faculty_address        |
+| faculty_phone          |
+| faculty_qualifications |
+| fedex                  |
+| food                   |
+| food_category_tags     |
+| food_items             |
+| fromstoreorders        |
+| fruits                 |
+| fullname               |
+| hall_ticket            |
+| hobby                  |
+| ipl                    |
+| item                   |
+| job_list               |
+| key_parts              |
+| labtestlist            |
+| leading_zeroes         |
+| leadtable              |
+| licence                |
+| linkedin               |
+| location               |
+| log                    |
+| login                  |
+| managers               |
+| mass_table             |
+| medicinelist           |
+| menucard               |
+| missingnumbers         |
+| modules                |
+| nearest                |
+| new                    |
+| newbooks               |
+| null1                  |
+| null2                  |
+| nullif                 |
+| numberstring           |
+| onlineorders           |
+| ord                    |
+| order1                 |
+| order_items            |
+| orderdetails           |
+| orders                 |
+| overlapping_dates      |
+| overtime               |
+| patient                |
+| phonecall              |
+| pivot_table            |
+| plumber                |
+| plumber_service_map    |
+| points                 |
+| population             |
+| price                  |
+| product                |
+| product_sales          |
+| products               |
+| pune_metro_stations    |
+| quarterly_revenue      |
+| r                      |
+| r1                     |
+| r2                     |
+| races                  |
+| regexpr                |
+| repeatingnumbers       |
+| replacedept            |
+| reservations           |
+| revenue                |
+| rockets                |
+| room_assigned          |
+| room_staff             |
+| rooms                  |
+| runners                |
+| runningserver          |
+| sales                  |
+| sales1                 |
+| sales_channel          |
+| salespeople            |
+| salesperson            |
+| salgrade               |
+| server                 |
+| service                |
+| seta                   |
+| setb                   |
+| shop                   |
+| softdrink              |
+| sort                   |
+| sourcecity             |
+| sourcenames            |
+| stadium                |
+| stages                 |
+| states                 |
+| station                |
+| status                 |
+| stocks                 |
+| stringnumber           |
+| student                |
+| student_address        |
+| student_cards          |
+| student_new            |
+| student_order          |
+| student_phone          |
+| student_qualifications |
+| swapcity               |
+| tablea                 |
+| tableaa                |
+| tableb                 |
+| tablebb                |
+| targetcity             |
+| targetnames            |
+| tasks                  |
+| teams                  |
+| temp1                  |
+| test1                  |
+| trainers               |
+| trains                 |
+| traintimetable         |
+| transactions           |
+| unpivot_table          |
+| ups                    |
+| v1                     |
+| vote_response          |
+| votes                  |
+| warehouse              |
+| x                      |
+| x1                     |
+| x2                     |
+| year_of_service        |
+| yearly_revenue         |
+| years                  |
+| z                      |
++------------------------+
+193 rows in set (0.00 sec)
+
+mysql> select * from student_qualifications;
++----+-----------+--------+---------------+-------------------------+-------+------+
+| ID | studentID | name   | college       | university              | marks | year |
++----+-----------+--------+---------------+-------------------------+-------+------+
+|  1 |         1 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+|  2 |         1 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+|  3 |         1 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+|  4 |         2 | 10     | Alaska        | University of Chicago   | 68    | 2013 |
+|  5 |         2 | 12     | New York      | Yale University         | 56    | 2015 |
+|  6 |         2 | B.Com  | Arkansas      | Yale University         | 64    | 2019 |
+|  7 |         3 | 10     | Arizona       | Yale University         | 75    | 2011 |
+|  8 |         3 | 12     | California    | California University   | 86    | 2013 |
+|  9 |         3 | BE     | Florida       | University of Florida   | 67    | 2017 |
+| 10 |         4 | 10     | Idaho         | Pennsylvania University | 58    | 2010 |
+| 11 |         4 | 12     | New Hampshire | Yale University         | 97    | 2012 |
+| 12 |         4 | M.Com. | Montana       | Columbia University     | 77    | 2016 |
+| 13 |         5 | 10     | Alabama       | Yale University         | 56    | 2008 |
+| 14 |         5 | 12     | Michigan      | University of Michigan  | 57    | 2010 |
+| 15 |         5 | M.Com. | Oklahoma      | Stanford University     | 86    | 2014 |
+| 16 |         6 | 10     | Mississippi   | Harvard University      | 56    | 2009 |
+| 17 |         6 | 12     | Alabama       | Harvard University      | 76    | 2011 |
+| 18 |         6 | BE     | Indiana       | University of Chicago   | 87    | 2015 |
+| 19 |         7 | 10     | Ohio          | University of Ohio      | 87    | 2011 |
+| 20 |         7 | 12     | Iowa          | Stanford University     | 78    | 2013 |
+| 21 |         7 | BE     | Kentucky      | Harvard University      | 97    | 2017 |
+| 22 |         8 | 10     | Maryland      | University Maryland     | 56    | 2010 |
+| 23 |         8 | 12     | Alabama       | California University   | 60    | 2012 |
+| 24 |         8 | M.Com. | Virginia      | University of Florida   | 87    | 2016 |
+| 25 |         9 | 10     | Maine         | Pennsylvania University | 98    | 2012 |
+| 26 |         9 | 12     | Vermont       | Yale University         | 67    | 2014 |
+| 27 |         9 | BE     | Kansas        | Columbia University     | 87    | 2018 |
+| 28 |        10 | 10     | Texas         | Yale University         | 65    | 2012 |
+| 29 |        10 | 12     | Oregon        | University of Michigan  | 76    | 2014 |
+| 30 |        10 | M.Com. | New Mexico    | California University   | 61    | 2018 |
+| 31 |        11 | 10     | Nevada        | University of Florida   | 62    | 2011 |
+| 32 |        11 | 12     | Indiana       | Pennsylvania University | 63    | 2013 |
+| 33 |        11 | M.Com. | Ohio          | University of Ohio      | 56    | 2017 |
+| 34 |        12 | 10     | New Hampshire | Yale University         | 75    | 2010 |
+| 35 |        12 | 12     | Montana       | Stanford University     | 45    | 2012 |
+| 36 |        12 | B.Com. | West Virginia | Harvard University      | 50    | 2016 |
+| 37 |        13 | 10     | Virginia      | Harvard University      | 67    | 2012 |
+| 38 |        13 | 12     | Maine         | University of Chicago   | 78    | 2014 |
+| 39 |        13 | BE     | Texas         | University of Florida   | 68    | 2018 |
+| 40 |        14 | 10     | Oregon        | University of Florida   | 67    | 2013 |
+| 41 |        14 | 12     | Florida       | University of Florida   | 87    | 2015 |
+| 42 |        14 | BE     | Idaho         | Yale University         | 57    | 2019 |
+| 43 |        15 | 10     | New Hampshire | California University   | 96    | 2011 |
+| 44 |        15 | 12     | Montana       | University of Florida   | 56    | 2013 |
+| 45 |        15 | BE     | Alabama       | Pennsylvania University | 65    | 2017 |
+| 46 |        16 | 10     | Michigan      | University of Michigan  | 76    | 2012 |
+| 47 |        16 | 12     | Oklahoma      | Columbia University     | 56    | 2014 |
+| 48 |        16 | BE     | Mississippi   | University of Michigan  | 76    | 2018 |
+| 49 |        17 | 10     | Alabama       | University of Michigan  | 88    | 2013 |
+| 50 |        17 | 12     | Indiana       | University of Michigan  | 76    | 2015 |
+| 51 |        17 | BE     | Ohio          | University of Ohio      | 68    | 2019 |
+| 52 |        18 | 10     | Iowa          | Stanford University     | 86    | 2011 |
+| 53 |        18 | 12     | Kentucky      | Harvard University      | 57    | 2013 |
+| 54 |        18 | BE     | Maryland      | Harvard University      | 75    | 2017 |
+| 55 |        19 | 10     | Alabama       | University of Chicago   | 69    | 2013 |
+| 56 |        19 | 12     | Virginia      | California University   | 60    | 2015 |
+| 57 |        19 | BE     | Maine         | University of Florida   | 61    | 2019 |
+| 58 |        20 | 10     | Vermont       | Pennsylvania University | 72    | 2013 |
+| 59 |        20 | 12     | Iowa          | Yale University         | 83    | 2015 |
+| 60 |        20 | BE     | Maryland      | Columbia University     | 72    | 2019 |
+| 61 |        21 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+| 62 |        21 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+| 63 |        21 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+| 64 |        22 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+| 65 |        22 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+| 66 |        22 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+| 67 |        23 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+| 68 |        23 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+| 69 |        23 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+| 70 |        24 | 10     | Ohio          | University of Ohio      | 87    | 2011 |
+| 71 |        24 | 12     | Iowa          | Stanford University     | 78    | 2013 |
+| 72 |        24 | BE     | Kentucky      | Harvard University      | 97    | 2017 |
+| 73 |        25 | 10     | Ohio          | University of Ohio      | 87    | 2011 |
+| 74 |        25 | 12     | Iowa          | Stanford University     | 78    | 2013 |
+| 75 |        25 | BE     | Kentucky      | Harvard University      | 97    | 2017 |
+| 76 |        26 | 10     | Iowa          | Stanford University     | 56    | 1994 |
+| 77 |        26 | DIP    | Kentucky      | Harvard University      | 67    | 1996 |
+| 78 |        26 | BE     | Maryland      | Harvard University      | 68    | 2000 |
+| 79 |        27 | 10     | Alabama       | University of Chicago   | 50    | 1997 |
+| 80 |        27 | 12     | Virginia      | California University   | 55    | 1999 |
+| 81 |        27 | DIP    | Maine         | University of Florida   | 60    | 2003 |
+| 82 |        27 | BE     | Vermont       | Pennsylvania University | 62    | 2006 |
+| 83 |        28 | 10     | Iowa          | Yale University         | 65    | 2004 |
+| 84 |        28 | 12     | Maryland      | Columbia University     | 68    | 2006 |
+| 85 |        28 | MCA    | Alaska        | Harvard University      | 64    | 2009 |
++----+-----------+--------+---------------+-------------------------+-------+------+
+85 rows in set (0.01 sec)
+
+mysql> select * from student_qualifications order by ID;
++----+-----------+--------+---------------+-------------------------+-------+------+
+| ID | studentID | name   | college       | university              | marks | year |
++----+-----------+--------+---------------+-------------------------+-------+------+
+|  1 |         1 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+|  2 |         1 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+|  3 |         1 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+|  4 |         2 | 10     | Alaska        | University of Chicago   | 68    | 2013 |
+|  5 |         2 | 12     | New York      | Yale University         | 56    | 2015 |
+|  6 |         2 | B.Com  | Arkansas      | Yale University         | 64    | 2019 |
+|  7 |         3 | 10     | Arizona       | Yale University         | 75    | 2011 |
+|  8 |         3 | 12     | California    | California University   | 86    | 2013 |
+|  9 |         3 | BE     | Florida       | University of Florida   | 67    | 2017 |
+| 10 |         4 | 10     | Idaho         | Pennsylvania University | 58    | 2010 |
+| 11 |         4 | 12     | New Hampshire | Yale University         | 97    | 2012 |
+| 12 |         4 | M.Com. | Montana       | Columbia University     | 77    | 2016 |
+| 13 |         5 | 10     | Alabama       | Yale University         | 56    | 2008 |
+| 14 |         5 | 12     | Michigan      | University of Michigan  | 57    | 2010 |
+| 15 |         5 | M.Com. | Oklahoma      | Stanford University     | 86    | 2014 |
+| 16 |         6 | 10     | Mississippi   | Harvard University      | 56    | 2009 |
+| 17 |         6 | 12     | Alabama       | Harvard University      | 76    | 2011 |
+| 18 |         6 | BE     | Indiana       | University of Chicago   | 87    | 2015 |
+| 19 |         7 | 10     | Ohio          | University of Ohio      | 87    | 2011 |
+| 20 |         7 | 12     | Iowa          | Stanford University     | 78    | 2013 |
+| 21 |         7 | BE     | Kentucky      | Harvard University      | 97    | 2017 |
+| 22 |         8 | 10     | Maryland      | University Maryland     | 56    | 2010 |
+| 23 |         8 | 12     | Alabama       | California University   | 60    | 2012 |
+| 24 |         8 | M.Com. | Virginia      | University of Florida   | 87    | 2016 |
+| 25 |         9 | 10     | Maine         | Pennsylvania University | 98    | 2012 |
+| 26 |         9 | 12     | Vermont       | Yale University         | 67    | 2014 |
+| 27 |         9 | BE     | Kansas        | Columbia University     | 87    | 2018 |
+| 28 |        10 | 10     | Texas         | Yale University         | 65    | 2012 |
+| 29 |        10 | 12     | Oregon        | University of Michigan  | 76    | 2014 |
+| 30 |        10 | M.Com. | New Mexico    | California University   | 61    | 2018 |
+| 31 |        11 | 10     | Nevada        | University of Florida   | 62    | 2011 |
+| 32 |        11 | 12     | Indiana       | Pennsylvania University | 63    | 2013 |
+| 33 |        11 | M.Com. | Ohio          | University of Ohio      | 56    | 2017 |
+| 34 |        12 | 10     | New Hampshire | Yale University         | 75    | 2010 |
+| 35 |        12 | 12     | Montana       | Stanford University     | 45    | 2012 |
+| 36 |        12 | B.Com. | West Virginia | Harvard University      | 50    | 2016 |
+| 37 |        13 | 10     | Virginia      | Harvard University      | 67    | 2012 |
+| 38 |        13 | 12     | Maine         | University of Chicago   | 78    | 2014 |
+| 39 |        13 | BE     | Texas         | University of Florida   | 68    | 2018 |
+| 40 |        14 | 10     | Oregon        | University of Florida   | 67    | 2013 |
+| 41 |        14 | 12     | Florida       | University of Florida   | 87    | 2015 |
+| 42 |        14 | BE     | Idaho         | Yale University         | 57    | 2019 |
+| 43 |        15 | 10     | New Hampshire | California University   | 96    | 2011 |
+| 44 |        15 | 12     | Montana       | University of Florida   | 56    | 2013 |
+| 45 |        15 | BE     | Alabama       | Pennsylvania University | 65    | 2017 |
+| 46 |        16 | 10     | Michigan      | University of Michigan  | 76    | 2012 |
+| 47 |        16 | 12     | Oklahoma      | Columbia University     | 56    | 2014 |
+| 48 |        16 | BE     | Mississippi   | University of Michigan  | 76    | 2018 |
+| 49 |        17 | 10     | Alabama       | University of Michigan  | 88    | 2013 |
+| 50 |        17 | 12     | Indiana       | University of Michigan  | 76    | 2015 |
+| 51 |        17 | BE     | Ohio          | University of Ohio      | 68    | 2019 |
+| 52 |        18 | 10     | Iowa          | Stanford University     | 86    | 2011 |
+| 53 |        18 | 12     | Kentucky      | Harvard University      | 57    | 2013 |
+| 54 |        18 | BE     | Maryland      | Harvard University      | 75    | 2017 |
+| 55 |        19 | 10     | Alabama       | University of Chicago   | 69    | 2013 |
+| 56 |        19 | 12     | Virginia      | California University   | 60    | 2015 |
+| 57 |        19 | BE     | Maine         | University of Florida   | 61    | 2019 |
+| 58 |        20 | 10     | Vermont       | Pennsylvania University | 72    | 2013 |
+| 59 |        20 | 12     | Iowa          | Yale University         | 83    | 2015 |
+| 60 |        20 | BE     | Maryland      | Columbia University     | 72    | 2019 |
+| 61 |        21 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+| 62 |        21 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+| 63 |        21 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+| 64 |        22 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+| 65 |        22 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+| 66 |        22 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+| 67 |        23 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+| 68 |        23 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+| 69 |        23 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+| 70 |        24 | 10     | Ohio          | University of Ohio      | 87    | 2011 |
+| 71 |        24 | 12     | Iowa          | Stanford University     | 78    | 2013 |
+| 72 |        24 | BE     | Kentucky      | Harvard University      | 97    | 2017 |
+| 73 |        25 | 10     | Ohio          | University of Ohio      | 87    | 2011 |
+| 74 |        25 | 12     | Iowa          | Stanford University     | 78    | 2013 |
+| 75 |        25 | BE     | Kentucky      | Harvard University      | 97    | 2017 |
+| 76 |        26 | 10     | Iowa          | Stanford University     | 56    | 1994 |
+| 77 |        26 | DIP    | Kentucky      | Harvard University      | 67    | 1996 |
+| 78 |        26 | BE     | Maryland      | Harvard University      | 68    | 2000 |
+| 79 |        27 | 10     | Alabama       | University of Chicago   | 50    | 1997 |
+| 80 |        27 | 12     | Virginia      | California University   | 55    | 1999 |
+| 81 |        27 | DIP    | Maine         | University of Florida   | 60    | 2003 |
+| 82 |        27 | BE     | Vermont       | Pennsylvania University | 62    | 2006 |
+| 83 |        28 | 10     | Iowa          | Yale University         | 65    | 2004 |
+| 84 |        28 | 12     | Maryland      | Columbia University     | 68    | 2006 |
+| 85 |        28 | MCA    | Alaska        | Harvard University      | 64    | 2009 |
++----+-----------+--------+---------------+-------------------------+-------+------+
+85 rows in set (0.00 sec)
+
+mysql> select sum(name) over(partition by id) from student_qualifications;
++---------------------------------+
+| sum(name) over(partition by id) |
++---------------------------------+
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                              10 |
+|                               0 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
+|                               0 |
+|                              10 |
+|                              12 |
+|                               0 |
++---------------------------------+
+85 rows in set, 30 warnings (0.00 sec)
+
+mysql> select sum(marks) over(partition by name) from student_qualifications;
++------------------------------------+
+| sum(marks) over(partition by name) |
++------------------------------------+
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1990 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                               1889 |
+|                                 64 |
+|                                 50 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                               1476 |
+|                                127 |
+|                                127 |
+|                                367 |
+|                                367 |
+|                                367 |
+|                                367 |
+|                                367 |
+|                                 64 |
++------------------------------------+
+85 rows in set (0.00 sec)
+
+mysql> select name,sum(name) over(partition by id) from student_qualifications;
++--------+---------------------------------+
+| name   | sum(name) over(partition by id) |
++--------+---------------------------------+
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| B.Com  |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| M.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| M.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| M.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| M.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| M.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| B.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| DIP    |                               0 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| DIP    |                               0 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| MCA    |                               0 |
++--------+---------------------------------+
+85 rows in set, 30 warnings (0.00 sec)
+
+mysql> select name,sum(name) over(partition by id) from student_qualifications group by id;
++--------+---------------------------------+
+| name   | sum(name) over(partition by id) |
++--------+---------------------------------+
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| B.Com  |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| M.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| M.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| M.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| M.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| M.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| B.Com. |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| BE     |                               0 |
+| 10     |                              10 |
+| DIP    |                               0 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| DIP    |                               0 |
+| BE     |                               0 |
+| 10     |                              10 |
+| 12     |                              12 |
+| MCA    |                               0 |
++--------+---------------------------------+
+85 rows in set, 30 warnings (0.00 sec)
+
+mysql> select id,name,sum(name) over(partition by id) from student_qualifications group by id;
++----+--------+---------------------------------+
+| id | name   | sum(name) over(partition by id) |
++----+--------+---------------------------------+
+|  1 | 10     |                              10 |
+|  2 | 12     |                              12 |
+|  3 | BE     |                               0 |
+|  4 | 10     |                              10 |
+|  5 | 12     |                              12 |
+|  6 | B.Com  |                               0 |
+|  7 | 10     |                              10 |
+|  8 | 12     |                              12 |
+|  9 | BE     |                               0 |
+| 10 | 10     |                              10 |
+| 11 | 12     |                              12 |
+| 12 | M.Com. |                               0 |
+| 13 | 10     |                              10 |
+| 14 | 12     |                              12 |
+| 15 | M.Com. |                               0 |
+| 16 | 10     |                              10 |
+| 17 | 12     |                              12 |
+| 18 | BE     |                               0 |
+| 19 | 10     |                              10 |
+| 20 | 12     |                              12 |
+| 21 | BE     |                               0 |
+| 22 | 10     |                              10 |
+| 23 | 12     |                              12 |
+| 24 | M.Com. |                               0 |
+| 25 | 10     |                              10 |
+| 26 | 12     |                              12 |
+| 27 | BE     |                               0 |
+| 28 | 10     |                              10 |
+| 29 | 12     |                              12 |
+| 30 | M.Com. |                               0 |
+| 31 | 10     |                              10 |
+| 32 | 12     |                              12 |
+| 33 | M.Com. |                               0 |
+| 34 | 10     |                              10 |
+| 35 | 12     |                              12 |
+| 36 | B.Com. |                               0 |
+| 37 | 10     |                              10 |
+| 38 | 12     |                              12 |
+| 39 | BE     |                               0 |
+| 40 | 10     |                              10 |
+| 41 | 12     |                              12 |
+| 42 | BE     |                               0 |
+| 43 | 10     |                              10 |
+| 44 | 12     |                              12 |
+| 45 | BE     |                               0 |
+| 46 | 10     |                              10 |
+| 47 | 12     |                              12 |
+| 48 | BE     |                               0 |
+| 49 | 10     |                              10 |
+| 50 | 12     |                              12 |
+| 51 | BE     |                               0 |
+| 52 | 10     |                              10 |
+| 53 | 12     |                              12 |
+| 54 | BE     |                               0 |
+| 55 | 10     |                              10 |
+| 56 | 12     |                              12 |
+| 57 | BE     |                               0 |
+| 58 | 10     |                              10 |
+| 59 | 12     |                              12 |
+| 60 | BE     |                               0 |
+| 61 | 10     |                              10 |
+| 62 | 12     |                              12 |
+| 63 | BE     |                               0 |
+| 64 | 10     |                              10 |
+| 65 | 12     |                              12 |
+| 66 | BE     |                               0 |
+| 67 | 10     |                              10 |
+| 68 | 12     |                              12 |
+| 69 | BE     |                               0 |
+| 70 | 10     |                              10 |
+| 71 | 12     |                              12 |
+| 72 | BE     |                               0 |
+| 73 | 10     |                              10 |
+| 74 | 12     |                              12 |
+| 75 | BE     |                               0 |
+| 76 | 10     |                              10 |
+| 77 | DIP    |                               0 |
+| 78 | BE     |                               0 |
+| 79 | 10     |                              10 |
+| 80 | 12     |                              12 |
+| 81 | DIP    |                               0 |
+| 82 | BE     |                               0 |
+| 83 | 10     |                              10 |
+| 84 | 12     |                              12 |
+| 85 | MCA    |                               0 |
++----+--------+---------------------------------+
+85 rows in set, 30 warnings (0.00 sec)
+
+mysql> select student,id,name,sum(name) over(partition by id) from student_qualifications group by id;
+ERROR 1054 (42S22): Unknown column 'student' in 'field list'
+mysql> select studentid,id,name,sum(name) over(partition by id) from student_qualifications group by id;
++-----------+----+--------+---------------------------------+
+| studentid | id | name   | sum(name) over(partition by id) |
++-----------+----+--------+---------------------------------+
+|         1 |  1 | 10     |                              10 |
+|         1 |  2 | 12     |                              12 |
+|         1 |  3 | BE     |                               0 |
+|         2 |  4 | 10     |                              10 |
+|         2 |  5 | 12     |                              12 |
+|         2 |  6 | B.Com  |                               0 |
+|         3 |  7 | 10     |                              10 |
+|         3 |  8 | 12     |                              12 |
+|         3 |  9 | BE     |                               0 |
+|         4 | 10 | 10     |                              10 |
+|         4 | 11 | 12     |                              12 |
+|         4 | 12 | M.Com. |                               0 |
+|         5 | 13 | 10     |                              10 |
+|         5 | 14 | 12     |                              12 |
+|         5 | 15 | M.Com. |                               0 |
+|         6 | 16 | 10     |                              10 |
+|         6 | 17 | 12     |                              12 |
+|         6 | 18 | BE     |                               0 |
+|         7 | 19 | 10     |                              10 |
+|         7 | 20 | 12     |                              12 |
+|         7 | 21 | BE     |                               0 |
+|         8 | 22 | 10     |                              10 |
+|         8 | 23 | 12     |                              12 |
+|         8 | 24 | M.Com. |                               0 |
+|         9 | 25 | 10     |                              10 |
+|         9 | 26 | 12     |                              12 |
+|         9 | 27 | BE     |                               0 |
+|        10 | 28 | 10     |                              10 |
+|        10 | 29 | 12     |                              12 |
+|        10 | 30 | M.Com. |                               0 |
+|        11 | 31 | 10     |                              10 |
+|        11 | 32 | 12     |                              12 |
+|        11 | 33 | M.Com. |                               0 |
+|        12 | 34 | 10     |                              10 |
+|        12 | 35 | 12     |                              12 |
+|        12 | 36 | B.Com. |                               0 |
+|        13 | 37 | 10     |                              10 |
+|        13 | 38 | 12     |                              12 |
+|        13 | 39 | BE     |                               0 |
+|        14 | 40 | 10     |                              10 |
+|        14 | 41 | 12     |                              12 |
+|        14 | 42 | BE     |                               0 |
+|        15 | 43 | 10     |                              10 |
+|        15 | 44 | 12     |                              12 |
+|        15 | 45 | BE     |                               0 |
+|        16 | 46 | 10     |                              10 |
+|        16 | 47 | 12     |                              12 |
+|        16 | 48 | BE     |                               0 |
+|        17 | 49 | 10     |                              10 |
+|        17 | 50 | 12     |                              12 |
+|        17 | 51 | BE     |                               0 |
+|        18 | 52 | 10     |                              10 |
+|        18 | 53 | 12     |                              12 |
+|        18 | 54 | BE     |                               0 |
+|        19 | 55 | 10     |                              10 |
+|        19 | 56 | 12     |                              12 |
+|        19 | 57 | BE     |                               0 |
+|        20 | 58 | 10     |                              10 |
+|        20 | 59 | 12     |                              12 |
+|        20 | 60 | BE     |                               0 |
+|        21 | 61 | 10     |                              10 |
+|        21 | 62 | 12     |                              12 |
+|        21 | 63 | BE     |                               0 |
+|        22 | 64 | 10     |                              10 |
+|        22 | 65 | 12     |                              12 |
+|        22 | 66 | BE     |                               0 |
+|        23 | 67 | 10     |                              10 |
+|        23 | 68 | 12     |                              12 |
+|        23 | 69 | BE     |                               0 |
+|        24 | 70 | 10     |                              10 |
+|        24 | 71 | 12     |                              12 |
+|        24 | 72 | BE     |                               0 |
+|        25 | 73 | 10     |                              10 |
+|        25 | 74 | 12     |                              12 |
+|        25 | 75 | BE     |                               0 |
+|        26 | 76 | 10     |                              10 |
+|        26 | 77 | DIP    |                               0 |
+|        26 | 78 | BE     |                               0 |
+|        27 | 79 | 10     |                              10 |
+|        27 | 80 | 12     |                              12 |
+|        27 | 81 | DIP    |                               0 |
+|        27 | 82 | BE     |                               0 |
+|        28 | 83 | 10     |                              10 |
+|        28 | 84 | 12     |                              12 |
+|        28 | 85 | MCA    |                               0 |
++-----------+----+--------+---------------------------------+
+85 rows in set, 30 warnings (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select get_total_marks(10);
++---------------------+
+| get_total_marks(10) |
++---------------------+
+|                   0 |
++---------------------+
+1 row in set (0.01 sec)
+
+mysql> select get_total_marks(1);
++--------------------+
+| get_total_marks(1) |
++--------------------+
+|                 68 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(2);
++--------------------+
+| get_total_marks(2) |
++--------------------+
+|                  0 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(3);
++--------------------+
+| get_total_marks(3) |
++--------------------+
+|                 67 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(5);
++--------------------+
+| get_total_marks(5) |
++--------------------+
+|                  0 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select get_total_marks(2);
++--------------------+
+| get_total_marks(2) |
++--------------------+
+|               NULL |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(1);
++--------------------+
+| get_total_marks(1) |
++--------------------+
+|                 68 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select get_total_marks(10);
++---------------------+
+| get_total_marks(10) |
++---------------------+
+|                NULL |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(3);
++--------------------+
+| get_total_marks(3) |
++--------------------+
+|                 67 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(2);
++--------------------+
+| get_total_marks(2) |
++--------------------+
+|               NULL |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select get_total_marks(1);
++--------------------+
+| get_total_marks(1) |
++--------------------+
+|                 68 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(2);
++--------------------+
+| get_total_marks(2) |
++--------------------+
+|               NULL |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select get_total_marks(10);
++---------------------+
+| get_total_marks(10) |
++---------------------+
+|                NULL |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select get_total_marks(10);
++---------------------+
+| get_total_marks(10) |
++---------------------+
+|                   0 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select get_total_marks(10);
++---------------------+
+| get_total_marks(10) |
++---------------------+
+|                   0 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select get_total_marks(2);
++--------------------+
+| get_total_marks(2) |
++--------------------+
+|               1476 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(1);
++--------------------+
+| get_total_marks(1) |
++--------------------+
+|               1476 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(1);
++--------------------+
+| get_total_marks(1) |
++--------------------+
+|               1476 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(2);
++--------------------+
+| get_total_marks(2) |
++--------------------+
+|               1476 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select get_total_marks(3);
++--------------------+
+| get_total_marks(3) |
++--------------------+
+|               1476 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select get_total_marks(1);
++--------------------+
+| get_total_marks(1) |
++--------------------+
+|                 68 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(10);
++---------------------+
+| get_total_marks(10) |
++---------------------+
+|                   0 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from student_qualifications;
++----+-----------+--------+---------------+-------------------------+-------+------+
+| ID | studentID | name   | college       | university              | marks | year |
++----+-----------+--------+---------------+-------------------------+-------+------+
+|  1 |         1 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+|  2 |         1 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+|  3 |         1 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+|  4 |         2 | 10     | Alaska        | University of Chicago   | 68    | 2013 |
+|  5 |         2 | 12     | New York      | Yale University         | 56    | 2015 |
+|  6 |         2 | B.Com  | Arkansas      | Yale University         | 64    | 2019 |
+|  7 |         3 | 10     | Arizona       | Yale University         | 75    | 2011 |
+|  8 |         3 | 12     | California    | California University   | 86    | 2013 |
+|  9 |         3 | BE     | Florida       | University of Florida   | 67    | 2017 |
+| 10 |         4 | 10     | Idaho         | Pennsylvania University | 58    | 2010 |
+| 11 |         4 | 12     | New Hampshire | Yale University         | 97    | 2012 |
+| 12 |         4 | M.Com. | Montana       | Columbia University     | 77    | 2016 |
+| 13 |         5 | 10     | Alabama       | Yale University         | 56    | 2008 |
+| 14 |         5 | 12     | Michigan      | University of Michigan  | 57    | 2010 |
+| 15 |         5 | M.Com. | Oklahoma      | Stanford University     | 86    | 2014 |
+| 16 |         6 | 10     | Mississippi   | Harvard University      | 56    | 2009 |
+| 17 |         6 | 12     | Alabama       | Harvard University      | 76    | 2011 |
+| 18 |         6 | BE     | Indiana       | University of Chicago   | 87    | 2015 |
+| 19 |         7 | 10     | Ohio          | University of Ohio      | 87    | 2011 |
+| 20 |         7 | 12     | Iowa          | Stanford University     | 78    | 2013 |
+| 21 |         7 | BE     | Kentucky      | Harvard University      | 97    | 2017 |
+| 22 |         8 | 10     | Maryland      | University Maryland     | 56    | 2010 |
+| 23 |         8 | 12     | Alabama       | California University   | 60    | 2012 |
+| 24 |         8 | M.Com. | Virginia      | University of Florida   | 87    | 2016 |
+| 25 |         9 | 10     | Maine         | Pennsylvania University | 98    | 2012 |
+| 26 |         9 | 12     | Vermont       | Yale University         | 67    | 2014 |
+| 27 |         9 | BE     | Kansas        | Columbia University     | 87    | 2018 |
+| 28 |        10 | 10     | Texas         | Yale University         | 65    | 2012 |
+| 29 |        10 | 12     | Oregon        | University of Michigan  | 76    | 2014 |
+| 30 |        10 | M.Com. | New Mexico    | California University   | 61    | 2018 |
+| 31 |        11 | 10     | Nevada        | University of Florida   | 62    | 2011 |
+| 32 |        11 | 12     | Indiana       | Pennsylvania University | 63    | 2013 |
+| 33 |        11 | M.Com. | Ohio          | University of Ohio      | 56    | 2017 |
+| 34 |        12 | 10     | New Hampshire | Yale University         | 75    | 2010 |
+| 35 |        12 | 12     | Montana       | Stanford University     | 45    | 2012 |
+| 36 |        12 | B.Com. | West Virginia | Harvard University      | 50    | 2016 |
+| 37 |        13 | 10     | Virginia      | Harvard University      | 67    | 2012 |
+| 38 |        13 | 12     | Maine         | University of Chicago   | 78    | 2014 |
+| 39 |        13 | BE     | Texas         | University of Florida   | 68    | 2018 |
+| 40 |        14 | 10     | Oregon        | University of Florida   | 67    | 2013 |
+| 41 |        14 | 12     | Florida       | University of Florida   | 87    | 2015 |
+| 42 |        14 | BE     | Idaho         | Yale University         | 57    | 2019 |
+| 43 |        15 | 10     | New Hampshire | California University   | 96    | 2011 |
+| 44 |        15 | 12     | Montana       | University of Florida   | 56    | 2013 |
+| 45 |        15 | BE     | Alabama       | Pennsylvania University | 65    | 2017 |
+| 46 |        16 | 10     | Michigan      | University of Michigan  | 76    | 2012 |
+| 47 |        16 | 12     | Oklahoma      | Columbia University     | 56    | 2014 |
+| 48 |        16 | BE     | Mississippi   | University of Michigan  | 76    | 2018 |
+| 49 |        17 | 10     | Alabama       | University of Michigan  | 88    | 2013 |
+| 50 |        17 | 12     | Indiana       | University of Michigan  | 76    | 2015 |
+| 51 |        17 | BE     | Ohio          | University of Ohio      | 68    | 2019 |
+| 52 |        18 | 10     | Iowa          | Stanford University     | 86    | 2011 |
+| 53 |        18 | 12     | Kentucky      | Harvard University      | 57    | 2013 |
+| 54 |        18 | BE     | Maryland      | Harvard University      | 75    | 2017 |
+| 55 |        19 | 10     | Alabama       | University of Chicago   | 69    | 2013 |
+| 56 |        19 | 12     | Virginia      | California University   | 60    | 2015 |
+| 57 |        19 | BE     | Maine         | University of Florida   | 61    | 2019 |
+| 58 |        20 | 10     | Vermont       | Pennsylvania University | 72    | 2013 |
+| 59 |        20 | 12     | Iowa          | Yale University         | 83    | 2015 |
+| 60 |        20 | BE     | Maryland      | Columbia University     | 72    | 2019 |
+| 61 |        21 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+| 62 |        21 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+| 63 |        21 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+| 64 |        22 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+| 65 |        22 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+| 66 |        22 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+| 67 |        23 | 10     | Alabama       | Stanford University     | 67    | 2012 |
+| 68 |        23 | 12     | Alaska        | Harvard University      | 74    | 2014 |
+| 69 |        23 | BE     | Arizona       | Harvard University      | 68    | 2018 |
+| 70 |        24 | 10     | Ohio          | University of Ohio      | 87    | 2011 |
+| 71 |        24 | 12     | Iowa          | Stanford University     | 78    | 2013 |
+| 72 |        24 | BE     | Kentucky      | Harvard University      | 97    | 2017 |
+| 73 |        25 | 10     | Ohio          | University of Ohio      | 87    | 2011 |
+| 74 |        25 | 12     | Iowa          | Stanford University     | 78    | 2013 |
+| 75 |        25 | BE     | Kentucky      | Harvard University      | 97    | 2017 |
+| 76 |        26 | 10     | Iowa          | Stanford University     | 56    | 1994 |
+| 77 |        26 | DIP    | Kentucky      | Harvard University      | 67    | 1996 |
+| 78 |        26 | BE     | Maryland      | Harvard University      | 68    | 2000 |
+| 79 |        27 | 10     | Alabama       | University of Chicago   | 50    | 1997 |
+| 80 |        27 | 12     | Virginia      | California University   | 55    | 1999 |
+| 81 |        27 | DIP    | Maine         | University of Florida   | 60    | 2003 |
+| 82 |        27 | BE     | Vermont       | Pennsylvania University | 62    | 2006 |
+| 83 |        28 | 10     | Iowa          | Yale University         | 65    | 2004 |
+| 84 |        28 | 12     | Maryland      | Columbia University     | 68    | 2006 |
+| 85 |        28 | MCA    | Alaska        | Harvard University      | 64    | 2009 |
++----+-----------+--------+---------------+-------------------------+-------+------+
+85 rows in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\check_email.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select get_total_marks(10);
++---------------------+
+| get_total_marks(10) |
++---------------------+
+|                   0 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(10);
++---------------------+
+| get_total_marks(10) |
++---------------------+
+|                   0 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(1);
++--------------------+
+| get_total_marks(1) |
++--------------------+
+|                 68 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select get_total_marks(3);
++--------------------+
+| get_total_marks(3) |
++--------------------+
+|                 67 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(2);
++--------------------+
+| get_total_marks(2) |
++--------------------+
+|                  0 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select get_total_marks(10);
++---------------------+
+| get_total_marks(10) |
++---------------------+
+|                 141 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select get_total_marks(10);

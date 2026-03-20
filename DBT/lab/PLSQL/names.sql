@@ -1,0 +1,18 @@
+DROP FUNCTION IF EXISTS autoNumber;
+
+DELIMITER $
+
+CREATE FUNCTION autoNumber() 
+RETURNS INT
+READS SQL DATA
+BEGIN
+    DECLARE next_id INT;
+
+    SELECT IFNULL(MAX(studentID), 0) + 1 
+    INTO next_id 
+    FROM STUDENT_NEW;
+
+    RETURN next_id;
+END $
+
+DELIMITER ;
