@@ -1705,6 +1705,8 @@ mysql> select get_total_marks(2);
 mysql> source C:\D DRIVE\DAC\CDAC_DAC-\DBT\lab\PLSQL\marks_total.sql
 Query OK, 0 rows affected (0.01 sec)
 
+
+
 Query OK, 0 rows affected (0.00 sec)
 
 mysql> select get_total_marks(10);

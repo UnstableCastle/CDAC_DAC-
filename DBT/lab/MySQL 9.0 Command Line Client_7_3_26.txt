@@ -16,6 +16,7 @@ mysql> SELECT *,
     -> FROM student
     -> ORDER BY FIELD(DAYNAME(dob),
     -> 'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
+
 ERROR 1046 (3D000): No database selected
 mysql> use test
 Database changed
