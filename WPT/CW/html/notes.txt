@@ -1,0 +1,31 @@
+22/3/26
+
+HTML:
+-it is use to create structure pf websit or webapp.
+-it is use to display datato user on browser.
+-it stand for Hyper text markup language.
+-latest version of html is html5.
+
+
+-it is tag basis language 
+<tag>
+-in html there are two types of tags
+1.paired tag: <starTag></endTag>
+2.unpaired tag: <singletag> 
+
+-to create webpage file extension must be .html or   .htm 
+-in html page we write everything inside tag.
+
+<!DOCTYPE html> : it tels to search engin it is HTML type of document belong to version 5. 
+
+Head part : it contain external link and meta data in it.
+Body part: it is use to display data on browser.
+
+
+
+
+
+
+
+
+
