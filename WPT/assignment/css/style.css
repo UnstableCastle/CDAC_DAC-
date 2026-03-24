@@ -1,0 +1,236 @@
+
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #1b2838;
+        color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #171a21;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        z-index: 10;
+    }
+
+    .nav-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: bold;
+        margin-right: 30px;
+        color: #fff;
+    }
+
+    .nav-left a {
+        color: #c7d5e0;
+        margin-right: 20px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav-left a:hover {
+        color: #66c0f4;
+    }
+
+    .dropdown {
+        position: relative;
+        margin-right: 15px;
+    }
+
+    .dropdown button {
+        background: none;
+        border: none;
+        color: #c7d5e0;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .dropdown button:hover {
+        color: #66c0f4;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 25px;
+        background-color: #2a475e;
+        min-width: 150px;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+        z-index: 20;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        margin: 0;
+        font-weight: normal;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #1b2838;
+        color: #66c0f4;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-right input {
+        padding: 6px 10px;
+        border: none;
+        outline: none;
+        background-color: #316282;
+        color: white;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .nav-right input::placeholder {
+        color: #c7d5e0;
+    }
+
+    .search-btn {
+        background-color: #66c0f4;
+        border: none;
+        padding: 6px 10px;
+        cursor: pointer;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .app-container {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .sidebar {
+        width: 250px;
+        background-color: #1a2a3a;
+        padding: 20px;
+        overflow-y: auto;
+        border-right: 1px solid #101822;
+    }
+
+    .sidebar h3 {
+        color: #66c0f4;
+        font-size: 14px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        margin-top: 0;
+    }
+
+    .sidebar-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar-links a {
+        display: block;
+        color: #8f98a0;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 3px;
+        margin-bottom: 5px;
+    }
+
+    .sidebar-links a:hover {
+        background-color: #2a475e;
+        color: white;
+    }
+
+    .main-content {
+        flex: 1;
+        padding: 20px;
+        background: radial-gradient(circle at top left, #2a475e 0%, #1b2838 50%);
+        overflow-y: auto;
+    }
+
+    .hero {
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .hero img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .hero-text {
+        position: absolute;
+        bottom: 20px;
+        left: 30px;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 15px 25px;
+        border-radius: 5px;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+        margin: 0;
+        color: #fff;
+    }
+
+    .hero-text p {
+        margin: 5px 0 0 0;
+        color: #66c0f4;
+        font-size: 18px;
+    }
+
+    .content-1-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .game-card {
+        background-color: white;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        display: flex;
+    }
+
+    .game-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .game-card img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 2 / 3;
+        object-fit: cover;
+        display: block;
+        border-radius: 2px;
+    }
