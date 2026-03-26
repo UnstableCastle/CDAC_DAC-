@@ -1,54 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>replace</title>
+    <title>Text Replace Tool</title>
     <style>
         .t1 {
-            border: groove, aqua;
+            border: groove;
             border-radius: 20px;
             margin: auto;
             padding: 20px;
-            width: 200px;
-            background-color: rgb(67, 218, 160);
+            width: 250px; /* Slightly wider for better fit */
+            background: burlywood;
+            border-inline-color: blue;
+            border-top-color: blueviolet;
+            border-bottom-color: blueviolet;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        button{
-        display: block;
-        width: 20px;
-        margin: 20px;
-        color: rgb(6, 189, 221);
-        border: groove 
-        
-            
+
+        button {
+            color: mediumblue;
+            background-color: gainsboro;
+            border: groove;
+            cursor: pointer;
         }
-        #texrarea{
-            display: ;
+
+        #ta {
+            border: groove;
+            width: 100%;
+            height: 100px;
+        }
+
+        /* Fixed the input sizing so they stay inside the box */
+        .input-field {
+            width: 90%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid gray;
         }
     </style>
 </head>
-
 <body>
 
     <div class="t1">
-        <form name="replace">
+        <form name="replaceForm">
             <label> Enter text to Operate </label>
-            <input type="textarea" id="textarea">
-            <button type="button" onclick="replaceText()">replace</button>
-                        <button type="button" onclick="replaceAllText()">replacAll</button>
-       <input type="text" name="replace" placeholder="search">
-       <input type="text" name="replaceALL" placeholder="replace with">
-                    </form>
+            <textarea id="ta"></textarea>
+            
+            <div style="margin-top: 10px;">
+                <input type="text" id="findInput" class="input-field" placeholder="search">
+                <input type="text" id="replaceInput" class="input-field" placeholder="replace with">
+            </div>
+
+            <div style="margin-top: 10px;">
+                <button type="button" onclick="replaceText()">Replace Once</button>
+                <button type="button" onclick="replaceAllText()">Replace All</button>
+            </div>
+        </form>
     </div>
 
     <script>
-let t = document.getElementById("textarea").value;
-t.replace();
-t.replaceAll();
+        function replaceText() {
+            const textArea = document.getElementById("ta");
+            const findVal = document.getElementById("findInput").value;
+            const replaceVal = document.getElementById("replaceInput").value;
 
+            const result = textArea.value.replace(findVal, replaceVal);
+            textArea.value = result;
+        }
 
+        function replaceAllText() {
+            const textArea = document.getElementById("ta");
+            const findVal = document.getElementById("findInput").value;
+            const replaceVal = document.getElementById("replaceInput").value;
+
+            const result = textArea.value.replaceAll(findVal, replaceVal);
+            textArea.value = result;
+        }
     </script>
 </body>
-
 </html>
+
+
