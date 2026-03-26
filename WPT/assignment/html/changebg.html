@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change color</title>
+    <style>
+        .circle {
+            border: solid 2px;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: auto;
+            margin-top: 100px;
+
+        }
+        button{
+            margin-top: 20px;
+            height: 10;
+            margin-left: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="circle" id="color"></div>
+
+    <div class="button">
+        <button class="button" type="button" onclick="color()">RED </button>
+        <button class="button" type="button" onclick="color1()">BLUE </button>
+        <button class="button" type="button" onclick="color2()">GREEN</button>
+        <button class="button" type="button" onclick="color3()">BLACK</button>
+        <button class="button" type="button" onclick="color4()">YELLOW</button>
+    </div>
+
+
+
+    <script>
+
+function color(){
+
+document.getElementById("color").style.backgroundColor = "red";
+
+}
+function color1(){
+
+document.getElementById("color").style.backgroundColor = "blue";
+
+}
+function color2(){
+
+document.getElementById("color").style.backgroundColor = "green";
+
+}
+function color3(){
+
+document.getElementById("color").style.backgroundColor = "black";
+
+}
+function color4(){
+
+document.getElementById("color").style.backgroundColor = "yellow";
+
+}
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

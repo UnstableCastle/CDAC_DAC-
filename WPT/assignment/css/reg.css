@@ -41,7 +41,8 @@
         .form-group input[type="text"],
         .form-group input[type="password"],
         .form-group input[type="email"],
-        .form-group input[type="date"]{
+        .form-group input[type="date"],
+        .form-group input[type="textarea"]{
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -94,10 +95,10 @@
         }
 
         .reset-btn {
-            background-color: #e0e0e0;
-            color: #333;
+            background-color: #f19354;
+            color: #000000;
         }
 
         .reset-btn:hover {
-            background-color: #ccc;
+            background-color: #f59f1f;
         }

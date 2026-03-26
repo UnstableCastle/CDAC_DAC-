@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replace</title>
+    <style>
+        .t1 {
+            border: groove, aqua;
+            border-radius: 20px;
+            margin: auto;
+            padding: 20px;
+            width: 200px;
+            background-color: rgb(67, 218, 160);
+        }
+        button{
+        display: block;
+        width: 20px;
+        margin: 20px;
+        color: rgb(6, 189, 221);
+        border: groove 
+        
+            
+        }
+        #texrarea{
+            display: ;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="t1">
+        <form name="replace">
+            <label> Enter text to Operate </label>
+            <input type="textarea" id="textarea">
+            <button type="button" onclick="replaceText()">replace</button>
+                        <button type="button" onclick="replaceAllText()">replacAll</button>
+       <input type="text" name="replace" placeholder="search">
+       <input type="text" name="replaceALL" placeholder="replace with">
+                    </form>
+    </div>
+
+    <script>
+let t = document.getElementById("textarea").value;
+t.replace();
+t.replaceAll();
+
+
+    </script>
+</body>
+
+</html>

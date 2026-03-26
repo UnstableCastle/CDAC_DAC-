@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+</head>
+<body>
+
+<button onclick="showAll()">Show All</button>
+<button onclick="showFemale()">Female</button>
+<button onclick="showHR()">HR</button>
+<button onclick="showSalary()">Salary 30k-60k</button>
+<button onclick="showAge()">Age > 55</button>
+<button onclick="showSameDept()">IT Dept</button>
+
+<br><br>
+
+<div id="output"></div>
+
+<script>
+
+var emp = [
+{ id:1, name:"Aman", post:"Manager", salary:50000, gender:"Male", age:45, city:"Pune", department:"HR"},
+{ id:2, name:"Riya", post:"HR", salary:35000, gender:"Female", age:30, city:"Mumbai", department:"HR"},
+{ id:3, name:"John", post:"Dev", salary:60000, gender:"Male", age:28, city:"Delhi", department:"IT"},
+{ id:4, name:"Sara", post:"Dev", salary:45000, gender:"Female", age:26, city:"Pune", department:"IT"},
+{ id:5, name:"Raj", post:"Tester", salary:30000, gender:"Male", age:35, city:"Nagpur", department:"QA"},
+{ id:6, name:"Neha", post:"HR", salary:40000, gender:"Female", age:50, city:"Pune", department:"HR"},
+{ id:7, name:"Vikas", post:"Manager", salary:70000, gender:"Male", age:58, city:"Mumbai", department:"Admin"},
+{ id:8, name:"Pooja", post:"Dev", salary:55000, gender:"Female", age:27, city:"Delhi", department:"IT"},
+{ id:9, name:"Karan", post:"Tester", salary:32000, gender:"Male", age:60, city:"Pune", department:"QA"},
+{ id:10, name:"Anita", post:"HR", salary:38000, gender:"Female", age:56, city:"Nagpur", department:"HR"}
+];
+
+function display(data) {
+    var out = "";
+    for (var i = 0; i < data.length; i++) {
+        out += "ID: " + data[i].id +
+               " Name: " + data[i].name +
+               " Post: " + data[i].post +
+               " Salary: " + data[i].salary +
+               " Gender: " + data[i].gender +
+               " Age: " + data[i].age +
+               " City: " + data[i].city +
+               " Dept: " + data[i].department +
+               "<br>";
+    }
+    document.getElementById("output").innerHTML = out;
+}
+
+function showAll() {
+    display(emp);
+}
+
+function showFemale() {
+    var res = [];
+    for (var i = 0; i < emp.length; i++) {
+        if (emp[i].gender == "Female") {
+            res.push(emp[i]);
+        }
+    }
+    display(res);
+}
+
+function showHR() {
+    var res = [];
+    for (var i = 0; i < emp.length; i++) {
+        if (emp[i].department == "HR") {
+            res.push(emp[i]);
+        }
+    }
+    display(res);
+}
+
+function showSalary() {
+    var res = [];
+    for (var i = 0; i < emp.length; i++) {
+        if (emp[i].salary > 30000 && emp[i].salary < 60000) {
+            res.push(emp[i]);
+        }
+    }
+    display(res);
+}
+
+function showAge() {
+    var res = [];
+    for (var i = 0; i < emp.length; i++) {
+        if (emp[i].age > 55) {
+            res.push(emp[i]);
+        }
+    }
+    display(res);
+}
+
+function showSameDept() {
+    var res = [];
+    for (var i = 0; i < emp.length; i++) {
+        if (emp[i].department == "IT") {
+            res.push(emp[i]);
+        }
+    }
+    display(res);
+}
+
+</script>
+
+</body>
+</html>

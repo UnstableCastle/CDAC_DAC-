@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        button {
+            margin-top: 20px;
+            color: rebeccapurple;
+            font-size: 15px;
+
+
+        }
+
+        button:hover {
+            background-color:rgb(189, 156, 233);
+        }
+        
+        input{
+            padding: auto;
+            padding-left: 10px;
+            width: 200px;
+            border-radius: 20px;
+            border-color: aqua;
+            font-size: 15px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+        }
+        label{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <form>
+
+            <label for="num1">Number 1</label>
+            <input type="text" placeholder="Enter Value for number one" id="n1" name="num1"><br>
+            <label for="num2">Number 2</label>
+            <input type="text" id="n2" placeholder="Enter Value for number two" name="num2"><br><br>
+            <label for="result">Result &nbsp&nbsp&nbsp&nbsp&nbsp</label>
+            <input type="text" id="result" name="res" disabled><br>
+            <button type="button" onclick="addition()">Addition</button>
+            <button type="button" onclick="subtraction()">Subtraction</button>
+            <button type="button" onclick="division()">Division</button>
+            <button type="button" onclick="multiply()">Multiply</button>
+        </form>
+    </div>
+<script>
+function addition(){
+    let a = Number(document.getElementById("n1").value);
+    let b = Number(document.getElementById("n2").value);
+
+    document.getElementById("result").value = a + b;
+}
+
+function subtraction(){
+    let a = Number(document.getElementById("n1").value);
+    let b = Number(document.getElementById("n2").value);
+
+    document.getElementById("result").value = a - b;
+}
+
+function multiply(){
+    let a = Number(document.getElementById("n1").value);
+    let b = Number(document.getElementById("n2").value);
+
+    document.getElementById("result").value = a * b;
+}
+
+function division(){
+    let a = Number(document.getElementById("n1").value);
+    let b = Number(document.getElementById("n2").value);
+
+    if(b == 0){
+        document.getElementById("result").value = "Error";
+    } else {
+        document.getElementById("result").value = a / b;
+    }
+}
+</script>
+
+
+</body>
+
+</html>

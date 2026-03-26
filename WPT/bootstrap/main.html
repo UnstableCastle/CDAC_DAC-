@@ -4,127 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music</title>
+    <title>Music Streamer Pro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
     <style>
         :root {
             --sidebar-width: 240px;
-            --player-height: 100px;
-            --primary-blue: #0d6efd;
+            --player-height: 90px;
         }
 
         body {
             background-color: #121212;
             color: white;
-            overflow: hidden;
             height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
 
-        /* Sidebar Styling */
+        /* Sidebar - Hidden on mobile, shown on md+ */
         .sidebar {
             width: var(--sidebar-width);
-            height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
             background-color: #000;
             padding: 1.5rem;
-            z-index: 1000;
+            flex-shrink: 0;
+            display: none; 
+        }
+
+        @media (min-width: 768px) {
+            .sidebar { display: block; }
+            .main-wrapper { display: flex; flex-direction: row; height: calc(100vh - var(--player-height)); }
         }
 
         .nav-link {
             color: #b3b3b3 !important;
-            font-weight: 600;
-            padding: 0.8rem 0;
             transition: 0.3s;
+            padding: 0.5rem 0;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: white !important;
-        }
-
-        .nav-link i { margin-right: 15px; width: 20px; }
+        .nav-link:hover, .nav-link.active { color: white !important; }
 
         /* Main Content */
         .main-content {
-            margin-left: var(--sidebar-width);
-            height: calc(100vh - var(--player-height));
+            flex-grow: 1;
             overflow-y: auto;
-            padding: 2rem;
-            padding-bottom: 5rem;
+            padding: 1.5rem;
+            background: linear-gradient(to bottom, #1f1f1f, #121212);
         }
 
-        /* Music Player Bottom Bar */
+        /* Responsive Card Styling */
+        .card {
+            background-color: #181818;
+            border: none;
+            transition: 0.3s;
+            cursor: pointer;
+            padding: 12px;
+        }
+
+        .card:hover { background-color: #282828; }
+
+        .card-img-top {
+            border-radius: 4px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        /* Player Bar - Sticky Bottom */
         .player-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
             height: var(--player-height);
             background-color: #181818;
             border-top: 1px solid #282828;
+            padding: 0 1rem;
             display: flex;
             align-items: center;
-            padding: 0 2rem;
-            z-index: 1100;
-        }
-
-        /* Song Card Styling */
-        .song-card {
-            background: #181818;
-            border: none;
-            border-radius: 8px;
-            padding: 15px;
-            transition: background 0.3s ease;
-            cursor: pointer;
-            height: 100%;
-        }
-
-        .song-card:hover {
-            background: #282828;
-        }
-
-        .song-card img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 12px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-        }
-
-        .song-card h6 {
-            margin: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .song-card p {
-            font-size: 0.85rem;
-            color: #b3b3b3;
-            margin-top: 5px;
-        }
-
-        /* Player Controls */
-        .player-controls {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .control-btns {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+            justify-content: space-between;
         }
 
         .play-btn {
-            width: 35px;
-            height: 35px;
+            width: 32px;
+            height: 32px;
             background: white;
             color: black;
             border-radius: 50%;
@@ -136,72 +103,73 @@
 
         .progress-container {
             width: 100%;
-            max-width: 500px;
             height: 4px;
             background: #4f4f4f;
             border-radius: 2px;
-            margin-top: 10px;
-            position: relative;
         }
 
-        .progress-bar {
+        .progress-fill {
             height: 100%;
-            background: var(--primary-blue);
+            background: #0d6efd;
             width: 30%;
-            border-radius: 2px;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #888; }
+        /* Mobile Adjustments */
+        @media (max-width: 576px) {
+            .player-bar { height: 80px; }
+            .volume-controls { display: none !important; }
+            .song-info { width: 60% !important; }
+            .player-controls { width: 40% !important; }
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="sidebar">
-        <h4 class="mb-4"><i class="fab fa-apple"></i> Music</h4>
-        <nav class="nav flex-column">
-            <a class="nav-link active" href="#"><i class="fas fa-home"></i> Home</a>
-            <a class="nav-link" href="#"><i class="fas fa-search"></i> Search</a>
-            <a class="nav-link" href="#"><i class="fas fa-layer-group"></i> Your Library</a>
-            <hr style="border-color: #282828;">
-            <a class="nav-link" href="#"><i class="fas fa-plus-square"></i> Create Playlist</a>
-            <a class="nav-link" href="#"><i class="fas fa-heart"></i> Liked Songs</a>
-        </nav>
-    </div>
+    <div class="main-wrapper flex-grow-1 overflow-hidden">
+        <div class="sidebar">
+            <h4 class="mb-4"><i class="fab fa-apple"></i> Music</h4>
+            <nav class="nav flex-column">
+                <a class="nav-link active" href="#"><i class="fas fa-home me-2"></i> Home</a>
+                <a class="nav-link" href="#"><i class="fas fa-search me-2"></i> Search</a>
+                <a class="nav-link" href="#"><i class="fas fa-layer-group me-2"></i> Library</a>
+            </nav>
+        </div>
 
-    <div class="main-content">
-        <h2 class="mb-4">Recommended for you</h2>
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4" id="song-grid">
+        <div class="main-content">
+            <div class="d-md-none mb-3">
+                <h4 class="fw-bold"><i class="fab fa-apple"></i> Music</h4>
             </div>
+
+            <h2 class="mb-4 fw-bold display-flex">Recommended</h2>
+            
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xl-5 g-3 g-md-4" id="song-grid">
+                </div>
+        </div>
     </div>
 
     <div class="player-bar">
-        <div class="d-flex align-items-center" style="width: 30%;">
-            <img src="https://via.placeholder.com/60" id="current-img" class="rounded me-3" width="60" height="60">
+        <div class="song-info d-flex align-items-center" style="width: 30%;">
+            <img src="https://via.placeholder.com/50" id="current-img" class="rounded me-2" width="45" height="45">
             <div class="overflow-hidden">
-                <h6 class="mb-0 text-white" id="current-title">Select a song</h6>
-                <small class="text-muted" id="current-artist">Artist</small>
+                <div class="text-truncate fw-bold small" id="current-title">Select a song</div>
+                <div class="text-muted small text-truncate" id="current-artist">Artist</div>
             </div>
         </div>
 
-        <div class="player-controls">
-            <div class="control-btns">
-                <button class="btn btn-link text-muted"><i class="fas fa-random"></i></button>
-                <button class="btn btn-link text-white"><i class="fas fa-step-backward"></i></button>
+        <div class="player-controls d-flex flex-column align-items-center" style="width: 40%;">
+            <div class="d-flex align-items-center gap-3 mb-1">
+                <button class="btn btn-link text-white d-none d-sm-inline p-0"><i class="fas fa-step-backward"></i></button>
                 <button class="play-btn" id="playBtn"><i class="fas fa-play"></i></button>
-                <button class="btn btn-link text-white"><i class="fas fa-step-forward"></i></button>
-                <button class="btn btn-link text-muted"><i class="fas fa-redo"></i></button>
+                <button class="btn btn-link text-white p-0"><i class="fas fa-step-forward"></i></button>
             </div>
-            <div class="progress-container">
-                <div class="progress-bar"></div>
+            <div class="progress-container d-none d-md-block">
+                <div class="progress-fill"></div>
             </div>
         </div>
 
-        <div class="d-flex align-items-center justify-content-end" style="width: 30%;">
-            <i class="fas fa-volume-up me-2 text-muted"></i>
+        <div class="volume-controls d-flex align-items-center justify-content-end" style="width: 30%;">
+            <i class="fas fa-volume-up me-2 text-muted small"></i>
             <input type="range" class="form-range w-50" id="volume">
         </div>
     </div>
@@ -215,34 +183,24 @@
             { title: "Blinding Lights", artist: "The Weeknd", img: "https://picsum.photos/seed/5/300" },
             { title: "Stay", artist: "The Kid LAROI", img: "https://picsum.photos/seed/6/300" },
             { title: "Industry Baby", artist: "Lil Nas X", img: "https://picsum.photos/seed/7/300" },
-            { title: "Bad Habits", artist: "Ed Sheeran", img: "https://picsum.photos/seed/8/300" },
-            { title: "Good 4 U", artist: "Olivia Rodrigo", img: "https://picsum.photos/seed/9/300" },
-            { title: "Montero", artist: "Lil Nas X", img: "https://picsum.photos/seed/10/300" },
-            { title: "Kiss Me More", artist: "Doja Cat", img: "https://picsum.photos/seed/11/300" },
-            { title: "Save Your Tears", artist: "The Weeknd", img: "https://picsum.photos/seed/12/300" },
-            { title: "Peaches", artist: "Justin Bieber", img: "https://picsum.photos/seed/13/300" },
-            { title: "Butter", artist: "BTS", img: "https://picsum.photos/seed/14/300" },
-            { title: "Drivers License", artist: "Olivia Rodrigo", img: "https://picsum.photos/seed/15/300" },
-            { title: "Deja Vu", artist: "Olivia Rodrigo", img: "https://picsum.photos/seed/16/300" },
-            { title: "Traitor", artist: "Olivia Rodrigo", img: "https://picsum.photos/seed/17/300" },
-            { title: "Happier", artist: "Olivia Rodrigo", img: "https://picsum.photos/seed/18/300" },
-            { title: "Brutal", artist: "Olivia Rodrigo", img: "https://picsum.photos/seed/19/300" },
-            { title: "Jealousy", artist: "Olivia Rodrigo", img: "https://picsum.photos/seed/20/300" }
+            { title: "Bad Habits", artist: "Ed Sheeran", img: "https://picsum.photos/seed/8/300" }
         ];
 
         const grid = document.getElementById('song-grid');
         
         songs.forEach(song => {
-            const card = document.createElement('div');
-            card.className = 'col';
-            card.innerHTML = `
-                <div class="song-card" cols-4-xl onclick="playSong('${song.title}', '${song.artist}', '${song.img}')">
-                    <img src="${song.img}" alt="${song.title}">
-                    <h6>${song.title}</h6>
-                    <p>${song.artist}</p>
+            const col = document.createElement('div');
+            col.className = 'col';
+            col.innerHTML = `
+                <div class="card h-100" onclick="playSong('${song.title.replace(/'/g, "\\'")}', '${song.artist.replace(/'/g, "\\'")}', '${song.img}')">
+                    <img src="${song.img}" class="card-img-top" alt="${song.title}">
+                    <div class="card-body p-0">
+                        <div class="card-title text-white fw-bold">${song.title}</div>
+                        <div class="text-muted small">${song.artist}</div>
+                    </div>
                 </div>
             `;
-            grid.appendChild(card);
+            grid.appendChild(col);
         });
 
         const playBtn = document.getElementById('playBtn');
@@ -252,7 +210,6 @@
             document.getElementById('current-title').innerText = title;
             document.getElementById('current-artist').innerText = artist;
             document.getElementById('current-img').src = img;
-            
             isPlaying = true;
             playBtn.innerHTML = '<i class="fas fa-pause"></i>';
         }
