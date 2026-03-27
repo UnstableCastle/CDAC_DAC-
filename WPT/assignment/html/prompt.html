@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>charcheck</title>
+</head>
+
+<body>
+
+    <script>
+        // let input = prompt("Enter a Alphabet to check:");
+
+        //     function checkData(char) {
+        //         let data = char.toLowerCase();
+
+        //         if (data === "a" || data === "e" || data === "i" || data === "o" || data === "u") {
+        //             document.write(`<h1>${char} is a Vowel</h1>`);
+        //         } else {
+        //             document.write(`<h1>${char} is a Consonant</h1>`);
+        //         }
+        //     }
+
+        //     if (input) {
+        //         checkData(input);
+        //     }
+
+        // let number1 = Number(prompt("Enter a number to check even/odd:"));
+
+        // function even_odd(num) {
+        //        if (num % 2 === 0) {
+        //         document.write(`${num} is even`);
+        //     } else {
+        //         document.write(`${num} is odd`);
+        //     }
+        // }
+
+        // if (number1 !== null) {
+        //     even_odd(number1);
+        // }
+
+        let userEmail = prompt("Please enter your email address:");
+
+        function displayEmailInfo(email) {
+            let domain = email.indexOf("@");
+
+            if (domain !== -1 && domain < email.length - 1) {
+                let domainName = email.slice(domain + 1);
+
+
+                document.write(`<h3>${email} is of **${domainName}**</h3>`);
+            } else {
+                document.write("<h3>Invalid email format entered.</h3>");
+            }
+        }
+
+        if (userEmail) {
+            displayEmailInfo(userEmail);
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
