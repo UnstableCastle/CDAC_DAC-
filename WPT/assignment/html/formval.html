@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Task: Clock & Validation</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            margin: 5px 0 12px 0;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .error-msg {
+            color: red;
+            font-size: 11px;
+            display: block;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            height: 15px;
+        }
+
+        .radio-group {
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body onload="startTime()">
+
+    <div class="form-container">
+        <h3>User Registration</h3>
+        <form name="regForm" onsubmit="return validateAll()">
+
+            <label>User ID:</label>
+            <input type="text" id="uid" placeholder="e.g. user123">
+
+            <label>Username:</label>
+            <input type="text" id="uname" placeholder="Enter full name">
+
+            <label>Password:</label>
+            <input type="password" id="pass" placeholder="At least 6 chars" onblur="validatePassword()">
+            <span id="passError" class="error-msg"></span>
+
+            <label>Email:</label>
+            <input type="text" id="email" placeholder="example@mail.com">
+
+            <label>Contact:</label>
+            <input type="text" id="contact" placeholder="10 digit mobile">
+
+            <div class="radio-group">
+                <label>Gender:</label>
+                <input type="radio" name="gender" value="m" style="width: auto;"> Male
+                <input type="radio" name="gender" value="f" style="width: auto;"> Female
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+       
+        function validatePassword() {
+            let pass = document.getElementById("pass").value;
+            let errorSpan = document.getElementById("passError");
+            let passInput = document.getElementById("pass");
+
+            if (pass.length < 6) {
+                errorSpan.innerText = "Too short! (Min 6 chars)";
+                passInput.style.borderColor = "red";
+                return false;
+            } else {
+                errorSpan.innerText = "";
+                passInput.style.borderColor = "green";
+                return true;
+            }
+        }
+
+        function validateAll() {
+            let uid = document.getElementById("uid").value;
+            let uname = document.getElementById("uname").value;
+            let email = document.getElementById("email").value;
+            let contact = document.getElementById("contact").value;
+            let gender = document.regForm.gender;
+
+            let uidReg = /^[a-zA-Z0-9]+$/;
+            let emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let contactReg = /^[0-9]{10}$/;
+
+            if (uid === "" || !uidReg.test(uid)) {
+                alert("User ID is required and must be alphanumeric (no spaces).");
+                return false;
+            }
+
+            if (uname.length < 3 || uname.length > 15) {
+                alert("Username must be between 3 and 15 characters.");
+                return false;
+            }
+
+            if (!emailReg.test(email)) {
+                alert("Invalid Email Format");
+                return false;
+            }
+
+            if (!contactReg.test(contact)) {
+                alert("Contact must be exactly 10 digits");
+                return false;
+            }
+
+            if (!gender.value) {
+                alert("Please select a Gender");
+                return false;
+            }
+
+            if (!validatePassword()) {
+                alert("Please fix the password field.");
+                return false;
+            }
+
+            alert("All validations passed! Form Submitted.");
+            return true;
+        }
+    </script>
+</body>
+
+</html>

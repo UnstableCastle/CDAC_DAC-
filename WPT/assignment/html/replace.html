@@ -47,7 +47,7 @@
     <div class="t1">
         <form name="replaceForm">
             <label> Enter text to Operate </label>
-            <textarea id="ta"></textarea>
+            <textarea id="ta" rows="2" cols="4"></textarea>
             
             <div style="margin-top: 10px;">
                 <input type="text" id="findInput" class="input-field" placeholder="search">
@@ -63,20 +63,20 @@
 
     <script>
         function replaceText() {
-            const textArea = document.getElementById("ta");
-            const findVal = document.getElementById("findInput").value;
-            const replaceVal = document.getElementById("replaceInput").value;
+            let textArea = document.getElementById("ta");
+            let findVal = document.getElementById("findInput").value;
+            let replaceVal = document.getElementById("replaceInput").value;
 
-            const result = textArea.value.replace(findVal, replaceVal);
+            let result = textArea.value.replace(findVal, replaceVal);
             textArea.value = result;
         }
 
         function replaceAllText() {
-            const textArea = document.getElementById("ta");
-            const findVal = document.getElementById("findInput").value;
-            const replaceVal = document.getElementById("replaceInput").value;
+            let textArea = document.getElementById("ta");
+            let findVal = document.getElementById("findInput").value;
+            let replaceVal = document.getElementById("replaceInput").value;
 
-            const result = textArea.value.replaceAll(findVal, replaceVal);
+            let result = textArea.value.replaceAll(findVal, replaceVal);
             textArea.value = result;
         }
     </script>

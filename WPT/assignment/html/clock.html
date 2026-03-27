@@ -6,7 +6,7 @@
     <title>Clock</title>
     <style>
         body {
-            background: #0f0c29;  /* Dark cosmic background */
+            background: #0f0c29; 
             background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
             height: 100vh;
             margin: 0;
@@ -17,7 +17,7 @@
         }
 
         .myclock {
-            width: 300px;
+           width: 300px;
             height: 300px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
@@ -35,7 +35,6 @@
             animation: pulse 4s infinite ease-in-out;
         }
 
-        /* The glowing outer ring */
         .myclock::before {
             content: '';
             position: absolute;
@@ -57,7 +56,7 @@
             letter-spacing: 2px;
         }
 
-        /* Subtle "Breathing" animation */
+        
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); box-shadow: 0 0 80px rgba(0, 212, 255, 0.4); }
@@ -77,8 +76,8 @@
     const updateClock = () => {
         let obj = new Date();
         document.getElementById("time").innerHTML = obj.toLocaleTimeString();
+    
     }
-    // Call immediately so it doesn't wait 1s to appear
     updateClock();
     setInterval(updateClock, 1000);
 </script>
