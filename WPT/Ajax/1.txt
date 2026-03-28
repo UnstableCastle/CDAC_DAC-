@@ -1,0 +1,12 @@
+json server 
+
+command to start json server and databsaefile
+
+json-server --watch -p 8888 db.json
+
+
+GET :  we can fetch data from server using get method
+DELETE : we can DELETE data from server using get method
+POST : we can add data from server using get method
+PuT : we can Update data from server using get method
+

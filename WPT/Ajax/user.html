@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User CRUD Operations</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; background: #f9f9f9; }
+        table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 10px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .form-table td { border: none; padding: 5px; }
+        .form-table { border: none; background: transparent; }
+        input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { padding: 10px 20px; cursor: pointer; font-weight: bold; border: 1px solid #333; }
+        .btn-read { background: #e1f5fe; }
+        .btn-create { background: #e8f5e9; color: #2e7d32; }
+        .btn-update { background: #fff3e0; color: #ef6c00; }
+        .btn-delete { background: #ffebee; color: #c62828; }
+        hr { margin: 40px 0; border: 0; border-top: 2px solid #333; }
+        h2 { color: #333; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h2>1. Read Operation (All Users)</h2>
+        <button class="btn-read" onclick="getdata()">Fetch All Records</button>
+        <table style="margin-top: 15px;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>UserID</th>
+                    <th>Status</th>
+                    <th>Last Login</th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+                </tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>2. Create Operation (Add User)</h2>
+        <table class="form-table">
+            <tr>
+                <td><label>Username:</label></td>
+                <td><input type="text" id="c_userid"></td>
+            </tr>
+            <tr>
+                <td><label>Password:</label></td>
+                <td><input type="password" id="c_pass"></td>
+            </tr>
+            <tr>
+                <td><label>Status:</label></td>
+                <td>
+                    <select id="c_status">
+                        <option value="active">active</option>
+                        <option value="inactive">inactive</option>
+                        <option value="locked">locked</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Login Date:</label></td>
+                <td><input type="date" id="c_login"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn-create" onclick="addData()">INSERT RECORD</button></td>
+            </tr>
+        </table>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>3. Update Operation (Edit User)</h2>
+        <table class="form-table">
+            <tr>
+                <td><label>Step 1: Enter ID to Load:</label></td>
+                <td style="display: flex; gap: 5px;">
+                    <input type="text" id="gid" placeholder="User ID">
+                    <button onclick="getSingleID()">LOAD</button>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Step 2: Modify Details:</label></td>
+                <td><input type="text" id="nuserid" placeholder="New Username"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="password" id="npass" placeholder="New Password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <select id="nstatus">
+                        <option value="active">active</option>
+                        <option value="inactive">inactive</option>
+                        <option value="locked">locked</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="date" id="nlogin"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn-update" onclick="updateRecord()">UPDATE RECORD</button></td>
+            </tr>
+        </table>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>4. Delete Operation (Remove User)</h2>
+        <table class="form-table">
+            <tr>
+                <td><label>Target User ID:</label></td>
+                <td><input type="text" id="uid" placeholder="Enter ID to delete"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn-delete" onclick="deleterecord()">DELETE PERMANENTLY</button></td>
+            </tr>
+        </table>
+    </section>
+
+    <script src="user.js"></script>
+</body>
+</html>

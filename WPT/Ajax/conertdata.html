@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax demo</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        // javascript object
+        let emp = { id: 1, name: "a", post: "B", sal: 10000 };
+
+        let jsonData = JSON.stringify(emp); // covert obj type data to json format 
+        document.write(jsonData, "<br>");
+
+        // CONVERT JSON DATA TO JS OBJECT
+
+        let jsObjData = JSON.parse(jsonData);
+        document.write(jsObjData.name);
+
+
+    </script>
+</body>
+
+</html>
