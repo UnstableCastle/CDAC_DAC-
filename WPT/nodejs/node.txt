@@ -1,17 +1,13 @@
 ===========================================================================
-                     NODE.JS MODULES: MASTER REFERENCE
+               NODE.JS COMPLETE ECOSYSTEM: MASTER REFERENCE
 ===========================================================================
 
-1. MODULE TYPES
+1. MODULE TYPES & STANDARDS
 ---------------------------------------------------------------------------
-CORE      | Built-in (http, fs, path, os, url). No install. require('name').
+CORE      | Built-in (http, fs, path, os). No install. require('name').
 LOCAL     | User-created. Reusable logic. require('./path').
-3RD PARTY | External (Express, Mongoose). npm install <name>.
+3RD PARTY | External (Express, Dotenv). npm install <name>.
 
----------------------------------------------------------------------------
-
-2. MODULE STANDARDS (CJS vs ESM)
----------------------------------------------------------------------------
 COMMONJS (CJS)         | ES MODULES (ESM)
 -----------------------|-----------------------
 File: .js              | File: .mjs
@@ -21,225 +17,98 @@ Scope: Synchronous     | Scope: Asynchronous
 
 ---------------------------------------------------------------------------
 
-3. GLOBAL PATH VARIABLES (CJS)
+2. GLOBAL VARIABLES & WRAPPER
 ---------------------------------------------------------------------------
 __dirname  : Full path to current DIRECTORY.
 __filename : Full path to current FILE.
 
----------------------------------------------------------------------------
-
-4. CORE UTILITIES
----------------------------------------------------------------------------
-HTTP   : Create/Manage Web Servers.
-OS     : System stats (CPU, RAM, Uptime, Arch).
-PATH   : Normalize/Join file paths across OS.
-FS     : Read, write, and delete files.
-URL    : Parse/manipulate URL strings and queries.
-UTIL   : Internal helper functions (promisify, format).
-
----------------------------------------------------------------------------
-
-5. MODULE WRAPPER (HIDDEN)
----------------------------------------------------------------------------
+THE HIDDEN WRAPPER:
 (function(exports, require, module, __filename, __dirname) {
-    // Your code is injected here by Node.js
+    // Your code is injected here by Node.js at runtime
 });
 
 ---------------------------------------------------------------------------
 
-6. SYSTEM SNAPSHOT (ROG i7-13650HX)
+3. CORE UTILITIES (THE BIG FIVE)
 ---------------------------------------------------------------------------
-ARCH        : x64
-LOGICAL CPU : 20 Cores
-TOTAL RAM   : 16.78 GB
-FREE RAM    : 7.87 GB
-x64
-ROG
-C:\Users\Amaan
-total memory 16780566528
-free memory 7758045184
-[
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 16515, nice: 0, sys: 18890, idle: 1537500, irq: 3593 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 12687, nice: 0, sys: 17796, idle: 1542265, irq: 3625 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 28828, nice: 0, sys: 24765, idle: 1519140, irq: 1765 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 7828, nice: 0, sys: 8031, idle: 1556843, irq: 828 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 98593, nice: 0, sys: 91203, idle: 1382968, irq: 9156 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 51656, nice: 0, sys: 49343, idle: 1471734, irq: 4546 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 112578, nice: 0, sys: 88093, idle: 1372093, irq: 7515 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 37937, nice: 0, sys: 31656, idle: 1503125, irq: 2531 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 25687, nice: 0, sys: 19687, idle: 1527390, irq: 1187 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 9828, nice: 0, sys: 6656, idle: 1556218, irq: 265 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 24250, nice: 0, sys: 17656, idle: 1530859, irq: 781 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 5593, nice: 0, sys: 5312, idle: 1561796, irq: 171 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 5921, nice: 0, sys: 5265, idle: 1561546, irq: 250 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 8968, nice: 0, sys: 7921, idle: 1555843, irq: 359 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 6015, nice: 0, sys: 5296, idle: 1561421, irq: 140 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 4828, nice: 0, sys: 4171, idle: 1563734, irq: 140 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 7484, nice: 0, sys: 6390, idle: 1558859, irq: 328 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 7062, nice: 0, sys: 5140, idle: 1560531, irq: 140 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 6718, nice: 0, sys: 5031, idle: 1560984, irq: 265 }
-  },
-  {
-    model: '13th Gen Intel(R) Core(TM) i7-13650HX',
-    speed: 2803,
-    times: { user: 5625, nice: 0, sys: 4250, idle: 1562859, irq: 203 }
-  }
-]
-C:\D DRIVE\DAC\CDAC_DAC-\WPT\nodejs
-C:\D DRIVE\DAC\CDAC_DAC-\WPT\nodejs\c.js
-.js
-true
-C:\D DRIVE\DAC\CDAC_DAC-\WPT\nodejs\c.js
-nodejs
-c.js
-C:\D DRIVE\DAC\CDAC_DAC-\WPT\nodejs\any\path
+HTTP  : Create Web Servers. handle req (request) and res (response).
+FS    : File System. Read/Write/Delete/Append files.
+PATH  : Normalize and Join file paths (cross-platform compatibility).
+OS    : System stats (CPU Cores, RAM, Uptime, Architecture).
+URL   : Parse and manipulate URL strings and query parameters.
 
 ---------------------------------------------------------------------------
 
-7. NPM WORKFLOW
+4. STREAMS: HIGH-PERFORMANCE DATA
 ---------------------------------------------------------------------------
-STEP 1: Create local logic in a file.
-STEP 2: Export using module.exports.
-STEP 3: npm init (Creates package.json).
-STEP 4: npm publish (Uploads to community registry).
-STEP 5: npm install  npm -g(Community downloads for use).
+CONCEPT: Handling data in "chunks" instead of loading everything to RAM.
 
-===========================================================================
+TYPES:
+- Readable  : e.g., fs.createReadStream('large.mp4')
+- Writable  : e.g., fs.createWriteStream('copy.mp4')
+- Pipe      : src.pipe(dest) -> Automatically manages data flow.
 
-===========================================================================
-                NPM: NODE PACKAGE MANAGER & COMMANDS
-===========================================================================
-
-1. WHAT IS NPM?
----------------------------------------------------------------------------
-Definition : The world's largest Software Registry (Library).
-Function   : Allows you to install, share, and manage 3rd-party modules.
-Core Files : 'package.json' (The manifest/list of all your project tools).
+OUTPUT:
+> node stream.js
+[Chunk Received: 64kb]
+[Chunk Received: 64kb]
+File Streaming Complete. (RAM usage: Stable)
 
 ---------------------------------------------------------------------------
 
-2. LOCAL VS. GLOBAL INSTALLATION
----------------------------------------------------------------------------
-LOCAL (-l)      | GLOBAL (-g)
-----------------|----------------------------------------------------------
-Installed in    | Installed on your entire COMPUTER system.
-'node_modules'  | Used for CLI tools (like nodemon or create-react-app).
-Project-specific| Accessible from ANY terminal/project.
-Usage: npm i x  | Usage: npm i -g x
-
----------------------------------------------------------------------------
-
-3. ESSENTIAL NPM COMMANDS
+5. NPM & PACKAGE MANAGEMENT
 ---------------------------------------------------------------------------
 COMMAND            | DESCRIPTION
 -------------------|-------------------------------------------------------
-npm init           | Initialize a new project (creates package.json).
-npm init -y        | Initialize with all default settings (Fast way).
-npm install <pkg>  | Downloads a package to 'node_modules'.
-npm i <pkg>        | Shorthand for install.
-npm update <pkg>   | Updates the module to the latest version.
-npm uninstall <pkg>| Removes the module from your project and package.json.
-npm list           | Shows all installed packages in the current project.
+npm init -y        | Fast-track project setup (creates package.json).
+npm i <pkg>        | Install locally to 'node_modules'.
+npm i -g <pkg>     | Install globally (for CLI tools like Nodemon).
+npm uninstall <pkg>| Removes package and updates package.json.
+
+**CRITICAL**: Always check 'dependencies' in package.json before sharing.
 
 ---------------------------------------------------------------------------
 
-4. THE "LIFETIME" CONCEPT
+6. DEVELOPMENT & SECURITY TOOLS
 ---------------------------------------------------------------------------
-- Once a package is in your 'node_modules', you can use it throughout your 
-  project logic.
-- If you use '-g' (Global), the tool stays on your desktop/laptop until
-  you manually run the 'uninstall -g' command.
+NODEMON : Auto-restarts server on file save.
+          Usage: nodemon app.js
+          Output: [nodemon] restarting due to changes...
+
+DOTENV  : Protects sensitive data (API keys, DB Passwords).
+          File: .env (PORT=3000)
+          Usage: require('dotenv').config();
+          Access: process.env.PORT
+
+PROMPT  : Synchronous user input for CLI tools.
+          Usage: const input = prompt('Enter Name: ');
+
+---------------------------------------------------------------------------
+
+7. SYSTEM SNAPSHOT (ROG i7-13650HX)
+---------------------------------------------------------------------------
+CPU ARCH    : x64
+LOGICAL CPU : 20 Cores (13th Gen Intel Core i7)
+TOTAL RAM   : 16.78 GB
+OS PLATFORM : win32 (Windows)
+
+DIRECTORY CONTEXT:
+Root: C:\D DRIVE\DAC\CDAC_DAC-\WPT\nodejs
+File: c.js
+Status: Active
+
+---------------------------------------------------------------------------
+
+8. WORKFLOW: CREATING A SERVER
+---------------------------------------------------------------------------
+STEP 1: npm init -y
+STEP 2: npm i dotenv prompt-sync
+STEP 3: Create .env and .gitignore
+STEP 4: Write logic in app.js using http and fs
+STEP 5: nodemon app.js
 
 ===========================================================================
 QUICK TIP: 
-Always check your 'package.json' after installing. If the module name 
-isn't there under "dependencies", your project won't work on other PCs!
+Use 'fs.promises' or 'util.promisify' to avoid "Callback Hell" when 
+working with the File System!
 ===========================================================================
-
-
-what is stream
-
-use http module
-
-Nodemon : Will automatically restart the Server Like if any changes found In Solver Phi Node one Will restart R server Okay other node one installed Karna Hai Node one In the npm dashboard right Nodemon
-
-
-how to run file with nodemon 
-nodemon filename.js
-
-*dotenv : when we work in open env and want to hide or safe our.envy Library What we use dotenvenvlibrary
