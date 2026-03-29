@@ -24,7 +24,6 @@
 require("dotenv").config();
 const http = require('http'); // Removed the duplicate line
 
-// Fallback values are great practice in case .env is missing
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 3000;
 

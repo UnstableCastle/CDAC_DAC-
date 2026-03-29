@@ -107,8 +107,16 @@ STEP 3: Create .env and .gitignore
 STEP 4: Write logic in app.js using http and fs
 STEP 5: nodemon app.js
 
-===========================================================================
-QUICK TIP: 
-Use 'fs.promises' or 'util.promisify' to avoid "Callback Hell" when 
-working with the File System!
-===========================================================================
+==========================================================================
+
+RUN SERVER : 
+//cmd - > node <filename>
+
+node myhttp.js
+
+nodemon myhttp.js
+
+server with multiple html pages
+
+nodemon server.js 
+
