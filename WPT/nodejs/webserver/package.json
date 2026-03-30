@@ -1,0 +1,21 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "this is simple web server.",
+  "keywords": [
+    "webserver",
+    "server"
+  ],
+  "license": "ISC",
+  "author": "CASTLE",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "hbs": "^4.2.0"
+  }
+}

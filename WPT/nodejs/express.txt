@@ -1,0 +1,99 @@
+Expressions It is an web application framework for node js. Wave application framework for the node js and it makes Or it takes less time to build a web application While doing writing a code in node js
+This allows us to render render what the display Karna Amare Peche Hamare output browser pet display announcer render get in displaying another namai render display method at time completely displayed now render method 1 by 1 Rendered now Malaki friends
+Images for different http request by conferring the routes once we read the routes for our application
+Default routing whether normally they had to get there naming rowdy Or parameterized past the parameterized routing we get them Create for a wave easy easily wave application Ok and we can use different routes for rendering multiple pages
+
+adv
+makes nodejs web app development fast and easy
+easy to configure and customize
+allows us to define routes of our application based on http 
+integrate with templates like jade , urls etc
+
+.env modeule , http module , fs module prompt module 
+
+HP dot creates server we have created the server and In two parameter request and response 
+
+Server static resources middleware has their own functionality OK Here we are Usingexpress.staticintoexpress.static middleware It allows us to serve static file on the web server OK.
+
+**How to make a web server?
+step 1:
+So so step one I okay so create directory OK create directory for project.
+
+web Server folder -> cd webserver (enter) .
+
+step 2 : Just write OK That is not just create package on Jason : 
+npm init or npm init -y 
+
+LOGS 
+=============================================================================================================
+C:\D DRIVE\DAC\CDAC_DAC-\WPT\nodejs\webserver>npm init   
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (webserver) y
+version: (1.0.0)                                                                                                                                                                                          
+description: this is simple web server.
+entry point: (index.js)                                                                                                                                                                                   
+test command:                                                                                                                                                                                             
+git repository:
+keywords: webserver server
+author: CASTLE                                                                                                                                                                                            
+license: (ISC)                                                                                                                                                                                            
+type: (commonjs)                                                                                                                                                                                          
+About to write to C:\D DRIVE\DAC\CDAC_DAC-\WPT\nodejs\webserver\package.json:
+
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "this is simple web server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webserver",
+    "server"
+  ],
+  "author": "CASTLE",
+  "license": "ISC",
+  "type": "commonjs"
+}
+
+
+Is this OK? (yes) Y
+
+===========================================================
+
+STEP 3 INSTALL EXPRESS:
+npm i express
+
+STEP 4 : install .env
+npm i dotenv
+
+============================================================
+node_module: all external dependency and library will be install here
+
+package.json: all external dependency or library entry will found here
+
+package-lock.json: all dependency details will be available here.
+
+========================================================================
+
+step 5 create server using expressjs with multiple routing path.
+
+
+app.js
+PUBLIC folder : 
+html : index , about , service , contact , 404 not found
+css:
+js:
+img : add Images
+
+use HBD template ENGINE
+
+nodejs\TEMPLATE
