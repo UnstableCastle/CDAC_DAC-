@@ -1,5 +1,4 @@
-//
-// 
+
 //  require('dotenv').config();
 // const express = require('express');
 // const path = require('path');
@@ -56,7 +55,7 @@ app.set("views", path.join(__dirname, "templates", "views"));
 
 app.use(express.static(path.join(__dirname, "templates/templates")));
 
-// Routes
+
 app.get("/", (req, res) => {  
   res.render("index");
 });
@@ -77,12 +76,12 @@ app.get("/contact", (req, res) => {
   res.render("contact");
 });
 
-// 404 (must be last)
+
 app.use((req, res) => {
   res.status(404).render("error_404");
 });
 
-// Server
+
 app.listen(port, () => {
   console.log(`my webserver get started on http://${host}:${port}`);
 });

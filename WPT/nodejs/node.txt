@@ -1,122 +1,261 @@
-===========================================================================
-               NODE.JS COMPLETE ECOSYSTEM: MASTER REFERENCE
-===========================================================================
+============================================================================
+            NODE.JS COMPLETE ECOSYSTEM: TERMINAL MASTER NOTES
+============================================================================
 
-1. MODULE TYPES & STANDARDS
----------------------------------------------------------------------------
-CORE      | Built-in (http, fs, path, os). No install. require('name').
-LOCAL     | User-created. Reusable logic. require('./path').
-3RD PARTY | External (Express, Dotenv). npm install <name>.
+[0] BASIC INSTALLATION & SETUP
+----------------------------------------------------------------------------
+# Install Node.js (LTS recommended)
+Download from: https://nodejs.org
 
-COMMONJS (CJS)         | ES MODULES (ESM)
------------------------|-----------------------
-File: .js              | File: .mjs
-Load: require()        | Load: import
-Export: module.exports | Export: export
-Scope: Synchronous     | Scope: Asynchronous
+# Verify installation
+node -v
+npm -v
 
----------------------------------------------------------------------------
+# Create project folder
+mkdir myapp
+cd myapp
 
-2. GLOBAL VARIABLES & WRAPPER
----------------------------------------------------------------------------
-__dirname  : Full path to current DIRECTORY.
-__filename : Full path to current FILE.
+# Initialize project
+npm init -y
 
-THE HIDDEN WRAPPER:
-(function(exports, require, module, __filename, __dirname) {
-    // Your code is injected here by Node.js at runtime
+# Install useful packages
+npm i dotenv prompt-sync
+
+# Install global tools
+npm i -g nodemon
+
+# Create required files
+touch app.js .env .gitignore
+
+# Start server
+node app.js
+nodemon app.js
+
+
+----------------------------------------------------------------------------
+
+[1] MODULE TYPES & STANDARDS
+----------------------------------------------------------------------------
+CORE MODULES
+- Built-in modules (NO INSTALL)
+- Examples: http, fs, path, os, url
+- Usage:
+  const http = require('http');
+
+LOCAL MODULES
+- User-created reusable files
+- Usage:
+  const myModule = require('./file');
+
+THIRD-PARTY MODULES
+- Installed using npm
+- Examples: express, dotenv
+- Usage:
+  npm install express
+
+-------------------------------
+COMMONJS (CJS) vs ES MODULES
+-------------------------------
+CJS (.js)
+- require()
+- module.exports
+- synchronous
+
+ESM (.mjs or "type":"module")
+- import
+- export
+- asynchronous
+
+Example:
+CJS:
+  const fs = require('fs');
+
+ESM:
+  import fs from 'fs';
+
+
+----------------------------------------------------------------------------
+
+[2] GLOBAL VARIABLES & WRAPPER
+----------------------------------------------------------------------------
+__dirname   -> Current directory path
+__filename  -> Current file path
+
+HIDDEN WRAPPER:
+(function(exports, require, module, __filename, __dirname){
+    // Node wraps your code internally
 });
 
----------------------------------------------------------------------------
+----------------------------------------------------------------------------
 
-3. CORE UTILITIES (THE BIG FIVE)
----------------------------------------------------------------------------
-HTTP  : Create Web Servers. handle req (request) and res (response).
-FS    : File System. Read/Write/Delete/Append files.
-PATH  : Normalize and Join file paths (cross-platform compatibility).
-OS    : System stats (CPU Cores, RAM, Uptime, Architecture).
-URL   : Parse and manipulate URL strings and query parameters.
+[3] CORE UTILITIES (BIG FIVE)
+----------------------------------------------------------------------------
+HTTP  -> Create server, handle request/response
+FS    -> File operations (read/write/delete)
+PATH  -> Handle file paths (cross-platform)
+OS    -> System information
+URL   -> URL parsing
 
----------------------------------------------------------------------------
+Example:
+const http = require('http');
+const fs = require('fs');
 
-4. STREAMS: HIGH-PERFORMANCE DATA
----------------------------------------------------------------------------
-CONCEPT: Handling data in "chunks" instead of loading everything to RAM.
+----------------------------------------------------------------------------
+
+[4] STREAMS (HIGH PERFORMANCE)
+----------------------------------------------------------------------------
+CONCEPT:
+- Process data in chunks (NOT full file in memory)
 
 TYPES:
-- Readable  : e.g., fs.createReadStream('large.mp4')
-- Writable  : e.g., fs.createWriteStream('copy.mp4')
-- Pipe      : src.pipe(dest) -> Automatically manages data flow.
+Readable  -> Read data (fs.createReadStream)
+Writable  -> Write data (fs.createWriteStream)
+Pipe      -> Connect streams
+
+Example:
+const fs = require('fs');
+
+let rs = fs.createReadStream('bigfile.txt');
+let ws = fs.createWriteStream('copy.txt');
+
+rs.pipe(ws);
 
 OUTPUT:
-> node stream.js
-[Chunk Received: 64kb]
-[Chunk Received: 64kb]
-File Streaming Complete. (RAM usage: Stable)
+[Chunk Received]
+Streaming Complete ✔
 
----------------------------------------------------------------------------
+----------------------------------------------------------------------------
 
-5. NPM & PACKAGE MANAGEMENT
----------------------------------------------------------------------------
-COMMAND            | DESCRIPTION
--------------------|-------------------------------------------------------
-npm init -y        | Fast-track project setup (creates package.json).
-npm i <pkg>        | Install locally to 'node_modules'.
-npm i -g <pkg>     | Install globally (for CLI tools like Nodemon).
-npm uninstall <pkg>| Removes package and updates package.json.
+[5] NPM & PACKAGE MANAGEMENT
+----------------------------------------------------------------------------
+COMMANDS:
+npm init -y          -> create package.json
+npm i <pkg>          -> install package
+npm i -g <pkg>       -> global install
+npm uninstall <pkg>  -> remove package
 
-**CRITICAL**: Always check 'dependencies' in package.json before sharing.
+IMPORTANT:
+- node_modules should NOT be shared
+- Always include package.json
 
----------------------------------------------------------------------------
+----------------------------------------------------------------------------
 
-6. DEVELOPMENT & SECURITY TOOLS
----------------------------------------------------------------------------
-NODEMON : Auto-restarts server on file save.
-          Usage: nodemon app.js
-          Output: [nodemon] restarting due to changes...
+[6] DEVELOPMENT & SECURITY TOOLS
+----------------------------------------------------------------------------
+NODEMON
+- Auto restart server
+Usage:
+  nodemon app.js
 
-DOTENV  : Protects sensitive data (API keys, DB Passwords).
-          File: .env (PORT=3000)
-          Usage: require('dotenv').config();
-          Access: process.env.PORT
+DOTENV
+- Store sensitive data
+.env file:
+  PORT=3000
 
-PROMPT  : Synchronous user input for CLI tools.
-          Usage: const input = prompt('Enter Name: ');
+Usage:
+  require('dotenv').config();
+  console.log(process.env.PORT);
 
----------------------------------------------------------------------------
+PROMPT-SYNC
+- Take user input (CLI)
+Usage:
+  const prompt = require('prompt-sync')();
+  let name = prompt("Enter name: ");
 
-7. SYSTEM SNAPSHOT (ROG i7-13650HX)
----------------------------------------------------------------------------
-CPU ARCH    : x64
-LOGICAL CPU : 20 Cores (13th Gen Intel Core i7)
-TOTAL RAM   : 16.78 GB
-OS PLATFORM : win32 (Windows)
+----------------------------------------------------------------------------
 
-DIRECTORY CONTEXT:
-Root: C:\D DRIVE\DAC\CDAC_DAC-\WPT\nodejs
-File: c.js
-Status: Active
+[7] BASIC HTTP SERVER
+----------------------------------------------------------------------------
+const http = require('http');
 
----------------------------------------------------------------------------
+const server = http.createServer((req, res) => {
+    res.write("Hello World");
+    res.end();
+});
 
-8. WORKFLOW: CREATING A SERVER
----------------------------------------------------------------------------
-STEP 1: npm init -y
-STEP 2: npm i dotenv prompt-sync
-STEP 3: Create .env and .gitignore
-STEP 4: Write logic in app.js using http and fs
-STEP 5: nodemon app.js
+server.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
 
-==========================================================================
+RUN:
+node app.js
+nodemon app.js
 
-RUN SERVER : 
-//cmd - > node <filename>
+----------------------------------------------------------------------------
 
-node myhttp.js
+[8] SERVER WITH MULTIPLE HTML PAGES
+----------------------------------------------------------------------------
+const http = require('http');
+const fs = require('fs');
 
-nodemon myhttp.js
+const server = http.createServer((req, res) => {
 
-server with multiple html pages
+    if (req.url === "/" || req.url === "/home") {
+        fs.createReadStream('./index.html').pipe(res);
 
-nodemon server.js 
+    } else if (req.url === "/about") {
+        fs.createReadStream('./about.html').pipe(res);
+
+    } else {
+        res.write("404 Page Not Found");
+        res.end();
+    }
+});
+
+server.listen(3000);
+
+RUN:
+nodemon server.js
+
+----------------------------------------------------------------------------
+
+[9] ENVIRONMENT VARIABLES (.env)
+----------------------------------------------------------------------------
+.env file:
+PORT=3000
+
+app.js:
+require('dotenv').config();
+
+server.listen(process.env.PORT);
+
+----------------------------------------------------------------------------
+
+[10] PROJECT WORKFLOW
+----------------------------------------------------------------------------
+STEP 1: Install Node.js
+STEP 2: npm init -y
+STEP 3: Install dependencies
+STEP 4: Create .env & .gitignore
+STEP 5: Write server logic
+STEP 6: Run with nodemon
+
+----------------------------------------------------------------------------
+
+[11] BEST PRACTICES
+----------------------------------------------------------------------------
+✔ Use .gitignore:
+   node_modules/
+   .env
+
+✔ Keep secrets in .env
+
+✔ Use modular code structure
+
+✔ Always handle errors
+
+✔ Use nodemon for development
+
+----------------------------------------------------------------------------
+
+SYSTEM SNAPSHOT
+----------------------------------------------------------------------------
+CPU        : i7-13650HX
+CORES      : 20
+RAM        : 16GB
+PLATFORM   : win32
+
+PROJECT ROOT:
+C:\D DRIVE\DAC\CDAC_DAC-\WPT\nodejs
+
 
