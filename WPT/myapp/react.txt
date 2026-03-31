@@ -1,0 +1,192 @@
+====================================================================
+                        REACT JS NOTES
+====================================================================
+
+WHAT IS REACT?
+--------------------------------------------------------------------
+- React is a JavaScript library
+- Used to create scalable, attractive UI (User Interface)
+- Used for building Single Page Applications (SPA)
+- Developed & maintained by META / Facebook
+- Based on Component Architecture
+- Latest Version: React 19
+
+--------------------------------------------------------------------
+WHAT IS COMPONENT?
+--------------------------------------------------------------------
+- A component is a reusable part of a React application
+- Create once, use multiple times
+- Helps in modular and maintainable code
+
+--------------------------------------------------------------------
+TECHNOLOGIES REQUIRED
+--------------------------------------------------------------------
+- HTML
+- CSS
+- JavaScript (ES5, ES6 - ECMAScript)
+- OOP Concepts
+
+--------------------------------------------------------------------
+SOFTWARE REQUIRED
+--------------------------------------------------------------------
+- Node.js
+- npm (Node Package Manager)
+- CRA (Create React App)
+- IDE (VS Code, etc.)
+
+--------------------------------------------------------------------
+HOW TO CREATE REACT PROJECT
+--------------------------------------------------------------------
+
+1. USING NPX (Recommended)
+--------------------------------
+S1 -> npx create-react-app <appname>
+S2 -> cd <appname>
+S3 -> npm start
+
+✔ No need to install globally
+
+--------------------------------
+2. USING NPM
+--------------------------------
+S1 -> npm install -g create-react-app
+S2 -> create-react-app <appname>
+S3 -> cd <appname>
+S4 -> npm start
+
+✖ Requires global installation
+
+--------------------------------
+3. USING VITE
+--------------------------------
+- Faster & lightweight setup
+- Minimal project size
+- Uses .jsx files
+
+--------------------------------------------------------------------
+IMPORTANT NOTES
+--------------------------------------------------------------------
+- index.html → Single HTML file in React
+- index.js → Entry point
+- .gitignore → Prevents files from uploading to GitHub
+
+- Component names must start with CAPITAL LETTER
+
+--------------------------------------------------------------------
+TYPES OF COMPONENTS
+--------------------------------------------------------------------
+
+1. FUNCTION COMPONENT
+----------------------
+- Used mainly for UI design
+- Simple and modern approach
+
+2. CLASS COMPONENT
+----------------------
+- Used for complex logic
+- Uses OOP concepts
+
+--------------------------------------------------------------------
+JSX (JavaScript XML)
+--------------------------------------------------------------------
+- Allows writing HTML inside JavaScript
+- Makes code readable & easy
+
+Rules:
+- Must return a single parent element
+- Parent should be block-level (div, p, etc.)
+
+--------------------------------------------------------------------
+PROPS
+--------------------------------------------------------------------
+- Props = Properties (like function parameters)
+- Used to pass data between components
+- Returns object type
+
+Access:
+- Function Component → props.key
+- Class Component → this.props.key
+
+--------------------------------------------------------------------
+STATE
+--------------------------------------------------------------------
+- Used to manage dynamic data
+- Returns object type
+
+Class Component:
+- Defined inside constructor
+- Access → this.state.key
+
+Function Component:
+- Using useState Hook
+
+--------------------------------------------------------------------
+setState()
+--------------------------------------------------------------------
+- Used to update state in class components
+- Built-in React method
+
+--------------------------------------------------------------------
+RENDERING
+--------------------------------------------------------------------
+RENDER:
+- Display component output on browser
+
+CONDITIONAL RENDERING:
+----------------------
+1. if-else
+2. Element as variable
+3. Ternary Operator → (condition) ? true : false
+4. Short Circuit (&&) → for null checking
+
+--------------------------------------------------------------------
+COMPONENT INTERACTION
+--------------------------------------------------------------------
+- Parent → Child data flow using props
+- Passing state data to child component
+
+--------------------------------------------------------------------
+HOOKS (React 16+)
+--------------------------------------------------------------------
+- Allow using class features in function components
+
+Rules:
+- Only used in function components
+- Cannot be used inside conditions
+- Must be used at top level
+
+--------------------------------------------------------------------
+useState() HOOK
+--------------------------------------------------------------------
+- Used to manage state in function components
+
+Syntax:
+const [state, setState] = useState(initialValue)
+
+Returns:
+1. Current State
+2. Function to update state
+
+--------------------------------------------------------------------
+VIRTUAL DOM
+--------------------------------------------------------------------
+- React creates a virtual copy of DOM in memory
+- Updates only changed parts
+- Makes React faster than Angular
+
+--------------------------------------------------------------------
+TASKS
+--------------------------------------------------------------------
+1. Create Function Component:
+   MyDetailComp → props: fname, lname, gender, city, country
+
+2. Create Class Component:
+   FriendDetailComp → same props
+
+3. Create Counter Class:
+   - Increment
+   - Decrement
+   - Reset
+   - Default value = 0
+
+====================================================================

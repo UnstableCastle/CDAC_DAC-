@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+    <script scr="form.js"> </script>
+    <style>
+        #main {
+            width: 200px;
+            box-shadow: 2px;
+            padding-left: 45%;
+            height: 100px;
+            font-family: 'Courier New', Courier, monospace;
+
+
+        }
+
+        input {
+
+            color: rgb(220, 227, 228);
+            background-color: darkgray;
+
+        }
+
+        button {
+
+            background-color: papayawhip;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <form class="f1" name="form_val" onsubmit="return validateAll()">
+            <table>
+                <tr>
+                    <td><label for="name">Name</label></td>
+                    <td><input type="text" id="fname" name="=name"></td>
+                </tr>
+                <tr>
+                    <td><label for="pass">Password</label></td>
+                    <td><input type="password" name="pass" id="pass" onblur="validatepass()">
+                        <span id="passError" class="error-msg"></span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input type="text" name="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="contact">Contact</label></td>
+                    <td><input type="text" name="contact" id="contact"></td>
+                </tr>
+                <tr>
+                    <div class="radio-group">
+                        <td><label>Gender:</label></td>
+                        <td> <input type="radio" name="gender" value="m" style="width: auto;"> Male
+                            <input type="radio" name="gender" value="f" style="width: auto;"> Female
+                    </div>
+                    </td>
+                </tr>
+
+            </table>
+            <button type="submit">Submit</button></tr>
+        </form>
+    </div>
+</body>
+
+</html>
