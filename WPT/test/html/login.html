@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url(https://images.pexels.com/photos/34726864/pexels-photo-34726864.jpeg);
+            background-color: #8a9390;
+            height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            opacity: 1;
+        }
+
+        .login-card {
+            box-sizing: border-box;
+            font-family: emoji;
+            background: rgb(123, 169, 218);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            opacity: 0.;
+
+        }
+
+        .uimg {
+            border-width: 2px;
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+
+        }
+
+        .form-label {
+            text-align: left;
+            display: block;
+            font-weight: bold;
+        }
+
+        .btn {
+            width: 70%;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-card" style="opacity: 1;">
+        <form method="post" action="submit">
+            <img class="uimg"
+                src="https://static.vecteezy.com/system/resources/thumbnails/022/014/184/small/user-icon-member-login-isolated-vector.jpg"
+                alt="user">
+            <div class="text-dark"> <strong>Login</strong></div>
+            <div class="mb-3">
+                <label for="user" class="form-label">Username</label>
+                <input type="text" class="form-control" name="user" id="user" placeholder="Enter username" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="pass" class="form-label">Password</label>
+                <input type="password" class="form-control" name="pass" id="pass" placeholder="Enter password" required>
+            </div>
+
+            <div class="btn">
+                <button type="submit" class="btn btn-info">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

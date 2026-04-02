@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body {
+            background: #0f0c29; 
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .myclock {
+           width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), 
+            inset 0 0 20px rgba(255, 255, 255, 0.05),
+            0 0 30px rgba(0, 212, 255, 0.2);
+            
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+            position: relative;
+            transition: 0.5s;
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        .myclock::before {
+            content: '';
+            position: absolute;
+            width: 105%;
+            height: 105%;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00dbde, #fc00ff);
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0.6;
+        }
+
+        #time {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #00dbde, 0 0 20px #00dbde;
+            letter-spacing: 2px;
+        }
+
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 0 0 80px rgba(0, 212, 255, 0.4); }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="myclock">
+    <div class="clock"> 
+        <label id="time"></label> 
+    </div>
+</div>
+
+<script>
+    const updateClock = () => {
+        let obj = new Date();
+        document.getElementById("time").innerHTML = obj.toLocaleTimeString();
+    
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+
+
+react task == 1 . delete list item 
+              2 . arrary of object data to table 
+
+via function component ... ProductDetailComp reffer
+
+java html css  - practical exam 
+
+"no form validation"
+
+FOR practical : calculator and done in html to JavaScript
+
+DOM manupalation , generate table
+
+take input from user and perform task
+
+enter number and cal sum , even number , square
+
+and Display it on browser .... byGetelementbyid()innerHTML
+INSIDE <span>/<div>
+
+replace replaceAll
+
+MCQ -> 
+
+HTML CSS JS NODE EXPRESS REACT *REDUX* (WHAT WHY CORE)
+
+REACT :  VIRTUAL DOM | PURE COMPONENT | HOC higher order component - > share common logic with multiple components
+
+JS - array method (push pop shift, unshift)
+
+sysmantic elemnts 
+
+form
+
+css 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

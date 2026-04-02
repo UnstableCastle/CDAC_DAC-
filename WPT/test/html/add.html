@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Address Copy</title>
+</head>
+<body>
+
+<h3>Temporary Address</h3>
+<textarea id="temp" rows="5" cols="30"></textarea>
+
+<br><br>
+
+<button onclick="copyAddress()">Same As</button>
+
+<br><br>
+
+<h3>Permanent Address</h3>
+<textarea id="perm" rows="5" cols="30"></textarea>
+
+<script>
+function copyAddress() {
+    var tempAddress = document.getElementById("temp").value;
+    document.getElementById("perm").value = tempAddress;
+}
+</script>
+
+</body>
+</html>

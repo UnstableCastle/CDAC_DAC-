@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Button</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <style>
+        .i1 {
+            margin: auto;
+            border: 2px groove black;
+            width: 400px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        #img1 {
+            height: 200px;
+        }
+
+        #fc {
+            padding-top: 12px;
+        }
+
+        button {
+            margin: 12px;
+            border-radius: 20px;
+            height: 70px;
+            width: 200px;
+        }
+        .button{
+            margin: auto;
+            padding: auto;
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <figure class="i1">
+        <img id="img1" src="../assets/photomode_15062025_194302.png" alt="Cyberpunk">
+        <figcaption id="fc">Cyberpunk</figcaption>
+    </figure>
+<div class="container">
+    <button onclick="change()">FORZA</button>
+    <button onclick="change1()">WUTHERING WAVES</button>
+    <button onclick="change2()">WHERE WINDS MEET</button>
+    <button onclick="change3()">VALORANT</button>
+    <button onclick="resetData()">RESET</button>
+</div>
+    <script>
+        function change() {
+            document.getElementById("img1").src = "../assets/FORZA.png";
+            document.getElementById("fc").innerHTML = "Forza";
+        }
+
+        function change1() {
+            document.getElementById("img1").src = "../assets/WW.png";
+            document.getElementById("fc").innerHTML = "Wuthering Waves";
+        }
+
+        function change2() {
+            document.getElementById("img1").src = "../assets/wwm.png";
+            document.getElementById("fc").innerHTML = "Where Winds Meet";
+        }
+
+        function change3() {
+            document.getElementById("img1").src = "../assets/valo.png";
+            document.getElementById("fc").innerHTML = "Valorant";
+        }
+
+        function resetData() {
+            document.getElementById("img1").src = "../assets/photomode_15062025_194302.png";
+            document.getElementById("fc").innerHTML = "Cyberpunk";
+        }
+    </script>
+
+</body>
+</html>

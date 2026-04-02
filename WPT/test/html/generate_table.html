@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table gen</title>
+  
+</head>
+<body>
+    
+
+    <button type="button" id="bt1" onclick="generate()">display table </button>
+<table style="border: 2px groove aqua">
+
+<thead>
+    <tr><td>emp_id</td><td>Name</td><td>Post</td><td>salary</td></tr>
+</thead>
+<tbody id="tb"> </tbody>
+</table>
+
+
+<script>
+
+let  emp = [{id:1,name:"a",post:"A",salary:"10000" },
+            {id:2,name:"b",post:"B",salary:"1000" },
+            {id:3,name:"c",post:"C",salary:"100" },
+            {id:4,name:"d",post:"D",salary:"10" },
+            {id:5,name:"e",post:"E",salary:"1" },
+]
+
+const generate = ()=>{
+
+let tbody = document.getElementById("tb");
+for(let i = 0; i<emp.length;i++){
+    let newRow = document.createElement("tr");
+    newRow.innerHTML =`<td>${emp[i].id}</td><td>${emp[i].name}</td><td>${emp[i].post}</td><td>${emp[i].salary}</td>`;
+    tbody.appendChild(newRow);
+}
+document.getElementById("bt1").disabled = true;
+}
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

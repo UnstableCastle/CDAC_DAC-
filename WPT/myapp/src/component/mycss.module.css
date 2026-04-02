@@ -1,0 +1,12 @@
+
+
+.circle{
+    width: 200px;
+    height: 200px;
+    border: 2px solid red;
+    border-radius: 50%;
+    transition: transform 2s;
+}
+.circle:hover{
+    transform: rotateY(350deg);
+}

@@ -10,6 +10,7 @@ WHAT IS REACT?
 - Developed & maintained by META / Facebook
 - Based on Component Architecture
 - Latest Version: React 19
+- flow of data is UNIDIRECTIONAL 
 
 --------------------------------------------------------------------
 WHAT IS COMPONENT?
@@ -190,3 +191,284 @@ TASKS
    - Default value = 0
 
 ====================================================================
+
+02/04/26
+==================================================
+        useEffect CASES (IMPORTANT)
+==================================================
+
+CASE 1: NO DEPENDENCY ARRAY
+--------------------------------------------------
+useEffect(() => {
+    setCount(count + 1);
+});
+
+- Runs on EVERY render
+- Can cause INFINITE LOOP if state is updated inside
+-
+-
+-
+
+WHY?
+- setCount triggers re-render
+- useEffect runs again → loop continues
+
+⚠️ Use carefully
+
+
+CASE 2: EMPTY DEPENDENCY ARRAY []
+--------------------------------------------------
+useEffect(() => {
+    // code
+}, []);
+
+- Runs ONLY ONCE after first render
+-
+-
+-
+- Used to achieve:
+    COMPONENT DID MOUNT
+
+
+SYNTAX:
+--------------------------------------------------
+useEffect(() => {
+    // logic
+}, []);
+
+
+EXAMPLE:
+--------------------------------------------------
+useEffect(() => {
+    console.log("Component Mounted");
+}, []);
+
+
+
+CASE 3:  DEPENDENCY ARRAY VALUES PASSES[]
+--------------------------------------------------
+useEffect(() => {
+   setCount(count+1);
+},[age]);
+
+Used to achieve:
+    COMPONENT DID MOUNT
+
+
+
+CASE 4 : When dependency valu pass bs blank array and in insied callback function we use cleartime() method
+
+when dependency 
+
+
+
+
+
+KEY DIFFERENCE
+--------------------------------------------------
+NO ARRAY        → runs every render ❌
+EMPTY ARRAY []  → runs once (mount) ✅
+
+
+EXTRA POINT (VIMP)
+--------------------------------------------------
+- Empty dependency array = safest for API calls
+- Prevents unnecessary re-renders
+- Avoid infinite loops
+
+==================================================
+
+how to use snippits
+
+
+ProductDetails.js
+
+===================================================
+
+
+axios - sends req from frontend to backend
+ can create req : it allows us to make  : get , delete, post, put to server from react project 
+
+ npm i axios // installs locally
+
+npm i json-server
+
+create json database
+ and upload db.json file
+
+
+==================== REACT FORM + CRUD + ROUTING ====================
+
+1) EVENT HANDLING (onChange)
+---------------------------------------------------------------------
+const handleChange = (event) => {
+  console.log(event.target.name);
+  console.log(event.target.value);
+};
+
+event.target.name   -> input field name
+event.target.value  -> input field value
+
+
+2) USESTATE WITH OBJECT
+---------------------------------------------------------------------
+const [data, setData] = useState({
+  name: "",
+  price: ""
+});
+
+
+3) UPDATE STATE (SPREAD OPERATOR)
+---------------------------------------------------------------------
+const handleChange = (event) => {
+  setData({
+    ...data,
+    [event.target.name]: event.target.value
+  });
+};
+
+...data  -> keeps old values
+[name]   -> updates only changed field
+
+
+4) DESTRUCTURING
+---------------------------------------------------------------------
+const { name, value } = event.target;
+
+setData({
+  ...data,
+  [name]: value
+});
+
+
+5) FORM SUBMIT
+---------------------------------------------------------------------
+const handleSubmit = (event) => {
+  event.preventDefault();   // stop refresh
+  console.log(data);
+};
+
+
+6) POST DATA (ADD)
+---------------------------------------------------------------------
+axios.post("URL", data)
+  .then(res => {
+    alert("Data Added Successfully");
+  })
+  .catch(err => console.log(err));
+
+
+7) NAVIGATION (useNavigate)
+---------------------------------------------------------------------
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
+
+navigate("/dashboard");
+
+
+8) PASS ID IN URL
+---------------------------------------------------------------------
+<Link to={`/update/${id}`}>Edit</Link>
+
+
+9) GET ID FROM URL
+---------------------------------------------------------------------
+import { useParams } from "react-router-dom";
+
+const { id } = useParams();
+
+
+10) FETCH SINGLE DATA (GET)
+---------------------------------------------------------------------
+useEffect(() => {
+  axios.get(`URL/${id}`)
+    .then(res => {
+      setData(res.data);
+    });
+}, []);
+
+
+11) UPDATE DATA (PUT)
+---------------------------------------------------------------------
+axios.put(`URL/${id}`, data)
+  .then(res => {
+    alert("Data Updated Successfully");
+    navigate("/dashboard");
+  });
+
+
+12) COMPLETE FLOW
+---------------------------------------------------------------------
+INPUT → onChange → state update
+       ↓
+FORM SUBMIT → preventDefault()
+       ↓
+API CALL (POST / PUT)
+       ↓
+SUCCESS → navigate("/dashboard")
+
+
+==================== KEY POINTS ====================
+- Controlled components (state controls input)
+- event.target → name & value
+- spread operator (...) for safe updates
+- useParams → get id
+- useNavigate → redirect
+- axios → API calls (GET, POST, PUT)
+
+====================================================================
+
+
+Material UI : 
+
+local install 
+mui.com ---- managed by GOOGLE
+
+link: 
+npm install @mui/material @emotion/react @emotion/styled
+
+
++=====================================================================+
+
+
+react.fragment ~ react library | <fragment> </fragment>
+fragment : 
+-it use to eliminate element from DOM heirarchy 
+-instead of using any element use <fragment>
+=======================================================================
+
+react-redux library connects react to redux
+
+npm install @reduxjs/toolkit
+npm install react-redux
+
+useSelector : allows us to access state from redux store in function component.
+
+UseDispatch : it allows us to call action from redux into function component.
+
+=======================================================================
+13) REDUX 
+-It is a JavaScript Library 
+-To manage state 
+Defination : - It is a predictatable state container for JavaScript Applications
+             ->used to store , manage and track state of JavaScript Applications
+
+-Redux can be used with various JavaScript Libraries Angular,React,Native,etc.
+-It works on 3 Core Princlples:  ...............................................................///Store(state) Action(what to do) Reducer(medium)
+
+1.Store : It is used to store the state init
+          
+
+
+2.Action : It is an operation that is to performed with state
+          -
+
+
+
+3.Reducer : It actually carries out stste transitions depending in store and action
+
+Why Redux ?
+-> React work on component basis 
+      data flows in one direction
+

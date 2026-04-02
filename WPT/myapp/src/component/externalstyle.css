@@ -1,0 +1,13 @@
+
+.txtdanger{
+    color: red;
+    font-size: 20px;
+    text-decoration: underline;
+    font-weight: 700;
+}
+.txtsuccess{
+    color: rgb(24, 218, 46);
+    font-size: 20px;
+    font-family: cursive;
+    font-weight: 700;
+}

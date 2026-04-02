@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: black;
+            padding-bottom: 50px;
+        }
+        
+        header {
+            background-color: white;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 20px 0;
+            color: black;
+            font-size: 30px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        header img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .card-img-top {
+            height: 270px;
+            object-fit: cover; 
+            background-color: #222; /* Dark placeholder while loading */
+        }
+        
+        .card {
+            border: 2px solid white;
+            background-color: #111;
+            color: rgb(255, 254, 254);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        /* .card:hover {
+            transform: scale(1.05);
+            border-color: #00d4ff;
+            z-index: 10;
+        } */
+        
+        .card-title {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        
+        .card-text {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #aaa;
+            font-family: sans-serif; /* Fixed empty property */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="https://picsum.photos/id/101/60/60" alt="Logo">
+        <h1 class="m-0" readonly>My Art Portfolio</h1>
+    </header>
+
+    <div class="row g-4">
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card">
+                <img src="https://picsum.photos/id/10/400/600" class="card-img-top" alt="Art 1">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 1</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card">
+                <img src="https://picsum.photos/id/102/400/600" class="card-img-top" alt="Art 2">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 2</h5>
+                   
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6">            
+            <div class="card">
+                <img src="https://picsum.photos/id/1027/400/600" class="card-img-top" alt="Art 3">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 3</h5>
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card">
+                <img src="https://picsum.photos/id/103/400/600" class="card-img-top" alt="Art 4">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 4</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card">
+                <img src="https://picsum.photos/id/1043/400/600" class="card-img-top" alt="Art 5">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 5</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6">    
+            <div class="card">
+                <img src="https://picsum.photos/id/1050/400/600" class="card-img-top" alt="Art 6">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 6</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card">
+                <img src="https://picsum.photos/id/1062/400/600" class="card-img-top" alt="Art 7">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 7</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card">
+                <img src="https://picsum.photos/id/1074/400/600" class="card-img-top" alt="Art 8">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 8</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card">
+                <img src="https://picsum.photos/id/1084/400/600" class="card-img-top" alt="Art 9">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 9</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card">
+                <img src="https://picsum.photos/id/119/400/600" class="card-img-top" alt="Art 10">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 10</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card">
+                <img src="https://picsum.photos/id/129/400/600" class="card-img-top" alt="Art 11">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 11</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="card">
+                <img src="https://picsum.photos/id/141/400/600" class="card-img-top" alt="Art 12">
+                <div class="card-body">
+                    <h5 class="card-title">Artwork 12</h5>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

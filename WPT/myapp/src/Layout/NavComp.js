@@ -7,6 +7,9 @@ const NavComp = () => {
       <Link to="myimages" className='btn btn-primary btn-sm'>MyImages</Link>{" "}
       <Link to="hooks" className='btn btn-primary btn-sm'>Hooks</Link>
       
+      
+      <Link to="hooks" className='btn btn-primary btn-sm'>counter</Link>
+      
 
     </div>
   )

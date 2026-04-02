@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generate table</title>
+
+    <style>
+table {
+        border: 5px groove #4A90E2; 
+        border-collapse: separate;
+        border-spacing: 10px;
+        width: 100%;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 15px;
+        text-align: left;
+    }
+    
+    .c1{
+        
+        border: groove goldenrod;
+        margin-bottom: 10px;
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        display: flex;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px, 20px;
+    }
+    
+    </style>
+</head>
+<body>
+<div class="c1">
+    <button type="button" id="b1" ondblclick="generateTable()">insert data</button>
+</div>
+    <table class="t1">
+        <thead>
+            <tr><th>id</th><th>name</th><th>post</th><th>salary</th></tr>
+        </thead>
+        <tbody id="tb"></tbody>
+    
+    </table>
+
+
+
+<script>
+
+let emp = [ {id:1,name:"a",post:"A",salary:"10000" },
+            {id:2,name:"b",post:"B",salary:"1000" },
+            {id:3,name:"c",post:"C",salary:"100" },
+            {id:4,name:"d",post:"D",salary:"10" },
+            {id:5,name:"e",post:"E",salary:"1" },
+]
+
+const generateTable = ()=>{
+
+let tbody = document.getElementById("tb");
+
+for (let i = 0; i < emp.length; i++) {
+    let newRow = document.createElement("tr");
+    newRow.innerHTML = `<td>${emp[i].id}</td><td>${emp[i].name}</td><td>${emp[i].post}</td><td>${emp[i].salary}</td>`;
+    tbody.appendChild(newRow);   
+
+}
+
+document.getElementById("b1").disabled = true;
+
+}
+
+
+</script>
+</body>
+</html>

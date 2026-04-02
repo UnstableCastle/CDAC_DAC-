@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-Shock GA-100 UI</title>
+    <style>
+        :root {
+            --case-bg: #222;
+            --dial-bg: #000;
+            --accent-red: #cc0000;
+            --marker-color: #555;
+            --hand-color: #eee;
+            --lcd-text: #8bb;
+        }
+
+        body {
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Rugged Case with Side Buttons */
+        .watch-body {
+            position: relative;
+            width: 340px;
+            height: 340px;
+            background: var(--case-bg);
+            border-radius: 50%;
+            border: 12px solid #1a1a1a;
+            box-shadow: inset 0 0 30px #000, 10px 20px 40px rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Decorative Side Buttons */
+        .btn {
+            position: absolute;
+            width: 40px;
+            height: 25px;
+            background: #333;
+            border: 2px solid #111;
+            border-radius: 5px;
+        }
+        .top-left { left: -25px; top: 80px; transform: rotate(-30deg); }
+        .bot-left { left: -25px; bottom: 80px; transform: rotate(30deg); }
+        .top-right { right: -25px; top: 80px; transform: rotate(30deg); }
+        .bot-right { right: -25px; bottom: 80px; transform: rotate(-30deg); }
+
+        /* The Dial Face */
+        .face {
+            width: 280px;
+            height: 280px;
+            background: var(--dial-bg);
+            border-radius: 50%;
+            position: relative;
+            border: 4px solid #333;
+            overflow: hidden;
+        }
+
+        /* 12-Hour Markers */
+        .marker {
+            position: absolute;
+            width: 6px;
+            height: 20px;
+            background: var(--marker-color);
+            left: calc(50% - 3px);
+            transform-origin: 50% 140px;
+        }
+        /* Color the 12, 3, 6, 9 markers red like the image */
+        .marker:nth-child(3n) { background: var(--accent-red); width: 8px; }
+
+        /* LCD Displays */
+        .lcd {
+            position: absolute;
+            background: #151515;
+            border: 2px solid #222;
+            border-radius: 50%;
+            color: var(--lcd-text);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--lcd-text);
+        }
+        #top-lcd { top: 45px; left: 105px; width: 70px; height: 70px; font-size: 0.8rem; }
+        #bot-lcd { bottom: 40px; left: 95px; width: 90px; height: 90px; font-size: 1rem; border: 2px solid var(--accent-red); }
+
+        /* Analog Hands */
+        .hand-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            pointer-events: none;
+        }
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom;
+            background: var(--hand-color);
+            border: 2px solid #666;
+            border-radius: 4px;
+        }
+        .hour { width: 10px; height: 70px; margin-left: -5px; }
+        .min { width: 8px; height: 110px; margin-left: -4px; }
+        
+        .pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background: #888;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 110;
+            border: 2px solid #222;
+        }
+
+        .labels {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: #777;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+        }
+        .gshock-text { top: -35px; }
+        .prot-text { bottom: -35px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="watch-body">
+        <div class="btn top-left"></div>
+        <div class="btn bot-left"></div>
+        <div class="btn top-right"></div>
+        <div class="btn bot-right"></div>
+
+      
+
+        <div class="face" id="marker-container">
+            <div class="lcd" id="top-lcd">
+                <div style="font-size: 0.6rem; color: #555;">SEC</div>
+                <span id="digital-sec">00</span>
+            </div>
+
+            <div class="lcd" id="bot-lcd">
+                <div id="day-name" style="color: var(--accent-red); font-size: 0.7rem;">SUN</div>
+                <div id="digital-time">12:00</div>
+            </div>
+
+            <div class="hand-container">
+                <div class="hand hour" id="hour-hand"></div>
+                <div class="hand min" id="min-hand"></div>
+                <div class="pin"></div>
+            </div>
+        </div>
+
+      
+    </div>
+
+    <script>
+        // Create 12 markers
+        const container = document.getElementById('marker-container');
+        for (let i = 0; i < 12; i++) {
+            const m = document.createElement('div');
+            m.className = 'marker';
+            m.style.transform = `rotate(${i * 30}deg)`;
+            container.appendChild(m);
+        }
+
+        function update() {
+            const now = new Date();
+            const h = now.getHours();
+            const m = now.getMinutes();
+            const s = now.getSeconds();
+
+            // Analog Logic
+            const hDeg = (h % 12) * 30 + m * 0.5;
+            const mDeg = m * 6;
+            document.getElementById('hour-hand').style.transform = `rotate(${hDeg}deg)`;
+            document.getElementById('min-hand').style.transform = `rotate(${mDeg}deg)`;
+
+            // Digital Logic (12hr format)
+            const h12 = h % 12 || 12;
+            const ampm = h >= 12 ? 'PM' : 'AM';
+            document.getElementById('digital-time').innerText = `${h12}:${m.toString().padStart(2, '0')}`;
+            document.getElementById('digital-sec').innerText = s.toString().padStart(2, '0');
+            
+            const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+            document.getElementById('day-name').innerText = `${days[now.getDay()]} ${ampm}`;
+        }
+
+        setInterval(update, 1000);
+        update();
+    </script>
+</body>
+</html>

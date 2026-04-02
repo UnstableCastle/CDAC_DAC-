@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+ <link rel="stylesheet" href="../css/table.css">
+</head>
+<body>
+    
+<div id="d1">
+<table border="2px" class="table">
+    <tr><td id="1">1</td><td id="2">2</td><td id="3">3</td></tr>
+    <tr><td id="4">4</td><td id="5">5</td><td id="6">6</td></tr>
+    <tr><td id="7">7</td><td id="8">8</td><td id="9">9</td></tr>
+</table>
+
+<form id="f1">
+<label>Enter block</label><br>
+<input type="text" id="b1">
+<br>
+
+<label>Enter background color</label><br>
+<input type="color" id="c1">
+<br><br>
+
+<button type="button" onclick="changeColor()">Change</button>
+
+</form>
+
+</div>
+
+<script>
+function changeColor(){
+
+    let el = document.getElementById("b1").value;
+    let bgc = document.getElementById("c1").value;
+
+    document.getElementById(el).style.backgroundColor = bgc;
+    
+}
+</script>
+
+</body>
+</html>

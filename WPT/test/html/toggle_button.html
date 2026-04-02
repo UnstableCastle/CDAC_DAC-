@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Button</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <style>
+        .i1 {
+            margin: auto;
+            border: 2px groove black;
+            width: 400px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        #img1 {
+            height: 200px;
+        }
+
+        #fc {
+            padding-top: 12px;
+        }
+
+        button {
+            margin: 12px;
+            border-radius: 20px;
+            height: 70px;
+            width: 200px;
+        }
+
+        .button {
+
+            padding-left: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <figure class="i1">
+        <img id="img1" src="../assets/photomode_15062025_194302.png" alt="Cyberpunk">
+        <figcaption id="fc">Cyberpunk</figcaption>
+    </figure>
+
+
+    <div class="container">
+        <button onclick="change()">Change Content</button>
+
+    </div>
+    <script>
+
+function change() {
+    const img = document.getElementById("img1");
+    const caption = document.getElementById("fc");
+
+    if (img.src.includes("photomode_15062025_194302.png")) 
+    {
+       
+        img.src = "../assets/FORZA.png";
+        caption.innerHTML = "Forza";
+
+    } else {
+        
+        img.src = "../assets/photomode_15062025_194302.png";
+        caption.innerHTML = "Cyberpunk";
+    }
+}
+    </script>
+
+</body>
+
+</html>  
