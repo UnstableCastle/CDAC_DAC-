@@ -452,7 +452,7 @@ UseDispatch : it allows us to call action from redux into function component.
 -It is a JavaScript Library 
 -To manage state 
 Defination : - It is a predictatable state container for JavaScript Applications
-             ->used to store , manage and track state of JavaScript Applications
+             - used to store , manage and track state of JavaScript Applications
 
 -Redux can be used with various JavaScript Libraries Angular,React,Native,etc.
 -It works on 3 Core Princlples:  ...............................................................///Store(state) Action(what to do) Reducer(medium)
@@ -462,7 +462,7 @@ Defination : - It is a predictatable state container for JavaScript Applications
 
 
 2.Action : It is an operation that is to performed with state
-          -
+          
 
 
 

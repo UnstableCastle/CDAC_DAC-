@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Hello World!</h1>
+
+
+<!-- 
+<div id="1"></div>
+
+<script>
+    let dateobj = new Date();
+    document.getElementById("1").innerHTML=dateobj.toLocaleDateString();
+    
+</script>
+ -->
+
+<!-- <h3>Temporary Address</h3>
+<textarea id="temp" rows="5" cols="30"></textarea>
+
+<br><br>
+
+<button onclick="copyAddress()">Same As</button>
+
+<br><br>
+
+<h3>Permanent Address</h3>
+<textarea id="perm" rows="5" cols="30"></textarea>
+
+<script>
+function copyAddress() {
+    var tempAddress = document.getElementById("temp").value;
+    document.getElementById("perm").value = tempAddress;
+}
+</script> -->
+
+<!-- 
+<form >
+
+    <input type="text" id="n1">
+    <input type="text" id="n2">
+            <input type="text" id="s1" name="res" disabled><br>
+    <button type="button" onclick="add()">add</button>
+    <button type="button" onclick="sub()">sub</button>
+    <button type="button" onclick="div()">div</button>
+    <button type="button" onclick="mul()">mul</button>
+</form>
+
+<script>
+function add(){
+let n1 = Number(document.getElementById("n1").value); 
+let n2 = Number(document.getElementById("n2").value);
+document.getElementById("s1").value= n1 + n2;
+} 
+function sub(){ 
+let n1 = Number(document.getElementById("n1").value); 
+let n2 = Number(document.getElementById("n2").value);
+document.getElementById("s1").value= n1 - n2;
+}
+function div(){
+let n1 = Number(document.getElementById("n1").value); 
+let n2 = Number(document.getElementById("n2").value);
+document.getElementById("s1").value= n1 / n2;
+}
+function mul(){
+let n1 = Number(document.getElementById("n1").value); 
+let n2 = Number(document.getElementById("n2").value);
+document.getElementById("s1").value = a * b;
+}
+
+</script> -->
+
+<!-- 
+
+<div id="output"></div>
+<button type="button"onclick="showdata()"></button>
+<table border="2px solid ">
+    <tr><td id="1"></td></tr>
+</table>
+<script>
+
+let emp = [
+    { id:1,name: "a"},{id:2, name: "B" }
+
+
+];
+
+function data(data){
+    let out = "";
+
+for(let i = 0; i < data.length; i++)
+{
+    out += "id " +data[i].id+
+           "Name " +data[i].name+
+            "<br>";
+}
+
+document.getElementById("1").innerHTML = out;
+
+}
+function showdata(){
+    data(emp);
+}
+</script> --><textarea cols="20" rows="4" id="t1"></textarea><br><br>
+
+<input type="text" id="find" placeholder="Find">
+<input type="text" id="replace" placeholder="Replace">
+
+<br><br>
+
+<button type="button" onclick="r()">Replace First</button>
+<button type="button" onclick="rall()">Replace All</button>
+
+<script>
+function r() {
+    let t = document.getElementById("t1");
+    let f = document.getElementById("find").value;
+    let rep = document.getElementById("replace").value;
+
+    t.value = t.value.replace(f, rep); // replace first occurrence
+}
+
+function rall() {
+    let t = document.getElementById("t1");
+    let f = document.getElementById("find").value;
+    let rep = document.getElementById("replace").value;
+
+    t.value = t.value.replaceAll(f, rep); // replace all
+}
+</script>
+
+
+
+</body>
+</html>
