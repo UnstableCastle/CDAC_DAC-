@@ -1,0 +1,12 @@
+DROP TRIGGER IF EXISTS insertValidation;
+DELIMITER $
+
+CREATE TRIGGER insertValidation BEFORE INSERT ON student
+FOR EACH ROW
+BEGIN
+    IF DAYNAME(CURDATE()) = 'Sunday' THEN
+        SIGNAL SQLSTATE '42000'SET MESSAGE_TEXT = 'Today is Sunday';
+    END IF;
+END $
+
+DELIMITER ;

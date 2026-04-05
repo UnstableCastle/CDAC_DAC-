@@ -1,10 +1,12 @@
 DROP TRIGGER IF EXISTS insertStudent;
 DELIMITER $
 
-create TRIGGER insertStudent after insert ON student for each row
+CREATE TRIGGER insertStudent 
+AFTER INSERT ON student 
+FOR EACH ROW
 BEGIN
-	insert into log (cdate, ctime , message)
-    values(CURDATE(), CURTIME(), "Record inserted successfully");
+    INSERT INTO log (cd, ct, message)
+    VALUES (CURDATE(), CURTIME(), 'Record inserted');
 END $
 
 DELIMITER ;
