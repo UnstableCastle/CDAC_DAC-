@@ -3,7 +3,7 @@ import java.util.*;
 public class Swap_without_third_var {
 
 	public static void main(String[] args) {
-		int a, b, c;
+		int a, b;
 
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter Value for A B:");
@@ -17,7 +17,7 @@ public class Swap_without_third_var {
 		a = a - b;
 		System.out.println("Value for A before swap:"+a);
 		System.out.println("Value for B before swap:"+b);
-		
+		s.close();
 	}
 
 }
