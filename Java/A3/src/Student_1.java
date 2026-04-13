@@ -1,12 +1,12 @@
 
-public class Student {
+public class Student_1 {
 private int rn;
 private String name;
 private static int count;
 
-public Student() {}
+public Student_1() {}
 
-public Student(int rn , String nm ) {
+public Student_1(int rn , String nm ) {
 	this.rn = rn;
 	this.name=nm;
 	count++;
@@ -23,9 +23,9 @@ public static void getCount() {
 }
 
 public static void main(String[] args) {
-	Student s1 = new Student(1,"Castle");
-	Student s2 = new Student(2,"Strelzia");
-	Student.getCount();
+	Student_1 s1 = new Student_1(1,"Castle");
+	Student_1 s2 = new Student_1(2,"Strelzia");
+	Student_1.getCount();
 	System.out.println(s1);
 	System.out.println(s2);
 	
