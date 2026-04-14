@@ -8,7 +8,9 @@ public class AssertDemo {
 		System.out.println("Enter Your Age :");
 		int age = s.nextInt();		
 	
-		assert age>18 : "You are not eligibale to Vote!!!";
+		assert age>18 : "You are not eligibale to Vote!!!";	
+		
+		
 		System.out.println("Welcome " +age);
 		s.close();
 		
