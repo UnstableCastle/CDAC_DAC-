@@ -18,8 +18,7 @@ public class CampusApp {
 
             System.out.print("Enter Age: ");
             int age = sc.nextInt();
-            sc.nextLine();
-
+            
             System.out.print("Enter Address: ");
             String address = sc.nextLine();
 
