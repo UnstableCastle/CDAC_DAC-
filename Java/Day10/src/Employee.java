@@ -1,6 +1,6 @@
 /**
  * Represents an Employee entity with basic details such as ID, name, and salary.
- * * @author CASTLE
+ * * @author-CASTLE
  */
 public class Employee {
 
