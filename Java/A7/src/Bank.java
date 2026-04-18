@@ -108,7 +108,7 @@ public class Bank {
                     break;
 
                 case 5:
-                    System.out.println("Total Bank Balance: ₹" + Account.totalBankMoney);
+                    System.out.println("Total Bank Balance: ₹" + Account.totalMoney);
                     break;
 
                 case 6:
