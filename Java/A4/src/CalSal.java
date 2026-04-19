@@ -9,6 +9,7 @@ public class CalSal {
         FullTimefaculty ft[] = new FullTimefaculty[2];
         PartTimefaculty pt[] = new PartTimefaculty[2];
 
+        System.out.println("Full-Time Faculty");
         // Input Full-Time Faculty
         for (int i = 0; i < 2; i++) {
             System.out.println("Enter Faculty ID, Basic, Allowance:");
@@ -17,9 +18,16 @@ public class CalSal {
             int allowance = sc.nextInt();
 
             ft[i] = new FullTimefaculty(id, basic, allowance);
+            
+            int totalsal =0;
+            totalsal = basic+allowance;
+            System.out.println("Total salary = "+totalsal);
+            
+            		
         }
 
         // Input Part-Time Faculty
+        System.out.println("Part-Time Faculty");
         for (int i = 0; i < 2; i++) {
             System.out.println("Enter Faculty ID, Hours, Rate:");
             int id = sc.nextInt();
@@ -27,12 +35,20 @@ public class CalSal {
             int rate = sc.nextInt();
 
             pt[i] = new PartTimefaculty(id, hour, rate);
+            
+            int totalsal =0;
+            totalsal = rate*hour;
+            System.out.println("Total salary = "+totalsal);
+            
         }
 
         // Display Full-Time
         System.out.println("\nFull-Time Faculty Details:");
         for (int i = 0; i < 2; i++) {
             System.out.println(ft[i]);
+            
+           
+            
         }
 
         // Display Part-Time
@@ -41,6 +57,8 @@ public class CalSal {
             System.out.println(pt[i]);
         }
 
+       
+        
         sc.close();
     }
 }

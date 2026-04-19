@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Bank {
@@ -14,6 +13,7 @@ public class Bank {
     }
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         ArrayList<Account> accounts = new ArrayList<>();
 
@@ -27,15 +27,7 @@ public class Bank {
             System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
 
-            int choice = 0;
-
-            try {
-                choice = sc.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Enter a number.");
-                sc.nextLine();
-                continue;
-            }
+            int choice = Integer.parseInt(sc.nextLine());
 
             switch (choice) {
 
@@ -43,8 +35,7 @@ public class Bank {
                     System.out.println("\n--- Create Account ---");
 
                     System.out.print("Enter Account Number: ");
-                    int accNo = sc.nextInt();
-                    sc.nextLine();
+                    int accNo = Integer.parseInt(sc.nextLine());
 
                     System.out.print("Enter Name: ");
                     String name = sc.nextLine();
@@ -53,10 +44,10 @@ public class Bank {
                     String branch = sc.nextLine();
 
                     System.out.print("Account Type (1-Savings, 2-Current): ");
-                    int type = sc.nextInt();
+                    int type = Integer.parseInt(sc.nextLine());
 
                     System.out.print("Enter Opening Balance: ₹");
-                    double balance = sc.nextDouble();
+                    double balance = Double.parseDouble(sc.nextLine());
 
                     if (findAccount(accounts, accNo) != null) {
                         System.out.println("Account number already exists!");
@@ -83,25 +74,43 @@ public class Bank {
                     break;
 
                 case 2:
+                    System.out.print("Enter Account Number: ");
+                    int accNo2 = Integer.parseInt(sc.nextLine());
+
+                    Account acc2 = findAccount(accounts, accNo2);
+
+                    if (acc2 != null) {
+                        acc2.displayDetails();
+                    } else {
+                        System.out.println("Account not found!");
+                    }
+                    break;
+
                 case 3:
+                    System.out.print("Enter Account Number: ");
+                    int accNo3 = Integer.parseInt(sc.nextLine());
+
+                    Account acc3 = findAccount(accounts, accNo3);
+
+                    if (acc3 != null) {
+                        System.out.print("Enter deposit amount: ₹");
+                        double amt = Double.parseDouble(sc.nextLine());
+                        acc3.deposit(amt);
+                    } else {
+                        System.out.println("Account not found!");
+                    }
+                    break;
+
                 case 4:
                     System.out.print("Enter Account Number: ");
-                    int searchAcc = sc.nextInt();
+                    int accNo4 = Integer.parseInt(sc.nextLine());
 
-                    Account acc = findAccount(accounts, searchAcc);
+                    Account acc4 = findAccount(accounts, accNo4);
 
-                    if (acc != null) {
-                        if (choice == 2) {
-                            acc.displayDetails();
-                        } else if (choice == 3) {
-                            System.out.print("Enter deposit amount: ₹");
-                            double amt = sc.nextDouble();
-                            acc.deposit(amt);
-                        } else {
-                            System.out.print("Enter withdrawal amount: ₹");
-                            double amt = sc.nextDouble();
-                            acc.withdraw(amt);
-                        }
+                    if (acc4 != null) {
+                        System.out.print("Enter withdrawal amount: ₹");
+                        double amt = Double.parseDouble(sc.nextLine());
+                        acc4.withdraw(amt);
                     } else {
                         System.out.println("Account not found!");
                     }

@@ -9,6 +9,7 @@ t.add(10);
 //t.add(10.2f);//classcast
 t.add(89);
 t.add(78);
+t.add(32);
 
 System.out.println(t);
 	

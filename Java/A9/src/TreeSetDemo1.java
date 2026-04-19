@@ -4,7 +4,7 @@ public class TreeSetDemo1 {
 public static void main(String[] args) {
 	
 
-	TreeSet<Integer> t = new TreeSet<Integer> (new MyComparator());
+	TreeSet<Integer> t = new TreeSet<Integer> ();
 t.add(10);	
 //t.add(null); //nullpointer
 //t.add(10.2f);//classcast

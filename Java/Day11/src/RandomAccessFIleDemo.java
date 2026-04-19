@@ -18,7 +18,7 @@ public class RandomAccessFIleDemo {
             raf1.seek(10);
             System.out.println(raf1.getFilePointer());
 
-            int x;
+            int x=0;
             while ((x = raf1.read()) != -1) { 
                 System.out.println(x);
                 raf2.write(x);

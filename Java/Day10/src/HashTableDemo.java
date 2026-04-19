@@ -16,7 +16,7 @@ public static void main(String[] args) {
 	h.put(new Temp(5), "E");
 	h.put(new Temp(6), "F");
 	
-	System.out.println(h);
+	System.out.print(h);
 	
 	
 	
