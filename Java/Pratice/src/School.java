@@ -13,11 +13,11 @@ public class School {
 		
 		//Array list to store Students
 		ArrayList<Student_Result> s = new ArrayList<Student_Result>();
-		for(int i =0; i<5;i++) {
+		for(int i =0; i<1;i++) {
 			
 			System.out.println("Enter id");
 			int id = scanner.nextInt();
-			System.out.println("Enter NAme ");
+			System.out.println("Enter Name ");
 			String name = scanner.nextLine();
 			scanner.nextLine();
 			System.out.println("enter Dep");
@@ -30,21 +30,21 @@ public class School {
 			
 		}
 		
-		System.out.println("-------------------To display Students---------------");
+		System.out.println("\n-------------------To display Students---------------");
 		// To display Students
 		for(Student_Result a: s) {
 			System.out.println(a);
 		}
 		
-		System.out.println("-----------------marks greater than 60-----------------");
+		System.out.println("\n-----------------marks greater than 60-----------------");
 		//marks greater than 60
 	s.stream().filter(x->(x.getMarks()>60)).forEach(System.out::println);
-	System.out.println("-----------------marks in rev order-----------------");
+	System.out.println("\n-----------------marks in rev order-----------------");
 	//marks in rev order
 	s.stream().sorted(Comparator.comparing(Student_Result::getMarks).reversed()).forEach(System.out::println);
 	
 	
-	System.out.println("----------------students belonging to that department,------------------");
+	System.out.println("\n----------------students belonging to that department,------------------");
 	Map<String, List<Student_Result>> m = s.stream().collect(Collectors.groupingBy(Student_Result::getDept));
 	System.out.println(m);
 	
