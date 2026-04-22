@@ -46,6 +46,12 @@ public class EmpDetails {
 		Map<String, Double> m = s.stream().collect(Collectors.groupingBy(Employee_Payroll::getEmpDesig,Collectors.summingDouble(Employee_Payroll::getSalary)));
 		System.out.println(m);
 		
+		
+		System.out.println("============== compare with name ================");
+
+		s.stream().sorted(Comparator.comparing(Employee_Payroll::getEmpName)).forEach(System.out::println);
+		
+		
 		scanner.close();
 	
 	}
