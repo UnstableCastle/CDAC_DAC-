@@ -1,0 +1,19 @@
+package session_13;
+
+public class Account {
+	
+	private int balance;
+	
+	public Account() {
+		balance = 5000;
+	}
+	
+	public void deposit(int amount)
+	{
+		int temp;
+		
+	}
+	
+	
+
+}

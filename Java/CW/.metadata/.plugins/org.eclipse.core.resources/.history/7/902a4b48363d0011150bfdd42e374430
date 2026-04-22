@@ -1,0 +1,17 @@
+package session_13;
+
+public class MyThread implements Runnable{
+
+	@Override
+	public void run() {
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		MyThread r1 = new MyThread();
+		Thread t1 = new Thread(r1);
+		
+	}
+
+}

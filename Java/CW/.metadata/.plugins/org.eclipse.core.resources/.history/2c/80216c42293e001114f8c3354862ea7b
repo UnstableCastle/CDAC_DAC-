@@ -1,0 +1,66 @@
+package session_14;
+
+public class Customer {
+	
+	private int balance;
+	
+	public Customer()
+	{
+		balance = 5000;
+	}
+	
+	public synchronized int withdraw(int balance) throws InterruptedException
+	{
+		System.out.println("In Withdraw");
+		if(this.balance<balance)
+		{
+			System.out.println("Insufficient Funds");
+			wait();
+		}
+		
+			System.out.println("Withdrawing..");
+			this.balance-=balance;
+	
+		
+		return this.balance;
+	}
+	
+	public synchronized void deposit(int amount)
+	{
+		System.out.println("Depositing........");
+		this.balance+=amount;
+		notify();
+	}
+
+	public static void main(String[] args) {
+		
+		final Customer c = new Customer();
+		Thread t1 = new Thread() {
+			
+			public void run()
+			{
+				try {
+				System.err.println(	c.withdraw(6000));
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+		};
+		
+		Thread t2 = new Thread() {
+			
+			public void run()
+			{
+				c.deposit(6000);
+			}
+			
+		};
+		
+		t1.start();
+		t2.start();
+		
+	}
+	
+}

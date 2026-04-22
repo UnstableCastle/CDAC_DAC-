@@ -1,0 +1,13 @@
+package session_14;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+public class DEmo {
+	
+	public static void main(String[] args) {
+		
+		ConcurrentHashMap<Integer, String> h = new ConcurrentHashMap<Integer,String>()
+		
+	}
+
+}

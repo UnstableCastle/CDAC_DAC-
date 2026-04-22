@@ -1,0 +1,18 @@
+package session_10;
+
+import java.lang.reflect.Method;
+
+public class ReflectDemo {
+	
+	public static void main(String[] args) throws ClassNotFoundException {
+		
+	 Class myCls = Class.forName("Employee");
+		System.out.println("Class = "+myCls);
+		
+	Class superCls = myCls.getSuperclass();
+	System.out.println("Parent = "+superCls);
+	
+	Method method[] = myCls.getMethods();
+	}
+
+}

@@ -1,0 +1,13 @@
+package session_10;
+
+public class Employee {
+	
+	private int empId;
+	private String empName;
+	private float empSalary;
+	
+	public Employee() {}
+	
+	
+
+}

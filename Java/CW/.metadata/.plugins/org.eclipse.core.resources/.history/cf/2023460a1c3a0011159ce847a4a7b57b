@@ -1,0 +1,13 @@
+package session_10;
+
+import java.util.HashMap;
+
+public class HashMapDemo1 {
+	
+	public static void main(String[] args) {
+		
+		HashMap<String, Integer> h = new HashMap<String,Integer>();
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+package session_09;
+
+import java.util.List;
+import java.util.function.Consumer;
+
+public class ConsumerDemo {
+	
+	public static void main(String[] args) {
+		
+		List<Instructor> l = InstructorDetails.getAll();
+		
+		Consumer<Instructor> c = a -> {System.out.println(a);};
+		l.forEach(c);
+	}
+
+}

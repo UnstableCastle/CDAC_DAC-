@@ -1,0 +1,21 @@
+package session_13;
+
+public class YieldDemo implements Runnable{
+
+	@Override
+	public void run() {
+		for(int i=1;i<=4;i++)
+		{
+			if(i==2)
+			{
+				Thread.yield();
+				System.out.println("yieldDemo "+Thread.currentThread().getName());
+			}
+			else
+			{
+				System.out.println(Thread.currentThread().getName()+" "+i);
+			}
+		}
+	}
+
+}

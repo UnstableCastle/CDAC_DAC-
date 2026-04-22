@@ -1,0 +1,17 @@
+package session_12;
+
+public class MyThread extends Thread implements Runnable
+{
+	public void run()
+	{
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		MyThread t1 = new MyThread();
+		
+	}
+	
+
+}

@@ -1,0 +1,9 @@
+package session_14;
+
+import java.util.ArrayList;
+
+public class TraditionalCollection extends Thread{
+	
+	public static ArrayList<String> l = new ArrayList<Integer>();
+
+}

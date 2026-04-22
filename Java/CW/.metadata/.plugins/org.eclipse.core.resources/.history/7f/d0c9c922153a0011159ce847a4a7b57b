@@ -1,0 +1,26 @@
+package session_10;
+
+public class Temp {
+	
+	private int i;
+	
+	public Temp() {}
+
+	public Temp(int i) {
+		super();
+		this.i = i;
+	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		return "Temp [i=" + i + "]";
+	}
+	
+	
+
+}

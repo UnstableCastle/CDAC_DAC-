@@ -1,0 +1,9 @@
+package session_10;
+
+public class PredicateDemo {
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

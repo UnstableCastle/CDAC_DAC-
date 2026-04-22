@@ -1,0 +1,12 @@
+package session_14;
+
+public class ThreadGroupD extends Thread{
+	
+	pub
+	
+	public ThreadGroupD(ThreadGroup tg,String name)
+	{
+		super(tg,name);
+	}
+
+}

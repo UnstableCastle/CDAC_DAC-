@@ -1,0 +1,25 @@
+package session_14;
+
+public class Customer {
+	
+	private int balance;
+	
+	public Customer()
+	{
+		balance = 5000;
+	}
+	
+	public synchronized void deposit(int amount) throws InterruptedException
+	{
+		if(this.balance<amount)
+		{
+			System.out.println("Insufficient Funds");
+			wait();
+		}
+		else
+		{
+			this.balance+=amount;
+		}
+	}
+
+}

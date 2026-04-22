@@ -1,0 +1,12 @@
+package session_10;
+
+import java.util.List;
+
+public class PredicateDemo1 {
+	
+	public static void main(String[] args) {
+		
+		List<Instructor> list = InstructorDetails.getAll();
+	}
+
+}

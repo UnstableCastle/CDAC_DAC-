@@ -1,0 +1,7 @@
+package session_12;
+
+public class MyThread extends Test implements Runnable{
+	
+	
+
+}

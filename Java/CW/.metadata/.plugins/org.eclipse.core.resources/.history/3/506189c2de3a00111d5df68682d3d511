@@ -1,0 +1,15 @@
+package session_11;
+
+import java.io.File;
+
+public class Demo2 {
+	
+	public static void main(String[] args) {
+		
+		File f1 = new File("abc.txt");
+		File f2 = new File("mno.txt");
+		
+		
+	}
+
+}

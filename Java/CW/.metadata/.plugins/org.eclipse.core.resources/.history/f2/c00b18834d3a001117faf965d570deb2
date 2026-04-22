@@ -1,0 +1,11 @@
+package session_10;
+
+public class ReflectDemo {
+	
+	public static void main(String[] args) throws ClassNotFoundException {
+		
+	 Class myCls = Class.forName("Employee");
+		System.out.println("Class = "+myCls);
+	}
+
+}

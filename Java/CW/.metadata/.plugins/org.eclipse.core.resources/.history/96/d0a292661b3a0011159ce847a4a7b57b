@@ -1,0 +1,17 @@
+package session_10;
+
+import java.util.HashMap;
+
+public class HashMapDemo {
+	
+	public static void main(String[] args) {
+		
+		HashMap<Integer,String> h = new HashMap<Integer,String>();//16
+		
+		h.put(null, null);
+		System.out.println(h);
+		
+		
+	}
+
+}

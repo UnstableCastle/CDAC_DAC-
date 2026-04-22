@@ -1,0 +1,11 @@
+package session_10;
+
+public class Temp {
+	
+	private int i;
+	
+	public Temp() {}
+	
+	
+
+}

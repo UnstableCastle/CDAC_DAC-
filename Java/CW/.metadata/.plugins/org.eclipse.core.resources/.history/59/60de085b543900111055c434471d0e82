@@ -1,0 +1,19 @@
+package session_09;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class InstructorDetails {
+	
+	public static List<Instructor> getAll()
+	{
+		Instructor i1 = new Instructor("Rahul", 23, "Male", false, Arrays.asList("C","C++",".net"));
+		Instructor i2 = new Instructor("Sayalee", 27, "Female", false, Arrays.asList("SQL","Oracle","MongoDB"));
+		Instructor i3 = new Instructor("Nikita", 40, "Female", true, Arrays.asList("C","C++",".net"));
+		Instructor i4 = new Instructor("Aditya", 47, "Male", true, Arrays.asList("C","C++",".net"));
+		Instructor i5 = new Instructor("Aryan", 25, "Male", false, Arrays.asList("C","C++",".net"));
+		
+		return null;
+	}
+
+}

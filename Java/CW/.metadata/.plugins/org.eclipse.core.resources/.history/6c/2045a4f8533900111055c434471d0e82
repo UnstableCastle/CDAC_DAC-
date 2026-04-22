@@ -1,0 +1,12 @@
+package session_09;
+
+import java.util.List;
+
+public class InstructorDetails {
+	
+	public static List<Instructor> getAll()
+	{
+		return null;
+	}
+
+}

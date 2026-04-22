@@ -1,0 +1,14 @@
+package session_10;
+
+import java.util.Hashtable;
+
+public class HashTableDemo {
+	
+	public static void main(String[] args) {
+		
+		Hashtable<Temp, String> h = new Hashtable<Temp,String>();
+		
+		
+	}
+
+}

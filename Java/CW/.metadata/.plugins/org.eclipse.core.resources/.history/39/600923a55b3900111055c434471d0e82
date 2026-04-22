@@ -1,0 +1,19 @@
+package session_09;
+
+import java.util.HashSet;
+
+public class HashSetDemo {
+	
+	public static void main(String[] args) {
+		
+		HashSet h = new HashSet();
+		h.add(null);
+		h.add('A');
+		h.add(10);
+		h.add(16.8f);
+		h.add(10);
+		h.add(null);
+		System.out.println(h);
+	}
+
+}

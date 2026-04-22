@@ -1,0 +1,39 @@
+package session_11;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
+public class Demo2 {
+	
+	public static void main(String[] args) throws IOException {
+		RandomAccessFile raf1 = null;
+		try
+		{
+		File f1 = new File("abc.txt");
+		File f2 = new File("mno.txt");
+		
+		raf1 = new RandomAccessFile(f1, "r");
+		raf2 = new RandomAccessFile(f2, "rw");
+	
+		System.out.println(raf1.getFilePointer());
+		raf1.seek(10);
+		System.out.println(raf1.getFilePointer());
+		int x = 0;
+		do
+		{
+			x = raf1.read();
+			raf2.write((char)x);
+		}while(x!=-1);
+		System.out.println("Success");
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		finally {
+			raf1.close();
+			raf2.close();
+		}
+		
+	}
+}

@@ -1,0 +1,33 @@
+package session_12;
+
+public class MyThread extends Thread implements Runnable
+{
+	public void run()
+	{
+		System.out.println(Thread.currentThread().getName()+" started");
+		for(int i=1;i<=4;i++)
+		{
+			
+		}
+		System.out.println();
+	}
+	
+	public static void main(String[] args) {
+		
+		MyThread t1 = new MyThread();
+		MyThread t2 = new MyThread();
+		MyThread t3 = new MyThread();
+		//Born state
+		t1.setName("One");
+		t2.setName("Two");
+		t3.setName("Three");
+		
+		t1.start();
+		t2.start();
+		t3.start();
+		
+		
+	}
+	
+
+}

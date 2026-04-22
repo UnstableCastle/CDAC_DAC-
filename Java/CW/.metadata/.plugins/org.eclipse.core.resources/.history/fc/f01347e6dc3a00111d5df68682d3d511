@@ -1,0 +1,26 @@
+package session_11;
+
+import java.io.File;
+
+public class Demo1 {
+	
+	File file;
+	
+	public Demo1()
+	{
+		if(file.exists())
+		{
+			System.out.println("File already present");
+		}
+		else
+		{
+			System.out.println(file.createNewFile());
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		
+	}
+
+}

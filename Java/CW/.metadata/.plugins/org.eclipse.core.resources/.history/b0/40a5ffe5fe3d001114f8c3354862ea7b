@@ -1,0 +1,10 @@
+package session_14;
+
+public class ThreadGroupD extends Thread{
+	
+	public ThreadGroup(ThreadGroup tg,String name)
+	{
+		
+	}
+
+}

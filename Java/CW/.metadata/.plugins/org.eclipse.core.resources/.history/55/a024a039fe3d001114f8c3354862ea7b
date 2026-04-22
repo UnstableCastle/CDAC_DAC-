@@ -1,0 +1,20 @@
+package session_14;
+
+public class EnumerateDemo {
+	
+	public static void main(String[] args) {
+		
+	ThreadGroup parent = Thread.currentThread()
+			.getThreadGroup().getParent();
+		System.out.println(parent);
+		System.out.println("Count = "
+		+parent.activeCount());
+		Thread t[] = new Thread[parent.activeCount()];
+		parent.enumerate(t);
+		for(Thread t1:t)
+		{
+			System.out.println(t1.getName());
+		}
+	}
+
+}

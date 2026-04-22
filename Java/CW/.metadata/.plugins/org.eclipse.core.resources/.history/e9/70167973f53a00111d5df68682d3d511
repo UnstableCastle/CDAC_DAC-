@@ -1,0 +1,10 @@
+package session_11;
+
+public class StaticRefDemo {
+	
+	public static boolean yrsOfExpGtTen(Instructor instructor)
+	{
+		return false;
+	}
+
+}

@@ -1,0 +1,25 @@
+package session_09;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ArrayAsListDemo {
+	
+	public static void main(String[] args) {
+		Character ch[] = {'A','a','Z','H','T'};
+		
+		List list = Arrays.asList(ch);
+		
+		list.set(1, 'M');
+		list.forEach(x -> {System.out.println(x);});
+		
+		//list.add('N');//UnsupportedOperationException
+		//System.out.println(list);
+		
+		//list.add(10);
+		ch[2] = 10;
+		System.out.println(list);
+		
+	}
+
+}

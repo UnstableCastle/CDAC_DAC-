@@ -1,0 +1,30 @@
+package session_14;
+
+public class PrintJobs implements Runnable{
+
+	String name;
+
+	public PrintJobs(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public void run() {
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		PrintJobs jobs[] = {
+				new PrintJobs("ABC"),
+				new PrintJobs("MNO"),
+				new PrintJobs("PQR"),
+				new PrintJobs("RTF"),
+				new PrintJobs("JPG"),
+				new PrintJobs("TXT")
+		};
+		
+	}
+
+}

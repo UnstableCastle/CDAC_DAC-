@@ -1,0 +1,11 @@
+package session_14;
+
+public class EnumerateDemo {
+	
+	public static void main(String[] args) {
+		
+	ThreadGroup parent = Thread.currentThread().getThreadGroup().getParent();
+		System.out.println(parent);
+	}
+
+}

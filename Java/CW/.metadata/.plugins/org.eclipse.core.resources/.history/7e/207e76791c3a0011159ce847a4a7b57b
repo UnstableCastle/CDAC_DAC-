@@ -1,0 +1,23 @@
+package session_10;
+
+import java.util.HashMap;
+import java.util.Set;
+
+public class HashMapDemo1 {
+	
+	public static void main(String[] args) {
+		
+		HashMap<String, Integer> h = new HashMap<String,Integer>();
+		h.put("Rahul", 600);
+		h.put("Nikita", 500);
+		h.put("Arjun", 700);
+		h.put("Aditya", 800);
+		h.put("Tushar", 1000);
+		System.out.println(h);
+	 
+		Set<String> s = h.keySet();
+		System.out.println(s);
+		
+	}
+
+}

@@ -1,0 +1,17 @@
+package session_11;
+
+public class Demo {
+	
+	public static void main(String[] args) {
+		
+		String str = "Learning Java Programming Language";
+		String s[] = str.split("\s");
+		for(String i:s)
+		{
+			System.out.println(i);
+		}
+		
+		String s1 = "10,20,30";
+	}
+
+}

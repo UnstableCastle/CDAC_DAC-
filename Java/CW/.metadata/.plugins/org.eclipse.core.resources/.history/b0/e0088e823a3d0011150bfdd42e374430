@@ -1,0 +1,21 @@
+package session_13;
+
+public class Demo {
+	
+	public static void main(String[] args) {
+		
+		Runnable r = new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+		
+		
+		new Thread(r).start();
+		
+	}
+
+}

@@ -1,0 +1,25 @@
+package session_12;
+
+public class MyThread extends Thread implements Runnable
+{
+	public void run()
+	{
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		MyThread t1 = new MyThread();
+		MyThread t2 = new MyThread();
+		MyThread t3 = new MyThread();
+		//Born state
+		
+		t1.start();
+		t2.start();
+		t3.start();
+		
+		
+	}
+	
+
+}

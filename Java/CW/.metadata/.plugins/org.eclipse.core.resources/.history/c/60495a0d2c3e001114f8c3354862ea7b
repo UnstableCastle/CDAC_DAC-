@@ -1,0 +1,32 @@
+package session_14;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test1 {
+	
+	public static void printNumbers(List<? extends Number> l1)
+	{
+		
+	}
+	
+	public static void addNumbers(List<? super Number> l2)
+	{
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> l1 = new ArrayList<>();
+		ArrayList<Integer> l2 = new ArrayList<>();
+		
+		printNumbers(l1);
+		addNumbers(l2);
+		
+		//extends - upperBound - read Only - producer
+		//super - lowerBound - add - consumer
+		
+		
+	}
+
+}

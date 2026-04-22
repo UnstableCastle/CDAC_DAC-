@@ -1,0 +1,13 @@
+package session_09;
+
+import java.util.List;
+
+public class ConsumerDemo {
+	
+	public static void main(String[] args) {
+		
+		List<Instructor> l = InstructorDetails.getAll();
+		
+	}
+
+}

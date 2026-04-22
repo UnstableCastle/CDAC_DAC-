@@ -1,0 +1,11 @@
+package session_09;
+
+public class Instructor {
+	
+	private String name;
+	private int age;
+	private String gender;
+	private boolean onlineCourse;
+	
+
+}

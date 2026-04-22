@@ -1,0 +1,29 @@
+package session_14;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
+
+public class Test2 {
+	
+	public static void main(String[] args) {
+		
+		LocalDateTime dt = LocalDateTime.now();
+		System.out.println(dt);
+		
+		LocalDate date = LocalDate.now();
+		System.out.println(date);
+		
+		LocalTime time = LocalTime.now();
+		System.out.println(time);
+		
+		LocalDate d1 =  LocalDate.of(1999, 4, 22);
+		Period period = Period.between(date, d1);
+		System.out.println(period);
+		
+		time.plusHours(2);
+		System.out.println(time);
+	}
+
+}

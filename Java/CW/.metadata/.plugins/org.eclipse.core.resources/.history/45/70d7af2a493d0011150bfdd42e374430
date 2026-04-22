@@ -1,0 +1,21 @@
+package session_13;
+
+public class ThreadGroupDemo {
+	
+	public static void main(String[] args) {
+		
+		System.out.println(Thread.currentThread().getName());//main
+		System.out.println(Thread.currentThread().getThreadGroup().getName());
+		System.out.println(Thread.currentThread().getThreadGroup().getParent().getName());
+	
+		ThreadGroup g1 = new ThreadGroup("Parent");
+		System.out.println(g1);
+		ThreadGroup g2 = new ThreadGroup(g1, "Child");
+		System.out.println(g2);
+		
+		System.out.println(g1.getParent().getName());
+		
+		
+	}
+
+}
