@@ -1,0 +1,8 @@
+What are the types of inheritance supported in java?
+
+Single Inheritance
+One class inherits from one parent class.
+Multilevel Inheritance
+A class inherits from another derived class (chain structure).
+Hierarchical Inheritance
+Multiple classes inherit from the same parent class.
