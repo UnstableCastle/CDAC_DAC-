@@ -17,7 +17,7 @@ public class StackDemoChar {
 
 			switch (ch) {
 			case '1':
-				System.out.println("Enter cber to Push :");
+				System.out.println("Enter char to Push :");
 				c = s.next().charAt(0);
 				st.push(c);
 				break;

@@ -1,10 +1,10 @@
-public class MyStack {
+public class MyStackChar {
     private int top;
-    private int arr[];
+    private char arr[];
 
-    public MyStack(int size) {
+    public MyStackChar(int size) {
         this.top = -1;
-        this.arr = new int[size];   
+        this.arr = new char[size];   
     }
 
     public boolean isFull() {
@@ -15,12 +15,12 @@ public class MyStack {
         return top == -1;
     }
 
-    public void push(int num) {
+    public void push(char n) {
         if (isFull()) {
             System.out.println("Stack is Full Overflow!!!");
         } else {
-            arr[++top] = num;
-            System.out.println("Element " + num + " inserted");
+            arr[++top] = n;
+            System.out.println("Element " + (char)n + " inserted");
         }
     }
 
@@ -29,7 +29,7 @@ public class MyStack {
             System.out.println("Stack is empty");
             return '*';
         } else {
-            int d = arr[top--];
+            char d = arr[top--];
             System.out.println("Element " + d + " deleted");
             return '*';   
         }
