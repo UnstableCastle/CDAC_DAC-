@@ -20,7 +20,7 @@ public class MyStackChar {
             System.out.println("Stack is Full Overflow!!!");
         } else {
             arr[++top] = n;
-            System.out.println("Element " + (char)n + " inserted");
+            System.out.println("Element " + n + " inserted");
         }
     }
 
@@ -31,16 +31,17 @@ public class MyStackChar {
         } else {
             char d = arr[top--];
             System.out.println("Element " + d + " deleted");
-            return '*';   
+            return d;   
         }
     }
 
-    public int peek() {
+    public char peek() {
         if (isEmpty()) {
             System.out.println("Stack is empty");
-            return -1;
+            return '*';
         } else {
             System.out.println("Element at Top = " + arr[top]);
-            return arr[top];          }
+            return arr[top];
+        }
     }
 }
