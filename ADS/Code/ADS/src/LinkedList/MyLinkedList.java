@@ -96,7 +96,7 @@ class LinkedList {
 		intNode itr = head;
 
 		for (int i = 1; i < pos - 1 && itr != null; i++) {
-			itr = itr.getNext(); 
+			itr = itr.getNext();
 		}
 
 		if (itr == null) {
@@ -142,7 +142,7 @@ class LinkedList {
 		intNode itr = head;
 
 		while (itr.getNext() != null && itr.getNext().getData() != key) {
-			itr = itr.getNext(); 
+			itr = itr.getNext();
 		}
 
 		if (itr.getNext() != null) {
@@ -196,11 +196,99 @@ class LinkedList {
 			if (itr.getNext() == null)
 				break;
 
-			itr = itr.getNext().getNext(); 
-			}
+			itr = itr.getNext().getNext();
+		}
 
 		System.out.println("null");
 	}
+
+	public int findMiddle() {
+		intNode slow = head, fast = head;
+		while (fast != null && fast.getNext() != null) {
+			slow = slow.getNext();
+			fast = fast.getNext().getNext();
+		}
+		return slow.getData();
+
+	}
+
+	public int deleteLast() {
+		int d = -999;
+		intNode itr = head;
+
+		if (head.getNext() == null) {
+			d = head.getData();
+			head = null;
+			return d;
+		}
+
+		while (itr.getNext().getNext() != null) {
+			itr = itr.getNext();
+		}
+		intNode deletable = itr.getNext();
+		d = deletable.getData();
+		deletable = null;
+		itr.setNext(null);
+		return d;
+	}
+
+	public int del_from_pos(int pos) {
+	    int d = -999;
+
+	    if (head == null) {
+	        System.out.println("List is empty");
+	        return d;
+	    }
+
+	  
+	    if (pos == 1) {
+	        return deleteFirst();
+	    }
+
+	    intNode itr = head;
+
+	    
+	    for (int i = 1; i < pos - 1 && itr.getNext() != null; i++) {
+	        itr = itr.getNext();
+	    }
+
+	    
+	    if (itr.getNext() != null) {
+	        intNode deletable = itr.getNext();
+	        itr.setNext(deletable.getNext());
+
+	        d = deletable.getData();
+
+	        deletable.setNext(null);
+	        deletable = null;
+
+	        return d;
+	    } else {
+	        System.out.println("Invalid position");
+	        return d;
+	    }
+	}
+
+	public void reverse() {
+		{
+			intNode prev = null;
+		    intNode curr = head;
+		    intNode next;
+		    
+			while(curr != null)
+			{
+				next = curr.getNext();
+				curr.setNext(prev);
+				prev = curr;
+				curr = next;
+			}
+			head = prev;
+		
+	}
+	}
+			
+			
+	
 }
 
 public class MyLinkedList {
@@ -216,7 +304,10 @@ public class MyLinkedList {
 			System.out.println("2. Delete Element");
 			System.out.println("3. Display");
 			System.out.println("4. Count Number of Element");
-			System.out.println("5. Exit\n");
+			System.out.println("5. Find Middle Element ");
+			System.out.println("6. Reverse List ");
+			System.out.println("7. Exit");
+
 			System.out.print("Enter choice: ");
 			choice = sc.nextInt();
 
@@ -280,16 +371,40 @@ public class MyLinkedList {
 				}
 				break;
 
-			case 2:		int deleted = list.deleteFirst();
-						if (deleted == -999)
-							System.out.println("List is empty!");
-						else
-							System.out.println("Deleted: " + deleted);
-						break;
+			case 2:
+				int de;
+				System.out.println("Select Delete Operation :");
+				System.out.println("1. Delete First :");
+				System.out.println("2. Delete Last :");
+				System.out.println("3. Delete from Position :");
+				de = sc.nextInt();
+				switch (de) {
+				case 1:
+					int deleted = list.deleteFirst();
+					if (deleted == -999)
+						System.out.println("List is empty!");
+					else
+						System.out.println("Deleted: " + deleted);
+					break;
 
-			case 3:	int dc;
-					System.out.println("1. Display Linked List");
-					System.out.println("2. Display Alternate Elements");
+				case 2:
+					list.deleteLast();
+					break;
+
+				case 3:
+					int pos;
+					System.out.println("Enter Position to Delete :");
+					pos = sc.nextInt();
+					list.del_from_pos(pos);
+					break;
+				}
+
+				break;
+
+			case 3:
+				int dc;
+				System.out.println("1. Display Linked List");
+				System.out.println("2. Display Alternate Elements");
 				dc = sc.nextInt();
 
 				switch (dc) {
@@ -304,10 +419,17 @@ public class MyLinkedList {
 				break;
 
 			case 4:
-				System.out.println("Number of Elements: " + list.countElement());
+				System.out.println("Number of Elements: " + list.countElement() + "\n");
 				break;
 
 			case 5:
+				System.out.println("Middle Element of the list: " + list.findMiddle() + "\n");
+
+			case 6:
+				System.out.println("Reversed List = ");
+				list.reverse();
+				
+			case 7:
 				System.out.println("Exiting...");
 				break;
 
@@ -315,11 +437,13 @@ public class MyLinkedList {
 				System.out.println("Invalid choice!");
 			}
 
-		} while (choice != 5);
+		} while (choice != 6);
 
 		sc.close();
 	}
 }
+
+
 
 //     
 //        LinkedList list = new LinkedList();
