@@ -29,10 +29,36 @@ class intNode {
 	}
 }
 
-class LinkedList {
+class LinkedList11 {
 	private intNode head;
 
-	public LinkedList() {
+	public void makeCycle(int data) {
+		intNode temp = head;
+		intNode prev = null;
+		intNode target = null;
+
+		while (temp != null) {
+			if (temp.getData() == data) {
+				target = temp;
+			}
+			prev = temp;
+			temp = temp.getNext();
+		}
+
+		if (target != null) {
+			prev.setNext(target);
+		} else {
+			System.out.println("Data not found in list");
+		}
+		
+		
+		
+		
+		
+		
+	}
+
+	public LinkedList11() {
 		head = null;
 	}
 
@@ -233,67 +259,61 @@ class LinkedList {
 	}
 
 	public int del_from_pos(int pos) {
-	    int d = -999;
+		int d = -999;
 
-	    if (head == null) {
-	        System.out.println("List is empty");
-	        return d;
-	    }
+		if (head == null) {
+			System.out.println("List is empty");
+			return d;
+		}
 
-	  
-	    if (pos == 1) {
-	        return deleteFirst();
-	    }
+		if (pos == 1) {
+			return deleteFirst();
+		}
 
-	    intNode itr = head;
+		intNode itr = head;
 
-	    
-	    for (int i = 1; i < pos - 1 && itr.getNext() != null; i++) {
-	        itr = itr.getNext();
-	    }
+		for (int i = 1; i < pos - 1 && itr.getNext() != null; i++) {
+			itr = itr.getNext();
+		}
 
-	    
-	    if (itr.getNext() != null) {
-	        intNode deletable = itr.getNext();
-	        itr.setNext(deletable.getNext());
+		if (itr.getNext() != null) {
+			intNode deletable = itr.getNext();
+			itr.setNext(deletable.getNext());
 
-	        d = deletable.getData();
+			d = deletable.getData();
 
-	        deletable.setNext(null);
-	        deletable = null;
+			deletable.setNext(null);
+			deletable = null;
 
-	        return d;
-	    } else {
-	        System.out.println("Invalid position");
-	        return d;
-	    }
+			return d;
+		} else {
+			System.out.println("Invalid position");
+			return d;
+		}
 	}
 
 	public void reverse() {
 		{
 			intNode prev = null;
-		    intNode curr = head;
-		    intNode next;
-		    
-			while(curr != null)
-			{
+			intNode curr = head;
+			intNode next;
+
+			while (curr != null) {
 				next = curr.getNext();
 				curr.setNext(prev);
 				prev = curr;
 				curr = next;
 			}
 			head = prev;
-		
+
+		}
 	}
-	}
-			
-			
-	
+
 }
 
 public class MyLinkedList {
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		LinkedList11 list = new LinkedList11();
 		Scanner sc = new Scanner(System.in);
 
 		int choice, value;
@@ -428,7 +448,7 @@ public class MyLinkedList {
 			case 6:
 				System.out.println("Reversed List = ");
 				list.reverse();
-				
+
 			case 7:
 				System.out.println("Exiting...");
 				break;
@@ -443,10 +463,8 @@ public class MyLinkedList {
 	}
 }
 
-
-
 //     
-//        LinkedList list = new LinkedList();
+//        LinkedList11 list = new LinkedList11();
 //        Scanner sc = new Scanner(System.in);
 //
 //        int choice, value;
