@@ -71,54 +71,102 @@ class BinaryTree {
 	public String toString() {
 		return "BinaryTree [root=" + root + "]";
 	}
-	
+
 	public void display_by_level() {
-		if(root==null) {
+		if (root == null) {
 			System.out.println("Empty !!!");
 			return;
 		}
 		Queue<BTNode> q = new LinkedList<BTNode>();
-		BTNode iter ;
+		BTNode iter;
 		q.add(root);
 		System.out.print("\nDisplay_by_Level: ");
-		while(!q.isEmpty()) {
-			iter=q.remove();
-			System.out.print(iter.getData()+" ");
-			if(iter.getLeft()!=null)q.add(iter.getLeft());
-			if(iter.getRight()!=null)q.add(iter.getRight());
-		
-		}		
-		
+		while (!q.isEmpty()) {
+			iter = q.remove();
+			System.out.print(iter.getData() + " ");
+			if (iter.getLeft() != null)
+				q.add(iter.getLeft());
+			if (iter.getRight() != null)
+				q.add(iter.getRight());
+
+		}
+
 	}
-	
+
 	public void display_by_level_leaf() {
-		if(root==null) {
+		if (root == null) {
 			System.out.println("Empty !!!");
 			return;
 		}
 		Queue<BTNode> q = new LinkedList<BTNode>();
-		BTNode iter ;
+		BTNode iter;
 		q.add(root);
 		System.out.print("\ndisplay_by_level_leaf: ");
-		while(!q.isEmpty()) {
-			iter=q.remove();
-			if(iter.getLeft()==null && iter.getRight()==null) {
-				System.out.print(iter.getData()+" ");	
+		while (!q.isEmpty()) {
+			iter = q.remove();
+			if (iter.getLeft() == null && iter.getRight() == null) {
+				System.out.print(iter.getData() + " ");
 			}
-			
-			if(iter.getLeft()!=null)q.add(iter.getLeft());
-			if(iter.getRight()!=null)q.add(iter.getRight());
-		
-		}		
-		
+
+			if (iter.getLeft() != null)
+				q.add(iter.getLeft());
+			if (iter.getRight() != null)
+				q.add(iter.getRight());
+
+		}
+
 	}
-	
-	
-	
-	
-	
-	
-	
+
+	public void display_by_level_Non_leaf() {
+		if (root == null) {
+			System.out.println("Empty !!!");
+			return;
+		}
+		Queue<BTNode> q = new LinkedList<BTNode>();
+		BTNode iter;
+		q.add(root);
+		System.out.print("\ndisplay_by_level_Non_leaf: ");
+		while (!q.isEmpty()) {
+			iter = q.remove();
+			if (iter.getLeft() != null && iter.getRight() != null) {
+				System.out.print(iter.getData() + " ");
+			}
+
+			if (iter.getLeft() != null)
+				q.add(iter.getLeft());
+			if (iter.getRight() != null)
+				q.add(iter.getRight());
+
+		}
+
+	}
+
+	public void display_by_level_sum_Non_leaf() {
+		int sum = 0;
+		if (root == null) {
+			System.out.println("Empty !!!");
+			return;
+		}
+		Queue<BTNode> q = new LinkedList<BTNode>();
+		BTNode iter;
+		q.add(root);
+		System.out.print("\nSum of Non_leaf Nodes : ");
+		while (!q.isEmpty()) {
+			iter = q.remove();
+			if (iter.getLeft() != null && iter.getRight() != null) {
+				sum += iter.getData();
+			}
+
+			if (iter.getLeft() != null)
+				q.add(iter.getLeft());
+			if (iter.getRight() != null)
+				q.add(iter.getRight());
+
+		}
+		System.out.println(sum);
+
+	}
+
 }
 
 public class MyBinaryTree {
@@ -147,5 +195,7 @@ public class MyBinaryTree {
 		bt.postorder();
 		bt.display_by_level();
 		bt.display_by_level_leaf();
+		bt.display_by_level_Non_leaf();
+		bt.display_by_level_sum_Non_leaf();
 	}
 }
