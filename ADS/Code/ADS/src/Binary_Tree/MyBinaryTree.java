@@ -202,6 +202,97 @@ class BinaryTree {
 
         System.out.println("Sum of Leaf Nodes: " + sum);
     }
+    
+    
+    public static boolean compareTrees(BTNode t1, BTNode t2) {
+
+        if (t1 == null && t2 == null)
+            return true;
+
+        if (t1 == null || t2 == null)
+            return false;
+
+        Queue<BTNode> q1 = new LinkedList<>();
+        Queue<BTNode> q2 = new LinkedList<>();
+
+        q1.add(t1);
+        q2.add(t2);
+
+        while (!q1.isEmpty() && !q2.isEmpty()) {
+
+            BTNode n1 = q1.remove();
+            BTNode n2 = q2.remove();
+
+            if (n1.getData() != n2.getData())
+                return false;
+
+            
+            if (n1.getLeft() != null && n2.getLeft() != null) {
+                q1.add(n1.getLeft());
+                q2.add(n2.getLeft());
+            } else if (n1.getLeft() != null || n2.getLeft() != null) {
+                return false;
+            }
+
+            
+            if (n1.getRight() != null && n2.getRight() != null) {
+                q1.add(n1.getRight());
+                q2.add(n2.getRight());
+            } else if (n1.getRight() != null || n2.getRight() != null) {
+                return false;
+            }
+        }
+
+        return q1.isEmpty() && q2.isEmpty();
+    }
+    
+    
+    
+    public boolean treeCompar(BinaryTree t1) {
+    	BTNode iter1=root;
+    	BTNode iter2=t1.getRoot();
+    	
+    	if(root==null || t1.getRoot()==null ) {
+    		return false ;
+    		
+    	}
+
+    	
+    	
+    	
+    	Queue<BTNode> q1 = new LinkedList<BTNode>();
+    	Queue<BTNode> q2 = new LinkedList<BTNode>();
+    	
+    	
+    	q1.add(iter1);
+    	q2.add(iter2);
+    	
+    	while(((!q1.isEmpty())&&(!q2.isEmpty()))) {
+    		iter1 = q1.remove();
+    		iter2 = q2.remove();
+    		
+    		
+    		if(iter1.getData()!=iter2.getData())return false;
+    		
+    		if(iter1.getLeft()!=null)
+    			q1.add(iter1.getLeft());
+    		if(iter1.getRight()!=null)
+    			q1.add(iter1.getRight());
+    		
+    		
+    		if(iter2.getLeft()!=null)
+    			q2.add(iter2.getLeft());
+    		if(iter2.getRight()!=null)
+    			q2.add(iter2.getRight());
+    	  	}
+    	
+    	if(((q1.isEmpty())&&(q2.isEmpty()))) 
+    		return true;
+    	else   	
+    	return false;
+    }
+    
+    
 }
 
 public class MyBinaryTree {
@@ -224,6 +315,9 @@ public class MyBinaryTree {
         bt.getRoot().getLeft().getRight().setLeft(bt.createNode(19));
         bt.getRoot().getRight().getLeft().setRight(bt.createNode(67));
 
+        
+      
+        
         bt.preorder();
         System.out.println();
         bt.inorder();
@@ -239,5 +333,27 @@ public class MyBinaryTree {
         bt.sum_Non_leaf();
         System.out.println();
         bt.sum_leaf();
+        
+        
+        BinaryTree bt2 = new BinaryTree();
+
+        bt2.setRoot(bt2.createNode(50));
+        bt2.getRoot().setLeft(bt2.createNode(17));
+        bt2.getRoot().setRight(bt2.createNode(72));
+
+        bt2.getRoot().getLeft().setLeft(bt2.createNode(12));
+        bt2.getRoot().getLeft().setRight(bt2.createNode(23));
+
+        bt2.getRoot().getRight().setLeft(bt2.createNode(54));
+        bt2.getRoot().getRight().setRight(bt2.createNode(76));
+
+        bt2.getRoot().getLeft().getLeft().setLeft(bt2.createNode(9));
+        bt2.getRoot().getLeft().getLeft().setRight(bt2.createNode(14));
+
+        bt2.getRoot().getLeft().getRight().setLeft(bt2.createNode(19));
+        bt2.getRoot().getRight().getLeft().setRight(bt2.createNode(67));
+        System.out.println();
+        System.out.println("Are the Trees Same : "+bt.treeCompar(bt2));
+        
     }
 }
