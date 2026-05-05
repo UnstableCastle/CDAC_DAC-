@@ -119,8 +119,12 @@ public class stdSort {
 //		insertion_Sort(s);
 		
 		selection_Sort(s);
+		
+		
+		
 
 		for (Student st : s) {
+			
 			System.out.println(st);
 		}
 	}
