@@ -144,5 +144,7 @@ public class StdList {
 		LinkedList<Student> st1 = l1.stream().filter(s -> s.getRollno() % 2 == 0).collect(java.util.stream.Collectors.toCollection(LinkedList::new));
 		System.out.println(st1);
 
+		LinkedList<Student> st2=l1.stream().filter(s->s.getName().startsWith("D")).collect(java.util.stream.Collectors.toCollection(LinkedList::new));
+		System.out.println(st2);
 	}
 }
