@@ -1,3 +1,5 @@
+package Binary_Tree;
+
 
 class BinaryTreeArray{
 	  int tree[];
