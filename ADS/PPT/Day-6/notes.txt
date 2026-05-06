@@ -1,0 +1,212 @@
+02-05-2026
+
+BST - Binary Search Tree
+
+
+BTNode
+
+class BST {
+   private BTNode root;
+
+   public BST()
+   {
+       root = null;
+   }
+   public void insert_nonrec(int d)
+   {
+      BTNode new_node = new BTNode(d);
+      if(root == null)
+      {
+          root = new_node;
+          return;
+      }
+      BTNode iter = root;
+      BTNode par;
+      while(iter != null)
+      {
+          par = iter;
+          if( d < iter.getData())
+             iter = iter.getLeft();
+          else if(d > iter.getData())
+             iter = iter.getRight();
+          else 
+          {
+                sysout("Duplicate.. "); return;
+          }
+      }
+      if(d < par.getData())
+          par.setLeft(new_node);
+      else
+          par.setRight(new_node);
+
+     return;
+   }// end of function
+
+
+
+  public BTNode search_nonrec(int key)
+  {
+     if(root == null)
+     {
+         sysout("Empty..");  return null;
+     }
+
+     BTNode iter = root;
+
+     while(iter != null)
+     {
+          if(key == iter.getData())
+               return iter;
+          if(key < iter.getData())
+               iter = iter.getLeft();
+          else
+               iter = iter.getRight();
+     }
+     sysout("Not found");
+     return null;
+   }
+
+
+   // find min value from BST
+   // find max value from BST
+
+
+
+
+  public void insert_BST(int d)
+  {
+        root = insert(root, d);
+  }
+
+  
+
+
+  p s v  main(String []a)
+  {
+      BST bt1 = new BST();
+      bt1.insert_BST(45);
+      bt1.insert_BST(23);
+ 
+
+  }
+
+
+
+  private insert(BTNode ptr, int d)   // ptr= 
+  {
+      if(ptr == null)
+        ptr = new BTNode(d);
+      else if(d < ptr.getData())
+        ptr = ptr.setLeft(insert(ptr.getLeft() , d));
+      else if(d > ptr.getData())
+        ptr = ptr.setRight(insert(ptr.getRight() , d));
+      else
+         sysout(" Duplicate..");
+
+     return ptr;
+   }
+
+
+  private insert(BTNode ptr, int d)   // ptr= 78     d = 77
+  {
+      if(ptr == null)
+        ptr = new BTNode(d);
+      else if(d < ptr.getData())
+        ptr = ptr.setLeft((insert(ptr.getLeft() , d));
+      else if(d > ptr.getData())
+        ptr = ptr.setRight(insert(ptr.getRight() , d));
+      else
+         sysout(" Duplicate..");
+
+     return ptr;
+   }
+
+   private insert(BTNode ptr, int d)   // ptr= null     d = 77
+  {
+      if(ptr == null)
+        ptr = new BTNode(d);
+      else if(d < ptr.getData())
+        ptr = ptr.setLeft(insert(ptr.getLeft() , d));
+      else if(d > ptr.getData())
+        ptr = ptr.setRight(insert(ptr.getRight() , d));
+      else
+         sysout(" Duplicate..");
+
+     return ptr;
+   }
+
+
+
+
+  
+   public BTNode search(int key)
+   {
+         retrun search_rec(root, key);
+   }
+
+   private BTNode search_rec(BTNode ptr, int key)
+   {
+
+         //done in paint
+   }
+
+   
+   public void del(int d)
+   {
+       root = del_rec(root, d);
+   }
+
+
+   private BTNode del_rec(BTNode ptr, int d)
+   {  
+      BTNode succ, deletable; 
+      if( ptr == null )
+      {
+          sysout("not found.. ");
+          return null;
+      }
+      if( d < ptr.getData())
+         ptr.setLeft(del_rec(ptr.getLeft(), d));
+
+      else if( d > ptr.getData())
+         ptr.setRight(del_rec(ptr.getRight(), d));
+
+      else     // data found
+      {
+         if(ptr.getLeft() != null  &&   ptr.getRight() != null)
+         {
+               succ = iter.getRight();
+               while( succ.getLeft() != null)
+                      succ = succ.getLeft();
+
+               ptr.setData(succ.getData());
+               ptr.setRight(del_rec(ptr.getRight(),succ.getData());
+         }
+         else
+         {
+              deletable = ptr;
+              if(ptr.getLeft() != null)
+                 ptr = ptr.getLeft();
+              if(ptr.getRight() != null)
+                 ptr = ptr.getRight();
+              else
+                 ptr = null;
+
+              deletable =null;
+         }
+       } // end of else   data found
+
+       return ptr;
+  }//end of function
+ 
+     
+
+
+
+
+
+
+
+
+
+
