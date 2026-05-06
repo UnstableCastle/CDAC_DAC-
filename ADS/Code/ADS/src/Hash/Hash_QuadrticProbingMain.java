@@ -1,3 +1,5 @@
+package Hash;
+
 
 
 import java.util.Scanner;
@@ -32,7 +34,7 @@ class Hash_QuadrticProbing{
 	{
 		int i, location, h;
 		
-		int key = emprec.getEmpno();	/*Extract key from the record*/
+		int key = emprec.getEno();	/*Extract key from the record*/
 		h = hash(key);				
 		
 		location = h;	
@@ -45,7 +47,7 @@ class Hash_QuadrticProbing{
 				System.out.print("Record inserted\n\n");
 				return;
 			}
-			if(table[location].info.getEmpno() == key)
+			if(table[location].info.getEno() == key)
 			{
 				System.out.print("Duplicate key\n\n");
 				return;
@@ -64,7 +66,7 @@ class Hash_QuadrticProbing{
 		{
 			if( table[location].status == type_of_record.EMPTY  ) 
 				return -1;
-			if( table[location].info.getEmpno() == key)
+			if( table[location].info.getEno() == key)
 				return location;
 			location = ( h + i*i ) % 10;								
 		}
@@ -93,9 +95,9 @@ class Hash_QuadrticProbing{
 			System.out.print("   "+i );
 			if(table[i].status== type_of_record.OCCUPIED) 
 			{
-				System.out.print("Occupied "+table[i].info.getEmpno()+"  " +table[i].info.getEname());
+				System.out.print("Occupied "+table[i].info.getEno()+"  " +table[i].info.getName());
 				
-				System.out.print("   "+ table[i].info.age);
+				System.out.print("   "+ table[i].info.getAge());
 			}
 			else if(table[i].status== type_of_record.DELETED)
 				System.out.print("Deleted\n");
