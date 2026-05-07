@@ -70,7 +70,8 @@ public class stdSort {
 		for (i = 1; i < arr.length; i++) {
 			key = arr[i];
 
-			for (j = i - 1; j >= 0 && key.compareTo(arr[j]) < 0; j--) {
+//			for (j = i - 1; j >= 0 && key.compareTo(arr[j]) < 0; j--) 
+			for (j = i - 1; j >= 0 && key.getRollno() < arr[j].getRollno(); j--)	{
 				arr[j + 1] = arr[j];
 			}
 
@@ -89,18 +90,16 @@ public class stdSort {
 				if (arr[j].getRollno() < arr[min].getRollno()) {
 					min = j;
 				}
-				
+
 			}
 
-		
-				t = arr[i];
-				arr[i] = arr[min];
-				arr[min] = t;
-			}
-			
+			t = arr[i];
+			arr[i] = arr[min];
+			arr[min] = t;
 		}
-	
-	
+
+	}
+
 	public static void main(String[] args) {
 
 		stdSort Student = new stdSort();
@@ -114,17 +113,23 @@ public class stdSort {
 		s[4] = Student.new Student(4, "Digvijay");
 		s[5] = Student.new Student(3, "Aaditya");
 
+		System.out.println("Before \n");
+		for (Student st : s) {
+
+			System.out.println(st);
+		}
+
 //		bubble_sort(s);
 
 //		insertion_Sort(s);
-		
+
 		selection_Sort(s);
+
 		
-		
-		
+		System.out.println("After \n");
 
 		for (Student st : s) {
-			
+
 			System.out.println(st);
 		}
 	}

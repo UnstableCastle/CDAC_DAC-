@@ -1,4 +1,4 @@
-public class StudNode {
+class StudNode {
     private Student s;
     private StudNode next;
 
@@ -23,13 +23,8 @@ public class StudNode {
         this.next = next;
     }
 
-  
-    public int getRollNo() {
-        return s.getRollno();
-    }
-
     @Override
     public String toString() {
-        return "StudNode [s=" + s + "]";
+        return s.toString();
     }
 }

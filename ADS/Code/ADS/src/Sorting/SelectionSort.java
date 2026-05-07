@@ -1,6 +1,10 @@
 package Sorting;
 
 public class SelectionSort {
+	
+	
+	
+	
 
 	private static void selection_Sort(int[] arr) {
 		int i, j, min, t;
@@ -22,9 +26,8 @@ public class SelectionSort {
 			}
 			
 		}
-
 	
-	public static void main(String[] args) {
+		public static void main(String[] args) {
 
 		int arr[] = new int[] { 1, 2, 13, 4, 5, 6, 7, 8, };
 		System.out.println("Before Sorting : ");
