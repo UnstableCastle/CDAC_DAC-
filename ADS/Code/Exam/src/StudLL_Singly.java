@@ -3,6 +3,11 @@ public class StudLL_Singly {
 
 	
 	
+	@Override
+	public String toString() {
+		return "StudLL_Singly [head=" + head + "]";
+	}
+
 	public StudNode getHead() {
 		return head;
 	}
@@ -15,6 +20,8 @@ public class StudLL_Singly {
 	public StudLL_Singly() {
 		head = null;
 	}
+	
+	
 
 	// ================= INSERT =================
 
@@ -125,7 +132,24 @@ public class StudLL_Singly {
 		return;
 		
 	}
+	//========================================
+	public static void Split(StudLL_Singly l1,StudLL_Singly l2,StudLL_Singly l3) {
 	
+	StudNode iter = l1.getHead();
+	
+	l2.setHead(null);
+	l3.setHead(null);
+
+	while(iter!= null) {
+		if(iter.getS().getRollno()%2==0) {
+			l2.insertLast(iter.getS());
+		}else {
+			l3.insertLast(iter.getS());
+		}
+	iter = iter.getNext();
+	}
+	
+	}
 	
 	
 	// ================= MAIN =================
@@ -163,22 +187,22 @@ public class StudLL_Singly {
 		list3.display();
 		
 
-		// Delete first
-//        list.deleteFirst();
-//        System.out.println("\nAfter deleteFirst:");
-//        list.display();
+//		 Delete first
+        System.out.println("\n Deleted : "+list.deleteLast()+" \n");
+        System.out.println("\nAfter deleteFirst:");
+        list.display();
 
 		// Delete last
-//        list.deleteLast();
-//        System.out.println("\nAfter deleteLast:");
-//        list.display();
+        list.deleteLast();
+        System.out.println("\nAfter deleteLast:");
+        list.display();
 
 		// Search
-//		StudNode result = list.search(2);
-//		if (result != null) {
-//			System.out.println("\nFound: " + result);
-//		} else {
-//			System.out.println("\nNot found");
-//		}
+		StudNode result = list.search(1);
+		if (result != null) {
+			System.out.println("\nFound: " + result);
+		} else {
+			System.out.println("\nNot found");
+		}
 	}
 }

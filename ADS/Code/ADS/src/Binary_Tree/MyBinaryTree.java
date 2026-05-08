@@ -108,6 +108,7 @@ class BinaryTree {
                 System.out.print(iter.getData() + " ");
             }
 
+            
             if (iter.getLeft() != null)
                 q.add(iter.getLeft());
 
@@ -291,7 +292,40 @@ class BinaryTree {
     	else   	
     	return false;
     }
-    
+    public void insertLevelWise(int data) {
+
+        BTNode newNode = new BTNode(data);
+
+        // If tree is empty
+        if (root == null) {
+            root = newNode;
+            return;
+        }
+
+        Queue<BTNode> q = new LinkedList<>();
+        q.add(root);
+
+        while (!q.isEmpty()) {
+
+            BTNode temp = q.remove();
+
+            // Insert on left side
+            if (temp.getLeft() == null) {
+                temp.setLeft(newNode);
+                return;
+            } else {
+                q.add(temp.getLeft());
+            }
+
+            // Insert on right side
+            if (temp.getRight() == null) {
+                temp.setRight(newNode);
+                return;
+            } else {
+                q.add(temp.getRight());
+            }
+        }
+    }
     
 }
 
@@ -354,6 +388,14 @@ public class MyBinaryTree {
         bt2.getRoot().getRight().getLeft().setRight(bt2.createNode(67));
         System.out.println();
         System.out.println("Are the Trees Same : "+bt.treeCompar(bt2));
-        
+        BinaryTree bt3 = new BinaryTree();
+ bt3.insertLevelWise(10);
+ bt3.insertLevelWise(20);
+ bt3.insertLevelWise(30);
+ bt3.insertLevelWise(40);
+ bt3.insertLevelWise(50);
+    
+ 
+ 
     }
 }

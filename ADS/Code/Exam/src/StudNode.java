@@ -1,4 +1,4 @@
-class StudNode {
+ class StudNode {
     private Student s;
     private StudNode next;
 
