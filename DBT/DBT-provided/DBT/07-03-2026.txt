@@ -1,0 +1,1352 @@
+mysql> SET AUTOCOMMIT = OFF;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE Z(C1 INT);
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> INSERT INTO Z VALUES(1);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM Z;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SELECT * FROM Z;
+Empty set (0.00 sec)
+
+mysql> INSERT INTO Z VALUES(1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM Z;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Z;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO Z VALUES(2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM Z;
++------+
+| C1   |
++------+
+|    1 |
+|    2 |
++------+
+2 rows in set (0.00 sec)
+
+mysql> CREATE TABLE Z1(C1 INT);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Z;
++------+
+| C1   |
++------+
+|    1 |
+|    2 |
++------+
+2 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> DELETE FROM Z1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Z1;
+Empty set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SET AUTOCOMMIT = ON;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Z1;
+Empty set (0.00 sec)
+
+mysql> INSERT INTO Z1 VALUES(1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> RILLBACK;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'RILLBACK' at line 1
+mysql> RILLBACK;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'RILLBACK' at line 1
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> UPDATE Z1 SET C1=100;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|  100 |
++------+
+1 row in set (0.00 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|  100 |
++------+
+1 row in set (0.00 sec)
+
+mysql> START TRANSACTION  READ WRITER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WRITER' at line 1
+mysql> START TRANSACTION  READ WRITE;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> UPDATE Z1 SET C1=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|  100 |
++------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE Z1 SET C1=1;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql> START TRANSACTION READ WRITE;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> UPDATE Z1 VALUES(100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUES(100)' at line 1
+mysql>
+mysql>
+mysql> UPDATE Z1 SET C1=100;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|  100 |
++------+
+1 row in set (0.00 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql> START TRANSACTION READ ONLY;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO Z1 VALUES(2);
+ERROR 1792 (25006): Cannot execute statement in a READ ONLY transaction.
+mysql> INSERT INTO Z1 VALUES(3222);
+ERROR 1792 (25006): Cannot execute statement in a READ ONLY transaction.
+mysql> UPDATE Z1 SET C1=100000;
+ERROR 1792 (25006): Cannot execute statement in a READ ONLY transaction.
+mysql> DELETE FROM Z1;
+ERROR 1792 (25006): Cannot execute statement in a READ ONLY transaction.
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO Z1 VALUES(2);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT * FROM Z1;
++------+
+| C1   |
++------+
+|    1 |
+|    2 |
++------+
+2 rows in set (0.00 sec)
+
+mysql> select * from z1 where c1=2 for update;
++------+
+| C1   |
++------+
+|    2 |
++------+
+1 row in set (0.02 sec)
+
+mysql> update z1 set c1-200;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-200' at line 1
+mysql> update z1 set c1=200;
+Query OK, 2 rows affected (0.02 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update z1 set c1=200;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 2  Changed: 0  Warnings: 0
+
+mysql> select * from z1;
++------+
+| C1   |
++------+
+|  200 |
+|  200 |
++------+
+2 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> alter table z1 add column id int primary key auto_increment first;
+Query OK, 0 rows affected (0.15 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from z1;
++----+------+
+| id | C1   |
++----+------+
+|  1 | 2000 |
+|  2 | 2000 |
++----+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from z1 where id=2 for update;
++----+------+
+| id | C1   |
++----+------+
+|  2 | 2000 |
++----+------+
+1 row in set (0.01 sec)
+
+mysql> update z1 set c1=3000 where id=2;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> drop table z1, z1;
+ERROR 1066 (42000): Not unique table/alias: 'z1'
+mysql> drop table z;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table z1;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table emp(id int primary key auto_increment, ename varchar(10) not null, city varchar(10) default 'pune', sal int, check(sal >5000));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc emp;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int         | NO   | PRI | NULL    | auto_increment |
+| ename | varchar(10) | NO   |     | NULL    |                |
+| city  | varchar(10) | YES  |     | pune    |                |
+| sal   | int         | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+4 rows in set (0.05 sec)
+
+mysql> insert into emp (ename, sal) values('saleel', 100 );
+ERROR 3819 (HY000): Check constraint 'emp_chk_1' is violated.
+mysql>
+mysql>
+mysql> insert into emp (ename, sal) values('saleel', 5001 );
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from emp;
++----+--------+------+------+
+| id | ename  | city | sal  |
++----+--------+------+------+
+|  1 | saleel | pune | 5001 |
++----+--------+------+------+
+1 row in set (0.00 sec)
+
+mysql> create table z (c1 int, check(c1 >=1000 and c1 <=5000));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> insert into z values(1);
+ERROR 3819 (HY000): Check constraint 'z_chk_1' is violated.
+mysql> insert into z values(6000);
+ERROR 3819 (HY000): Check constraint 'z_chk_1' is violated.
+mysql> drop tabel z;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tabel z' at line 1
+mysql> drop table z;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table z (c1 int, check(c1 between 1000 and 5000));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> drop table z;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table z(mail varchar(20), check(instr(mail, '@')> 0));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into z values('a');
+ERROR 3819 (HY000): Check constraint 'z_chk_1' is violated.
+mysql> insert into z values('a@');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> drop table z;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table z(mail varchar(20), check(instr(mail, '@')> 0) and right(mail, 4)  = '.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and right(mail, 4)  = '.com')' at line 1
+mysql>
+mysql>
+mysql>
+mysql> create table z(mail varchar(20), check(instr(mail, '@')> 0 and right(mail, 4)  = '.com'));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into z values('a@');
+ERROR 3819 (HY000): Check constraint 'z_chk_1' is violated.
+mysql>
+mysql> insert into z values('a@abc.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from z;
++-----------+
+| mail      |
++-----------+
+| a@abc.com |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> drop table z;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table z(mail varchar(20), check(instr(mail, '@')> 0 and (right(mail, 4)  = '.com') or right(mail, 3)  = '.in));
+    '> ^C
+mysql>
+mysql>
+mysql> create table z(mail varchar(20), check(instr(mail, '@')> 0 and (right(mail, 4)  = '.com') or right(mail, 3)  = '.in'));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table person(pid int primary key, pname varchar(10));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc person;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| pid   | int         | NO   | PRI | NULL    |       |
+| pname | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> create table passport(id int,  passportNo  varchar(100), valid date, foreign key(id) references person(pid;) )
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+    -> ^C
+mysql>
+mysql>
+mysql>
+mysql> create table passport(id int,  passportNo  varchar(100), valid date, foreign key(id) references person(pid));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql>  desc person;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| pid   | int         | NO   | PRI | NULL    |       |
+| pname | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql>  desc passport;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | int          | YES  | MUL | NULL    |       |
+| passportNo | varchar(100) | YES  |     | NULL    |       |
+| valid      | date         | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into passport values(1,1,now());
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`db2`.`passport`, CONSTRAINT `passport_ibfk_1` FOREIGN KEY (`id`) REFERENCES `person` (`pid`))
+mysql> insert inti person values(1,'saleel');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'person values(1,'saleel')' at line 1
+mysql>
+mysql> insert into person values(1,'saleel');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into person values(2,'sharmin');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into passport values(1,1,now());
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into passport values(10,1,now());
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`db2`.`passport`, CONSTRAINT `passport_ibfk_1` FOREIGN KEY (`id`) REFERENCES `person` (`pid`))
+mysql> table person;
++-----+---------+
+| pid | pname   |
++-----+---------+
+|   1 | saleel  |
+|   2 | sharmin |
++-----+---------+
+2 rows in set (0.00 sec)
+
+mysql> table passport;
++------+------------+------------+
+| id   | passportNo | valid      |
++------+------------+------------+
+|    1 | 1          | 2026-03-07 |
++------+------------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into passport values(1,2,now());
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> table passport;
++------+------------+------------+
+| id   | passportNo | valid      |
++------+------------+------------+
+|    1 | 1          | 2026-03-07 |
+|    1 | 2          | 2026-03-07 |
++------+------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> drop table passport;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table passport(id int unique key,  passportNo  varchar(100), valid date, foreign key(id) references person(pid));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into passport values(1,1,now());
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into passport values(1,2,now());
+ERROR 1062 (23000): Duplicate entry '1' for key 'passport.id'
+mysql> table person;
++-----+---------+
+| pid | pname   |
++-----+---------+
+|   1 | saleel  |
+|   2 | sharmin |
++-----+---------+
+2 rows in set (0.00 sec)
+
+mysql> table passport;
++------+------------+------------+
+| id   | passportNo | valid      |
++------+------------+------------+
+|    1 | 1          | 2026-03-07 |
++------+------------+------------+
+1 row in set (0.00 sec)
+
+mysql> delete from person where pid=1;
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`db2`.`passport`, CONSTRAINT `passport_ibfk_1` FOREIGN KEY (`id`) REFERENCES `person` (`pid`))
+mysql> table person;
++-----+---------+
+| pid | pname   |
++-----+---------+
+|   1 | saleel  |
+|   2 | sharmin |
++-----+---------+
+2 rows in set (0.00 sec)
+
+mysql> table passport;
++------+------------+------------+
+| id   | passportNo | valid      |
++------+------------+------------+
+|    1 | 1          | 2026-03-07 |
++------+------------+------------+
+1 row in set (0.00 sec)
+
+mysql> delete from person where pid=1;
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`db2`.`passport`, CONSTRAINT `passport_ibfk_1` FOREIGN KEY (`id`) REFERENCES `person` (`pid`))
+mysql> drop table passport;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table passport(id int unique key,  passportNo  varchar(100), valid date, foreign key(id) references person(pid) on delete cascade);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into passport values(1,1,now());
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> table person;
++-----+---------+
+| pid | pname   |
++-----+---------+
+|   1 | saleel  |
+|   2 | sharmin |
++-----+---------+
+2 rows in set (0.01 sec)
+
+mysql> table passport;
++------+------------+------------+
+| id   | passportNo | valid      |
++------+------------+------------+
+|    1 | 1          | 2026-03-07 |
++------+------------+------------+
+1 row in set (0.00 sec)
+
+mysql> delete from person where pid=1;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> table person;
++-----+---------+
+| pid | pname   |
++-----+---------+
+|   2 | sharmin |
++-----+---------+
+1 row in set (0.00 sec)
+
+mysql> table passport;
+Empty set (0.00 sec)
+
+mysql> select rand();
++--------------------+
+| rand()             |
++--------------------+
+| 0.5336222439386158 |
++--------------------+
+1 row in set (0.01 sec)
+
+mysql> select rand();
++-------------------+
+| rand()            |
++-------------------+
+| 0.796464778293357 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select rand() from emp;
++--------------------+
+| rand()             |
++--------------------+
+| 0.3814571903845828 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> use db1;
+Database changed
+mysql> select rand() from emp;
++---------------------+
+| rand()              |
++---------------------+
+|  0.5178916477764879 |
+| 0.44508669846233606 |
+|  0.6717585797158615 |
+|  0.0235328339259446 |
+| 0.10238846121578334 |
+|  0.4413438350347279 |
+|  0.8995538222599344 |
+| 0.17373763692913358 |
+| 0.17002674859950948 |
+| 0.32892086294379164 |
+| 0.13452409965407486 |
+|  0.6858579401726442 |
+| 0.02571743263464182 |
+| 0.07101337338892126 |
+|  0.2779145997743258 |
+| 0.17653290943851035 |
+| 0.04892077860321922 |
+|    0.71500519543421 |
+|  0.4282636720950377 |
+|  0.9963028049062033 |
+|   0.696723038979548 |
+| 0.49470681091277563 |
+| 0.38336496835887895 |
+| 0.43270443978971285 |
+| 0.01342732460557234 |
+|  0.7690233343923681 |
+|  0.8048347288787688 |
+|  0.7171036719503847 |
+|  0.1710142038492618 |
+|  0.7037600341288001 |
++---------------------+
+30 rows in set (0.01 sec)
+
+mysql>
+mysql>
+mysql> select rand() R1, ename, job,sal from emp;
++----------------------+----------+---------------------+------+
+| R1                   | ename    | job                 | sal  |
++----------------------+----------+---------------------+------+
+| 0.005757589829859873 | GITA     | Compliance officers | 1750 |
+|   0.9175078774965442 | VRUSHALI | Compliance officers | 1750 |
+|   0.5702666487267861 | SHARMIN  | Public Relation     | 1750 |
+|  0.09880964187794332 | BANDISH  | Public Relation     | 1750 |
+|   0.7832482939430031 | SMITH    | CLERK               |  800 |
+|   0.6198125748148305 | AARAV    | CLERK               | 3350 |
+|   0.7493180229787882 | THOMAS   | CLERK               | 1750 |
+|   0.8871524211830948 | ALLEN    | SALESMAN            | 1600 |
+|  0.18780806771275407 | WARD     | SALESMAN            | 1250 |
+|  0.27758310574813105 | JONES    | MANAGER             | 2975 |
+|    0.824491356336038 | MARTIN   | SALESMAN            | 1250 |
+|  0.28970749516944166 | BLAKE    | MANAGER             | 2850 |
+|   0.9750634375727395 | CLARK    | MANAGER             | 2450 |
+| 0.006194733089017433 | SCOTT    | ANALYST             | 3000 |
+|  0.10578338346051368 | KING     | PRESIDENT           | 5000 |
+|    0.510332748769161 | FRED     | vice PRESIDENT      | 5000 |
+|  0.23431362419790927 | TURNER   | SALESMAN            | 1500 |
+|   0.6405699054157081 | ADAMS    | CLERK               | 1100 |
+|  0.49990868521845777 | Ruhan    | Network             | 2000 |
+|   0.5778337405788095 | Neel     | vice PRESIDENT      | 1000 |
+|  0.38944267797231924 | JAMES    | CLERK               |  950 |
+|  0.21371219885881262 | FORD     | ANALYST             | 3000 |
+|   0.9002329911107505 | HOFFMAN  | MANAGER             | 4150 |
+|   0.8600283897109594 | GRASS    | SALESMAN            | 2575 |
+|   0.5994430059561906 | MILLER   | CLERK               | 1300 |
+|  0.41712989138171996 | AARUSH   | SALESMAN            | 1350 |
+|    0.287320469773673 | ALEX     | MANAGER             | 1250 |
+|  0.18521270545684984 | NATASHA  | CLERK               | 1750 |
+|  0.06410214869687533 | SANGITA  | Compliance officers | 1750 |
+|   0.7648726578474722 | SUPRIYA  | ANALYST             | 2150 |
++----------------------+----------+---------------------+------+
+30 rows in set (0.00 sec)
+
+mysql>
+mysql> select rand() R1, ename, job,sal from emp;
++----------------------+----------+---------------------+------+
+| R1                   | ename    | job                 | sal  |
++----------------------+----------+---------------------+------+
+|   0.6320568738803797 | GITA     | Compliance officers | 1750 |
+|   0.8656664265931271 | VRUSHALI | Compliance officers | 1750 |
+|   0.4321615420581415 | SHARMIN  | Public Relation     | 1750 |
+|    0.563808461244971 | BANDISH  | Public Relation     | 1750 |
+|   0.5225577107840755 | SMITH    | CLERK               |  800 |
+|   0.9213632009191096 | AARAV    | CLERK               | 3350 |
+| 0.039142902976966376 | THOMAS   | CLERK               | 1750 |
+|   0.4316249428611481 | ALLEN    | SALESMAN            | 1600 |
+|  0.04069603610848639 | WARD     | SALESMAN            | 1250 |
+|   0.9086053826926326 | JONES    | MANAGER             | 2975 |
+|  0.42093883587134895 | MARTIN   | SALESMAN            | 1250 |
+|   0.3788780620124918 | BLAKE    | MANAGER             | 2850 |
+|   0.6315738331820572 | CLARK    | MANAGER             | 2450 |
+| 0.021235010606455627 | SCOTT    | ANALYST             | 3000 |
+|   0.2114535842197515 | KING     | PRESIDENT           | 5000 |
+|   0.9935629200130356 | FRED     | vice PRESIDENT      | 5000 |
+|   0.3334538781395684 | TURNER   | SALESMAN            | 1500 |
+|   0.6865806613923802 | ADAMS    | CLERK               | 1100 |
+|   0.4325417032768407 | Ruhan    | Network             | 2000 |
+|  0.10296656294070795 | Neel     | vice PRESIDENT      | 1000 |
+|  0.21720773560666268 | JAMES    | CLERK               |  950 |
+|   0.7771390199448346 | FORD     | ANALYST             | 3000 |
+|  0.23407192363782964 | HOFFMAN  | MANAGER             | 4150 |
+|   0.8389425890882897 | GRASS    | SALESMAN            | 2575 |
+|   0.4924972052616041 | MILLER   | CLERK               | 1300 |
+|   0.9456582897767968 | AARUSH   | SALESMAN            | 1350 |
+|   0.2507998638328163 | ALEX     | MANAGER             | 1250 |
+|  0.41702448056733654 | NATASHA  | CLERK               | 1750 |
+|   0.3327228420718786 | SANGITA  | Compliance officers | 1750 |
+|   0.4125407993910283 | SUPRIYA  | ANALYST             | 2150 |
++----------------------+----------+---------------------+------+
+30 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> select rand() R1, ename, job,sal from emp order by R1;
++---------------------+----------+---------------------+------+
+| R1                  | ename    | job                 | sal  |
++---------------------+----------+---------------------+------+
+| 0.04347718697365111 | FORD     | ANALYST             | 3000 |
+| 0.06453550147315068 | GITA     | Compliance officers | 1750 |
+| 0.08505513992631356 | VRUSHALI | Compliance officers | 1750 |
+| 0.12047067388936009 | CLARK    | MANAGER             | 2450 |
+| 0.13137611852155637 | FRED     | vice PRESIDENT      | 5000 |
+| 0.13321073272564515 | NATASHA  | CLERK               | 1750 |
+| 0.15347168515759677 | SANGITA  | Compliance officers | 1750 |
+|  0.2316692259457607 | SHARMIN  | Public Relation     | 1750 |
+| 0.25738288486132666 | Ruhan    | Network             | 2000 |
+|  0.3197948982192156 | GRASS    | SALESMAN            | 2575 |
+|  0.3399797178245892 | WARD     | SALESMAN            | 1250 |
+| 0.36772625834469336 | SUPRIYA  | ANALYST             | 2150 |
+|   0.375197325251249 | ALLEN    | SALESMAN            | 1600 |
+|  0.3949380902526324 | AARAV    | CLERK               | 3350 |
+|  0.5120023130551002 | THOMAS   | CLERK               | 1750 |
+|  0.5213317838696128 | ADAMS    | CLERK               | 1100 |
+|  0.5288386647858085 | MILLER   | CLERK               | 1300 |
+|  0.5350505872956017 | BLAKE    | MANAGER             | 2850 |
+|   0.574306644102844 | JONES    | MANAGER             | 2975 |
+|  0.6245962005337665 | KING     | PRESIDENT           | 5000 |
+|   0.684808660005041 | AARUSH   | SALESMAN            | 1350 |
+|  0.6900452856813047 | HOFFMAN  | MANAGER             | 4150 |
+|  0.7229191034314401 | Neel     | vice PRESIDENT      | 1000 |
+|  0.7830920217401274 | TURNER   | SALESMAN            | 1500 |
+|  0.8208960563139022 | SMITH    | CLERK               |  800 |
+|  0.8375273364014247 | ALEX     | MANAGER             | 1250 |
+|  0.8424468933068653 | JAMES    | CLERK               |  950 |
+|  0.8515940977740978 | MARTIN   | SALESMAN            | 1250 |
+|  0.9031807406835078 | BANDISH  | Public Relation     | 1750 |
+|  0.9972016382936404 | SCOTT    | ANALYST             | 3000 |
++---------------------+----------+---------------------+------+
+30 rows in set (0.02 sec)
+
+mysql> select rand() R1, ename, job,sal from emp order by R1;
++----------------------+----------+---------------------+------+
+| R1                   | ename    | job                 | sal  |
++----------------------+----------+---------------------+------+
+|  0.02868152505595379 | HOFFMAN  | MANAGER             | 4150 |
+| 0.041473499537886586 | ALEX     | MANAGER             | 1250 |
+|  0.05486058076364974 | CLARK    | MANAGER             | 2450 |
+|  0.11084896150124163 | WARD     | SALESMAN            | 1250 |
+|   0.1348212213579763 | JAMES    | CLERK               |  950 |
+|  0.14074622294003725 | JONES    | MANAGER             | 2975 |
+|  0.28352056097567135 | GRASS    | SALESMAN            | 2575 |
+|   0.2866290316792475 | FORD     | ANALYST             | 3000 |
+|  0.33155826044414033 | MILLER   | CLERK               | 1300 |
+|   0.3711842609301063 | MARTIN   | SALESMAN            | 1250 |
+|   0.3782162669843214 | GITA     | Compliance officers | 1750 |
+|   0.4260066202152582 | ADAMS    | CLERK               | 1100 |
+|  0.43368266656406473 | BLAKE    | MANAGER             | 2850 |
+|   0.4605272537661039 | AARAV    | CLERK               | 3350 |
+|   0.5887000398605131 | FRED     | vice PRESIDENT      | 5000 |
+|   0.6147691063720445 | Ruhan    | Network             | 2000 |
+|   0.6372162537995877 | THOMAS   | CLERK               | 1750 |
+|   0.6606131733028341 | BANDISH  | Public Relation     | 1750 |
+|   0.6628264148373403 | SUPRIYA  | ANALYST             | 2150 |
+|   0.7016929627411933 | KING     | PRESIDENT           | 5000 |
+|   0.7856785783410805 | NATASHA  | CLERK               | 1750 |
+|   0.7879025906211721 | VRUSHALI | Compliance officers | 1750 |
+|    0.795825701948093 | Neel     | vice PRESIDENT      | 1000 |
+|   0.8039724238253874 | SANGITA  | Compliance officers | 1750 |
+|   0.8044995384332719 | ALLEN    | SALESMAN            | 1600 |
+|    0.804864182886541 | SHARMIN  | Public Relation     | 1750 |
+|   0.8072296500273325 | AARUSH   | SALESMAN            | 1350 |
+|   0.8384213418126305 | TURNER   | SALESMAN            | 1500 |
+|   0.8884733485881923 | SMITH    | CLERK               |  800 |
+|   0.9732549348596995 | SCOTT    | ANALYST             | 3000 |
++----------------------+----------+---------------------+------+
+30 rows in set (0.00 sec)
+
+mysql> select rand() R1, ename, job,sal from emp order by R1;
++---------------------+----------+---------------------+------+
+| R1                  | ename    | job                 | sal  |
++---------------------+----------+---------------------+------+
+| 0.10034243026780192 | SMITH    | CLERK               |  800 |
+| 0.23819279413501993 | TURNER   | SALESMAN            | 1500 |
+|  0.2514618432628567 | NATASHA  | CLERK               | 1750 |
+|  0.2813054651779174 | ALEX     | MANAGER             | 1250 |
+| 0.31257875851595657 | SUPRIYA  | ANALYST             | 2150 |
+| 0.33806009435845547 | WARD     | SALESMAN            | 1250 |
+|  0.3850218377867917 | AARUSH   | SALESMAN            | 1350 |
+|  0.3919743163436412 | FORD     | ANALYST             | 3000 |
+|  0.4133928515141763 | SANGITA  | Compliance officers | 1750 |
+| 0.41907900238323864 | SCOTT    | ANALYST             | 3000 |
+|  0.5225949534425465 | VRUSHALI | Compliance officers | 1750 |
+|  0.5479345848298953 | MILLER   | CLERK               | 1300 |
+|  0.5717795673494969 | BLAKE    | MANAGER             | 2850 |
+|  0.6101122066472771 | AARAV    | CLERK               | 3350 |
+|  0.6147444384309877 | KING     | PRESIDENT           | 5000 |
+|  0.6773381109138374 | MARTIN   | SALESMAN            | 1250 |
+|  0.7225700958842133 | JAMES    | CLERK               |  950 |
+|  0.7402920646036901 | Neel     | vice PRESIDENT      | 1000 |
+|  0.7415083541921418 | ADAMS    | CLERK               | 1100 |
+|  0.7495337731666246 | THOMAS   | CLERK               | 1750 |
+|  0.7848837056987767 | GRASS    | SALESMAN            | 2575 |
+|  0.7921613247992111 | HOFFMAN  | MANAGER             | 4150 |
+|  0.8164852157388676 | FRED     | vice PRESIDENT      | 5000 |
+|  0.8268835347396168 | CLARK    | MANAGER             | 2450 |
+|  0.9022148334441845 | GITA     | Compliance officers | 1750 |
+|  0.9063302976138241 | SHARMIN  | Public Relation     | 1750 |
+|  0.9173322766249369 | ALLEN    | SALESMAN            | 1600 |
+|  0.9383036726511118 | JONES    | MANAGER             | 2975 |
+|  0.9638666584751259 | BANDISH  | Public Relation     | 1750 |
+|  0.9929634192892941 | Ruhan    | Network             | 2000 |
++---------------------+----------+---------------------+------+
+30 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> select rand() R1, ename, job,sal from emp order by R1 limit 1;
++---------------------+---------+-----------------+------+
+| R1                  | ename   | job             | sal  |
++---------------------+---------+-----------------+------+
+| 0.02775333172432457 | BANDISH | Public Relation | 1750 |
++---------------------+---------+-----------------+------+
+1 row in set (0.01 sec)
+
+mysql> select  ename, job,sal from emp order by rand() limit 1;
++-------+-------+------+
+| ename | job   | sal  |
++-------+-------+------+
+| ADAMS | CLERK | 1100 |
++-------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select  ename, job,sal from emp order by rand() limit 1;
++-------+---------+------+
+| ename | job     | sal  |
++-------+---------+------+
+| FORD  | ANALYST | 3000 |
++-------+---------+------+
+1 row in set (0.00 sec)
+
+mysql> select  ename, job,sal from emp order by rand() limit 1;
++-------+---------+------+
+| ename | job     | sal  |
++-------+---------+------+
+| CLARK | MANAGER | 2450 |
++-------+---------+------+
+1 row in set (0.00 sec)
+
+mysql> select  ename, job,sal from emp order by rand() limit 1;
++---------+-------+------+
+| ename   | job   | sal  |
++---------+-------+------+
+| NATASHA | CLERK | 1750 |
++---------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select  ename, job,sal from emp order by rand() limit 1;
++--------+----------+------+
+| ename  | job      | sal  |
++--------+----------+------+
+| AARUSH | SALESMAN | 1350 |
++--------+----------+------+
+1 row in set (0.00 sec)
+
+mysql> select  ename, job,sal from emp order by rand() limit 1;
++--------+-------+------+
+| ename  | job   | sal  |
++--------+-------+------+
+| THOMAS | CLERK | 1750 |
++--------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select  ename, job,sal from emp order by rand() limit 2;
++-------+-------+------+
+| ename | job   | sal  |
++-------+-------+------+
+| ADAMS | CLERK | 1100 |
+| AARAV | CLERK | 3350 |
++-------+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select  ename, job,sal from emp order by rand() limit 2;
++-------+---------+------+
+| ename | job     | sal  |
++-------+---------+------+
+| CLARK | MANAGER | 2450 |
+| ADAMS | CLERK   | 1100 |
++-------+---------+------+
+2 rows in set (0.00 sec)
+
+mysql> select  ename, job,sal from emp order by rand() limit 2;
++---------+----------------+------+
+| ename   | job            | sal  |
++---------+----------------+------+
+| SUPRIYA | ANALYST        | 2150 |
+| Neel    | vice PRESIDENT | 1000 |
++---------+----------------+------+
+2 rows in set (0.00 sec)
+
+mysql> select deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     50 |
+|     50 |
+|     50 |
+|     60 |
+|     60 |
++--------+
+30 rows in set (0.00 sec)
+
+mysql> select deptno from dept;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     40 |
+|     50 |
+|     60 |
++--------+
+6 rows in set (0.01 sec)
+
+mysql> select deptno from emp union select deptno from dept;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     50 |
+|     60 |
+|     40 |
++--------+
+6 rows in set (0.01 sec)
+
+mysql> select deptno from emp union all select deptno from dept;
++--------+
+| deptno |
++--------+
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     50 |
+|     50 |
+|     50 |
+|     60 |
+|     60 |
+|     10 |
+|     20 |
+|     30 |
+|     40 |
+|     50 |
+|     60 |
++--------+
+36 rows in set (0.00 sec)
+
+mysql> select deptno from emp intersect select deptno from dept;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     50 |
+|     60 |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select deptno from emp intersect all select deptno from dept;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     50 |
+|     60 |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select deptno from emp except select deptno from dept;
+Empty set (0.00 sec)
+
+mysql> select deptno from dept except select deptno from emp;
++--------+
+| deptno |
++--------+
+|     40 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select deptno from emp intersect select deptno from dept;
++--------+
+| deptno |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     50 |
+|     60 |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select deptno R1 from emp intersect select deptno R2 from dept;
++----+
+| R1 |
++----+
+| 10 |
+| 20 |
+| 30 |
+| 50 |
+| 60 |
++----+
+5 rows in set (0.00 sec)
+
+mysql> select 1  union select 2;
++---+
+| 1 |
++---+
+| 1 |
+| 2 |
++---+
+2 rows in set (0.00 sec)
+
+mysql> select 1  union select 2 abc;
++---+
+| 1 |
++---+
+| 1 |
+| 2 |
++---+
+2 rows in set (0.00 sec)
+
+mysql> select * from dhl;
++-------------+---------+------------------+---------------+
+| tracking_id | carrier | status           | delivery_date |
++-------------+---------+------------------+---------------+
+| DHL100021   | DHL     | Delivered        | 2025-07-04    |
+| DHL100027   | DHL     | Pending          | 2025-07-23    |
+| DHL100022   | DHL     | In Transit       | 2025-07-05    |
+| DHL100023   | DHL     | Dispatched       | 2025-07-06    |
+| DHL100028   | DHL     | Pending          | 2025-12-23    |
+| DHL100024   | DHL     | Out for Delivery | 2025-07-07    |
+| DHL100025   | DHL     | Delayed          | 2025-07-08    |
+| DHL100026   | DHL     | In Transit       | 2025-07-03    |
++-------------+---------+------------------+---------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from fedex;
++--------------+---------+------------------+---------------+
+| tracking_id  | carrier | status           | delivery_date |
++--------------+---------+------------------+---------------+
+| FEDEX100001  | FedEx   | Dispatched       | 2025-07-04    |
+| FEDEX100002  | FedEx   | In Transit       | 2025-07-05    |
+| FEDEX100006  | FedEx   | Pending          | 2025-06-29    |
+| FEDEX100003  | FedEx   | Delivered        | 2025-07-03    |
+| FEDEX100004  | FedEx   | Out for Delivery | 2025-07-07    |
+| FEDEX100007  | FedEx   | Pending          | 2025-01-09    |
+| FEDEX100005  | FedEx   | Delayed          | 2025-07-08    |
++--------------+---------+------------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from ups;
++-------------+---------+------------------+---------------+
+| tracking_id | carrier | status           | delivery_date |
++-------------+---------+------------------+---------------+
+| UPS100032   | UPS     | Delivered        | 2025-07-01    |
+| UPS100042   | UPS     | Pending          | 2025-11-11    |
+| UPS100033   | UPS     | Dispatched       | 2025-07-07    |
+| UPS100034   | UPS     | Out for Delivery | 2025-07-08    |
+| UPS100035   | UPS     | Delayed          | 2025-07-09    |
+| UPS100036   | UPS     | In Transit       | 2025-07-03    |
+| UPS100037   | UPS     | Delivered        | 2025-07-05    |
+| UPS100038   | UPS     | Dispatched       | 2025-07-06    |
+| UPS100039   | UPS     | Out for Delivery | 2025-07-04    |
+| UPS100040   | UPS     | Delayed          | 2025-07-12    |
++-------------+---------+------------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from dhl union select * from fedex;
++--------------+---------+------------------+---------------+
+| tracking_id  | carrier | status           | delivery_date |
++--------------+---------+------------------+---------------+
+| DHL100021    | DHL     | Delivered        | 2025-07-04    |
+| DHL100027    | DHL     | Pending          | 2025-07-23    |
+| DHL100022    | DHL     | In Transit       | 2025-07-05    |
+| DHL100023    | DHL     | Dispatched       | 2025-07-06    |
+| DHL100028    | DHL     | Pending          | 2025-12-23    |
+| DHL100024    | DHL     | Out for Delivery | 2025-07-07    |
+| DHL100025    | DHL     | Delayed          | 2025-07-08    |
+| DHL100026    | DHL     | In Transit       | 2025-07-03    |
+| FEDEX100001  | FedEx   | Dispatched       | 2025-07-04    |
+| FEDEX100002  | FedEx   | In Transit       | 2025-07-05    |
+| FEDEX100006  | FedEx   | Pending          | 2025-06-29    |
+| FEDEX100003  | FedEx   | Delivered        | 2025-07-03    |
+| FEDEX100004  | FedEx   | Out for Delivery | 2025-07-07    |
+| FEDEX100007  | FedEx   | Pending          | 2025-01-09    |
+| FEDEX100005  | FedEx   | Delayed          | 2025-07-08    |
++--------------+---------+------------------+---------------+
+15 rows in set (0.00 sec)
+
+mysql> select * from dhl union select * from fedex union select * from ups;
++--------------+---------+------------------+---------------+
+| tracking_id  | carrier | status           | delivery_date |
++--------------+---------+------------------+---------------+
+| DHL100021    | DHL     | Delivered        | 2025-07-04    |
+| DHL100027    | DHL     | Pending          | 2025-07-23    |
+| DHL100022    | DHL     | In Transit       | 2025-07-05    |
+| DHL100023    | DHL     | Dispatched       | 2025-07-06    |
+| DHL100028    | DHL     | Pending          | 2025-12-23    |
+| DHL100024    | DHL     | Out for Delivery | 2025-07-07    |
+| DHL100025    | DHL     | Delayed          | 2025-07-08    |
+| DHL100026    | DHL     | In Transit       | 2025-07-03    |
+| FEDEX100001  | FedEx   | Dispatched       | 2025-07-04    |
+| FEDEX100002  | FedEx   | In Transit       | 2025-07-05    |
+| FEDEX100006  | FedEx   | Pending          | 2025-06-29    |
+| FEDEX100003  | FedEx   | Delivered        | 2025-07-03    |
+| FEDEX100004  | FedEx   | Out for Delivery | 2025-07-07    |
+| FEDEX100007  | FedEx   | Pending          | 2025-01-09    |
+| FEDEX100005  | FedEx   | Delayed          | 2025-07-08    |
+| UPS100032    | UPS     | Delivered        | 2025-07-01    |
+| UPS100042    | UPS     | Pending          | 2025-11-11    |
+| UPS100033    | UPS     | Dispatched       | 2025-07-07    |
+| UPS100034    | UPS     | Out for Delivery | 2025-07-08    |
+| UPS100035    | UPS     | Delayed          | 2025-07-09    |
+| UPS100036    | UPS     | In Transit       | 2025-07-03    |
+| UPS100037    | UPS     | Delivered        | 2025-07-05    |
+| UPS100038    | UPS     | Dispatched       | 2025-07-06    |
+| UPS100039    | UPS     | Out for Delivery | 2025-07-04    |
+| UPS100040    | UPS     | Delayed          | 2025-07-12    |
++--------------+---------+------------------+---------------+
+25 rows in set (0.00 sec)
+
+mysql>
+mysql> select * from cashpayments;
++------------+--------------+--------+
+| student_id | student_name | amount |
++------------+--------------+--------+
+|         27 | saleel       |   4000 |
+|         43 | sharmin      |   2000 |
+|         25 | ruhan        |   2600 |
+|         41 | vrushali     |   2200 |
+|         20 | nitish       |   3200 |
+|          7 | neel         |   3400 |
+|         14 | bandish      |   3200 |
+|         17 | naresh       |   3400 |
+|         27 | saleel       |   2500 |
++------------+--------------+--------+
+9 rows in set (0.02 sec)
+
+mysql> select * from cardpayments;
++------------+--------------+--------+
+| student_id | student_name | amount |
++------------+--------------+--------+
+|         43 | sharmin      |   2300 |
+|          9 | bhuru        |   3200 |
+|         63 | bhavin       |   3000 |
+|         39 | boy          |   3400 |
+|         20 | nitish       |   1200 |
+|         27 | saleel       |   4000 |
+|         27 | saleel       |   3500 |
++------------+--------------+--------+
+7 rows in set (0.01 sec)
+
+mysql> select * from cashpayments union select * from cardpayments;
++------------+--------------+--------+
+| student_id | student_name | amount |
++------------+--------------+--------+
+|         27 | saleel       |   4000 |
+|         43 | sharmin      |   2000 |
+|         25 | ruhan        |   2600 |
+|         41 | vrushali     |   2200 |
+|         20 | nitish       |   3200 |
+|          7 | neel         |   3400 |
+|         14 | bandish      |   3200 |
+|         17 | naresh       |   3400 |
+|         27 | saleel       |   2500 |
+|         43 | sharmin      |   2300 |
+|          9 | bhuru        |   3200 |
+|         63 | bhavin       |   3000 |
+|         39 | boy          |   3400 |
+|         20 | nitish       |   1200 |
+|         27 | saleel       |   3500 |
++------------+--------------+--------+
+15 rows in set (0.00 sec)
+
+mysql>
+mysql> select * from facebool;
+ERROR 1146 (42S02): Table 'db1.facebool' doesn't exist
+mysql> select * from facebook;
++------------+-----------+--------------+--------------------+
+| facebookID | studentID | name         | location           |
++------------+-----------+--------------+--------------------+
+|          1 |      1006 | Gabbar Singh | 0x4E6173696B       |
+|          2 |      1008 | Shadow King  | 0x50756E65         |
+|          3 |      1009 | FB Star      | 0x426F6D626179     |
+|          4 |      1010 | Ghost Rider  | 0x5375726174       |
+|          5 |      1011 | The Rockstar | 0x50756E65         |
+|          6 |      1009 | Star-Track   | 0x50756E65         |
+|          7 |      1010 | Rider-gate   | 0x5375726174       |
+|          8 |      1006 | self-hosted  | 0x4261726F6461     |
++------------+-----------+--------------+--------------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from linked;
+ERROR 1146 (42S02): Table 'db1.linked' doesn't exist
+mysql> select * from linkedi;
+ERROR 1146 (42S02): Table 'db1.linkedi' doesn't exist
+mysql> select * from linkedin;
++------------+-----------+--------------+--------------------+
+| linkedInID | studentID | name         | location           |
++------------+-----------+--------------+--------------------+
+|          1 |      1006 | Neel Save    | 0x4E6173696B       |
+|          2 |      1008 | Nitish Patil | 0x50756E65         |
+|          3 |      1010 | Gaurav       | 0x416E616E64       |
+|          4 |      1001 | Saleel       | 0x4261726F6461     |
+|          5 |      1002 | Sharmin      | 0x4E657261         |
+|          6 |      1009 | Rupal        | 0x4261726F6461     |
+|          7 |      1008 | Akash        | 0x4261726F6461     |
++------------+-----------+--------------+--------------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from linkedin union select * from facebook;
++------------+-----------+--------------+--------------------+
+| linkedInID | studentID | name         | location           |
++------------+-----------+--------------+--------------------+
+|          1 |      1006 | Neel Save    | 0x4E6173696B       |
+|          2 |      1008 | Nitish Patil | 0x50756E65         |
+|          3 |      1010 | Gaurav       | 0x416E616E64       |
+|          4 |      1001 | Saleel       | 0x4261726F6461     |
+|          5 |      1002 | Sharmin      | 0x4E657261         |
+|          6 |      1009 | Rupal        | 0x4261726F6461     |
+|          7 |      1008 | Akash        | 0x4261726F6461     |
+|          1 |      1006 | Gabbar Singh | 0x4E6173696B       |
+|          2 |      1008 | Shadow King  | 0x50756E65         |
+|          3 |      1009 | FB Star      | 0x426F6D626179     |
+|          4 |      1010 | Ghost Rider  | 0x5375726174       |
+|          5 |      1011 | The Rockstar | 0x50756E65         |
+|          6 |      1009 | Star-Track   | 0x50756E65         |
+|          7 |      1010 | Rider-gate   | 0x5375726174       |
+|          8 |      1006 | self-hosted  | 0x4261726F6461     |
++------------+-----------+--------------+--------------------+
+15 rows in set (0.00 sec)
+
+mysql> select * from linkedin union select * from facebook;

@@ -1,0 +1,1250 @@
+mysql> use db1
+Database changed
+mysql> select hiredate, dayname(hiredate) from emp;
++------------+-------------------+
+| hiredate   | dayname(hiredate) |
++------------+-------------------+
+| 1981-07-19 | Sunday            |
+| 1981-07-19 | Sunday            |
+| 1981-07-19 | Sunday            |
+| 1981-07-19 | Sunday            |
+| 1980-12-17 | Wednesday         |
+| 1981-12-31 | Thursday          |
+| 1981-07-19 | Sunday            |
+| 1981-02-20 | Friday            |
+| 1981-02-22 | Sunday            |
+| 1981-04-02 | Thursday          |
+| 1981-09-28 | Monday            |
+| 1981-05-01 | Friday            |
+| 1981-06-09 | Tuesday           |
+| 1982-12-09 | Thursday          |
+| 1981-11-17 | Tuesday           |
+| 1983-08-09 | Tuesday           |
+| 1981-09-08 | Tuesday           |
+| 1983-01-12 | Wednesday         |
+| 1983-08-09 | Tuesday           |
+| 1983-08-09 | Tuesday           |
+| 1981-12-03 | Thursday          |
+| 1981-12-03 | Thursday          |
+| 1982-03-24 | Wednesday         |
+| 1980-02-14 | Thursday          |
+| 1982-01-23 | Saturday          |
+| 1980-02-14 | Thursday          |
+| 1982-01-24 | Sunday            |
+| 1981-07-19 | Sunday            |
+| 1981-07-19 | Sunday            |
+| 1981-07-19 | Sunday            |
++------------+-------------------+
+30 rows in set (0.02 sec)
+
+mysql> select hiredate, dayname(hiredate),case dayname(hiredate) = 'Monday' thne 1 end  R1 from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'thne 1 end  R1 from emp' at line 1
+mysql>
+mysql> select hiredate, dayname(hiredate),case dayname(hiredate) = 'Monday' then 1 end  R1 from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'then 1 end  R1 from emp' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select hiredate, dayname(hiredate),case dayname(hiredate) = 'Monday' then 1 end  R1 from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'then 1 end  R1 from emp' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select hiredate, dayname(hiredate), case when dayname(hiredate 'Monday' then 1 end R1 from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'then 1 end R1 from emp' at line 1
+mysql>
+mysql> select hiredate, dayname(hiredate), case when dayname(hiredate) 'Monday' then 1 end R1 from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Monday' then 1 end R1 from emp' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select hiredate, dayname(hiredate), case when dayname(hiredate) = 'Monday' then 1 end R1 from emp;
++------------+-------------------+------+
+| hiredate   | dayname(hiredate) | R1   |
++------------+-------------------+------+
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1980-12-17 | Wednesday         | NULL |
+| 1981-12-31 | Thursday          | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-02-20 | Friday            | NULL |
+| 1981-02-22 | Sunday            | NULL |
+| 1981-04-02 | Thursday          | NULL |
+| 1981-09-28 | Monday            |    1 |
+| 1981-05-01 | Friday            | NULL |
+| 1981-06-09 | Tuesday           | NULL |
+| 1982-12-09 | Thursday          | NULL |
+| 1981-11-17 | Tuesday           | NULL |
+| 1983-08-09 | Tuesday           | NULL |
+| 1981-09-08 | Tuesday           | NULL |
+| 1983-01-12 | Wednesday         | NULL |
+| 1983-08-09 | Tuesday           | NULL |
+| 1983-08-09 | Tuesday           | NULL |
+| 1981-12-03 | Thursday          | NULL |
+| 1981-12-03 | Thursday          | NULL |
+| 1982-03-24 | Wednesday         | NULL |
+| 1980-02-14 | Thursday          | NULL |
+| 1982-01-23 | Saturday          | NULL |
+| 1980-02-14 | Thursday          | NULL |
+| 1982-01-24 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
++------------+-------------------+------+
+30 rows in set (0.00 sec)
+
+mysql> select hiredate, dayname(hiredate), case when dayname(hiredate) = 'Monday' then 1 when when dayname(hiredate) = 'Tuesday' then 2 end R1 from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'when dayname(hiredate) = 'Tuesday' then 2 end R1 from emp' at line 1
+mysql>
+mysql>
+mysql> select hiredate, dayname(hiredate), case when dayname(hiredate) = 'Monday' then 1 when dayname(hiredate) = 'Tuesday' then 2 end R1 from emp;
++------------+-------------------+------+
+| hiredate   | dayname(hiredate) | R1   |
++------------+-------------------+------+
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1980-12-17 | Wednesday         | NULL |
+| 1981-12-31 | Thursday          | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-02-20 | Friday            | NULL |
+| 1981-02-22 | Sunday            | NULL |
+| 1981-04-02 | Thursday          | NULL |
+| 1981-09-28 | Monday            |    1 |
+| 1981-05-01 | Friday            | NULL |
+| 1981-06-09 | Tuesday           |    2 |
+| 1982-12-09 | Thursday          | NULL |
+| 1981-11-17 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
+| 1981-09-08 | Tuesday           |    2 |
+| 1983-01-12 | Wednesday         | NULL |
+| 1983-08-09 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
+| 1981-12-03 | Thursday          | NULL |
+| 1981-12-03 | Thursday          | NULL |
+| 1982-03-24 | Wednesday         | NULL |
+| 1980-02-14 | Thursday          | NULL |
+| 1982-01-23 | Saturday          | NULL |
+| 1980-02-14 | Thursday          | NULL |
+| 1982-01-24 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
++------------+-------------------+------+
+30 rows in set (0.00 sec)
+
+mysql>
+mysql> select hiredate, dayname(hiredate), case when dayname(hiredate) = 'Monday' then 1 when dayname(hiredate) = 'Tuesday' then 2 end R1 from emp order bg R1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'bg R1' at line 1
+mysql> select hiredate, dayname(hiredate), case when dayname(hiredate) = 'Monday' then 1 when dayname(hiredate) = 'Tuesday' then 2 end R1 from emp order by R1;
++------------+-------------------+------+
+| hiredate   | dayname(hiredate) | R1   |
++------------+-------------------+------+
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1980-12-17 | Wednesday         | NULL |
+| 1981-12-31 | Thursday          | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-02-20 | Friday            | NULL |
+| 1981-02-22 | Sunday            | NULL |
+| 1981-04-02 | Thursday          | NULL |
+| 1981-05-01 | Friday            | NULL |
+| 1982-12-09 | Thursday          | NULL |
+| 1983-01-12 | Wednesday         | NULL |
+| 1981-12-03 | Thursday          | NULL |
+| 1981-12-03 | Thursday          | NULL |
+| 1982-03-24 | Wednesday         | NULL |
+| 1980-02-14 | Thursday          | NULL |
+| 1982-01-23 | Saturday          | NULL |
+| 1980-02-14 | Thursday          | NULL |
+| 1982-01-24 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-09-28 | Monday            |    1 |
+| 1981-06-09 | Tuesday           |    2 |
+| 1981-11-17 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
+| 1981-09-08 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
++------------+-------------------+------+
+30 rows in set (0.00 sec)
+
+mysql> select 1 R1, 2 R2, R1 + R2 R3;
+ERROR 1054 (42S22): Unknown column 'R1' in 'field list'
+mysql> select 1 R1, 2 R2, 1 + 2 R3;
++----+----+----+
+| R1 | R2 | R3 |
++----+----+----+
+|  1 |  2 |  3 |
++----+----+----+
+1 row in set (0.01 sec)
+
+mysql> select hiredate, dayname(hiredate), case when dayname(hiredate) = 'Monday' then 1 when dayname(hiredate) = 'Tuesday' then 2 end R1 from emp order bg R1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'bg R1' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select hiredate, dayname(hiredate), case when dayname(hiredate) = 'Monday' then 1 when dayname(hiredate) = 'Tuesday' then 2 end R1 from emp order by R1;
++------------+-------------------+------+
+| hiredate   | dayname(hiredate) | R1   |
++------------+-------------------+------+
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1980-12-17 | Wednesday         | NULL |
+| 1981-12-31 | Thursday          | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-02-20 | Friday            | NULL |
+| 1981-02-22 | Sunday            | NULL |
+| 1981-04-02 | Thursday          | NULL |
+| 1981-05-01 | Friday            | NULL |
+| 1982-12-09 | Thursday          | NULL |
+| 1983-01-12 | Wednesday         | NULL |
+| 1981-12-03 | Thursday          | NULL |
+| 1981-12-03 | Thursday          | NULL |
+| 1982-03-24 | Wednesday         | NULL |
+| 1980-02-14 | Thursday          | NULL |
+| 1982-01-23 | Saturday          | NULL |
+| 1980-02-14 | Thursday          | NULL |
+| 1982-01-24 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-09-28 | Monday            |    1 |
+| 1981-06-09 | Tuesday           |    2 |
+| 1981-11-17 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
+| 1981-09-08 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
++------------+-------------------+------+
+30 rows in set (0.00 sec)
+
+mysql> select hiredate, dayname(hiredate), case when dayname(hiredate) = 'Monday' then 1 when dayname(hiredate) = 'Tuesday' then 2 end R1 from emp order by isnull(R1), R1;
++------------+-------------------+------+
+| hiredate   | dayname(hiredate) | R1   |
++------------+-------------------+------+
+| 1981-09-28 | Monday            |    1 |
+| 1981-06-09 | Tuesday           |    2 |
+| 1981-11-17 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
+| 1981-09-08 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
+| 1983-08-09 | Tuesday           |    2 |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1980-12-17 | Wednesday         | NULL |
+| 1981-12-31 | Thursday          | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-02-20 | Friday            | NULL |
+| 1981-02-22 | Sunday            | NULL |
+| 1981-04-02 | Thursday          | NULL |
+| 1981-05-01 | Friday            | NULL |
+| 1982-12-09 | Thursday          | NULL |
+| 1983-01-12 | Wednesday         | NULL |
+| 1981-12-03 | Thursday          | NULL |
+| 1981-12-03 | Thursday          | NULL |
+| 1982-03-24 | Wednesday         | NULL |
+| 1980-02-14 | Thursday          | NULL |
+| 1982-01-23 | Saturday          | NULL |
+| 1980-02-14 | Thursday          | NULL |
+| 1982-01-24 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
+| 1981-07-19 | Sunday            | NULL |
++------------+-------------------+------+
+30 rows in set (0.01 sec)
+
+mysql> select * from pune_metro_station;
+ERROR 1146 (42S02): Table 'db1.pune_metro_station' doesn't exist
+mysql> select * from pune_metro_stations;
++---------+---------------------------------------------------+----------+------+--------------+---------------------+
+| stop_id | stop_name                                         | route_no | city | next_stop_id | distance_to_next_km |
++---------+---------------------------------------------------+----------+------+--------------+---------------------+
+|       1 | Chandni Chowk                                     | Line-1   | pune |            2 |                1.90 |
+|       2 | Kothrud Bus Depot                                 | Line-1   | pune |            3 |                2.87 |
+|       3 | Vanaz                                             | Line-1   | pune |            4 |                1.64 |
+|       4 | Anand Nagar                                       | Line-1   | pune |            5 |                2.60 |
+|       5 | Ideal Colony                                      | Line-1   | pune |            6 |                1.06 |
+|       6 | Nal Stop                                          | Line-1   | pune |            7 |                2.52 |
+|       7 | Garware College                                   | Line-1   | pune |            8 |                2.44 |
+|       8 | Deccan Gymkhana                                   | Line-1   | pune |            9 |                1.61 |
+|       9 | Chhatrapati Sambhaji Udyan                        | Line-1   | pune |           10 |                1.73 |
+|      10 | PMC Bhavan                                        | Line-1   | pune |           11 |                2.84 |
+|      11 | Civil Court (interchange station with the Line-2) | Line-1   | pune |           12 |                2.01 |
+|      12 | Mangalwar Peth                                    | Line-1   | pune |           13 |                2.52 |
+|      13 | Pune Railway Station                              | Line-1   | pune |           14 |                1.56 |
+|      14 | Ruby Hall Clinic                                  | Line-1   | pune |           15 |                1.23 |
+|      15 | Bund Garden                                       | Line-1   | pune |           16 |                2.50 |
+|      16 | Yerawada                                          | Line-1   | pune |           17 |                1.78 |
+|      17 | Kalyani Nagar                                     | Line-1   | pune |           18 |                2.43 |
+|      18 | Ramwadi                                           | Line-1   | pune |         NULL |                1.79 |
+|      19 | Bhakti Shakti                                     | Line-2   | pune |           20 |                2.65 |
+|      20 | Nigdi                                             | Line-2   | pune |           21 |                2.90 |
+|      21 | Akurdi                                            | Line-2   | pune |           22 |                1.52 |
+|      22 | Chinchwad                                         | Line-2   | pune |           23 |                1.94 |
+|      23 | PCMC Bhavan                                       | Line-2   | pune |           24 |                2.10 |
+|      24 | Sant Tukaram Nagar                                | Line-2   | pune |           25 |                1.71 |
+|      25 | Nashik Phata                                      | Line-2   | pune |           26 |                1.22 |
+|      26 | Kasarwadi                                         | Line-2   | pune |           27 |                1.99 |
+|      27 | Phugewadi                                         | Line-2   | pune |           28 |                1.30 |
+|      28 | Dapodi                                            | Line-2   | pune |           29 |                1.53 |
+|      29 | Bopodi                                            | Line-2   | pune |           30 |                2.76 |
+|      30 | Khadki                                            | Line-2   | pune |           31 |                2.18 |
+|      31 | Range Hills                                       | Line-2   | pune |           32 |                1.64 |
+|      32 | Shivaji Nagar                                     | Line-2   | pune |           33 |                2.67 |
+|      33 | Chinchwad                                         | Line-2   | pune |           34 |                1.42 |
+|      34 | Kasba Peth                                        | Line-2   | pune |           35 |                2.10 |
+|      35 | Mandai                                            | Line-2   | pune |           36 |                1.22 |
+|      36 | Swargate                                          | Line-2   | pune |         NULL |                2.81 |
+|      37 | Market Yard                                       | Line-2   | pune |           38 |                1.40 |
+|      38 | Bibwewadi                                         | Line-2   | pune |           39 |                1.58 |
+|      39 | Padmavati                                         | Line-2   | pune |           40 |                2.67 |
+|      40 | Balaji Nagar                                      | Line-2   | pune |           41 |                1.64 |
+|      41 | Katraj                                            | Line-2   | pune |           42 |                1.16 |
+|      42 | Civil Court                                       | Line-3   | pune |           43 |                1.88 |
+|      43 | Shivaji Nagar                                     | Line-3   | pune |           44 |                2.94 |
+|      44 | Agriculture College                               | Line-3   | pune |           45 |                2.06 |
+|      45 | R.B.I.                                            | Line-3   | pune |           46 |                2.46 |
+|      46 | University                                        | Line-3   | pune |           47 |                1.14 |
+|      47 | Sakal Nagar                                       | Line-3   | pune |           48 |                1.31 |
+|      48 | Krushi Anusadhan                                  | Line-3   | pune |           49 |                2.15 |
+|      49 | Baner                                             | Line-3   | pune |           50 |                1.82 |
+|      50 | Baner Gaon                                        | Line-3   | pune |           51 |                1.63 |
+|      51 | Balewadi Phata                                    | Line-3   | pune |           52 |                1.68 |
+|      52 | Laxmi Nagar                                       | Line-3   | pune |           53 |                2.51 |
+|      53 | Ram Nagar (Nashik Phata)                          | Line-3   | pune |           54 |                2.53 |
+|      54 | NICMAR                                            | Line-3   | pune |           55 |                2.10 |
+|      55 | Balewadi Stadium                                  | Line-3   | pune |           56 |                1.93 |
+|      56 | Wakad Chowk                                       | Line-3   | pune |           57 |                2.33 |
+|      57 | Hinjewadi                                         | Line-3   | pune |           58 |                2.86 |
+|      58 | Shivaji Chowk                                     | Line-3   | pune |           59 |                2.31 |
+|      59 | Pall India                                        | Line-3   | pune |           60 |                1.99 |
+|      60 | Wipro Phase II                                    | Line-3   | pune |           61 |                2.00 |
+|      61 | Infosys Phase II                                  | Line-3   | pune |           62 |                1.03 |
+|      62 | Dohler                                            | Line-3   | pune |           63 |                2.14 |
+|      63 | Embassy Quadron Business Park                     | Line-3   | pune |           64 |                2.62 |
+|      64 | Megapolis Circle                                  | Line-3   | pune |         NULL |                1.70 |
++---------+---------------------------------------------------+----------+------+--------------+---------------------+
+64 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select trainID,stationname 'From Station', distance, lead(stationname) over( partition by trainID order by id) As 'To Station', lead(distance) over(partition by trainID order by id) 'To distance', round(abs(distance - lead(distance) over(partition by trainID order by id))) difference from traintimetable;
++---------+----------------------------+----------+----------------------------+-------------+------------+
+| trainID | From Station               | distance | To Station                 | To distance | difference |
++---------+----------------------------+----------+----------------------------+-------------+------------+
+|   12267 | mumbai central             |        0 | ahmedabad JN               |         534 |        534 |
+|   12267 | ahmedabad JN               |      534 | surendranagar              |         131 |        403 |
+|   12267 | surendranagar              |      131 | rajkot JN                  |         106 |         25 |
+|   12267 | rajkot JN                  |      106 | hapa                       |         191 |         85 |
+|   12267 | hapa                       |      191 | NULL                       |        NULL |       NULL |
+|   12307 | HOWRAH JN                  |     2271 | BARDDHAMAN JN              |        99.6 |       2171 |
+|   12307 | BARDDHAMAN JN              |     99.6 | ASANSOL JN                 |         107 |          7 |
+|   12307 | ASANSOL JN                 |      107 | DHANBAD JN                 |          65 |         42 |
+|   12307 | DHANBAD JN                 |       65 | PARASNATH                  |          49 |         16 |
+|   12307 | PARASNATH                  |       49 | KODERMA                    |         115 |         66 |
+|   12307 | KODERMA                    |      115 | GAYA JN                    |          76 |         39 |
+|   12307 | GAYA JN                    |       76 | ANUGRAHA NARAYAN ROAD      |         115 |         39 |
+|   12307 | ANUGRAHA NARAYAN ROAD      |      115 | DEHRI ON SONE              |          17 |         98 |
+|   12307 | DEHRI ON SONE              |       17 | SASARAM                    |          55 |         38 |
+|   12307 | SASARAM                    |       55 | BHABUA ROAD                |          31 |         24 |
+|   12307 | BHABUA ROAD                |       31 | PT DEEN DAYAL UPADHYAYA JN |          90 |         59 |
+|   12307 | PT DEEN DAYAL UPADHYAYA JN |       90 | MIRZAPUR                   |       155.5 |         66 |
+|   12307 | MIRZAPUR                   |    155.5 | PRAYAGRAJ JN               |          99 |         56 |
+|   12307 | PRAYAGRAJ JN               |       99 | FATEHPUR                   |         155 |         56 |
+|   12307 | FATEHPUR                   |      155 | KANPUR CENTRAL             |          75 |         80 |
+|   12307 | KANPUR CENTRAL             |       75 | ETAWAH                     |          47 |         28 |
+|   12307 | ETAWAH                     |       47 | TUNDLA JN                  |          54 |          7 |
+|   12307 | TUNDLA JN                  |       54 | AGRA FORT                  |          21 |         33 |
+|   12307 | AGRA FORT                  |       21 | ACHHNERA JN                |         227 |        206 |
+|   12307 | ACHHNERA JN                |      227 | BHARATPUR JN               |         746 |        519 |
+|   12307 | BHARATPUR JN               |      746 | GAYA JN                    |          90 |        656 |
+|   12307 | GAYA JN                    |       90 | JAIPUR                     |          33 |         57 |
+|   12307 | JAIPUR                     |       33 | NAWA CITY                  |          14 |         19 |
+|   12307 | NAWA CITY                  |       14 | KUCHAMAN CITY              |          44 |         30 |
+|   12307 | KUCHAMAN CITY              |       44 | MAKRANA JN                 |          59 |         15 |
+|   12307 | MAKRANA JN                 |       59 | DEGANA JN                  |         104 |         45 |
+|   12307 | DEGANA JN                  |      104 | MERTA ROAD JN              |           0 |        104 |
+|   12307 | MERTA ROAD JN              |        0 | JODHPUR JN                 |          89 |         89 |
+|   12307 | JODHPUR JN                 |       89 | NULL                       |        NULL |       NULL |
+|   12308 | JAIPUR                     |       21 | NAWA CITY                  |          14 |          7 |
+|   12308 | NAWA CITY                  |       14 | KUCHAMAN CITY              |          44 |         30 |
+|   12308 | KUCHAMAN CITY              |       44 | MAKRANA JN                 |          46 |          2 |
+|   12308 | MAKRANA JN                 |       46 | DEGANA JN                  |         103 |         57 |
+|   12308 | DEGANA JN                  |      103 | MERTA ROAD JN              |        NULL |       NULL |
+|   12308 | MERTA ROAD JN              |     NULL | JODHPUR JN                 |        NULL |       NULL |
+|   12308 | JODHPUR JN                 |     NULL | NULL                       |        NULL |       NULL |
+|   22863 | mumbai central             |        0 | surat                      |         262 |        262 |
+|   22863 | surat                      |      262 | baroda                     |         129 |        133 |
+|   22863 | baroda                     |      129 | ahmednagar JN              |         100 |         29 |
+|   22863 | ahmednagar JN              |      100 | surendranagar              |         130 |         30 |
+|   22863 | surendranagar              |      130 | rajkot JN                  |         116 |         14 |
+|   22863 | rajkot JN                  |      116 | hapa                       |          75 |         41 |
+|   22863 | hapa                       |       75 | NULL                       |        NULL |       NULL |
+|   22868 | pune JN                    |        0 | uruli                      |          30 |         30 |
+|   22868 | uruli                      |       30 | daund chord line           |        87.1 |         57 |
+|   22868 | daund chord line           |     87.1 | ahmednagar                 |          71 |         16 |
+|   22868 | ahmednagar                 |       71 | belapur                    |          61 |         10 |
+|   22868 | belapur                    |       61 | kopargaon                  |          44 |         17 |
+|   22868 | kopargaon                  |       44 | manmad JN                  |       41.84 |          2 |
+|   22868 | manmad JN                  |    41.84 | daund chord line           |         249 |        207 |
+|   22868 | daund chord line           |      249 | bhopal                     |         728 |        479 |
+|   22868 | bhopal                     |      728 | NULL                       |        NULL |       NULL |
++---------+----------------------------+----------+----------------------------+-------------+------------+
+57 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select ename, job from emp where job='manager';
++---------+---------+
+| ename   | job     |
++---------+---------+
+| JONES   | MANAGER |
+| BLAKE   | MANAGER |
+| CLARK   | MANAGER |
+| HOFFMAN | MANAGER |
+| ALEX    | MANAGER |
++---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select ename, job from emp where job='manager or job='salesman'';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'salesman''' at line 1
+mysql> select ename, job from emp where job='manager or job='salesman';
+    '> ^C
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select ename, job from emp where job='manager' or job='salesman';
++---------+----------+
+| ename   | job      |
++---------+----------+
+| ALLEN   | SALESMAN |
+| WARD    | SALESMAN |
+| JONES   | MANAGER  |
+| MARTIN  | SALESMAN |
+| BLAKE   | MANAGER  |
+| CLARK   | MANAGER  |
+| TURNER  | SALESMAN |
+| HOFFMAN | MANAGER  |
+| GRASS   | SALESMAN |
+| AARUSH  | SALESMAN |
+| ALEX    | MANAGER  |
++---------+----------+
+11 rows in set (0.00 sec)
+
+mysql> select ename, job from emp where job in ('manager', 'salesman');
++---------+----------+
+| ename   | job      |
++---------+----------+
+| ALLEN   | SALESMAN |
+| WARD    | SALESMAN |
+| JONES   | MANAGER  |
+| MARTIN  | SALESMAN |
+| BLAKE   | MANAGER  |
+| CLARK   | MANAGER  |
+| TURNER  | SALESMAN |
+| HOFFMAN | MANAGER  |
+| GRASS   | SALESMAN |
+| AARUSH  | SALESMAN |
+| ALEX    | MANAGER  |
++---------+----------+
+11 rows in set (0.00 sec)
+
+mysql> select ename, job, sal from emp where sal >2000 and sal <3000 order by sal;
++---------+----------+------+
+| ename   | job      | sal  |
++---------+----------+------+
+| SUPRIYA | ANALYST  | 2150 |
+| CLARK   | MANAGER  | 2450 |
+| GRASS   | SALESMAN | 2575 |
+| BLAKE   | MANAGER  | 2850 |
+| JONES   | MANAGER  | 2975 |
++---------+----------+------+
+5 rows in set (0.00 sec)
+
+mysql> select ename, job, sal from emp where sal between  2000 and 3000 ;
++---------+----------+------+
+| ename   | job      | sal  |
++---------+----------+------+
+| JONES   | MANAGER  | 2975 |
+| BLAKE   | MANAGER  | 2850 |
+| CLARK   | MANAGER  | 2450 |
+| SCOTT   | ANALYST  | 3000 |
+| Ruhan   | Network  | 2000 |
+| FORD    | ANALYST  | 3000 |
+| GRASS   | SALESMAN | 2575 |
+| SUPRIYA | ANALYST  | 2150 |
++---------+----------+------+
+8 rows in set (0.00 sec)
+
+mysql>
+mysql> select ename, job, sal from emp where sal >= 2000 and sal =<3000 order by sal;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=<3000 order by sal' at line 1
+mysql> select ename, job, sal from emp where sal >= 2000 and sal <= 3000 order by sal;
++---------+----------+------+
+| ename   | job      | sal  |
++---------+----------+------+
+| Ruhan   | Network  | 2000 |
+| SUPRIYA | ANALYST  | 2150 |
+| CLARK   | MANAGER  | 2450 |
+| GRASS   | SALESMAN | 2575 |
+| BLAKE   | MANAGER  | 2850 |
+| JONES   | MANAGER  | 2975 |
+| SCOTT   | ANALYST  | 3000 |
+| FORD    | ANALYST  | 3000 |
++---------+----------+------+
+8 rows in set (0.00 sec)
+
+mysql> select hiredate from emp order by 1;
++------------+
+| hiredate   |
++------------+
+| 1980-02-14 |
+| 1980-02-14 |
+| 1980-12-17 |
+| 1981-02-20 |
+| 1981-02-22 |
+| 1981-04-02 |
+| 1981-05-01 |
+| 1981-06-09 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-09-08 |
+| 1981-09-28 |
+| 1981-11-17 |
+| 1981-12-03 |
+| 1981-12-03 |
+| 1981-12-31 |
+| 1982-01-23 |
+| 1982-01-24 |
+| 1982-03-24 |
+| 1982-12-09 |
+| 1983-01-12 |
+| 1983-08-09 |
+| 1983-08-09 |
+| 1983-08-09 |
++------------+
+30 rows in set (0.00 sec)
+
+mysql>
+mysql> select hiredate from emp where hiredate between 1981-07-19 and 1982-03-24 order by 1;
+Empty set, 2 warnings (0.01 sec)
+
+mysql>
+mysql>
+mysql> select hiredate from emp where hiredate between '1981-07-19' and '1982-03-24' order by 1;
++------------+
+| hiredate   |
++------------+
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-09-08 |
+| 1981-09-28 |
+| 1981-11-17 |
+| 1981-12-03 |
+| 1981-12-03 |
+| 1981-12-31 |
+| 1982-01-23 |
+| 1982-01-24 |
+| 1982-03-24 |
++------------+
+17 rows in set (0.00 sec)
+
+mysql> select ename from emp;
++----------+
+| ename    |
++----------+
+| GITA     |
+| VRUSHALI |
+| SHARMIN  |
+| BANDISH  |
+| SMITH    |
+| AARAV    |
+| THOMAS   |
+| ALLEN    |
+| WARD     |
+| JONES    |
+| MARTIN   |
+| BLAKE    |
+| CLARK    |
+| SCOTT    |
+| KING     |
+| FRED     |
+| TURNER   |
+| ADAMS    |
+| Ruhan    |
+| Neel     |
+| JAMES    |
+| FORD     |
+| HOFFMAN  |
+| GRASS    |
+| MILLER   |
+| AARUSH   |
+| ALEX     |
+| NATASHA  |
+| SANGITA  |
+| SUPRIYA  |
++----------+
+30 rows in set (0.00 sec)
+
+mysql> select ename from emp  where ename like 'A#';
+Empty set (0.01 sec)
+
+mysql> select ename from emp  where ename like 'A%';
++--------+
+| ename  |
++--------+
+| AARAV  |
+| ALLEN  |
+| ADAMS  |
+| AARUSH |
+| ALEX   |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select ename from emp  where ename like '%H';
++---------+
+| ename   |
++---------+
+| BANDISH |
+| SMITH   |
+| AARUSH  |
++---------+
+3 rows in set (0.00 sec)
+
+mysql> select ename from emp  where ename like '%A%A%';
++---------+
+| ename   |
++---------+
+| AARAV   |
+| ADAMS   |
+| AARUSH  |
+| NATASHA |
+| SANGITA |
++---------+
+5 rows in set (0.00 sec)
+
+mysql> select ename from emp  where ename like '%AA%';
++--------+
+| ename  |
++--------+
+| AARAV  |
+| AARUSH |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from temp;
+ERROR 1146 (42S02): Table 'db1.temp' doesn't exist
+mysql> select * from temp1;
++------+------------------------+
+| col1 | col2                   |
++------+------------------------+
+|    1 | 25%                    |
+|    2 | 1.st%                  |
+|    3 | 30.12%                 |
+|    4 | 12^4                   |
+|    5 | 1^2^3                  |
+|    6 | 56*12*.12              |
+|    7 | 1st INT                |
+|    8 | Rs. 1000               |
+|    9 | $5000                  |
+|   10 | ABB+                   |
+|   11 | _ABB                   |
+|   12 | A_BB                   |
+|   13 | CNN                    |
+|   14 | C_N_N                  |
+|   15 | CN_N                   |
+|   16 | ABB_                   |
+|   17 | AB_B                   |
+|   18 | %ABB                   |
+|   19 | A%B%B                  |
+|   20 | L&T                    |
+|   21 | L_&_T                  |
+|   22 | ABB-200                |
+|   23 | ABB:200                |
+|   24 | ABB_200                |
+|   25 | ABB/200/300            |
+|   26 | AC/100, AC/200, AC/300 |
+|   27 | A_BC                   |
+|   28 | A_B_C                  |
+|   29 | A\_BC                  |
++------+------------------------+
+29 rows in set (0.02 sec)
+
+mysql> select * from temp1 where col2 like '%_%';
++------+------------------------+
+| col1 | col2                   |
++------+------------------------+
+|    1 | 25%                    |
+|    2 | 1.st%                  |
+|    3 | 30.12%                 |
+|    4 | 12^4                   |
+|    5 | 1^2^3                  |
+|    6 | 56*12*.12              |
+|    7 | 1st INT                |
+|    8 | Rs. 1000               |
+|    9 | $5000                  |
+|   10 | ABB+                   |
+|   11 | _ABB                   |
+|   12 | A_BB                   |
+|   13 | CNN                    |
+|   14 | C_N_N                  |
+|   15 | CN_N                   |
+|   16 | ABB_                   |
+|   17 | AB_B                   |
+|   18 | %ABB                   |
+|   19 | A%B%B                  |
+|   20 | L&T                    |
+|   21 | L_&_T                  |
+|   22 | ABB-200                |
+|   23 | ABB:200                |
+|   24 | ABB_200                |
+|   25 | ABB/200/300            |
+|   26 | AC/100, AC/200, AC/300 |
+|   27 | A_BC                   |
+|   28 | A_B_C                  |
+|   29 | A\_BC                  |
++------+------------------------+
+29 rows in set (0.00 sec)
+
+mysql> select * from temp1 where col2 like '%"_"%';
+Empty set (0.00 sec)
+
+mysql> select * from temp1 where col2 like '%\_%';
++------+---------+
+| col1 | col2    |
++------+---------+
+|   11 | _ABB    |
+|   12 | A_BB    |
+|   14 | C_N_N   |
+|   15 | CN_N    |
+|   16 | ABB_    |
+|   17 | AB_B    |
+|   21 | L_&_T   |
+|   24 | ABB_200 |
+|   27 | A_BC    |
+|   28 | A_B_C   |
+|   29 | A\_BC   |
++------+---------+
+11 rows in set (0.01 sec)
+
+mysql> select * from temp1 where col2 like '%/_%';
++------+------------------------+
+| col1 | col2                   |
++------+------------------------+
+|   25 | ABB/200/300            |
+|   26 | AC/100, AC/200, AC/300 |
++------+------------------------+
+2 rows in set (0.01 sec)
+
+mysql> select * from temp1 where col2 like '%/_%' escape '/';
++------+---------+
+| col1 | col2    |
++------+---------+
+|   11 | _ABB    |
+|   12 | A_BB    |
+|   14 | C_N_N   |
+|   15 | CN_N    |
+|   16 | ABB_    |
+|   17 | AB_B    |
+|   21 | L_&_T   |
+|   24 | ABB_200 |
+|   27 | A_BC    |
+|   28 | A_B_C   |
+|   29 | A\_BC   |
++------+---------+
+11 rows in set (0.03 sec)
+
+mysql> select ename, job, sal from emp;
++----------+---------------------+------+
+| ename    | job                 | sal  |
++----------+---------------------+------+
+| GITA     | Compliance officers | 1750 |
+| VRUSHALI | Compliance officers | 1750 |
+| SHARMIN  | Public Relation     | 1750 |
+| BANDISH  | Public Relation     | 1750 |
+| SMITH    | CLERK               |  800 |
+| AARAV    | CLERK               | 3350 |
+| THOMAS   | CLERK               | 1750 |
+| ALLEN    | SALESMAN            | 1600 |
+| WARD     | SALESMAN            | 1250 |
+| JONES    | MANAGER             | 2975 |
+| MARTIN   | SALESMAN            | 1250 |
+| BLAKE    | MANAGER             | 2850 |
+| CLARK    | MANAGER             | 2450 |
+| SCOTT    | ANALYST             | 3000 |
+| KING     | PRESIDENT           | 5000 |
+| FRED     | vice PRESIDENT      | 5000 |
+| TURNER   | SALESMAN            | 1500 |
+| ADAMS    | CLERK               | 1100 |
+| Ruhan    | Network             | 2000 |
+| Neel     | vice PRESIDENT      | 1000 |
+| JAMES    | CLERK               |  950 |
+| FORD     | ANALYST             | 3000 |
+| HOFFMAN  | MANAGER             | 4150 |
+| GRASS    | SALESMAN            | 2575 |
+| MILLER   | CLERK               | 1300 |
+| AARUSH   | SALESMAN            | 1350 |
+| ALEX     | MANAGER             | 1250 |
+| NATASHA  | CLERK               | 1750 |
+| SANGITA  | Compliance officers | 1750 |
+| SUPRIYA  | ANALYST             | 2150 |
++----------+---------------------+------+
+30 rows in set (0.01 sec)
+
+mysql> select ename, job, sal from emp where sal in 0;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0' at line 1
+mysql>
+mysql>
+mysql>
+mysql> select ename, job, sal from emp where sal in (0);
+Empty set (0.00 sec)
+
+mysql> select ename, job, sal from emp where sal in (800);
++-------+-------+------+
+| ename | job   | sal  |
++-------+-------+------+
+| SMITH | CLERK |  800 |
++-------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select ename, job, sal from emp where sal in (1);
+Empty set (0.00 sec)
+
+mysql> select ename, job, sal from emp where sal in ( 800 , 1);
++-------+-------+------+
+| ename | job   | sal  |
++-------+-------+------+
+| SMITH | CLERK |  800 |
++-------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> dselect  0 = 0;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dselect  0 = 0' at line 1
+mysql> select  0 = 0;
++-------+
+| 0 = 0 |
++-------+
+|     1 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM emp WHERE True OR 0;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.01 sec)
+
+mysql> SELECT * FROM emp WHERE True;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.00 sec)
+
+mysql> SELECT * FROM emp WHERE True=2;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM emp WHERE 1 IN (10, 20, True, False);
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.01 sec)
+
+mysql> table  dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql> SELECT * FROM emp WHERE True LIKE 100;
+Empty set (0.01 sec)
+
+mysql> SELECT * FROM emp WHERE True = 100;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM emp WHERE like true;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like true' at line 1
+mysql>
+mysql>
+mysql>
+mysql> use db1;
+Database changed
+mysql> use db2;
+Database changed
+mysql> drop table  x;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table student(id int  primary key, name varchar(10), phone int  unique key);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| phone | int         | YES  | UNI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> insert into student values(1,'saleel',9999999);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(1,'saleel',9999999);
+ERROR 1062 (23000): Duplicate entry '1' for key 'student.PRIMARY'
+mysql> insert into student values(2,'sharmin',9999999);
+ERROR 1062 (23000): Duplicate entry '9999999' for key 'student.phone'
+mysql> insert into student values(null,'sharmin',1111);
+ERROR 1048 (23000): Column 'id' cannot be null
+mysql> insert into student values(2,'sharmin',null);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values(3,'sharmin',null);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student;
++----+---------+---------+
+| id | name    | phone   |
++----+---------+---------+
+|  1 | saleel  | 9999999 |
+|  2 | sharmin |    NULL |
+|  3 | sharmin |    NULL |
++----+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> alter table student add column  c varchar(10);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| phone | int         | YES  | UNI | NULL    |       |
+| c     | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table student rename column c to city;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| phone | int         | YES  | UNI | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table student add column  addr varchar(10) after name;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| addr  | varchar(10) | YES  |     | NULL    |       |
+| phone | int         | YES  | UNI | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table student add column c0 int first;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| c0    | int         | YES  |     | NULL    |       |
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| addr  | varchar(10) | YES  |     | NULL    |       |
+| phone | int         | YES  | UNI | NULL    |       |
+| city  | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table student change city city varchar(*20) after addr;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*20) after addr' at line 1
+mysql>
+mysql>
+mysql>
+mysql> alter table student change city city varchar(20) after addr;
+Query OK, 0 rows affected (0.14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>  desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| c0    | int         | YES  |     | NULL    |       |
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| addr  | varchar(10) | YES  |     | NULL    |       |
+| city  | varchar(20) | YES  |     | NULL    |       |
+| phone | int         | YES  | UNI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter tabel student modify cith varchar(20) default 'Pune';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tabel student modify cith varchar(20) default 'Pune'' at line 1
+mysql>
+mysql>
+mysql>
+mysql> alter table student modify city varchar(20) default 'Pune';
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| c0    | int         | YES  |     | NULL    |       |
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| addr  | varchar(10) | YES  |     | NULL    |       |
+| city  | varchar(20) | YES  |     | Pune    |       |
+| phone | int         | YES  | UNI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table student modify id int auto_increment;
+Query OK, 3 rows affected (0.10 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> alter table student modify id int primary key auto_increment;
+ERROR 1068 (42000): Multiple primary key defined
+mysql> desc student;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| c0    | int         | YES  |     | NULL    |                |
+| id    | int         | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(10) | YES  |     | NULL    |                |
+| addr  | varchar(10) | YES  |     | NULL    |                |
+| city  | varchar(20) | YES  |     | Pune    |                |
+| phone | int         | YES  | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> drop table x;
+ERROR 1051 (42S02): Unknown table 'db2.x'
+mysql> create table x(c1 int primary key);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc x;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| c1    | int  | NO   | PRI | NULL    |       |
++-------+------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> drop table x;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table x(c1 int not null unique key);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc x;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| c1    | int  | NO   | PRI | NULL    |       |
++-------+------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> drop tABLE X;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table x(c1 int  UNIQUE KEY AUTO_INCREMENT);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESC X;
++-------+------+------+-----+---------+----------------+
+| Field | Type | Null | Key | Default | Extra          |
++-------+------+------+-----+---------+----------------+
+| c1    | int  | NO   | PRI | NULL    | auto_increment |
++-------+------+------+-----+---------+----------------+
+1 row in set (0.00 sec)
+
+mysql> DROP TABLE X;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table x(c1 int PRIMARY KEY, C2 INT NOT NULL UNIQUE KEY);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> DESC X;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| c1    | int  | NO   | PRI | NULL    |       |
+| C2    | int  | NO   | UNI | NULL    |       |
++-------+------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> create table x(c1 int PRIMARY KEY, C2 INT NOT NULL UNIQUE KEY);

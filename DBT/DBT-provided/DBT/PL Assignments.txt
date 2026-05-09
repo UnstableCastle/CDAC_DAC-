@@ -1,0 +1,168 @@
+1. Find the Employee with the Highest Salary.
+2. Find Employees Who Earn More Than the Company’s Average Salary.
+3. Find Employees Working in the Same Departments as ‘John Doe’.
+4. Find Employees Who Earn More Than the Lowest Salary in Department 20
+5. Find Customers Who Have Placed at Least One Order.
+6. Find Employees Who Do Not Earn the Maximum Salary.
+7. Find Customers Who Have Not Placed Any Orders.
+8. Find Employees Who Earn the Lowest Salary in Their Department.
+9. Show department names where no employee works.
+10. Find employees earning more than ALLEN.
+11. Display employees who have the same job as MARTIN.
+12. Find employees working in the same department as BLAKE.
+13. List employees whose salary is above the average salary of their department.
+14. Find the employee(s) with the second highest salary.
+15. Display total salary paid to each department.
+16. Find average, minimum, and maximum salary in each department.
+17. Count number of employees in each job type.
+18. Find total commission paid in each department.
+19. Display departments having more than 3 employees.
+20. Show job titles having total salary more than 5000.
+21. Display number of managers per department.
+22. Find average salary of employees who get commission.
+23. Show total salary of each department excluding commission.
+24. Display department-wise highest commission.
+25. Display employees who earn more than the average salary of all employees.
+26. List employees who earn more than ALLEN.
+27. Display employees working in the same department as SCOTT.
+28. Find employees whose job is same as BLAKE.
+29. Find employees earning the maximum salary in their department.
+30. Display employees hired before the employee KING.
+31. Find departments that have at least one employee with salary > 3000.
+32. Show employees who have the same salary as others.
+33. Find the second highest salary in the company.
+34. Display the top 3 highest earning employees.
+35.Show cumulative salary by hire date.
+36. Rank employees by salary within their department.
+
+Find top 2 salaries in each department using DENSE_RANK().
+
+Display the difference between an employee’s salary and their department’s average salary.
+
+Show the percentage of total company salary contributed by each employee.
+
+Display employees who earn more than the department’s average.
+
+Find each employee’s next higher salary (use LEAD() window function).
+
+Show the highest and lowest paid employees using window functions.
+
+💼 Part 7 — Real-World Analytical SELECT Scenarios
+
+Prepare a “payroll summary” with ENAME, DEPTNO, JOB, SAL + COMM as GROSS_PAY.
+
+Show “Employee of the Month” (highest salary) for each department.
+
+Display all employees whose salary is above company average and who work in a department where average salary < 2000.
+
+Show manager-wise team size and total team salary.
+
+Display a list of departments where all employees earn above 1000.
+
+List employees who are not managers of anyone.
+
+Display “top performing department” — department with max total salary.
+
+Show “potential bonus list” — employees with commission > 10% of their salary.
+
+Display “equal pay” cases — employees having same salary in the same department.
+
+Show “longest-serving employee” per department based on hire date.
+
+Would you like me to now prepare a PDF workbook (with question + hint + expected output structure) for these SELECT-only assignments — so you can use it as a lab exercise or student assignment sheet? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------
+Create a stored procedure GetAllDepartments() that retrieves all records from the departments table.
+
+Create a stored procedure CountEmployeesByDepartment(IN dept_id INT, OUT total INT) that returns the number of employees in a specific department.
+
+Create a stored procedure GetProductDetails(IN product_id INT) that returns details of a specific product.
+
+Create a stored procedure AddNewProduct(IN name VARCHAR(100), IN price DECIMAL(10,2), IN stock INT) that inserts a new product into the products table.
+
+Create a stored procedure UpdateProductStock(IN product_id INT, IN new_stock INT) that updates the stock of a product.
+
+Create a stored procedure GetHighSalaryEmployees(IN min_salary DECIMAL(10,2)) that retrieves employees with salaries above min_salary.
+
+Create a stored procedure PromoteEmployee(IN emp_id INT) that increases an employee’s salary by 10% if they have worked for more than 5 years.
+
+Create a stored procedure CalculateTotalSales(OUT total_sales DECIMAL(10,2)) that calculates total sales from the orders table.
+
+Create a stored procedure TransferFunds(IN from_acc INT, IN to_acc INT, IN amount DECIMAL(10,2)) that transfers funds between two accounts and rolls back if the balance is insufficient.
+
+Create a stored procedure AssignBonusToEmployees(IN bonus_amount DECIMAL(10,2)) that adds a bonus amount to all employees with a salary below 50000.
+
+Create a stored procedure CalculateEmployeeBonuses() that iterates over each employee and increases their salary based on their performance rating using a CURSOR.
+
+Create a stored procedure ProcessMonthlySalaries() that credits employee salaries and ensures all transactions are committed successfully using TRANSACTIONS.
+
+Create a stored procedure DeleteInactiveUsers(IN months INT) that deletes users who have not logged in for months using a CURSOR.
+
+Create a stored procedure GenerateCustomerReport(IN start_date DATE, IN end_date DATE) that generates a report of customer activity within a given date range.
+
+Create a stored procedure GetEmployeesByRole(IN job_title VARCHAR(100)) that retrieves employees with a specific job title.
+
+Create a stored procedure GetTotalOrderValueByCustomer(IN customer_id INT, OUT total DECIMAL(10,2)) that calculates the total order value for a customer.
+
+Create a stored procedure DeactivateUser(IN user_id INT) that updates a user’s status to 'Inactive'.
+
+Create a stored procedure GetTopSellingProduct(OUT product_name VARCHAR(100)) that retrieves the best-selling product.
+
+Create a stored procedure UpdateCustomerAddress(IN cust_id INT, IN new_address VARCHAR(255)) that updates the customer's address.
+
+
+Create a stored procedure CalculateDiscount(IN order_id INT, OUT final_price DECIMAL(10,2)) that applies a discount based on the total order value.
+
+Create a stored procedure DeleteOldOrders(IN months INT) that deletes orders older than the given number of months.
+
+Create a stored procedure UpdateProductPriceByCategory(IN category VARCHAR(100), IN percentage DECIMAL(5,2)) that increases the price of all products in a category by a percentage.
+
+Create a stored procedure CalculateLoanInterest(IN loan_id INT, OUT interest_amount DECIMAL(10,2)) that calculates interest on a loan.
+
+Create a stored procedure ListCustomersByCity(IN city_name VARCHAR(100)) that retrieves all customers from a specific city.
+
+Triggers
+
+1. Automatically modifies data before inserting it into the table.
+
+2. Prevents salaries from being decreased.
+
+3. Prevents deletion of certain employees.
+
+4. Stores deleted records in an archive table.
+
+5. Automatically formats email addresses to lowercase before inserting.
+
+6. Assigns a default role to a new user if none is provided.
+
+7. Prevents users from changing their email address.
+
+8. Logs old and new usernames when they are changed.
+
+9. Prevents deletion of admin users.
+
+10. Moves deleted orders to an archive table.
+
+11. Automatically sets a default membership type for new users.
+
+
+

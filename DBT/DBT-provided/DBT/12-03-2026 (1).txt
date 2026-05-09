@@ -1,0 +1,1932 @@
+SELECT EMP.*, (SELECT .. ) R1 FROM  EMP;
+
+
+SELECT  SAL FROM EMP WHERE ENAME = 'SUPRIYA';  //2150
+SELECT SAL FROM EMP WHERE ENAME = 'SANGITA';  // 1750
+SELECT 2150-1750;  //400
+
+
+SELECT (SELECT  SAL FROM EMP WHERE ENAME = 'SUPRIYA') - (SELECT SAL FROM EMP WHERE ENAME = 'SANGITA') R2;
+
+
+SELECT (2150)- (1750) R2;
+
+
+
+
+
+
+
+
+
+
+
+SELECT * FROM (SELECT ....) T1;
+
+
+SELECT * FROM EMP WHERE COLnAME =  (SELECT ......) 1R1C
+
+
+SELECT * FROM EMP WHERE (C1, C2,C3, ...,) =  (SELECT C1 , C2,C3,......) 1RMC
+
+
+
+SELECT * FROM EMP WHERE C1 IN  (SELECT C1) 1RMC
+
+
+
+
+
+SELECT DEPTNO FROM EMP WHERE ENAME='SMITH'; // 20
+
+SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO=20;
+
+
+SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
+
+SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO=(20);
+
+
+
+
+
+SELECT SAL FROM EMP WHERE SAL < (5000);
+
+
+
+
+mysql> select * from null1;
++------+-------------+
+| id   | productName |
++------+-------------+
+|    1 | Bread       |
+|    2 | Cheese      |
+|    3 | Butter      |
+| NULL | Jam         |
++------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from null12
+    -> ;
+ERROR 1146 (42S02): Table 'db1.null12' doesn't exist
+mysql> select * from null1;
++------+-------------+
+| id   | productName |
++------+-------------+
+|    1 | Bread       |
+|    2 | Cheese      |
+|    3 | Butter      |
+| NULL | Jam         |
++------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from null2;
++------+-------+
+| id   | price |
++------+-------+
+|    1 |    45 |
+|    2 |   175 |
+|    3 |   125 |
+| NULL |   120 |
+| NULL |   140 |
++------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from null1, null2;
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+| NULL | Jam         |    1 |    45 |
+|    3 | Butter      |    1 |    45 |
+|    2 | Cheese      |    1 |    45 |
+|    1 | Bread       |    1 |    45 |
+| NULL | Jam         |    2 |   175 |
+|    3 | Butter      |    2 |   175 |
+|    2 | Cheese      |    2 |   175 |
+|    1 | Bread       |    2 |   175 |
+| NULL | Jam         |    3 |   125 |
+|    3 | Butter      |    3 |   125 |
+|    2 | Cheese      |    3 |   125 |
+|    1 | Bread       |    3 |   125 |
+| NULL | Jam         | NULL |   120 |
+|    3 | Butter      | NULL |   120 |
+|    2 | Cheese      | NULL |   120 |
+|    1 | Bread       | NULL |   120 |
+| NULL | Jam         | NULL |   140 |
+|    3 | Butter      | NULL |   140 |
+|    2 | Cheese      | NULL |   140 |
+|    1 | Bread       | NULL |   140 |
++------+-------------+------+-------+
+20 rows in set (0.00 sec)
+
+mysql> select * from null1 join null2 id = id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= id' at line 1
+mysql>
+mysql> select * from null1 join null2 null1.id = id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.id = id' at line 1
+mysql> select * from null1 join null2 null1.id = null2.id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.id = null2.id' at line 1
+mysql>
+mysql> select * from null1 join null2 on null1.id = null2.id;
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+|    1 | Bread       |    1 |    45 |
+|    2 | Cheese      |    2 |   175 |
+|    3 | Butter      |    3 |   125 |
++------+-------------+------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select 1000 = null;
++-------------+
+| 1000 = null |
++-------------+
+|        NULL |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select null =1000;
++------------+
+| null =1000 |
++------------+
+|       NULL |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select null = null;
++-------------+
+| null = null |
++-------------+
+|        NULL |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from null1 join null2 on null1.id = null2.id;
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+|    1 | Bread       |    1 |    45 |
+|    2 | Cheese      |    2 |   175 |
+|    3 | Butter      |    3 |   125 |
++------+-------------+------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from null1 join null2 on null1.id = null2.id  or ifnull(null1.id, -1) = ifnull(null2.id, -1);
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+|    1 | Bread       |    1 |    45 |
+|    2 | Cheese      |    2 |   175 |
+|    3 | Butter      |    3 |   125 |
+| NULL | Jam         | NULL |   120 |
+| NULL | Jam         | NULL |   140 |
++------+-------------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from year_of_service;
++----+-----------------+
+| id | year_of_service |
++----+-----------------+
+|  1 | 2021-05-30      |
+|  2 | 2022-09-12      |
+|  3 | 2023-11-19      |
+|  4 | 2024-02-01      |
+|  5 | 2025-08-04      |
+|  6 | 2024-07-21      |
+|  7 | 2022-12-18      |
+|  8 | 2020-02-07      |
+|  9 | 2027-09-23      |
+| 10 | 2030-11-01      |
+| 11 | 2024-06-19      |
+| 12 | 2025-05-18      |
+| 13 | 2023-01-30      |
+| 14 | 2028-11-18      |
+| 15 | 2026-02-07      |
+| 16 | 2026-03-26      |
+| 17 | 2021-03-12      |
+| 18 | 2024-05-19      |
+| 19 | 2026-11-01      |
+| 20 | 2027-05-04      |
+| 21 | 2026-06-21      |
+| 22 | 2023-11-01      |
+| 23 | 2022-05-04      |
+| 24 | 2024-06-21      |
+| 25 | 2029-05-04      |
+| 26 | 2027-06-21      |
+| 27 | 2028-11-18      |
+| 28 | 2029-02-07      |
+| 29 | 2030-03-26      |
+| 30 | 2026-09-23      |
+| 31 | 2023-11-18      |
+| 32 | 2020-02-07      |
+| 33 | 2023-03-26      |
+| 34 | 2020-09-23      |
++----+-----------------+
+34 rows in set (0.00 sec)
+
+mysql> select year(curdate());
++-----------------+
+| year(curdate()) |
++-----------------+
+|            2026 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select year(curdate()) R1, year(year_of_service) R2 from year_of_service;
++------+------+
+| R1   | R2   |
++------+------+
+| 2026 | 2021 |
+| 2026 | 2022 |
+| 2026 | 2023 |
+| 2026 | 2024 |
+| 2026 | 2025 |
+| 2026 | 2024 |
+| 2026 | 2022 |
+| 2026 | 2020 |
+| 2026 | 2027 |
+| 2026 | 2030 |
+| 2026 | 2024 |
+| 2026 | 2025 |
+| 2026 | 2023 |
+| 2026 | 2028 |
+| 2026 | 2026 |
+| 2026 | 2026 |
+| 2026 | 2021 |
+| 2026 | 2024 |
+| 2026 | 2026 |
+| 2026 | 2027 |
+| 2026 | 2026 |
+| 2026 | 2023 |
+| 2026 | 2022 |
+| 2026 | 2024 |
+| 2026 | 2029 |
+| 2026 | 2027 |
+| 2026 | 2028 |
+| 2026 | 2029 |
+| 2026 | 2030 |
+| 2026 | 2026 |
+| 2026 | 2023 |
+| 2026 | 2020 |
+| 2026 | 2023 |
+| 2026 | 2020 |
++------+------+
+34 rows in set (0.00 sec)
+
+mysql> select year(curdate()) R1, year(year_of_service) R2, R1-R2 R3 from year_of_service;
+ERROR 1054 (42S22): Unknown column 'R1' in 'field list'
+mysql>
+mysql>
+mysql> select year(curdate()) R1, year(year_of_service) R2 from year_of_service;
++------+------+
+| R1   | R2   |
++------+------+
+| 2026 | 2021 |
+| 2026 | 2022 |
+| 2026 | 2023 |
+| 2026 | 2024 |
+| 2026 | 2025 |
+| 2026 | 2024 |
+| 2026 | 2022 |
+| 2026 | 2020 |
+| 2026 | 2027 |
+| 2026 | 2030 |
+| 2026 | 2024 |
+| 2026 | 2025 |
+| 2026 | 2023 |
+| 2026 | 2028 |
+| 2026 | 2026 |
+| 2026 | 2026 |
+| 2026 | 2021 |
+| 2026 | 2024 |
+| 2026 | 2026 |
+| 2026 | 2027 |
+| 2026 | 2026 |
+| 2026 | 2023 |
+| 2026 | 2022 |
+| 2026 | 2024 |
+| 2026 | 2029 |
+| 2026 | 2027 |
+| 2026 | 2028 |
+| 2026 | 2029 |
+| 2026 | 2030 |
+| 2026 | 2026 |
+| 2026 | 2023 |
+| 2026 | 2020 |
+| 2026 | 2023 |
+| 2026 | 2020 |
++------+------+
+34 rows in set (0.00 sec)
+
+mysql> with cte as (select year(curdate()) R1, year(year_of_service) R2 from year_of_service) select * from ctel;
+ERROR 1146 (42S02): Table 'db1.ctel' doesn't exist
+mysql>
+mysql> with cte as (select year(curdate()) R1, year(year_of_service) R2 from year_of_service) select * from cte;
++------+------+
+| R1   | R2   |
++------+------+
+| 2026 | 2021 |
+| 2026 | 2022 |
+| 2026 | 2023 |
+| 2026 | 2024 |
+| 2026 | 2025 |
+| 2026 | 2024 |
+| 2026 | 2022 |
+| 2026 | 2020 |
+| 2026 | 2027 |
+| 2026 | 2030 |
+| 2026 | 2024 |
+| 2026 | 2025 |
+| 2026 | 2023 |
+| 2026 | 2028 |
+| 2026 | 2026 |
+| 2026 | 2026 |
+| 2026 | 2021 |
+| 2026 | 2024 |
+| 2026 | 2026 |
+| 2026 | 2027 |
+| 2026 | 2026 |
+| 2026 | 2023 |
+| 2026 | 2022 |
+| 2026 | 2024 |
+| 2026 | 2029 |
+| 2026 | 2027 |
+| 2026 | 2028 |
+| 2026 | 2029 |
+| 2026 | 2030 |
+| 2026 | 2026 |
+| 2026 | 2023 |
+| 2026 | 2020 |
+| 2026 | 2023 |
+| 2026 | 2020 |
++------+------+
+34 rows in set (0.00 sec)
+
+mysql> with cte as (select year(curdate()) R1, year(year_of_service) R2 from year_of_service) select R1, R2, R1-R2 R3 from cte;
++------+------+------+
+| R1   | R2   | R3   |
++------+------+------+
+| 2026 | 2021 |    5 |
+| 2026 | 2022 |    4 |
+| 2026 | 2023 |    3 |
+| 2026 | 2024 |    2 |
+| 2026 | 2025 |    1 |
+| 2026 | 2024 |    2 |
+| 2026 | 2022 |    4 |
+| 2026 | 2020 |    6 |
+| 2026 | 2027 |   -1 |
+| 2026 | 2030 |   -4 |
+| 2026 | 2024 |    2 |
+| 2026 | 2025 |    1 |
+| 2026 | 2023 |    3 |
+| 2026 | 2028 |   -2 |
+| 2026 | 2026 |    0 |
+| 2026 | 2026 |    0 |
+| 2026 | 2021 |    5 |
+| 2026 | 2024 |    2 |
+| 2026 | 2026 |    0 |
+| 2026 | 2027 |   -1 |
+| 2026 | 2026 |    0 |
+| 2026 | 2023 |    3 |
+| 2026 | 2022 |    4 |
+| 2026 | 2024 |    2 |
+| 2026 | 2029 |   -3 |
+| 2026 | 2027 |   -1 |
+| 2026 | 2028 |   -2 |
+| 2026 | 2029 |   -3 |
+| 2026 | 2030 |   -4 |
+| 2026 | 2026 |    0 |
+| 2026 | 2023 |    3 |
+| 2026 | 2020 |    6 |
+| 2026 | 2023 |    3 |
+| 2026 | 2020 |    6 |
++------+------+------+
+34 rows in set (0.00 sec)
+
+mysql> with cte as (select year(curdate()) R1, year(year_of_service) R2 from year_of_service) select R1, R2, abs(R1-R2) R3 from cte;
++------+------+------+
+| R1   | R2   | R3   |
++------+------+------+
+| 2026 | 2021 |    5 |
+| 2026 | 2022 |    4 |
+| 2026 | 2023 |    3 |
+| 2026 | 2024 |    2 |
+| 2026 | 2025 |    1 |
+| 2026 | 2024 |    2 |
+| 2026 | 2022 |    4 |
+| 2026 | 2020 |    6 |
+| 2026 | 2027 |    1 |
+| 2026 | 2030 |    4 |
+| 2026 | 2024 |    2 |
+| 2026 | 2025 |    1 |
+| 2026 | 2023 |    3 |
+| 2026 | 2028 |    2 |
+| 2026 | 2026 |    0 |
+| 2026 | 2026 |    0 |
+| 2026 | 2021 |    5 |
+| 2026 | 2024 |    2 |
+| 2026 | 2026 |    0 |
+| 2026 | 2027 |    1 |
+| 2026 | 2026 |    0 |
+| 2026 | 2023 |    3 |
+| 2026 | 2022 |    4 |
+| 2026 | 2024 |    2 |
+| 2026 | 2029 |    3 |
+| 2026 | 2027 |    1 |
+| 2026 | 2028 |    2 |
+| 2026 | 2029 |    3 |
+| 2026 | 2030 |    4 |
+| 2026 | 2026 |    0 |
+| 2026 | 2023 |    3 |
+| 2026 | 2020 |    6 |
+| 2026 | 2023 |    3 |
+| 2026 | 2020 |    6 |
++------+------+------+
+34 rows in set (0.01 sec)
+
+mysql> with cte as (select year(curdate()) R1, year(year_of_service) R2 from year_of_service) select R1, R2, abs(R1-R2) R3, case when abs(R1-R2) between 0 and 1 then 'Good'  end R4 from cte;
++------+------+------+------+
+| R1   | R2   | R3   | R4   |
++------+------+------+------+
+| 2026 | 2021 |    5 | NULL |
+| 2026 | 2022 |    4 | NULL |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2025 |    1 | Good |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2022 |    4 | NULL |
+| 2026 | 2020 |    6 | NULL |
+| 2026 | 2027 |    1 | Good |
+| 2026 | 2030 |    4 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2025 |    1 | Good |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2028 |    2 | NULL |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2021 |    5 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2027 |    1 | Good |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2022 |    4 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2029 |    3 | NULL |
+| 2026 | 2027 |    1 | Good |
+| 2026 | 2028 |    2 | NULL |
+| 2026 | 2029 |    3 | NULL |
+| 2026 | 2030 |    4 | NULL |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2020 |    6 | NULL |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2020 |    6 | NULL |
++------+------+------+------+
+34 rows in set (0.00 sec)
+
+mysql> with cte as (select year(curdate()) R1, year(year_of_service) R2 from year_of_service) select R1, R2, abs(R1-R2) R3, case when abs(R1-R2) between 0 and 1 then 'Good'  end R4 from cte;
++------+------+------+------+
+| R1   | R2   | R3   | R4   |
++------+------+------+------+
+| 2026 | 2021 |    5 | NULL |
+| 2026 | 2022 |    4 | NULL |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2025 |    1 | Good |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2022 |    4 | NULL |
+| 2026 | 2020 |    6 | NULL |
+| 2026 | 2027 |    1 | Good |
+| 2026 | 2030 |    4 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2025 |    1 | Good |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2028 |    2 | NULL |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2021 |    5 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2027 |    1 | Good |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2022 |    4 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2029 |    3 | NULL |
+| 2026 | 2027 |    1 | Good |
+| 2026 | 2028 |    2 | NULL |
+| 2026 | 2029 |    3 | NULL |
+| 2026 | 2030 |    4 | NULL |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2020 |    6 | NULL |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2020 |    6 | NULL |
++------+------+------+------+
+34 rows in set (0.00 sec)
+
+mysql> select ename, hiredate from emp;
++----------+------------+
+| ename    | hiredate   |
++----------+------------+
+| GITA     | 1981-07-19 |
+| VRUSHALI | 1981-07-19 |
+| SHARMIN  | 1981-07-19 |
+| BANDISH  | 1981-07-19 |
+| SMITH    | 1980-12-17 |
+| AARAV    | 1981-12-31 |
+| THOMAS   | 1981-07-19 |
+| ALLEN    | 1981-02-20 |
+| WARD     | 1981-02-22 |
+| JONES    | 1981-04-02 |
+| MARTIN   | 1981-09-28 |
+| BLAKE    | 1981-05-01 |
+| CLARK    | 1981-06-09 |
+| SCOTT    | 1982-12-09 |
+| KING     | 1981-11-17 |
+| FRED     | 1983-08-09 |
+| TURNER   | 1981-09-08 |
+| ADAMS    | 1983-01-12 |
+| Ruhan    | 1983-08-09 |
+| Neel     | 1983-08-09 |
+| JAMES    | 1981-12-03 |
+| FORD     | 1981-12-03 |
+| HOFFMAN  | 1982-03-24 |
+| GRASS    | 1980-02-14 |
+| MILLER   | 1982-01-23 |
+| AARUSH   | 1980-02-14 |
+| ALEX     | 1982-01-24 |
+| NATASHA  | 1981-07-19 |
+| SANGITA  | 1981-07-19 |
+| SUPRIYA  | 1981-07-19 |
++----------+------------+
+30 rows in set (0.00 sec)
+
+mysql> with cte as (select year(curdate()) R1, year(year_of_service) R2 from year_of_service) select R1, R2, abs(R1-R2) R3, case when abs(R1-R2) between 0 and 1 then 'Good'  end R4 from cte;
++------+------+------+------+
+| R1   | R2   | R3   | R4   |
++------+------+------+------+
+| 2026 | 2021 |    5 | NULL |
+| 2026 | 2022 |    4 | NULL |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2025 |    1 | Good |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2022 |    4 | NULL |
+| 2026 | 2020 |    6 | NULL |
+| 2026 | 2027 |    1 | Good |
+| 2026 | 2030 |    4 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2025 |    1 | Good |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2028 |    2 | NULL |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2021 |    5 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2027 |    1 | Good |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2022 |    4 | NULL |
+| 2026 | 2024 |    2 | NULL |
+| 2026 | 2029 |    3 | NULL |
+| 2026 | 2027 |    1 | Good |
+| 2026 | 2028 |    2 | NULL |
+| 2026 | 2029 |    3 | NULL |
+| 2026 | 2030 |    4 | NULL |
+| 2026 | 2026 |    0 | Good |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2020 |    6 | NULL |
+| 2026 | 2023 |    3 | NULL |
+| 2026 | 2020 |    6 | NULL |
++------+------+------+------+
+34 rows in set (0.00 sec)
+
+mysql> select job from emp group by job;
++---------------------+
+| job                 |
++---------------------+
+| Compliance officers |
+| Public Relation     |
+| CLERK               |
+| SALESMAN            |
+| MANAGER             |
+| ANALYST             |
+| PRESIDENT           |
+| vice PRESIDENT      |
+| Network             |
++---------------------+
+9 rows in set (0.00 sec)
+
+mysql> select ename, job from emp ordre by job;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by job' at line 1
+mysql>
+mysql> select ename, job from emp order by job;
++----------+---------------------+
+| ename    | job                 |
++----------+---------------------+
+| SCOTT    | ANALYST             |
+| FORD     | ANALYST             |
+| SUPRIYA  | ANALYST             |
+| SMITH    | CLERK               |
+| AARAV    | CLERK               |
+| THOMAS   | CLERK               |
+| ADAMS    | CLERK               |
+| JAMES    | CLERK               |
+| MILLER   | CLERK               |
+| NATASHA  | CLERK               |
+| GITA     | Compliance officers |
+| VRUSHALI | Compliance officers |
+| SANGITA  | Compliance officers |
+| JONES    | MANAGER             |
+| BLAKE    | MANAGER             |
+| CLARK    | MANAGER             |
+| HOFFMAN  | MANAGER             |
+| ALEX     | MANAGER             |
+| Ruhan    | Network             |
+| KING     | PRESIDENT           |
+| SHARMIN  | Public Relation     |
+| BANDISH  | Public Relation     |
+| ALLEN    | SALESMAN            |
+| WARD     | SALESMAN            |
+| MARTIN   | SALESMAN            |
+| TURNER   | SALESMAN            |
+| GRASS    | SALESMAN            |
+| AARUSH   | SALESMAN            |
+| FRED     | vice PRESIDENT      |
+| Neel     | vice PRESIDENT      |
++----------+---------------------+
+30 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select job, ename R1 from emp group by job;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'db1.emp.ENAME' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql>
+mysql> select job, ename R1 from emp group by job, ename;
++---------------------+----------+
+| job                 | R1       |
++---------------------+----------+
+| Compliance officers | GITA     |
+| Compliance officers | VRUSHALI |
+| Public Relation     | SHARMIN  |
+| Public Relation     | BANDISH  |
+| CLERK               | SMITH    |
+| CLERK               | AARAV    |
+| CLERK               | THOMAS   |
+| SALESMAN            | ALLEN    |
+| SALESMAN            | WARD     |
+| MANAGER             | JONES    |
+| SALESMAN            | MARTIN   |
+| MANAGER             | BLAKE    |
+| MANAGER             | CLARK    |
+| ANALYST             | SCOTT    |
+| PRESIDENT           | KING     |
+| vice PRESIDENT      | FRED     |
+| SALESMAN            | TURNER   |
+| CLERK               | ADAMS    |
+| Network             | Ruhan    |
+| vice PRESIDENT      | Neel     |
+| CLERK               | JAMES    |
+| ANALYST             | FORD     |
+| MANAGER             | HOFFMAN  |
+| SALESMAN            | GRASS    |
+| CLERK               | MILLER   |
+| SALESMAN            | AARUSH   |
+| MANAGER             | ALEX     |
+| CLERK               | NATASHA  |
+| Compliance officers | SANGITA  |
+| ANALYST             | SUPRIYA  |
++---------------------+----------+
+30 rows in set (0.00 sec)
+
+mysql> select job, ename R1 from emp group by job, ename;
++---------------------+----------+
+| job                 | R1       |
++---------------------+----------+
+| Compliance officers | GITA     |
+| Compliance officers | VRUSHALI |
+| Public Relation     | SHARMIN  |
+| Public Relation     | BANDISH  |
+| CLERK               | SMITH    |
+| CLERK               | AARAV    |
+| CLERK               | THOMAS   |
+| SALESMAN            | ALLEN    |
+| SALESMAN            | WARD     |
+| MANAGER             | JONES    |
+| SALESMAN            | MARTIN   |
+| MANAGER             | BLAKE    |
+| MANAGER             | CLARK    |
+| ANALYST             | SCOTT    |
+| PRESIDENT           | KING     |
+| vice PRESIDENT      | FRED     |
+| SALESMAN            | TURNER   |
+| CLERK               | ADAMS    |
+| Network             | Ruhan    |
+| vice PRESIDENT      | Neel     |
+| CLERK               | JAMES    |
+| ANALYST             | FORD     |
+| MANAGER             | HOFFMAN  |
+| SALESMAN            | GRASS    |
+| CLERK               | MILLER   |
+| SALESMAN            | AARUSH   |
+| MANAGER             | ALEX     |
+| CLERK               | NATASHA  |
+| Compliance officers | SANGITA  |
+| ANALYST             | SUPRIYA  |
++---------------------+----------+
+30 rows in set (0.00 sec)
+
+mysql> select job, group_concat(ename) R1 from emp group by job;
++---------------------+-----------------------------------------------+
+| job                 | R1                                            |
++---------------------+-----------------------------------------------+
+| ANALYST             | SCOTT,FORD,SUPRIYA                            |
+| CLERK               | SMITH,AARAV,THOMAS,ADAMS,JAMES,MILLER,NATASHA |
+| Compliance officers | GITA,VRUSHALI,SANGITA                         |
+| MANAGER             | JONES,BLAKE,CLARK,HOFFMAN,ALEX                |
+| Network             | Ruhan                                         |
+| PRESIDENT           | KING                                          |
+| Public Relation     | SHARMIN,BANDISH                               |
+| SALESMAN            | ALLEN,WARD,MARTIN,TURNER,GRASS,AARUSH         |
+| vice PRESIDENT      | FRED,Neel                                     |
++---------------------+-----------------------------------------------+
+9 rows in set (0.00 sec)
+
+mysql> select job, group_concat('--->',ename) R1 from emp group by job;
++---------------------+---------------------------------------------------------------------------+
+| job                 | R1                                                                        |
++---------------------+---------------------------------------------------------------------------+
+| ANALYST             | --->SCOTT,--->FORD,--->SUPRIYA                                            |
+| CLERK               | --->SMITH,--->AARAV,--->THOMAS,--->ADAMS,--->JAMES,--->MILLER,--->NATASHA |
+| Compliance officers | --->GITA,--->VRUSHALI,--->SANGITA                                         |
+| MANAGER             | --->JONES,--->BLAKE,--->CLARK,--->HOFFMAN,--->ALEX                        |
+| Network             | --->Ruhan                                                                 |
+| PRESIDENT           | --->KING                                                                  |
+| Public Relation     | --->SHARMIN,--->BANDISH                                                   |
+| SALESMAN            | --->ALLEN,--->WARD,--->MARTIN,--->TURNER,--->GRASS,--->AARUSH             |
+| vice PRESIDENT      | --->FRED,--->Neel                                                         |
++---------------------+---------------------------------------------------------------------------+
+9 rows in set (0.02 sec)
+
+mysql> select job, group_concat(' EMployee Names->',ename) R1 from emp group by job;
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| job                 | R1                                                                                                                                                                   |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ANALYST             |  EMployee Names->SCOTT, EMployee Names->FORD, EMployee Names->SUPRIYA                                                                                                |
+| CLERK               |  EMployee Names->SMITH, EMployee Names->AARAV, EMployee Names->THOMAS, EMployee Names->ADAMS, EMployee Names->JAMES, EMployee Names->MILLER, EMployee Names->NATASHA |
+| Compliance officers |  EMployee Names->GITA, EMployee Names->VRUSHALI, EMployee Names->SANGITA                                                                                             |
+| MANAGER             |  EMployee Names->JONES, EMployee Names->BLAKE, EMployee Names->CLARK, EMployee Names->HOFFMAN, EMployee Names->ALEX                                                  |
+| Network             |  EMployee Names->Ruhan                                                                                                                                               |
+| PRESIDENT           |  EMployee Names->KING                                                                                                                                                |
+| Public Relation     |  EMployee Names->SHARMIN, EMployee Names->BANDISH                                                                                                                    |
+| SALESMAN            |  EMployee Names->ALLEN, EMployee Names->WARD, EMployee Names->MARTIN, EMployee Names->TURNER, EMployee Names->GRASS, EMployee Names->AARUSH                          |
+| vice PRESIDENT      |  EMployee Names->FRED, EMployee Names->Neel                                                                                                                          |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+9 rows in set (0.01 sec)
+
+mysql> with recursive cte as (select 1 n union slect n + 1 from cte where n<10) select n from cte;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'slect n + 1 from cte where n<10) select n from cte' at line 1
+mysql>
+mysql>
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n<10) select n from cte;
++------+
+| n    |
++------+
+|    1 |
+|    2 |
+|    3 |
+|    4 |
+|    5 |
+|    6 |
+|    7 |
+|    8 |
+|    9 |
+|   10 |
++------+
+10 rows in set (0.01 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n<10) select group_concat(n) from cte;
++----------------------+
+| group_concat(n)      |
++----------------------+
+| 1,2,3,4,5,6,7,8,9,10 |
++----------------------+
+1 row in set (0.01 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n<10) select group_concat(n) from cte;
++----------------------+
+| group_concat(n)      |
++----------------------+
+| 1,2,3,4,5,6,7,8,9,10 |
++----------------------+
+1 row in set (0.02 sec)
+
+mysql>
+mysql>
+mysql>
+mysql> select * from missingnumbers;
++------+
+| id   |
++------+
+|    1 |
+|    2 |
+|    3 |
+|    4 |
+|    6 |
+|    7 |
+|    8 |
+|    9 |
+|   15 |
+|   16 |
+|   19 |
+|   20 |
+|   21 |
+|   22 |
+|   25 |
+|   26 |
+|   27 |
++------+
+17 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.05 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.10 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT 'SALEEL';
++--------+
+| SALEEL |
++--------+
+| SALEEL |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 'SALEEL' r1;
++--------+
+| r1     |
++--------+
+| SALEEL |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 'SALEEL' R1;
++--------+
+| R1     |
++--------+
+| SALEEL |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 'SALEEL' AS R1, 'HELLO' AS R2;
++--------+-------+
+| R1     | R2    |
++--------+-------+
+| SALEEL | HELLO |
++--------+-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 'SALEEL' AS R1, (SELECT 'Hello');
++--------+------------------+
+| R1     | (SELECT 'Hello') |
++--------+------------------+
+| SALEEL | Hello            |
++--------+------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 'SALEEL' AS R1, (SELECT 'Hello') R1;
++--------+-------+
+| R1     | R1    |
++--------+-------+
+| SALEEL | Hello |
++--------+-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ENAME, SAL FROM EMP;
++----------+------+
+| ENAME    | SAL  |
++----------+------+
+| GITA     | 1750 |
+| VRUSHALI | 1750 |
+| SHARMIN  | 1750 |
+| BANDISH  | 1750 |
+| SMITH    |  800 |
+| AARAV    | 3350 |
+| THOMAS   | 1750 |
+| ALLEN    | 1600 |
+| WARD     | 1250 |
+| JONES    | 2975 |
+| MARTIN   | 1250 |
+| BLAKE    | 2850 |
+| CLARK    | 2450 |
+| SCOTT    | 3000 |
+| KING     | 5000 |
+| FRED     | 5000 |
+| TURNER   | 1500 |
+| ADAMS    | 1100 |
+| Ruhan    | 2000 |
+| Neel     | 1000 |
+| JAMES    |  950 |
+| FORD     | 3000 |
+| HOFFMAN  | 4150 |
+| GRASS    | 2575 |
+| MILLER   | 1300 |
+| AARUSH   | 1350 |
+| ALEX     | 1250 |
+| NATASHA  | 1750 |
+| SANGITA  | 1750 |
+| SUPRIYA  | 2150 |
++----------+------+
+30 rows in set (0.00 sec)
+
+mysql> SELECT SAL FROM EMP WHERE ENAME IN ('SUPRIYA', 'SANGITA');
++------+
+| SAL  |
++------+
+| 1750 |
+| 2150 |
++------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, SAL FROM EMP WHERE ENAME IN ('SUPRIYA', 'SANGITA');
++---------+------+
+| ENAME   | SAL  |
++---------+------+
+| SANGITA | 1750 |
+| SUPRIYA | 2150 |
++---------+------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, SAL FROM EMP WHERE ENAME = 'SUPRIYA';
++---------+------+
+| ENAME   | SAL  |
++---------+------+
+| SUPRIYA | 2150 |
++---------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ENAME, SAL FROM EMP WHERE ENAME = 'SASNGITA';
+Empty set (0.00 sec)
+
+mysql> SELECT ENAME, SAL FROM EMP WHERE ENAME = 'SANGITA';
++---------+------+
+| ENAME   | SAL  |
++---------+------+
+| SANGITA | 1750 |
++---------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ENAME, SAL FROM EMP WHERE ENAME = 'SUPRIYA';
++---------+------+
+| ENAME   | SAL  |
++---------+------+
+| SUPRIYA | 2150 |
++---------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ENAME, SAL FROM EMP WHERE ENAME = 'SANGITA';
++---------+------+
+| ENAME   | SAL  |
++---------+------+
+| SANGITA | 1750 |
++---------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 2150-1750;
++-----------+
+| 2150-1750 |
++-----------+
+|       400 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT (SELECT  SAL FROM EMP WHERE ENAME = 'SUPRIYA') r1, (SELECT SAL FROM EMP WHERE ENAME = 'SANGITA') R2;
++------+------+
+| r1   | R2   |
++------+------+
+| 2150 | 1750 |
++------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT (2150) R1, (1750) R2;
++------+------+
+| R1   | R2   |
++------+------+
+| 2150 | 1750 |
++------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT (2150)- (1750) R2;
++-----+
+| R2  |
++-----+
+| 400 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> SELECT (SELECT  SAL FROM EMP WHERE ENAME = 'SUPRIYA') - (SELECT SAL FROM EMP WHERE ENAME = 'SANGITA') R2;
++------+
+| R2   |
++------+
+|  400 |
++------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM ORD;
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+
+| ORDID | ORDERDATE  | COMMPLAN | CUSTID | SHIPDATE   | actualShipDate | STATUSDATE | STATUS     | TOTAL    |
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+
+|   601 | 1986-05-01 | A        |    106 | 1986-05-30 | 1986-06-02     | NULL       | In Process |     2.40 |
+|   602 | 1986-06-05 | B        |    102 | 1986-06-20 | NULL           | 1986-07-09 | On Hold    |    56.00 |
+|   603 | 1986-06-05 | NULL     |    102 | 1986-06-05 | 1986-06-07     | 1986-06-10 | Cancelled  |   224.00 |
+|   604 | 1986-06-15 | A        |    106 | 1986-05-30 | NULL           | 1986-07-04 | Resolved   |   698.00 |
+|   606 | 1986-07-14 | A        |    100 | 1986-07-30 | 1986-07-30     | NULL       | Shipped    |     3.40 |
+|   607 | 1986-07-18 | C        |    104 | 1986-07-18 | 1986-07-20     | NULL       | In Process |     5.60 |
+|   608 | 1986-07-25 | C        |    104 | 1986-07-25 | 1986-07-25     | NULL       | Shipped    |    35.20 |
+|   609 | 1986-08-01 | B        |    100 | 1986-08-15 | NULL           | 1986-08-19 | On Hold    |    97.50 |
+|   610 | 1987-01-07 | A        |    101 | 1987-01-08 | 1987-01-08     | NULL       | In Process |   101.40 |
+|   611 | 1987-01-11 | B        |    102 | 1987-01-11 | NULL           | NULL       | Shipped    |    45.00 |
+|   612 | 1987-01-15 | C        |    104 | 1987-01-20 | 1987-01-23     | 1987-01-21 | Cancelled  |  5860.00 |
+|   613 | 1987-02-01 | NULL     |    108 | 1987-02-01 | 1987-02-01     | NULL       | Shipped    |  6400.00 |
+|   614 | 1987-02-01 | NULL     |    102 | 1987-02-05 | 1987-02-06     | NULL       | In Process | 23940.00 |
+|   615 | 1987-02-01 | NULL     |    107 | 1987-02-06 | 1987-02-12     | NULL       | In Process |   710.00 |
+|   616 | 1987-02-03 | NULL     |    103 | 1987-02-10 | 1987-02-10     | 1987-02-10 | Resolved   |   764.00 |
+|   617 | 1987-02-05 | NULL     |    105 | 1987-03-03 | 1987-03-03     | NULL       | Shipped    | 46370.00 |
+|   618 | 1987-02-15 | A        |    102 | 1987-03-06 | NULL           | 1987-03-16 | On Hold    |  3510.50 |
+|   619 | 1987-02-22 | NULL     |    104 | 1987-02-04 | 1987-02-04     | NULL       | In Process |  1260.00 |
+|   620 | 1987-03-12 | NULL     |    100 | 1987-03-12 | NULL           | 1987-03-12 | Cancelled  |  4450.00 |
+|   621 | 1987-03-15 | A        |    100 | 1987-03-01 | 1987-01-06     | NULL       | Shipped    |   730.00 |
+|   622 | 1986-12-31 | a        |    105 | 1987-01-01 | NULL           | 1987-01-06 | Delivered  |  1125.00 |
+|   624 | 1987-01-06 | c        |    105 | 1987-01-06 | 1987-01-06     | 1987-01-09 | Delivered  |   189.00 |
+|   625 | 1987-01-09 | NULL     |    105 | 1987-01-10 | 1987-01-12     | 1987-01-16 | Delivered  |  1255.00 |
+|   626 | 1987-01-31 | NULL     |    107 | 1987-02-01 | NULL           | 1987-02-06 | shipped    |  1675.00 |
+|   627 | 1987-02-13 | NULL     |    100 | 1987-02-14 | 1987-02-17     | 1987-02-22 | Delivered  |   250.00 |
+|   628 | 1987-03-13 | A        |    100 | 1987-03-14 | 1987-03-19     | 1987-03-15 | Shipped    |   473.93 |
+|   629 | 1987-03-14 | A        |    100 | 1987-03-16 | 1987-03-16     | 1987-03-17 | Shipped    |   289.99 |
+|   630 | 1987-02-21 | D        |    104 | 1987-02-22 | 1987-02-23     | 1987-02-23 | Delivered  |   362.12 |
+|   631 | 1987-02-23 | F        |    104 | 1987-02-23 | NULL           | 1987-02-24 | Delivered  |   232.87 |
+|   632 | 1987-03-13 | A        |   NULL | 1987-03-14 | 1987-03-14     | 1987-03-15 | Shipped    |   473.93 |
+|   633 | 1987-03-14 | A        |   NULL | 1987-03-16 | 1987-03-20     | 1987-03-17 | Shipped    |   289.99 |
+|   634 | 1987-02-21 | D        |   NULL | 1987-02-22 | 1987-02-24     | 1987-02-23 | Delivered  |   362.12 |
+|   635 | 1987-02-23 | F        |   NULL | 1987-02-23 | 1987-02-23     | 1987-02-24 | Delivered  |   232.87 |
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+
+33 rows in set (0.02 sec)
+
+mysql> SELECT ENAME, HIREDATE FROM EMP ORDER BY 1;
++----------+------------+
+| ENAME    | HIREDATE   |
++----------+------------+
+| AARAV    | 1981-12-31 |
+| AARUSH   | 1980-02-14 |
+| ADAMS    | 1983-01-12 |
+| ALEX     | 1982-01-24 |
+| ALLEN    | 1981-02-20 |
+| BANDISH  | 1981-07-19 |
+| BLAKE    | 1981-05-01 |
+| CLARK    | 1981-06-09 |
+| FORD     | 1981-12-03 |
+| FRED     | 1983-08-09 |
+| GITA     | 1981-07-19 |
+| GRASS    | 1980-02-14 |
+| HOFFMAN  | 1982-03-24 |
+| JAMES    | 1981-12-03 |
+| JONES    | 1981-04-02 |
+| KING     | 1981-11-17 |
+| MARTIN   | 1981-09-28 |
+| MILLER   | 1982-01-23 |
+| NATASHA  | 1981-07-19 |
+| Neel     | 1983-08-09 |
+| Ruhan    | 1983-08-09 |
+| SANGITA  | 1981-07-19 |
+| SCOTT    | 1982-12-09 |
+| SHARMIN  | 1981-07-19 |
+| SMITH    | 1980-12-17 |
+| SUPRIYA  | 1981-07-19 |
+| THOMAS   | 1981-07-19 |
+| TURNER   | 1981-09-08 |
+| VRUSHALI | 1981-07-19 |
+| WARD     | 1981-02-22 |
++----------+------------+
+30 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, HIREDATE FROM EMP ORDER BY 2;
++----------+------------+
+| ENAME    | HIREDATE   |
++----------+------------+
+| GRASS    | 1980-02-14 |
+| AARUSH   | 1980-02-14 |
+| SMITH    | 1980-12-17 |
+| ALLEN    | 1981-02-20 |
+| WARD     | 1981-02-22 |
+| JONES    | 1981-04-02 |
+| BLAKE    | 1981-05-01 |
+| CLARK    | 1981-06-09 |
+| GITA     | 1981-07-19 |
+| VRUSHALI | 1981-07-19 |
+| SHARMIN  | 1981-07-19 |
+| BANDISH  | 1981-07-19 |
+| THOMAS   | 1981-07-19 |
+| NATASHA  | 1981-07-19 |
+| SANGITA  | 1981-07-19 |
+| SUPRIYA  | 1981-07-19 |
+| TURNER   | 1981-09-08 |
+| MARTIN   | 1981-09-28 |
+| KING     | 1981-11-17 |
+| JAMES    | 1981-12-03 |
+| FORD     | 1981-12-03 |
+| AARAV    | 1981-12-31 |
+| MILLER   | 1982-01-23 |
+| ALEX     | 1982-01-24 |
+| HOFFMAN  | 1982-03-24 |
+| SCOTT    | 1982-12-09 |
+| ADAMS    | 1983-01-12 |
+| FRED     | 1983-08-09 |
+| Ruhan    | 1983-08-09 |
+| Neel     | 1983-08-09 |
++----------+------------+
+30 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, HIREDATE FROM EMP A WHERE HIREDATE IN (SELECT HIREDATE FROM EMP B  WHERE A.HIREDATE=B.HIREDATE AND A.EMPNO<> B.EMPNO ) ORER BY 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORER BY 2' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT ENAME, HIREDATE FROM EMP A WHERE HIREDATE IN (SELECT HIREDATE FROM EMP B  WHERE A.HIREDATE=B.HIREDATE AND A.EMPNO <> B.EMPNO ) ORER BY 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORER BY 2' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT ENAME, HIREDATE FROM EMP A WHERE HIREDATE IN (SELECT HIREDATE FROM EMP B  WHERE A.HIREDATE=B.HIREDATE AND A.EMPNO <> B.EMPNO );
++----------+------------+
+| ENAME    | HIREDATE   |
++----------+------------+
+| GITA     | 1981-07-19 |
+| VRUSHALI | 1981-07-19 |
+| SHARMIN  | 1981-07-19 |
+| BANDISH  | 1981-07-19 |
+| THOMAS   | 1981-07-19 |
+| FRED     | 1983-08-09 |
+| Ruhan    | 1983-08-09 |
+| Neel     | 1983-08-09 |
+| JAMES    | 1981-12-03 |
+| FORD     | 1981-12-03 |
+| GRASS    | 1980-02-14 |
+| AARUSH   | 1980-02-14 |
+| NATASHA  | 1981-07-19 |
+| SANGITA  | 1981-07-19 |
+| SUPRIYA  | 1981-07-19 |
++----------+------------+
+15 rows in set (0.01 sec)
+
+mysql> SELECT ENAME, HIREDATE FROM EMP A WHERE HIREDATE IN (SELECT HIREDATE FROM EMP B  WHERE A.HIREDATE=B.HIREDATE AND A.EMPNO <> B.EMPNO ) ORDER BY 2;
++----------+------------+
+| ENAME    | HIREDATE   |
++----------+------------+
+| GRASS    | 1980-02-14 |
+| AARUSH   | 1980-02-14 |
+| GITA     | 1981-07-19 |
+| VRUSHALI | 1981-07-19 |
+| SHARMIN  | 1981-07-19 |
+| BANDISH  | 1981-07-19 |
+| THOMAS   | 1981-07-19 |
+| NATASHA  | 1981-07-19 |
+| SANGITA  | 1981-07-19 |
+| SUPRIYA  | 1981-07-19 |
+| JAMES    | 1981-12-03 |
+| FORD     | 1981-12-03 |
+| FRED     | 1983-08-09 |
+| Ruhan    | 1983-08-09 |
+| Neel     | 1983-08-09 |
++----------+------------+
+15 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT JOB, COUNT(*) R1 FROM EMP  GROUP BY JOB;
++---------------------+----+
+| JOB                 | R1 |
++---------------------+----+
+| Compliance officers |  3 |
+| Public Relation     |  2 |
+| CLERK               |  7 |
+| SALESMAN            |  6 |
+| MANAGER             |  5 |
+| ANALYST             |  3 |
+| PRESIDENT           |  1 |
+| vice PRESIDENT      |  2 |
+| Network             |  1 |
++---------------------+----+
+9 rows in set (0.01 sec)
+
+mysql> SELECT JOB, MIN(COUNT(*)) R1 FROM EMP  GROUP BY JOB;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> SELECT JOB, COUNT(*) R1 FROM EMP  GROUP BY JOB;
++---------------------+----+
+| JOB                 | R1 |
++---------------------+----+
+| Compliance officers |  3 |
+| Public Relation     |  2 |
+| CLERK               |  7 |
+| SALESMAN            |  6 |
+| MANAGER             |  5 |
+| ANALYST             |  3 |
+| PRESIDENT           |  1 |
+| vice PRESIDENT      |  2 |
+| Network             |  1 |
++---------------------+----+
+9 rows in set (0.00 sec)
+
+mysql> WITH CTE AS (SELECT JOB, COUNT(*) R1 FROM EMP  GROUP BY JOB) SELECT * FROM CTE;
++---------------------+----+
+| JOB                 | R1 |
++---------------------+----+
+| Compliance officers |  3 |
+| Public Relation     |  2 |
+| CLERK               |  7 |
+| SALESMAN            |  6 |
+| MANAGER             |  5 |
+| ANALYST             |  3 |
+| PRESIDENT           |  1 |
+| vice PRESIDENT      |  2 |
+| Network             |  1 |
++---------------------+----+
+9 rows in set (0.00 sec)
+
+mysql> WITH CTE AS (SELECT JOB, COUNT(*) R1 FROM EMP  GROUP BY JOB) SELECT JOB, MIN(R1) FROM CTE GROUP BY JOB;
++---------------------+---------+
+| JOB                 | MIN(R1) |
++---------------------+---------+
+| Compliance officers |       3 |
+| Public Relation     |       2 |
+| CLERK               |       7 |
+| SALESMAN            |       6 |
+| MANAGER             |       5 |
+| ANALYST             |       3 |
+| PRESIDENT           |       1 |
+| vice PRESIDENT      |       2 |
+| Network             |       1 |
++---------------------+---------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT * FROM (SELECT * FROM DEPT);
+ERROR 1248 (42000): Every derived table must have its own alias
+mysql> SELECT * FROM (SELECT * FROM DEPT) T1;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM DEPT;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM DEPT WHERE DEPTNO=10;
++--------+------------+----------+--------+------------+
+| DEPTNO | DNAME      | LOC      | PWD    | STARTEDON  |
++--------+------------+----------+--------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm | 24/03/1989 |
++--------+------------+----------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM DEPT WHERE DEPTNO= (SELECT 10);
++--------+------------+----------+--------+------------+
+| DEPTNO | DNAME      | LOC      | PWD    | STARTEDON  |
++--------+------------+----------+--------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm | 24/03/1989 |
++--------+------------+----------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DEPTNO FROM EMP WHERE ENAME='SMITH';
++--------+
+| DEPTNO |
++--------+
+|     20 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO=20;
++---------+--------+
+| ENAME   | DEPTNO |
++---------+--------+
+| SHARMIN |     20 |
+| BANDISH |     20 |
+| SMITH   |     20 |
+| JONES   |     20 |
+| SCOTT   |     20 |
+| FRED    |     20 |
+| ADAMS   |     20 |
+| FORD    |     20 |
++---------+--------+
+8 rows in set (0.02 sec)
+
+mysql> SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
++---------+--------+
+| ENAME   | DEPTNO |
++---------+--------+
+| SHARMIN |     20 |
+| BANDISH |     20 |
+| SMITH   |     20 |
+| JONES   |     20 |
+| SCOTT   |     20 |
+| FRED    |     20 |
+| ADAMS   |     20 |
+| FORD    |     20 |
++---------+--------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH') AND ENME <> 'SMITH';
+ERROR 1054 (42S22): Unknown column 'ENME' in 'where clause'
+mysql> SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH') AND ENAME <> 'SMITH';
++---------+--------+
+| ENAME   | DEPTNO |
++---------+--------+
+| SHARMIN |     20 |
+| BANDISH |     20 |
+| JONES   |     20 |
+| SCOTT   |     20 |
+| FRED    |     20 |
+| ADAMS   |     20 |
+| FORD    |     20 |
++---------+--------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT SAL FROM EMP ORDER BY SAL DESC;
++------+
+| SAL  |
++------+
+| 5000 |
+| 5000 |
+| 4150 |
+| 3350 |
+| 3000 |
+| 3000 |
+| 2975 |
+| 2850 |
+| 2575 |
+| 2450 |
+| 2150 |
+| 2000 |
+| 1750 |
+| 1750 |
+| 1750 |
+| 1750 |
+| 1750 |
+| 1750 |
+| 1750 |
+| 1600 |
+| 1500 |
+| 1350 |
+| 1300 |
+| 1250 |
+| 1250 |
+| 1250 |
+| 1100 |
+| 1000 |
+|  950 |
+|  800 |
++------+
+30 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT MAX(SAL) FROM EMP;
++----------+
+| MAX(SAL) |
++----------+
+|     5000 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT SAL FROM EMP WHERE SAL < (5000) ORDER BY SAL DESC;
++------+
+| SAL  |
++------+
+| 4150 |
+| 3350 |
+| 3000 |
+| 3000 |
+| 2975 |
+| 2850 |
+| 2575 |
+| 2450 |
+| 2150 |
+| 2000 |
+| 1750 |
+| 1750 |
+| 1750 |
+| 1750 |
+| 1750 |
+| 1750 |
+| 1750 |
+| 1600 |
+| 1500 |
+| 1350 |
+| 1300 |
+| 1250 |
+| 1250 |
+| 1250 |
+| 1100 |
+| 1000 |
+|  950 |
+|  800 |
++------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT MAX(SAL) FROM EMP WHERE SAL < (5000) ORDER BY SAL DESC;
++----------+
+| MAX(SAL) |
++----------+
+|     4150 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MAX(SAL) FROM EMP WHERE SAL < (5000) ORDER BY SAL DESC;SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
++----------+
+| MAX(SAL) |
++----------+
+|     4150 |
++----------+
+1 row in set (0.00 sec)
+
++---------+--------+
+| ENAME   | DEPTNO |
++---------+--------+
+| SHARMIN |     20 |
+| BANDISH |     20 |
+| SMITH   |     20 |
+| JONES   |     20 |
+| SCOTT   |     20 |
+| FRED    |     20 |
+| ADAMS   |     20 |
+| FORD    |     20 |
++---------+--------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
++---------+--------+
+| ENAME   | DEPTNO |
++---------+--------+
+| SHARMIN |     20 |
+| BANDISH |     20 |
+| SMITH   |     20 |
+| JONES   |     20 |
+| SCOTT   |     20 |
+| FRED    |     20 |
+| ADAMS   |     20 |
+| FORD    |     20 |
++---------+--------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, EMP.DEPTNO, DNAME FROM EMP, DEPT  WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
+ERROR 1052 (23000): Column 'DEPTNO' in where clause is ambiguous
+mysql>
+mysql>
+mysql> SELECT ENAME, EMP.DEPTNO, DNAME FROM EMP, DEPT  WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
+ERROR 1052 (23000): Column 'DEPTNO' in where clause is ambiguous
+mysql> SELECT ENAME, EMP.DEPTNO, DNAME FROM EMP, DEPT  WHERE EMP.DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
++---------+--------+------------+
+| ENAME   | DEPTNO | DNAME      |
++---------+--------+------------+
+| SHARMIN |     20 | ACCOUNTING |
+| BANDISH |     20 | ACCOUNTING |
+| SMITH   |     20 | ACCOUNTING |
+| JONES   |     20 | ACCOUNTING |
+| SCOTT   |     20 | ACCOUNTING |
+| FRED    |     20 | ACCOUNTING |
+| ADAMS   |     20 | ACCOUNTING |
+| FORD    |     20 | ACCOUNTING |
+| SHARMIN |     20 | RESEARCH   |
+| BANDISH |     20 | RESEARCH   |
+| SMITH   |     20 | RESEARCH   |
+| JONES   |     20 | RESEARCH   |
+| SCOTT   |     20 | RESEARCH   |
+| FRED    |     20 | RESEARCH   |
+| ADAMS   |     20 | RESEARCH   |
+| FORD    |     20 | RESEARCH   |
+| SHARMIN |     20 | SALES      |
+| BANDISH |     20 | SALES      |
+| SMITH   |     20 | SALES      |
+| JONES   |     20 | SALES      |
+| SCOTT   |     20 | SALES      |
+| FRED    |     20 | SALES      |
+| ADAMS   |     20 | SALES      |
+| FORD    |     20 | SALES      |
+| SHARMIN |     20 | OPERATIONS |
+| BANDISH |     20 | OPERATIONS |
+| SMITH   |     20 | OPERATIONS |
+| JONES   |     20 | OPERATIONS |
+| SCOTT   |     20 | OPERATIONS |
+| FRED    |     20 | OPERATIONS |
+| ADAMS   |     20 | OPERATIONS |
+| FORD    |     20 | OPERATIONS |
+| SHARMIN |     20 | HR         |
+| BANDISH |     20 | HR         |
+| SMITH   |     20 | HR         |
+| JONES   |     20 | HR         |
+| SCOTT   |     20 | HR         |
+| FRED    |     20 | HR         |
+| ADAMS   |     20 | HR         |
+| FORD    |     20 | HR         |
+| SHARMIN |     20 | IT         |
+| BANDISH |     20 | IT         |
+| SMITH   |     20 | IT         |
+| JONES   |     20 | IT         |
+| SCOTT   |     20 | IT         |
+| FRED    |     20 | IT         |
+| ADAMS   |     20 | IT         |
+| FORD    |     20 | IT         |
++---------+--------+------------+
+48 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, EMP.DEPTNO, DNAME FROM EMP, DEPT  WHEREEMP.DEPTNO=DEPT.DEPTNO ABD  EMP.DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.DEPTNO=DEPT.DEPTNO ABD  EMP.DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH')' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT ENAME, EMP.DEPTNO, DNAME FROM EMP, DEPT  WHERE EMP.DEPTNO=DEPT.DEPTNO AND  EMP.DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
++---------+--------+----------+
+| ENAME   | DEPTNO | DNAME    |
++---------+--------+----------+
+| SHARMIN |     20 | RESEARCH |
+| BANDISH |     20 | RESEARCH |
+| SMITH   |     20 | RESEARCH |
+| JONES   |     20 | RESEARCH |
+| SCOTT   |     20 | RESEARCH |
+| FRED    |     20 | RESEARCH |
+| ADAMS   |     20 | RESEARCH |
+| FORD    |     20 | RESEARCH |
++---------+--------+----------+
+8 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT EMP.DEPTNO FROM EMP WHERE DEPTNO = (SELECT DEPTNO FROM DEPT);
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> SELECT EMP.DEPTNO FROM EMP WHERE DEPTNO IN (SELECT DEPTNO FROM DEPT);
++--------+
+| DEPTNO |
++--------+
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     50 |
+|     50 |
+|     50 |
+|     60 |
+|     60 |
++--------+
+30 rows in set (0.00 sec)
+
+mysql> SELECT EMP.DEPTNO FROM EMP WHERE DEPTNO NOT IN (SELECT DEPTNO FROM DEPT);
+Empty set (0.01 sec)
+
+mysql> SELECT EMP.DEPTNO FROM DEPT WHERE DEPTNO NOT IN (SELECT DEPTNO FROM EMP);
+ERROR 1054 (42S22): Unknown column 'EMP.DEPTNO' in 'field list'
+mysql> SELECT DEPT.DEPTNO FROM DEPT WHERE DEPTNO NOT IN (SELECT DEPTNO FROM EMP);
++--------+
+| DEPTNO |
++--------+
+|     40 |
++--------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> SELECT DEPTNO FROM DEPT WHERE EXISTS  (SELECT TRUE FROM EMP WHERE DEPT.DEPTNO = EMP.DEPTNO);
++--------+
+| DEPTNO |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     50 |
+|     60 |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT DISTINCT EMP.DEPTNO FROM EMP WHERE DEPTNO IN (SELECT DEPTNO FROM DEPT);
++--------+
+| DEPTNO |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     50 |
+|     60 |
++--------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT DEPTNO FROM DEPT WHERE EXISTS  (SELECT TRUE FROM EMP WHERE DEPT.DEPTNO = EMP.DEPTNO);
++--------+
+| DEPTNO |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     50 |
+|     60 |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT DEPTNO FROM DEPT WHERE NOT EXISTS  (SELECT TRUE FROM EMP WHERE DEPT.DEPTNO = EMP.DEPTNO);
++--------+
+| DEPTNO |
++--------+
+|     40 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ENAME, GENDERS, DEPTNO FROM EMP ORDER BY 3
+    -> ;
+ERROR 1054 (42S22): Unknown column 'GENDERS' in 'field list'
+mysql> SELECT ENAME, GENDER, DEPTNO FROM EMP ORDER BY 3
+    -> ;
++----------+--------+--------+
+| ENAME    | GENDER | DEPTNO |
++----------+--------+--------+
+| AARAV    | M      |     10 |
+| THOMAS   | M      |     10 |
+| CLARK    | M      |     10 |
+| KING     | M      |     10 |
+| MILLER   | M      |     10 |
+| SHARMIN  | F      |     20 |
+| BANDISH  | F      |     20 |
+| SMITH    | M      |     20 |
+| JONES    | M      |     20 |
+| SCOTT    | M      |     20 |
+| FRED     | M      |     20 |
+| ADAMS    | M      |     20 |
+| FORD     | M      |     20 |
+| GITA     | F      |     30 |
+| ALLEN    | M      |     30 |
+| WARD     | M      |     30 |
+| MARTIN   | M      |     30 |
+| BLAKE    | M      |     30 |
+| TURNER   | M      |     30 |
+| JAMES    | M      |     30 |
+| HOFFMAN  | M      |     30 |
+| GRASS    | M      |     30 |
+| AARUSH   | M      |     30 |
+| ALEX     | M      |     30 |
+| NATASHA  | F      |     30 |
+| VRUSHALI | F      |     50 |
+| SANGITA  | F      |     50 |
+| SUPRIYA  | F      |     50 |
+| Ruhan    | M      |     60 |
+| Neel     | M      |     60 |
++----------+--------+--------+
+30 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, GENDER, DEPTNO FROM EMP ORDER BY 3;
++----------+--------+--------+
+| ENAME    | GENDER | DEPTNO |
++----------+--------+--------+
+| AARAV    | M      |     10 |
+| THOMAS   | M      |     10 |
+| CLARK    | M      |     10 |
+| KING     | M      |     10 |
+| MILLER   | M      |     10 |
+| SHARMIN  | F      |     20 |
+| BANDISH  | F      |     20 |
+| SMITH    | M      |     20 |
+| JONES    | M      |     20 |
+| SCOTT    | M      |     20 |
+| FRED     | M      |     20 |
+| ADAMS    | M      |     20 |
+| FORD     | M      |     20 |
+| GITA     | F      |     30 |
+| ALLEN    | M      |     30 |
+| WARD     | M      |     30 |
+| MARTIN   | M      |     30 |
+| BLAKE    | M      |     30 |
+| TURNER   | M      |     30 |
+| JAMES    | M      |     30 |
+| HOFFMAN  | M      |     30 |
+| GRASS    | M      |     30 |
+| AARUSH   | M      |     30 |
+| ALEX     | M      |     30 |
+| NATASHA  | F      |     30 |
+| VRUSHALI | F      |     50 |
+| SANGITA  | F      |     50 |
+| SUPRIYA  | F      |     50 |
+| Ruhan    | M      |     60 |
+| Neel     | M      |     60 |
++----------+--------+--------+
+30 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, GENDER, DEPTNO FROM EMP WHERE EXISTS (SELECT TRUE FROM EMP WHERE GENDER='M' GROUP BY DEPTNO);
++----------+--------+--------+
+| ENAME    | GENDER | DEPTNO |
++----------+--------+--------+
+| GITA     | F      |     30 |
+| VRUSHALI | F      |     50 |
+| SHARMIN  | F      |     20 |
+| BANDISH  | F      |     20 |
+| SMITH    | M      |     20 |
+| AARAV    | M      |     10 |
+| THOMAS   | M      |     10 |
+| ALLEN    | M      |     30 |
+| WARD     | M      |     30 |
+| JONES    | M      |     20 |
+| MARTIN   | M      |     30 |
+| BLAKE    | M      |     30 |
+| CLARK    | M      |     10 |
+| SCOTT    | M      |     20 |
+| KING     | M      |     10 |
+| FRED     | M      |     20 |
+| TURNER   | M      |     30 |
+| ADAMS    | M      |     20 |
+| Ruhan    | M      |     60 |
+| Neel     | M      |     60 |
+| JAMES    | M      |     30 |
+| FORD     | M      |     20 |
+| HOFFMAN  | M      |     30 |
+| GRASS    | M      |     30 |
+| MILLER   | M      |     10 |
+| AARUSH   | M      |     30 |
+| ALEX     | M      |     30 |
+| NATASHA  | F      |     30 |
+| SANGITA  | F      |     50 |
+| SUPRIYA  | F      |     50 |
++----------+--------+--------+
+30 rows in set (0.00 sec)
+
+mysql> SELECT ENAME, GENDER, DEPTNO FROM EMP WHERE NOT EXISTS (SELECT TRUE FROM EMP WHERE GENDER='F');
+Empty set (0.00 sec)
+
+mysql> SELECT ENAME, GENDER, DEPTNO FROM EMP WHERE NOT EXISTS (SELECT FALSE FROM EMP WHERE GENDER='F');
+Empty set (0.00 sec)
+
+mysql> SELECT ENAME, HIREDATE FROM EMP ORDER BY 2;
++----------+------------+
+| ENAME    | HIREDATE   |
++----------+------------+
+| GRASS    | 1980-02-14 |
+| AARUSH   | 1980-02-14 |
+| SMITH    | 1980-12-17 |
+| ALLEN    | 1981-02-20 |
+| WARD     | 1981-02-22 |
+| JONES    | 1981-04-02 |
+| BLAKE    | 1981-05-01 |
+| CLARK    | 1981-06-09 |
+| GITA     | 1981-07-19 |
+| VRUSHALI | 1981-07-19 |
+| SHARMIN  | 1981-07-19 |
+| BANDISH  | 1981-07-19 |
+| THOMAS   | 1981-07-19 |
+| NATASHA  | 1981-07-19 |
+| SANGITA  | 1981-07-19 |
+| SUPRIYA  | 1981-07-19 |
+| TURNER   | 1981-09-08 |
+| MARTIN   | 1981-09-28 |
+| KING     | 1981-11-17 |
+| JAMES    | 1981-12-03 |
+| FORD     | 1981-12-03 |
+| AARAV    | 1981-12-31 |
+| MILLER   | 1982-01-23 |
+| ALEX     | 1982-01-24 |
+| HOFFMAN  | 1982-03-24 |
+| SCOTT    | 1982-12-09 |
+| ADAMS    | 1983-01-12 |
+| FRED     | 1983-08-09 |
+| Ruhan    | 1983-08-09 |
+| Neel     | 1983-08-09 |
++----------+------------+
+30 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT EMPNO, ENAME, MGR FROM EMP;
++-------+----------+------+
+| EMPNO | ENAME    | MGR  |
++-------+----------+------+
+|  6001 | GITA     | 7920 |
+|  6129 | VRUSHALI | 7920 |
+|  6473 | SHARMIN  | 7920 |
+|  6781 | BANDISH  | 7920 |
+|  7369 | SMITH    | 7902 |
+|  7415 | AARAV    | 7902 |
+|  7421 | THOMAS   | 7920 |
+|  7499 | ALLEN    | 7698 |
+|  7521 | WARD     | 7698 |
+|  7566 | JONES    | 7839 |
+|  7654 | MARTIN   | 7698 |
+|  7698 | BLAKE    | 7839 |
+|  7782 | CLARK    | 7839 |
+|  7788 | SCOTT    | 7566 |
+|  7839 | KING     | NULL |
+|  7840 | FRED     | 7839 |
+|  7844 | TURNER   | 7698 |
+|  7876 | ADAMS    | 7788 |
+|  7888 | Ruhan    | 7888 |
+|  7889 | Neel     | 7839 |
+|  7900 | JAMES    | 7698 |
+|  7902 | FORD     | 7566 |
+|  7919 | HOFFMAN  | 7566 |
+|  7920 | GRASS    | 7919 |
+|  7934 | MILLER   | 7782 |
+|  7945 | AARUSH   | 7902 |
+|  7949 | ALEX     | 7698 |
+|  8433 | NATASHA  | 7920 |
+|  9400 | SANGITA  | 7920 |
+|  9473 | SUPRIYA  | 7920 |
++-------+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> EXIT
+Bye
+
+C:\Users\SALEEL>EXIT

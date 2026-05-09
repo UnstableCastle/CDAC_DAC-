@@ -1,0 +1,1736 @@
+mysql> select 1;
++---+
+| 1 |
++---+
+| 1 |
++---+
+1 row in set (0.01 sec)
+
+mysql> select 1 + 1;
++-------+
+| 1 + 1 |
++-------+
+|     2 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select 1 select 1+1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select 1+1' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select 1 union select 1+1;
++---+
+| 1 |
++---+
+| 1 |
+| 2 |
++---+
+2 rows in set (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select ename, sal,  sal+ 1000 R1 from dept;
+ERROR 1054 (42S22): Unknown column 'ename' in 'field list'
+mysql> select ename, sal,  sal+ 1000 R1 from emp;
++----------+------+------+
+| ename    | sal  | R1   |
++----------+------+------+
+| GITA     | 1750 | 2750 |
+| VRUSHALI | 1750 | 2750 |
+| SHARMIN  | 1750 | 2750 |
+| BANDISH  | 1750 | 2750 |
+| SMITH    |  800 | 1800 |
+| AARAV    | 3350 | 4350 |
+| THOMAS   | 1750 | 2750 |
+| ALLEN    | 1600 | 2600 |
+| WARD     | 1250 | 2250 |
+| JONES    | 2975 | 3975 |
+| MARTIN   | 1250 | 2250 |
+| BLAKE    | 2850 | 3850 |
+| CLARK    | 2450 | 3450 |
+| SCOTT    | 3000 | 4000 |
+| KING     | 5000 | 6000 |
+| FRED     | 5000 | 6000 |
+| TURNER   | 1500 | 2500 |
+| ADAMS    | 1100 | 2100 |
+| Ruhan    | 2000 | 3000 |
+| Neel     | 1000 | 2000 |
+| JAMES    |  950 | 1950 |
+| FORD     | 3000 | 4000 |
+| HOFFMAN  | 4150 | 5150 |
+| GRASS    | 2575 | 3575 |
+| MILLER   | 1300 | 2300 |
+| AARUSH   | 1350 | 2350 |
+| ALEX     | 1250 | 2250 |
+| NATASHA  | 1750 | 2750 |
+| SANGITA  | 1750 | 2750 |
+| SUPRIYA  | 2150 | 3150 |
++----------+------+------+
+30 rows in set (0.01 sec)
+
+mysql> select ename, sal,  sal+ 1000 R1 from emp where sal + 1000>3000;
++---------+------+------+
+| ename   | sal  | R1   |
++---------+------+------+
+| AARAV   | 3350 | 4350 |
+| JONES   | 2975 | 3975 |
+| BLAKE   | 2850 | 3850 |
+| CLARK   | 2450 | 3450 |
+| SCOTT   | 3000 | 4000 |
+| KING    | 5000 | 6000 |
+| FRED    | 5000 | 6000 |
+| FORD    | 3000 | 4000 |
+| HOFFMAN | 4150 | 5150 |
+| GRASS   | 2575 | 3575 |
+| SUPRIYA | 2150 | 3150 |
++---------+------+------+
+11 rows in set (0.00 sec)
+
+mysql> select ename, sal,  sal+ 1000 R1 from emp where R1 >3000;
+ERROR 1054 (42S22): Unknown column 'R1' in 'where clause'
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+       with x as(select * from dept)
+       ^C
+mysql> with x as (select * from dept) select * from x
+    -> ;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> with x as (select * from dept) select deptno, dname from x;
++--------+------------+
+| DEPTNO | DNAME      |
++--------+------------+
+|     10 | ACCOUNTING |
+|     20 | RESEARCH   |
+|     30 | SALES      |
+|     40 | OPERATIONS |
+|     50 | HR         |
+|     60 | IT         |
++--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> with x as (select ename, sal, sal+1000 from emp) select deptno, dname from x;
+ERROR 1054 (42S22): Unknown column 'deptno' in 'field list'
+mysql> with x as (select ename, sal, sal+1000 from emp) select * from x;
++----------+------+----------+
+| ename    | sal  | sal+1000 |
++----------+------+----------+
+| GITA     | 1750 |     2750 |
+| VRUSHALI | 1750 |     2750 |
+| SHARMIN  | 1750 |     2750 |
+| BANDISH  | 1750 |     2750 |
+| SMITH    |  800 |     1800 |
+| AARAV    | 3350 |     4350 |
+| THOMAS   | 1750 |     2750 |
+| ALLEN    | 1600 |     2600 |
+| WARD     | 1250 |     2250 |
+| JONES    | 2975 |     3975 |
+| MARTIN   | 1250 |     2250 |
+| BLAKE    | 2850 |     3850 |
+| CLARK    | 2450 |     3450 |
+| SCOTT    | 3000 |     4000 |
+| KING     | 5000 |     6000 |
+| FRED     | 5000 |     6000 |
+| TURNER   | 1500 |     2500 |
+| ADAMS    | 1100 |     2100 |
+| Ruhan    | 2000 |     3000 |
+| Neel     | 1000 |     2000 |
+| JAMES    |  950 |     1950 |
+| FORD     | 3000 |     4000 |
+| HOFFMAN  | 4150 |     5150 |
+| GRASS    | 2575 |     3575 |
+| MILLER   | 1300 |     2300 |
+| AARUSH   | 1350 |     2350 |
+| ALEX     | 1250 |     2250 |
+| NATASHA  | 1750 |     2750 |
+| SANGITA  | 1750 |     2750 |
+| SUPRIYA  | 2150 |     3150 |
++----------+------+----------+
+30 rows in set (0.00 sec)
+
+mysql> with x as (select ename, sal, sal+1000 from emp) select * from x where sal+1000 >3000;
++---------+------+----------+
+| ename   | sal  | sal+1000 |
++---------+------+----------+
+| AARAV   | 3350 |     4350 |
+| JONES   | 2975 |     3975 |
+| BLAKE   | 2850 |     3850 |
+| CLARK   | 2450 |     3450 |
+| SCOTT   | 3000 |     4000 |
+| KING    | 5000 |     6000 |
+| FRED    | 5000 |     6000 |
+| FORD    | 3000 |     4000 |
+| HOFFMAN | 4150 |     5150 |
+| GRASS   | 2575 |     3575 |
+| SUPRIYA | 2150 |     3150 |
++---------+------+----------+
+11 rows in set (0.00 sec)
+
+mysql> with x as (select ename, sal, sal+1000 from emp) select * from x where R1 >3000;
+ERROR 1054 (42S22): Unknown column 'R1' in 'where clause'
+mysql> with x as (select ename, sal, sal+1000 R1 from emp) select * from x where R1 >3000;
++---------+------+------+
+| ename   | sal  | R1   |
++---------+------+------+
+| AARAV   | 3350 | 4350 |
+| JONES   | 2975 | 3975 |
+| BLAKE   | 2850 | 3850 |
+| CLARK   | 2450 | 3450 |
+| SCOTT   | 3000 | 4000 |
+| KING    | 5000 | 6000 |
+| FRED    | 5000 | 6000 |
+| FORD    | 3000 | 4000 |
+| HOFFMAN | 4150 | 5150 |
+| GRASS   | 2575 | 3575 |
+| SUPRIYA | 2150 | 3150 |
++---------+------+------+
+11 rows in set (0.00 sec)
+
+mysql> with x as (select ename, sal, sal+1000 R1 from emp) select * from x;
++----------+------+------+
+| ename    | sal  | R1   |
++----------+------+------+
+| GITA     | 1750 | 2750 |
+| VRUSHALI | 1750 | 2750 |
+| SHARMIN  | 1750 | 2750 |
+| BANDISH  | 1750 | 2750 |
+| SMITH    |  800 | 1800 |
+| AARAV    | 3350 | 4350 |
+| THOMAS   | 1750 | 2750 |
+| ALLEN    | 1600 | 2600 |
+| WARD     | 1250 | 2250 |
+| JONES    | 2975 | 3975 |
+| MARTIN   | 1250 | 2250 |
+| BLAKE    | 2850 | 3850 |
+| CLARK    | 2450 | 3450 |
+| SCOTT    | 3000 | 4000 |
+| KING     | 5000 | 6000 |
+| FRED     | 5000 | 6000 |
+| TURNER   | 1500 | 2500 |
+| ADAMS    | 1100 | 2100 |
+| Ruhan    | 2000 | 3000 |
+| Neel     | 1000 | 2000 |
+| JAMES    |  950 | 1950 |
+| FORD     | 3000 | 4000 |
+| HOFFMAN  | 4150 | 5150 |
+| GRASS    | 2575 | 3575 |
+| MILLER   | 1300 | 2300 |
+| AARUSH   | 1350 | 2350 |
+| ALEX     | 1250 | 2250 |
+| NATASHA  | 1750 | 2750 |
+| SANGITA  | 1750 | 2750 |
+| SUPRIYA  | 2150 | 3150 |
++----------+------+------+
+30 rows in set (0.00 sec)
+
+mysql> select ename, sal, sal+1000 R1 from emp;
++----------+------+------+
+| ename    | sal  | R1   |
++----------+------+------+
+| GITA     | 1750 | 2750 |
+| VRUSHALI | 1750 | 2750 |
+| SHARMIN  | 1750 | 2750 |
+| BANDISH  | 1750 | 2750 |
+| SMITH    |  800 | 1800 |
+| AARAV    | 3350 | 4350 |
+| THOMAS   | 1750 | 2750 |
+| ALLEN    | 1600 | 2600 |
+| WARD     | 1250 | 2250 |
+| JONES    | 2975 | 3975 |
+| MARTIN   | 1250 | 2250 |
+| BLAKE    | 2850 | 3850 |
+| CLARK    | 2450 | 3450 |
+| SCOTT    | 3000 | 4000 |
+| KING     | 5000 | 6000 |
+| FRED     | 5000 | 6000 |
+| TURNER   | 1500 | 2500 |
+| ADAMS    | 1100 | 2100 |
+| Ruhan    | 2000 | 3000 |
+| Neel     | 1000 | 2000 |
+| JAMES    |  950 | 1950 |
+| FORD     | 3000 | 4000 |
+| HOFFMAN  | 4150 | 5150 |
+| GRASS    | 2575 | 3575 |
+| MILLER   | 1300 | 2300 |
+| AARUSH   | 1350 | 2350 |
+| ALEX     | 1250 | 2250 |
+| NATASHA  | 1750 | 2750 |
+| SANGITA  | 1750 | 2750 |
+| SUPRIYA  | 2150 | 3150 |
++----------+------+------+
+30 rows in set (0.01 sec)
+
+mysql>
+mysql>
+mysql> select ename, sal from emp order by sal desc;
++----------+------+
+| ename    | sal  |
++----------+------+
+| KING     | 5000 |
+| FRED     | 5000 |
+| HOFFMAN  | 4150 |
+| AARAV    | 3350 |
+| SCOTT    | 3000 |
+| FORD     | 3000 |
+| JONES    | 2975 |
+| BLAKE    | 2850 |
+| GRASS    | 2575 |
+| CLARK    | 2450 |
+| SUPRIYA  | 2150 |
+| Ruhan    | 2000 |
+| GITA     | 1750 |
+| VRUSHALI | 1750 |
+| SHARMIN  | 1750 |
+| BANDISH  | 1750 |
+| THOMAS   | 1750 |
+| NATASHA  | 1750 |
+| SANGITA  | 1750 |
+| ALLEN    | 1600 |
+| TURNER   | 1500 |
+| AARUSH   | 1350 |
+| MILLER   | 1300 |
+| WARD     | 1250 |
+| MARTIN   | 1250 |
+| ALEX     | 1250 |
+| ADAMS    | 1100 |
+| Neel     | 1000 |
+| JAMES    |  950 |
+| SMITH    |  800 |
++----------+------+
+30 rows in set (0.02 sec)
+
+mysql> select ename, sal from emp1;
++-------------+----------+
+| ename       | sal      |
++-------------+----------+
+| Alice       |  9000.00 |
+| Victor      |  8000.00 |
+| Jack        |  7000.00 |
+| William     |  7000.79 |
+| Rose        |  8000.48 |
+| Kate        |  3000.00 |
+| William     | 23700.00 |
+| Matthew     |  4700.00 |
+| MAI         |  8000.00 |
+| ZARIA       |  7000.00 |
+| MAYA        |  7000.15 |
+| ROSE        | 18000.00 |
+| KATE        |  3000.00 |
+| TINA        | 13700.00 |
+| MARY        | 20000.00 |
+| TESSA       | 14700.00 |
+| STEVEN      | -9500.00 |
+| SHERLOCK    |  1600.00 |
+| STEPHEN     |  1100.00 |
+| Aaron       |  4500.00 |
+| Alexander   |  2950.00 |
+| Brooke      |  2222.00 |
+| Bruce       |  4975.30 |
+| Eli         |  5400.00 |
+| shelley     |  6000.99 |
+| Clive       |  3600.00 |
+| Christopher |  4250.98 |
+| Dirk        |  1500.00 |
+| ely         |  5250.00 |
+| SHERLOCK    |  1600.00 |
+| AARON       |  4500.00 |
+| ALEXANDER   |  2950.00 |
+| BROOKE      |  2222.00 |
+| BRUCE       |  4975.00 |
+| CHRISTOPHER |  4250.00 |
+| CLIVE       |  3600.00 |
+| joel        | -1600.00 |
+| jay         | -3100.00 |
+| joe         | -1100.00 |
+| matthew     | -1100.00 |
+| louis       | -1600.00 |
+| DIRK        |  1500.00 |
+| ELI         |  5400.00 |
+| ELY         |  5250.70 |
+| SMITH       |   800.00 |
+| TROY        |  4100.00 |
+| ALLEN       |  1600.00 |
+| WARD        |  1250.00 |
+| JONES       |  2975.00 |
+| MARTIN      |  1250.00 |
+| BLAKE       |  2850.00 |
+| CLARK       |  2450.00 |
+| SCOTT       |  3000.00 |
+| KING        |  5000.00 |
+| TURNER      |  1500.00 |
+| ADAMS       |  1100.00 |
+| STEPHEN     |  1100.00 |
+| JAMES       |   950.00 |
+| FORD        |  3000.00 |
+| MILLER      |  1300.00 |
+| THOMAS      |  4900.00 |
+| SHELLEY     |  6000.00 |
+| stephen     |  1100.00 |
+| thomas      |  4900.00 |
+| sherlock    |  1600.00 |
+| sherlock    |  1600.00 |
+| troy        |  3100.00 |
+| stephen     |  1100.00 |
++-------------+----------+
+68 rows in set (0.02 sec)
+
+mysql> select distinct sal from emp order by sal limit 1,1;
++------+
+| sal  |
++------+
+|  950 |
++------+
+1 row in set (0.03 sec)
+
+mysql> select distinct sal from emp order by sal desc limit 1,1;
++------+
+| sal  |
++------+
+| 4150 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select ename, distinct sal from emp order by sal desc limit 1,1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'distinct sal from emp order by sal desc limit 1,1' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select distinct ename,  sal from emp order by sal desc limit 1,1;
++-------+------+
+| ename | sal  |
++-------+------+
+| KING  | 5000 |
++-------+------+
+1 row in set (0.01 sec)
+
+mysql> select sal from emp group by sal;
++------+
+| sal  |
++------+
+| 1750 |
+|  800 |
+| 3350 |
+| 1600 |
+| 1250 |
+| 2975 |
+| 2850 |
+| 2450 |
+| 3000 |
+| 5000 |
+| 1500 |
+| 1100 |
+| 2000 |
+| 1000 |
+|  950 |
+| 4150 |
+| 2575 |
+| 1300 |
+| 1350 |
+| 2150 |
++------+
+20 rows in set (0.02 sec)
+
+mysql> select sal , count(*) from emp group by sal;
++------+----------+
+| sal  | count(*) |
++------+----------+
+| 1750 |        7 |
+|  800 |        1 |
+| 3350 |        1 |
+| 1600 |        1 |
+| 1250 |        3 |
+| 2975 |        1 |
+| 2850 |        1 |
+| 2450 |        1 |
+| 3000 |        2 |
+| 5000 |        2 |
+| 1500 |        1 |
+| 1100 |        1 |
+| 2000 |        1 |
+| 1000 |        1 |
+|  950 |        1 |
+| 4150 |        1 |
+| 2575 |        1 |
+| 1300 |        1 |
+| 1350 |        1 |
+| 2150 |        1 |
++------+----------+
+20 rows in set (0.01 sec)
+
+mysql> select sal , count(*) from emp group by sal order bysa 1 desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'bysa 1 desc' at line 1
+mysql>
+mysql>
+mysql> select sal , count(*) from emp group by sal order by  1 desc;
++------+----------+
+| sal  | count(*) |
++------+----------+
+| 5000 |        2 |
+| 4150 |        1 |
+| 3350 |        1 |
+| 3000 |        2 |
+| 2975 |        1 |
+| 2850 |        1 |
+| 2575 |        1 |
+| 2450 |        1 |
+| 2150 |        1 |
+| 2000 |        1 |
+| 1750 |        7 |
+| 1600 |        1 |
+| 1500 |        1 |
+| 1350 |        1 |
+| 1300 |        1 |
+| 1250 |        3 |
+| 1100 |        1 |
+| 1000 |        1 |
+|  950 |        1 |
+|  800 |        1 |
++------+----------+
+20 rows in set (0.01 sec)
+
+mysql> select sal , count(*) from emp group by sal order by  1 desc limit 1, 1;
++------+----------+
+| sal  | count(*) |
++------+----------+
+| 4150 |        1 |
++------+----------+
+1 row in set (0.01 sec)
+
+mysql> select ename, sal from emp;
++----------+------+
+| ename    | sal  |
++----------+------+
+| GITA     | 1750 |
+| VRUSHALI | 1750 |
+| SHARMIN  | 1750 |
+| BANDISH  | 1750 |
+| SMITH    |  800 |
+| AARAV    | 3350 |
+| THOMAS   | 1750 |
+| ALLEN    | 1600 |
+| WARD     | 1250 |
+| JONES    | 2975 |
+| MARTIN   | 1250 |
+| BLAKE    | 2850 |
+| CLARK    | 2450 |
+| SCOTT    | 3000 |
+| KING     | 5000 |
+| FRED     | 5000 |
+| TURNER   | 1500 |
+| ADAMS    | 1100 |
+| Ruhan    | 2000 |
+| Neel     | 1000 |
+| JAMES    |  950 |
+| FORD     | 3000 |
+| HOFFMAN  | 4150 |
+| GRASS    | 2575 |
+| MILLER   | 1300 |
+| AARUSH   | 1350 |
+| ALEX     | 1250 |
+| NATASHA  | 1750 |
+| SANGITA  | 1750 |
+| SUPRIYA  | 2150 |
++----------+------+
+30 rows in set (0.00 sec)
+
+mysql> select ename, sal from emp ordr by sal desx;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by sal desx' at line 1
+mysql> select ename, sal from emp order by sal desc;
++----------+------+
+| ename    | sal  |
++----------+------+
+| KING     | 5000 |
+| FRED     | 5000 |
+| HOFFMAN  | 4150 |
+| AARAV    | 3350 |
+| SCOTT    | 3000 |
+| FORD     | 3000 |
+| JONES    | 2975 |
+| BLAKE    | 2850 |
+| GRASS    | 2575 |
+| CLARK    | 2450 |
+| SUPRIYA  | 2150 |
+| Ruhan    | 2000 |
+| GITA     | 1750 |
+| VRUSHALI | 1750 |
+| SHARMIN  | 1750 |
+| BANDISH  | 1750 |
+| THOMAS   | 1750 |
+| NATASHA  | 1750 |
+| SANGITA  | 1750 |
+| ALLEN    | 1600 |
+| TURNER   | 1500 |
+| AARUSH   | 1350 |
+| MILLER   | 1300 |
+| WARD     | 1250 |
+| MARTIN   | 1250 |
+| ALEX     | 1250 |
+| ADAMS    | 1100 |
+| Neel     | 1000 |
+| JAMES    |  950 |
+| SMITH    |  800 |
++----------+------+
+30 rows in set (0.01 sec)
+
+mysql> select dense_rank() over(rder by sal desc) R1, ename, sal from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by sal desc) R1, ename, sal from emp' at line 1
+mysql>
+mysql>
+mysql> select dense_rank() over(order by sal desc) R1, ename, sal from emp;
++----+----------+------+
+| R1 | ename    | sal  |
++----+----------+------+
+|  1 | KING     | 5000 |
+|  1 | FRED     | 5000 |
+|  2 | HOFFMAN  | 4150 |
+|  3 | AARAV    | 3350 |
+|  4 | SCOTT    | 3000 |
+|  4 | FORD     | 3000 |
+|  5 | JONES    | 2975 |
+|  6 | BLAKE    | 2850 |
+|  7 | GRASS    | 2575 |
+|  8 | CLARK    | 2450 |
+|  9 | SUPRIYA  | 2150 |
+| 10 | Ruhan    | 2000 |
+| 11 | GITA     | 1750 |
+| 11 | VRUSHALI | 1750 |
+| 11 | SHARMIN  | 1750 |
+| 11 | BANDISH  | 1750 |
+| 11 | THOMAS   | 1750 |
+| 11 | NATASHA  | 1750 |
+| 11 | SANGITA  | 1750 |
+| 12 | ALLEN    | 1600 |
+| 13 | TURNER   | 1500 |
+| 14 | AARUSH   | 1350 |
+| 15 | MILLER   | 1300 |
+| 16 | WARD     | 1250 |
+| 16 | MARTIN   | 1250 |
+| 16 | ALEX     | 1250 |
+| 17 | ADAMS    | 1100 |
+| 18 | Neel     | 1000 |
+| 19 | JAMES    |  950 |
+| 20 | SMITH    |  800 |
++----+----------+------+
+30 rows in set (0.02 sec)
+
+mysql> select dense_rank() over(order by sal desc) R1, ename, sal from emp;
++----+----------+------+
+| R1 | ename    | sal  |
++----+----------+------+
+|  1 | KING     | 5000 |
+|  1 | FRED     | 5000 |
+|  2 | HOFFMAN  | 4150 |
+|  3 | AARAV    | 3350 |
+|  4 | SCOTT    | 3000 |
+|  4 | FORD     | 3000 |
+|  5 | JONES    | 2975 |
+|  6 | BLAKE    | 2850 |
+|  7 | GRASS    | 2575 |
+|  8 | CLARK    | 2450 |
+|  9 | SUPRIYA  | 2150 |
+| 10 | Ruhan    | 2000 |
+| 11 | GITA     | 1750 |
+| 11 | VRUSHALI | 1750 |
+| 11 | SHARMIN  | 1750 |
+| 11 | BANDISH  | 1750 |
+| 11 | THOMAS   | 1750 |
+| 11 | NATASHA  | 1750 |
+| 11 | SANGITA  | 1750 |
+| 12 | ALLEN    | 1600 |
+| 13 | TURNER   | 1500 |
+| 14 | AARUSH   | 1350 |
+| 15 | MILLER   | 1300 |
+| 16 | WARD     | 1250 |
+| 16 | MARTIN   | 1250 |
+| 16 | ALEX     | 1250 |
+| 17 | ADAMS    | 1100 |
+| 18 | Neel     | 1000 |
+| 19 | JAMES    |  950 |
+| 20 | SMITH    |  800 |
++----+----------+------+
+30 rows in set (0.01 sec)
+
+mysql> select dense_rank() over(order by sal desc) R1, ename, sal from emp where R1 = 5;
+ERROR 1054 (42S22): Unknown column 'R1' in 'where clause'
+mysql>
+mysql> select dense_rank() over(order by sal desc) R1, ename, sal from emp where dense_rank() over(order by sal desc) = 5;
+ERROR 3593 (HY000): You cannot use the window function 'dense_rank' in this context.'
+mysql>
+mysql>
+mysql>
+mysql> select dense_rank() over(order by sal desc) R1, ename, sal from emp;
++----+----------+------+
+| R1 | ename    | sal  |
++----+----------+------+
+|  1 | KING     | 5000 |
+|  1 | FRED     | 5000 |
+|  2 | HOFFMAN  | 4150 |
+|  3 | AARAV    | 3350 |
+|  4 | SCOTT    | 3000 |
+|  4 | FORD     | 3000 |
+|  5 | JONES    | 2975 |
+|  6 | BLAKE    | 2850 |
+|  7 | GRASS    | 2575 |
+|  8 | CLARK    | 2450 |
+|  9 | SUPRIYA  | 2150 |
+| 10 | Ruhan    | 2000 |
+| 11 | GITA     | 1750 |
+| 11 | VRUSHALI | 1750 |
+| 11 | SHARMIN  | 1750 |
+| 11 | BANDISH  | 1750 |
+| 11 | THOMAS   | 1750 |
+| 11 | NATASHA  | 1750 |
+| 11 | SANGITA  | 1750 |
+| 12 | ALLEN    | 1600 |
+| 13 | TURNER   | 1500 |
+| 14 | AARUSH   | 1350 |
+| 15 | MILLER   | 1300 |
+| 16 | WARD     | 1250 |
+| 16 | MARTIN   | 1250 |
+| 16 | ALEX     | 1250 |
+| 17 | ADAMS    | 1100 |
+| 18 | Neel     | 1000 |
+| 19 | JAMES    |  950 |
+| 20 | SMITH    |  800 |
++----+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> with cte as (select dense_rank() over(order by sal desc) R1, ename, sal from emp) select * from cte;
++----+----------+------+
+| R1 | ename    | sal  |
++----+----------+------+
+|  1 | KING     | 5000 |
+|  1 | FRED     | 5000 |
+|  2 | HOFFMAN  | 4150 |
+|  3 | AARAV    | 3350 |
+|  4 | SCOTT    | 3000 |
+|  4 | FORD     | 3000 |
+|  5 | JONES    | 2975 |
+|  6 | BLAKE    | 2850 |
+|  7 | GRASS    | 2575 |
+|  8 | CLARK    | 2450 |
+|  9 | SUPRIYA  | 2150 |
+| 10 | Ruhan    | 2000 |
+| 11 | GITA     | 1750 |
+| 11 | VRUSHALI | 1750 |
+| 11 | SHARMIN  | 1750 |
+| 11 | BANDISH  | 1750 |
+| 11 | THOMAS   | 1750 |
+| 11 | NATASHA  | 1750 |
+| 11 | SANGITA  | 1750 |
+| 12 | ALLEN    | 1600 |
+| 13 | TURNER   | 1500 |
+| 14 | AARUSH   | 1350 |
+| 15 | MILLER   | 1300 |
+| 16 | WARD     | 1250 |
+| 16 | MARTIN   | 1250 |
+| 16 | ALEX     | 1250 |
+| 17 | ADAMS    | 1100 |
+| 18 | Neel     | 1000 |
+| 19 | JAMES    |  950 |
+| 20 | SMITH    |  800 |
++----+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> with cte as (select dense_rank() over(order by sal de c) R1, ename, sal from emp) select * from cte where R1 = 5;
++----+-------+------+
+| R1 | ename | sal  |
++----+-------+------+
+|  5 | JONES | 2975 |
++----+-------+------+
+1 row in set (0.09 sec)
+
+mysql> with cte as (select dense_rank() over(order by sal desc) R1, ename, sal from emp) select * from cte where R1 = 22;
+Empty set (0.00 sec)
+
+mysql> with cte as (select dense_rank() over(order by sal desc) R1, ename, sal from emp) select * from cte where R1 = 2;
++----+---------+------+
+| R1 | ename   | sal  |
++----+---------+------+
+|  2 | HOFFMAN | 4150 |
++----+---------+------+
+1 row in set (0.00 sec)
+
+mysql> with cte as (select dense_rank() over(order by sal desc) R1, ename, sal from emp) select ename, sal from cte where R1 = 2;
++---------+------+
+| ename   | sal  |
++---------+------+
+| HOFFMAN | 4150 |
++---------+------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select row_number() over() R1,  dept.* from dept;
++----+--------+------------+----------+------------+------------+
+| R1 | DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++----+--------+------------+----------+------------+------------+
+|  1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  2 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  3 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  4 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  5 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  6 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++----+--------+------------+----------+------------+------------+
+6 rows in set (0.01 sec)
+
+mysql> select row_number() over() R1,  ename, job,hiredate, sal from dept;
+ERROR 1054 (42S22): Unknown column 'ename' in 'field list'
+mysql>
+mysql> select row_number() over() R1,  ename, job,hiredate, sal from emp;
++----+----------+---------------------+------------+------+
+| R1 | ename    | job                 | hiredate   | sal  |
++----+----------+---------------------+------------+------+
+|  1 | GITA     | Compliance officers | 1981-07-19 | 1750 |
+|  2 | VRUSHALI | Compliance officers | 1981-07-19 | 1750 |
+|  3 | SHARMIN  | Public Relation     | 1981-07-19 | 1750 |
+|  4 | BANDISH  | Public Relation     | 1981-07-19 | 1750 |
+|  5 | SMITH    | CLERK               | 1980-12-17 |  800 |
+|  6 | AARAV    | CLERK               | 1981-12-31 | 3350 |
+|  7 | THOMAS   | CLERK               | 1981-07-19 | 1750 |
+|  8 | ALLEN    | SALESMAN            | 1981-02-20 | 1600 |
+|  9 | WARD     | SALESMAN            | 1981-02-22 | 1250 |
+| 10 | JONES    | MANAGER             | 1981-04-02 | 2975 |
+| 11 | MARTIN   | SALESMAN            | 1981-09-28 | 1250 |
+| 12 | BLAKE    | MANAGER             | 1981-05-01 | 2850 |
+| 13 | CLARK    | MANAGER             | 1981-06-09 | 2450 |
+| 14 | SCOTT    | ANALYST             | 1982-12-09 | 3000 |
+| 15 | KING     | PRESIDENT           | 1981-11-17 | 5000 |
+| 16 | FRED     | vice PRESIDENT      | 1983-08-09 | 5000 |
+| 17 | TURNER   | SALESMAN            | 1981-09-08 | 1500 |
+| 18 | ADAMS    | CLERK               | 1983-01-12 | 1100 |
+| 19 | Ruhan    | Network             | 1983-08-09 | 2000 |
+| 20 | Neel     | vice PRESIDENT      | 1983-08-09 | 1000 |
+| 21 | JAMES    | CLERK               | 1981-12-03 |  950 |
+| 22 | FORD     | ANALYST             | 1981-12-03 | 3000 |
+| 23 | HOFFMAN  | MANAGER             | 1982-03-24 | 4150 |
+| 24 | GRASS    | SALESMAN            | 1980-02-14 | 2575 |
+| 25 | MILLER   | CLERK               | 1982-01-23 | 1300 |
+| 26 | AARUSH   | SALESMAN            | 1980-02-14 | 1350 |
+| 27 | ALEX     | MANAGER             | 1982-01-24 | 1250 |
+| 28 | NATASHA  | CLERK               | 1981-07-19 | 1750 |
+| 29 | SANGITA  | Compliance officers | 1981-07-19 | 1750 |
+| 30 | SUPRIYA  | ANALYST             | 1981-07-19 | 2150 |
++----+----------+---------------------+------------+------+
+30 rows in set (0.01 sec)
+
+mysql>
+mysql>
+mysql>
+mysql> select row_number() over() R1,  ename, job,hiredate, sal from emp;
++----+----------+---------------------+------------+------+
+| R1 | ename    | job                 | hiredate   | sal  |
++----+----------+---------------------+------------+------+
+|  1 | GITA     | Compliance officers | 1981-07-19 | 1750 |
+|  2 | VRUSHALI | Compliance officers | 1981-07-19 | 1750 |
+|  3 | SHARMIN  | Public Relation     | 1981-07-19 | 1750 |
+|  4 | BANDISH  | Public Relation     | 1981-07-19 | 1750 |
+|  5 | SMITH    | CLERK               | 1980-12-17 |  800 |
+|  6 | AARAV    | CLERK               | 1981-12-31 | 3350 |
+|  7 | THOMAS   | CLERK               | 1981-07-19 | 1750 |
+|  8 | ALLEN    | SALESMAN            | 1981-02-20 | 1600 |
+|  9 | WARD     | SALESMAN            | 1981-02-22 | 1250 |
+| 10 | JONES    | MANAGER             | 1981-04-02 | 2975 |
+| 11 | MARTIN   | SALESMAN            | 1981-09-28 | 1250 |
+| 12 | BLAKE    | MANAGER             | 1981-05-01 | 2850 |
+| 13 | CLARK    | MANAGER             | 1981-06-09 | 2450 |
+| 14 | SCOTT    | ANALYST             | 1982-12-09 | 3000 |
+| 15 | KING     | PRESIDENT           | 1981-11-17 | 5000 |
+| 16 | FRED     | vice PRESIDENT      | 1983-08-09 | 5000 |
+| 17 | TURNER   | SALESMAN            | 1981-09-08 | 1500 |
+| 18 | ADAMS    | CLERK               | 1983-01-12 | 1100 |
+| 19 | Ruhan    | Network             | 1983-08-09 | 2000 |
+| 20 | Neel     | vice PRESIDENT      | 1983-08-09 | 1000 |
+| 21 | JAMES    | CLERK               | 1981-12-03 |  950 |
+| 22 | FORD     | ANALYST             | 1981-12-03 | 3000 |
+| 23 | HOFFMAN  | MANAGER             | 1982-03-24 | 4150 |
+| 24 | GRASS    | SALESMAN            | 1980-02-14 | 2575 |
+| 25 | MILLER   | CLERK               | 1982-01-23 | 1300 |
+| 26 | AARUSH   | SALESMAN            | 1980-02-14 | 1350 |
+| 27 | ALEX     | MANAGER             | 1982-01-24 | 1250 |
+| 28 | NATASHA  | CLERK               | 1981-07-19 | 1750 |
+| 29 | SANGITA  | Compliance officers | 1981-07-19 | 1750 |
+| 30 | SUPRIYA  | ANALYST             | 1981-07-19 | 2150 |
++----+----------+---------------------+------------+------+
+30 rows in set (0.00 sec)
+
+mysql> with cte as  (select row_number() over() R1,  ename, job,hiredate, sal from emp) select * from cte;
++----+----------+---------------------+------------+------+
+| R1 | ename    | job                 | hiredate   | sal  |
++----+----------+---------------------+------------+------+
+|  1 | GITA     | Compliance officers | 1981-07-19 | 1750 |
+|  2 | VRUSHALI | Compliance officers | 1981-07-19 | 1750 |
+|  3 | SHARMIN  | Public Relation     | 1981-07-19 | 1750 |
+|  4 | BANDISH  | Public Relation     | 1981-07-19 | 1750 |
+|  5 | SMITH    | CLERK               | 1980-12-17 |  800 |
+|  6 | AARAV    | CLERK               | 1981-12-31 | 3350 |
+|  7 | THOMAS   | CLERK               | 1981-07-19 | 1750 |
+|  8 | ALLEN    | SALESMAN            | 1981-02-20 | 1600 |
+|  9 | WARD     | SALESMAN            | 1981-02-22 | 1250 |
+| 10 | JONES    | MANAGER             | 1981-04-02 | 2975 |
+| 11 | MARTIN   | SALESMAN            | 1981-09-28 | 1250 |
+| 12 | BLAKE    | MANAGER             | 1981-05-01 | 2850 |
+| 13 | CLARK    | MANAGER             | 1981-06-09 | 2450 |
+| 14 | SCOTT    | ANALYST             | 1982-12-09 | 3000 |
+| 15 | KING     | PRESIDENT           | 1981-11-17 | 5000 |
+| 16 | FRED     | vice PRESIDENT      | 1983-08-09 | 5000 |
+| 17 | TURNER   | SALESMAN            | 1981-09-08 | 1500 |
+| 18 | ADAMS    | CLERK               | 1983-01-12 | 1100 |
+| 19 | Ruhan    | Network             | 1983-08-09 | 2000 |
+| 20 | Neel     | vice PRESIDENT      | 1983-08-09 | 1000 |
+| 21 | JAMES    | CLERK               | 1981-12-03 |  950 |
+| 22 | FORD     | ANALYST             | 1981-12-03 | 3000 |
+| 23 | HOFFMAN  | MANAGER             | 1982-03-24 | 4150 |
+| 24 | GRASS    | SALESMAN            | 1980-02-14 | 2575 |
+| 25 | MILLER   | CLERK               | 1982-01-23 | 1300 |
+| 26 | AARUSH   | SALESMAN            | 1980-02-14 | 1350 |
+| 27 | ALEX     | MANAGER             | 1982-01-24 | 1250 |
+| 28 | NATASHA  | CLERK               | 1981-07-19 | 1750 |
+| 29 | SANGITA  | Compliance officers | 1981-07-19 | 1750 |
+| 30 | SUPRIYA  | ANALYST             | 1981-07-19 | 2150 |
++----+----------+---------------------+------------+------+
+30 rows in set (0.00 sec)
+
+mysql> with cte as  (select row_number() over() R1,  ename, job,hiredate, sal from emp) select * from cte r1 = 26;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 26' at line 1
+mysql>
+mysql> with cte as  (select row_number() over() R1,  ename, job,hiredate, sal from emp) select * from cte where r1 = 26;
++----+--------+----------+------------+------+
+| R1 | ename  | job      | hiredate   | sal  |
++----+--------+----------+------------+------+
+| 26 | AARUSH | SALESMAN | 1980-02-14 | 1350 |
++----+--------+----------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> with cte as  (select row_number() over() R1,  ename, job,hiredate, sal from emp) select * from cte;
++----+----------+---------------------+------------+------+
+| R1 | ename    | job                 | hiredate   | sal  |
++----+----------+---------------------+------------+------+
+|  1 | GITA     | Compliance officers | 1981-07-19 | 1750 |
+|  2 | VRUSHALI | Compliance officers | 1981-07-19 | 1750 |
+|  3 | SHARMIN  | Public Relation     | 1981-07-19 | 1750 |
+|  4 | BANDISH  | Public Relation     | 1981-07-19 | 1750 |
+|  5 | SMITH    | CLERK               | 1980-12-17 |  800 |
+|  6 | AARAV    | CLERK               | 1981-12-31 | 3350 |
+|  7 | THOMAS   | CLERK               | 1981-07-19 | 1750 |
+|  8 | ALLEN    | SALESMAN            | 1981-02-20 | 1600 |
+|  9 | WARD     | SALESMAN            | 1981-02-22 | 1250 |
+| 10 | JONES    | MANAGER             | 1981-04-02 | 2975 |
+| 11 | MARTIN   | SALESMAN            | 1981-09-28 | 1250 |
+| 12 | BLAKE    | MANAGER             | 1981-05-01 | 2850 |
+| 13 | CLARK    | MANAGER             | 1981-06-09 | 2450 |
+| 14 | SCOTT    | ANALYST             | 1982-12-09 | 3000 |
+| 15 | KING     | PRESIDENT           | 1981-11-17 | 5000 |
+| 16 | FRED     | vice PRESIDENT      | 1983-08-09 | 5000 |
+| 17 | TURNER   | SALESMAN            | 1981-09-08 | 1500 |
+| 18 | ADAMS    | CLERK               | 1983-01-12 | 1100 |
+| 19 | Ruhan    | Network             | 1983-08-09 | 2000 |
+| 20 | Neel     | vice PRESIDENT      | 1983-08-09 | 1000 |
+| 21 | JAMES    | CLERK               | 1981-12-03 |  950 |
+| 22 | FORD     | ANALYST             | 1981-12-03 | 3000 |
+| 23 | HOFFMAN  | MANAGER             | 1982-03-24 | 4150 |
+| 24 | GRASS    | SALESMAN            | 1980-02-14 | 2575 |
+| 25 | MILLER   | CLERK               | 1982-01-23 | 1300 |
+| 26 | AARUSH   | SALESMAN            | 1980-02-14 | 1350 |
+| 27 | ALEX     | MANAGER             | 1982-01-24 | 1250 |
+| 28 | NATASHA  | CLERK               | 1981-07-19 | 1750 |
+| 29 | SANGITA  | Compliance officers | 1981-07-19 | 1750 |
+| 30 | SUPRIYA  | ANALYST             | 1981-07-19 | 2150 |
++----+----------+---------------------+------------+------+
+30 rows in set (0.01 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() / 2 R2,  ename, job,hiredate, sal from emp) select * from cte;
++----+---------+----------+---------------------+------------+------+
+| R1 | R2      | ename    | job                 | hiredate   | sal  |
++----+---------+----------+---------------------+------------+------+
+|  1 |  0.5000 | GITA     | Compliance officers | 1981-07-19 | 1750 |
+|  2 |  1.0000 | VRUSHALI | Compliance officers | 1981-07-19 | 1750 |
+|  3 |  1.5000 | SHARMIN  | Public Relation     | 1981-07-19 | 1750 |
+|  4 |  2.0000 | BANDISH  | Public Relation     | 1981-07-19 | 1750 |
+|  5 |  2.5000 | SMITH    | CLERK               | 1980-12-17 |  800 |
+|  6 |  3.0000 | AARAV    | CLERK               | 1981-12-31 | 3350 |
+|  7 |  3.5000 | THOMAS   | CLERK               | 1981-07-19 | 1750 |
+|  8 |  4.0000 | ALLEN    | SALESMAN            | 1981-02-20 | 1600 |
+|  9 |  4.5000 | WARD     | SALESMAN            | 1981-02-22 | 1250 |
+| 10 |  5.0000 | JONES    | MANAGER             | 1981-04-02 | 2975 |
+| 11 |  5.5000 | MARTIN   | SALESMAN            | 1981-09-28 | 1250 |
+| 12 |  6.0000 | BLAKE    | MANAGER             | 1981-05-01 | 2850 |
+| 13 |  6.5000 | CLARK    | MANAGER             | 1981-06-09 | 2450 |
+| 14 |  7.0000 | SCOTT    | ANALYST             | 1982-12-09 | 3000 |
+| 15 |  7.5000 | KING     | PRESIDENT           | 1981-11-17 | 5000 |
+| 16 |  8.0000 | FRED     | vice PRESIDENT      | 1983-08-09 | 5000 |
+| 17 |  8.5000 | TURNER   | SALESMAN            | 1981-09-08 | 1500 |
+| 18 |  9.0000 | ADAMS    | CLERK               | 1983-01-12 | 1100 |
+| 19 |  9.5000 | Ruhan    | Network             | 1983-08-09 | 2000 |
+| 20 | 10.0000 | Neel     | vice PRESIDENT      | 1983-08-09 | 1000 |
+| 21 | 10.5000 | JAMES    | CLERK               | 1981-12-03 |  950 |
+| 22 | 11.0000 | FORD     | ANALYST             | 1981-12-03 | 3000 |
+| 23 | 11.5000 | HOFFMAN  | MANAGER             | 1982-03-24 | 4150 |
+| 24 | 12.0000 | GRASS    | SALESMAN            | 1980-02-14 | 2575 |
+| 25 | 12.5000 | MILLER   | CLERK               | 1982-01-23 | 1300 |
+| 26 | 13.0000 | AARUSH   | SALESMAN            | 1980-02-14 | 1350 |
+| 27 | 13.5000 | ALEX     | MANAGER             | 1982-01-24 | 1250 |
+| 28 | 14.0000 | NATASHA  | CLERK               | 1981-07-19 | 1750 |
+| 29 | 14.5000 | SANGITA  | Compliance officers | 1981-07-19 | 1750 |
+| 30 | 15.0000 | SUPRIYA  | ANALYST             | 1981-07-19 | 2150 |
++----+---------+----------+---------------------+------------+------+
+30 rows in set (0.02 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() mod 2 R2,  ename, job,hiredate, sal from emp) select * from cte;
++----+------+----------+---------------------+------------+------+
+| R1 | R2   | ename    | job                 | hiredate   | sal  |
++----+------+----------+---------------------+------------+------+
+|  1 |    1 | GITA     | Compliance officers | 1981-07-19 | 1750 |
+|  2 |    0 | VRUSHALI | Compliance officers | 1981-07-19 | 1750 |
+|  3 |    1 | SHARMIN  | Public Relation     | 1981-07-19 | 1750 |
+|  4 |    0 | BANDISH  | Public Relation     | 1981-07-19 | 1750 |
+|  5 |    1 | SMITH    | CLERK               | 1980-12-17 |  800 |
+|  6 |    0 | AARAV    | CLERK               | 1981-12-31 | 3350 |
+|  7 |    1 | THOMAS   | CLERK               | 1981-07-19 | 1750 |
+|  8 |    0 | ALLEN    | SALESMAN            | 1981-02-20 | 1600 |
+|  9 |    1 | WARD     | SALESMAN            | 1981-02-22 | 1250 |
+| 10 |    0 | JONES    | MANAGER             | 1981-04-02 | 2975 |
+| 11 |    1 | MARTIN   | SALESMAN            | 1981-09-28 | 1250 |
+| 12 |    0 | BLAKE    | MANAGER             | 1981-05-01 | 2850 |
+| 13 |    1 | CLARK    | MANAGER             | 1981-06-09 | 2450 |
+| 14 |    0 | SCOTT    | ANALYST             | 1982-12-09 | 3000 |
+| 15 |    1 | KING     | PRESIDENT           | 1981-11-17 | 5000 |
+| 16 |    0 | FRED     | vice PRESIDENT      | 1983-08-09 | 5000 |
+| 17 |    1 | TURNER   | SALESMAN            | 1981-09-08 | 1500 |
+| 18 |    0 | ADAMS    | CLERK               | 1983-01-12 | 1100 |
+| 19 |    1 | Ruhan    | Network             | 1983-08-09 | 2000 |
+| 20 |    0 | Neel     | vice PRESIDENT      | 1983-08-09 | 1000 |
+| 21 |    1 | JAMES    | CLERK               | 1981-12-03 |  950 |
+| 22 |    0 | FORD     | ANALYST             | 1981-12-03 | 3000 |
+| 23 |    1 | HOFFMAN  | MANAGER             | 1982-03-24 | 4150 |
+| 24 |    0 | GRASS    | SALESMAN            | 1980-02-14 | 2575 |
+| 25 |    1 | MILLER   | CLERK               | 1982-01-23 | 1300 |
+| 26 |    0 | AARUSH   | SALESMAN            | 1980-02-14 | 1350 |
+| 27 |    1 | ALEX     | MANAGER             | 1982-01-24 | 1250 |
+| 28 |    0 | NATASHA  | CLERK               | 1981-07-19 | 1750 |
+| 29 |    1 | SANGITA  | Compliance officers | 1981-07-19 | 1750 |
+| 30 |    0 | SUPRIYA  | ANALYST             | 1981-07-19 | 2150 |
++----+------+----------+---------------------+------------+------+
+30 rows in set (0.01 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() mod 2 R2,  ename, job,hiredate, sal from emp) select * from cte where R2=1;
++----+------+---------+---------------------+------------+------+
+| R1 | R2   | ename   | job                 | hiredate   | sal  |
++----+------+---------+---------------------+------------+------+
+|  1 |    1 | GITA    | Compliance officers | 1981-07-19 | 1750 |
+|  3 |    1 | SHARMIN | Public Relation     | 1981-07-19 | 1750 |
+|  5 |    1 | SMITH   | CLERK               | 1980-12-17 |  800 |
+|  7 |    1 | THOMAS  | CLERK               | 1981-07-19 | 1750 |
+|  9 |    1 | WARD    | SALESMAN            | 1981-02-22 | 1250 |
+| 11 |    1 | MARTIN  | SALESMAN            | 1981-09-28 | 1250 |
+| 13 |    1 | CLARK   | MANAGER             | 1981-06-09 | 2450 |
+| 15 |    1 | KING    | PRESIDENT           | 1981-11-17 | 5000 |
+| 17 |    1 | TURNER  | SALESMAN            | 1981-09-08 | 1500 |
+| 19 |    1 | Ruhan   | Network             | 1983-08-09 | 2000 |
+| 21 |    1 | JAMES   | CLERK               | 1981-12-03 |  950 |
+| 23 |    1 | HOFFMAN | MANAGER             | 1982-03-24 | 4150 |
+| 25 |    1 | MILLER  | CLERK               | 1982-01-23 | 1300 |
+| 27 |    1 | ALEX    | MANAGER             | 1982-01-24 | 1250 |
+| 29 |    1 | SANGITA | Compliance officers | 1981-07-19 | 1750 |
++----+------+---------+---------------------+------------+------+
+15 rows in set (0.00 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() mod 2 R2,  ename, job,hiredate, sal from emp) select * from cte where R2=0;
++----+------+----------+---------------------+------------+------+
+| R1 | R2   | ename    | job                 | hiredate   | sal  |
++----+------+----------+---------------------+------------+------+
+|  2 |    0 | VRUSHALI | Compliance officers | 1981-07-19 | 1750 |
+|  4 |    0 | BANDISH  | Public Relation     | 1981-07-19 | 1750 |
+|  6 |    0 | AARAV    | CLERK               | 1981-12-31 | 3350 |
+|  8 |    0 | ALLEN    | SALESMAN            | 1981-02-20 | 1600 |
+| 10 |    0 | JONES    | MANAGER             | 1981-04-02 | 2975 |
+| 12 |    0 | BLAKE    | MANAGER             | 1981-05-01 | 2850 |
+| 14 |    0 | SCOTT    | ANALYST             | 1982-12-09 | 3000 |
+| 16 |    0 | FRED     | vice PRESIDENT      | 1983-08-09 | 5000 |
+| 18 |    0 | ADAMS    | CLERK               | 1983-01-12 | 1100 |
+| 20 |    0 | Neel     | vice PRESIDENT      | 1983-08-09 | 1000 |
+| 22 |    0 | FORD     | ANALYST             | 1981-12-03 | 3000 |
+| 24 |    0 | GRASS    | SALESMAN            | 1980-02-14 | 2575 |
+| 26 |    0 | AARUSH   | SALESMAN            | 1980-02-14 | 1350 |
+| 28 |    0 | NATASHA  | CLERK               | 1981-07-19 | 1750 |
+| 30 |    0 | SUPRIYA  | ANALYST             | 1981-07-19 | 2150 |
++----+------+----------+---------------------+------------+------+
+15 rows in set (0.00 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() mod 2 R2,  ename, job,hiredate, sal from emp) select * from cte;
++----+------+----------+---------------------+------------+------+
+| R1 | R2   | ename    | job                 | hiredate   | sal  |
++----+------+----------+---------------------+------------+------+
+|  1 |    1 | GITA     | Compliance officers | 1981-07-19 | 1750 |
+|  2 |    0 | VRUSHALI | Compliance officers | 1981-07-19 | 1750 |
+|  3 |    1 | SHARMIN  | Public Relation     | 1981-07-19 | 1750 |
+|  4 |    0 | BANDISH  | Public Relation     | 1981-07-19 | 1750 |
+|  5 |    1 | SMITH    | CLERK               | 1980-12-17 |  800 |
+|  6 |    0 | AARAV    | CLERK               | 1981-12-31 | 3350 |
+|  7 |    1 | THOMAS   | CLERK               | 1981-07-19 | 1750 |
+|  8 |    0 | ALLEN    | SALESMAN            | 1981-02-20 | 1600 |
+|  9 |    1 | WARD     | SALESMAN            | 1981-02-22 | 1250 |
+| 10 |    0 | JONES    | MANAGER             | 1981-04-02 | 2975 |
+| 11 |    1 | MARTIN   | SALESMAN            | 1981-09-28 | 1250 |
+| 12 |    0 | BLAKE    | MANAGER             | 1981-05-01 | 2850 |
+| 13 |    1 | CLARK    | MANAGER             | 1981-06-09 | 2450 |
+| 14 |    0 | SCOTT    | ANALYST             | 1982-12-09 | 3000 |
+| 15 |    1 | KING     | PRESIDENT           | 1981-11-17 | 5000 |
+| 16 |    0 | FRED     | vice PRESIDENT      | 1983-08-09 | 5000 |
+| 17 |    1 | TURNER   | SALESMAN            | 1981-09-08 | 1500 |
+| 18 |    0 | ADAMS    | CLERK               | 1983-01-12 | 1100 |
+| 19 |    1 | Ruhan    | Network             | 1983-08-09 | 2000 |
+| 20 |    0 | Neel     | vice PRESIDENT      | 1983-08-09 | 1000 |
+| 21 |    1 | JAMES    | CLERK               | 1981-12-03 |  950 |
+| 22 |    0 | FORD     | ANALYST             | 1981-12-03 | 3000 |
+| 23 |    1 | HOFFMAN  | MANAGER             | 1982-03-24 | 4150 |
+| 24 |    0 | GRASS    | SALESMAN            | 1980-02-14 | 2575 |
+| 25 |    1 | MILLER   | CLERK               | 1982-01-23 | 1300 |
+| 26 |    0 | AARUSH   | SALESMAN            | 1980-02-14 | 1350 |
+| 27 |    1 | ALEX     | MANAGER             | 1982-01-24 | 1250 |
+| 28 |    0 | NATASHA  | CLERK               | 1981-07-19 | 1750 |
+| 29 |    1 | SANGITA  | Compliance officers | 1981-07-19 | 1750 |
+| 30 |    0 | SUPRIYA  | ANALYST             | 1981-07-19 | 2150 |
++----+------+----------+---------------------+------------+------+
+30 rows in set (0.00 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() mod 5 R2,  ename, job,hiredate, sal from emp) select * from cte;
++----+------+----------+---------------------+------------+------+
+| R1 | R2   | ename    | job                 | hiredate   | sal  |
++----+------+----------+---------------------+------------+------+
+|  1 |    1 | GITA     | Compliance officers | 1981-07-19 | 1750 |
+|  2 |    2 | VRUSHALI | Compliance officers | 1981-07-19 | 1750 |
+|  3 |    3 | SHARMIN  | Public Relation     | 1981-07-19 | 1750 |
+|  4 |    4 | BANDISH  | Public Relation     | 1981-07-19 | 1750 |
+|  5 |    0 | SMITH    | CLERK               | 1980-12-17 |  800 |
+|  6 |    1 | AARAV    | CLERK               | 1981-12-31 | 3350 |
+|  7 |    2 | THOMAS   | CLERK               | 1981-07-19 | 1750 |
+|  8 |    3 | ALLEN    | SALESMAN            | 1981-02-20 | 1600 |
+|  9 |    4 | WARD     | SALESMAN            | 1981-02-22 | 1250 |
+| 10 |    0 | JONES    | MANAGER             | 1981-04-02 | 2975 |
+| 11 |    1 | MARTIN   | SALESMAN            | 1981-09-28 | 1250 |
+| 12 |    2 | BLAKE    | MANAGER             | 1981-05-01 | 2850 |
+| 13 |    3 | CLARK    | MANAGER             | 1981-06-09 | 2450 |
+| 14 |    4 | SCOTT    | ANALYST             | 1982-12-09 | 3000 |
+| 15 |    0 | KING     | PRESIDENT           | 1981-11-17 | 5000 |
+| 16 |    1 | FRED     | vice PRESIDENT      | 1983-08-09 | 5000 |
+| 17 |    2 | TURNER   | SALESMAN            | 1981-09-08 | 1500 |
+| 18 |    3 | ADAMS    | CLERK               | 1983-01-12 | 1100 |
+| 19 |    4 | Ruhan    | Network             | 1983-08-09 | 2000 |
+| 20 |    0 | Neel     | vice PRESIDENT      | 1983-08-09 | 1000 |
+| 21 |    1 | JAMES    | CLERK               | 1981-12-03 |  950 |
+| 22 |    2 | FORD     | ANALYST             | 1981-12-03 | 3000 |
+| 23 |    3 | HOFFMAN  | MANAGER             | 1982-03-24 | 4150 |
+| 24 |    4 | GRASS    | SALESMAN            | 1980-02-14 | 2575 |
+| 25 |    0 | MILLER   | CLERK               | 1982-01-23 | 1300 |
+| 26 |    1 | AARUSH   | SALESMAN            | 1980-02-14 | 1350 |
+| 27 |    2 | ALEX     | MANAGER             | 1982-01-24 | 1250 |
+| 28 |    3 | NATASHA  | CLERK               | 1981-07-19 | 1750 |
+| 29 |    4 | SANGITA  | Compliance officers | 1981-07-19 | 1750 |
+| 30 |    0 | SUPRIYA  | ANALYST             | 1981-07-19 | 2150 |
++----+------+----------+---------------------+------------+------+
+30 rows in set (0.00 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() mod 5 R2,  ename, job,hiredate, sal from emp) select * from cte where r2=0;
++----+------+---------+----------------+------------+------+
+| R1 | R2   | ename   | job            | hiredate   | sal  |
++----+------+---------+----------------+------------+------+
+|  5 |    0 | SMITH   | CLERK          | 1980-12-17 |  800 |
+| 10 |    0 | JONES   | MANAGER        | 1981-04-02 | 2975 |
+| 15 |    0 | KING    | PRESIDENT      | 1981-11-17 | 5000 |
+| 20 |    0 | Neel    | vice PRESIDENT | 1983-08-09 | 1000 |
+| 25 |    0 | MILLER  | CLERK          | 1982-01-23 | 1300 |
+| 30 |    0 | SUPRIYA | ANALYST        | 1981-07-19 | 2150 |
++----+------+---------+----------------+------------+------+
+6 rows in set (0.00 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() mod 5 R2,  ename, job,hiredate, sal from emp) select * from cte where r2=0 order by rand() desc limit 1;
++----+------+-------+-------+------------+------+
+| R1 | R2   | ename | job   | hiredate   | sal  |
++----+------+-------+-------+------------+------+
+|  5 |    0 | SMITH | CLERK | 1980-12-17 |  800 |
++----+------+-------+-------+------------+------+
+1 row in set (0.02 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() mod 5 R2,  ename, job,hiredate, sal from emp) select * from cte where r2=0 order by rand() desc limit 1;
++----+------+-------+---------+------------+------+
+| R1 | R2   | ename | job     | hiredate   | sal  |
++----+------+-------+---------+------------+------+
+| 10 |    0 | JONES | MANAGER | 1981-04-02 | 2975 |
++----+------+-------+---------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() mod 5 R2,  ename, job,hiredate, sal from emp) select * from cte where r2=0 order by rand() desc limit 1;
++----+------+-------+-----------+------------+------+
+| R1 | R2   | ename | job       | hiredate   | sal  |
++----+------+-------+-----------+------------+------+
+| 15 |    0 | KING  | PRESIDENT | 1981-11-17 | 5000 |
++----+------+-------+-----------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> with cte as  (select row_number() over() R1, row_number() over() mod 5 R2,  ename, job,hiredate, sal from emp) select * from cte where r2=0 order by rand() desc limit 1;
++----+------+-------+----------------+------------+------+
+| R1 | R2   | ename | job            | hiredate   | sal  |
++----+------+-------+----------------+------------+------+
+| 20 |    0 | Neel  | vice PRESIDENT | 1983-08-09 | 1000 |
++----+------+-------+----------------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> select 1 union sleect 1+!;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sleect 1+!' at line 1
+mysql>
+mysql>
+mysql> select 1 union select 1+!;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> select 1 union select 1+1;
++---+
+| 1 |
++---+
+| 1 |
+| 2 |
++---+
+2 rows in set (0.00 sec)
+
+mysql> select 1 union selefct 1+1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selefct 1+1' at line 1
+mysql>
+mysql>
+mysql> select 1 union select 1+!;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql>
+mysql>
+mysql> select 1 union select 1+1;
++---+
+| 1 |
++---+
+| 1 |
+| 2 |
++---+
+2 rows in set (0.00 sec)
+
+mysql> with cte as (select 1 union select 1+1) from cte;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from cte' at line 1
+mysql>
+mysql>
+mysql>
+mysql> with cte as (select 1 union select 1+1) from cte;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from cte' at line 1
+mysql>
+mysql>
+mysql>
+mysql> with cte as (select 1 union select 1+1);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql>
+mysql> with cte as (select 1 union select 1+1) select ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> with cte as (select 1 union select 1+1) select * from cte;
++---+
+| 1 |
++---+
+| 1 |
+| 2 |
++---+
+2 rows in set (0.00 sec)
+
+mysql>
+mysql> with cte as (select 1 n union select 1+1) select * from cte;
++---+
+| n |
++---+
+| 1 |
+| 2 |
++---+
+2 rows in set (0.00 sec)
+
+mysql>
+mysql> with cte as (select 1 n union select 1+1 R1) select * from cte;
++---+
+| n |
++---+
+| 1 |
+| 2 |
++---+
+2 rows in set (0.00 sec)
+
+mysql> with cte as (select 1 n union select n + 1 R1) select * from cte;
+ERROR 1054 (42S22): Unknown column 'n' in 'field list'
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> with cte as (select 1 n union select n + 1 R1) select * from cte;
+ERROR 1054 (42S22): Unknown column 'n' in 'field list'
+mysql> set
+    -> ^C
+mysql> set @n :=1;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> with cte as (select  @n union select @n + 1 R1) select * from cte;
++------+
+| @n   |
++------+
+|    1 |
+|    2 |
++------+
+2 rows in set (0.01 sec)
+
+mysql> with cte as (select 1 n union select 1 + 1 R1) select * from cte;
++---+
+| n |
++---+
+| 1 |
+| 2 |
++---+
+2 rows in set (0.00 sec)
+
+mysql> with cte as (select 1 n union select n + 1 from cte where n < 10) select * from cte;
+ERROR 1146 (42S02): Table 'db1.cte' doesn't exist
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select * from cte;
++------+
+| n    |
++------+
+|    1 |
+|    2 |
+|    3 |
+|    4 |
+|    5 |
+|    6 |
+|    7 |
+|    8 |
+|    9 |
+|   10 |
++------+
+10 rows in set (0.01 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select rand() from cte;
++---------------------+
+| rand()              |
++---------------------+
+|   0.683075364383939 |
+|  0.9609518181168957 |
+|  0.7555330281663062 |
+|  0.8948097172144891 |
+| 0.20744953230717175 |
+|  0.3528185406260365 |
+| 0.14174413694231225 |
+|  0.6502650935670967 |
+|  0.8260930877421918 |
+| 0.17967018874331395 |
++---------------------+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select  floor(100 + rand() *  101) from cte;
++----------------------------+
+| floor(100 + rand() *  101) |
++----------------------------+
+|                        142 |
+|                        156 |
+|                        155 |
+|                        104 |
+|                        160 |
+|                        187 |
+|                        154 |
+|                        111 |
+|                        192 |
+|                        125 |
++----------------------------+
+10 rows in set (0.01 sec)
+
+mysql>
+mysql>
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 20) select  floor(100 + rand() *  101) R1 from cte;
++-----+
+| R1  |
++-----+
+| 151 |
+| 180 |
+| 144 |
+| 181 |
+| 173 |
+| 121 |
+| 188 |
+| 174 |
+| 106 |
+| 112 |
+| 140 |
+| 165 |
+| 103 |
+| 121 |
+| 198 |
+| 123 |
+| 122 |
+| 143 |
+| 150 |
+| 120 |
++-----+
+20 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select  floor(1 + rand() *  10) R1 from cte;
++----+
+| R1 |
++----+
+|  5 |
+|  9 |
+| 10 |
+|  1 |
+|  5 |
+|  9 |
+|  2 |
+|  2 |
+|  4 |
+|  3 |
++----+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select  floor(1 + rand() * 10) R1 from cte;
++----+
+| R1 |
++----+
+|  2 |
+|  2 |
+|  4 |
+|  4 |
+|  7 |
+|  3 |
+|  1 |
+|  6 |
+|  8 |
+|  1 |
++----+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select  floor(1 + rand() * 10) R1 from cte;
++----+
+| R1 |
++----+
+| 10 |
+|  5 |
+|  7 |
+|  7 |
+|  4 |
+|  9 |
+|  3 |
+|  7 |
+|  5 |
+|  5 |
++----+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select  floor(1 + rand() * 10) R1 from cte;
++----+
+| R1 |
++----+
+| 10 |
+|  5 |
+|  4 |
+|  6 |
+|  6 |
+|  2 |
+|  3 |
+|  6 |
+|  2 |
+|  2 |
++----+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select  floor(1 + rand() * 10) R1 from cte;
++----+
+| R1 |
++----+
+|  1 |
+|  9 |
+|  4 |
+|  1 |
+|  3 |
+| 10 |
+| 10 |
+| 10 |
+| 10 |
+|  1 |
++----+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select  n from cte;
++------+
+| n    |
++------+
+|    1 |
+|    2 |
+|    3 |
+|    4 |
+|    5 |
+|    6 |
+|    7 |
+|    8 |
+|    9 |
+|   10 |
++------+
+10 rows in set (0.00 sec)
+
+mysql> select now(), now90 +  interval 1 days;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'days' at line 1
+mysql> select now(), now() +  interval 1 days;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'days' at line 1
+mysql>
+mysql>
+mysql> select now(), now() +  interval 1 day;
++---------------------+-------------------------+
+| now()               | now() +  interval 1 day |
++---------------------+-------------------------+
+| 2026-03-10 16:36:15 | 2026-03-11 16:36:15     |
++---------------------+-------------------------+
+1 row in set (0.02 sec)
+
+mysql>
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select  n from cte;
++------+
+| n    |
++------+
+|    1 |
+|    2 |
+|    3 |
+|    4 |
+|    5 |
+|    6 |
+|    7 |
+|    8 |
+|    9 |
+|   10 |
++------+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select now(), now() +  interval n day;
+ERROR 1054 (42S22): Unknown column 'n' in 'field list'
+mysql>
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select now(), now() +  interval n day from cte;
++---------------------+-------------------------+
+| now()               | now() +  interval n day |
++---------------------+-------------------------+
+| 2026-03-10 16:39:27 | 2026-03-11 16:39:27     |
+| 2026-03-10 16:39:27 | 2026-03-12 16:39:27     |
+| 2026-03-10 16:39:27 | 2026-03-13 16:39:27     |
+| 2026-03-10 16:39:27 | 2026-03-14 16:39:27     |
+| 2026-03-10 16:39:27 | 2026-03-15 16:39:27     |
+| 2026-03-10 16:39:27 | 2026-03-16 16:39:27     |
+| 2026-03-10 16:39:27 | 2026-03-17 16:39:27     |
+| 2026-03-10 16:39:27 | 2026-03-18 16:39:27     |
+| 2026-03-10 16:39:27 | 2026-03-19 16:39:27     |
+| 2026-03-10 16:39:27 | 2026-03-20 16:39:27     |
++---------------------+-------------------------+
+10 rows in set (0.00 sec)
+
+mysql> use db2;
+Database changed
+mysql> drop table x;
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> create tbale x (c1 date);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tbale x (c1 date)' at line 1
+mysql> create table x (c1 date);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc x;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| c1    | date | YES  |     | NULL    |       |
++-------+------+------+-----+---------+-------+
+1 row in set (0.05 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select now(), now() +  interval n day from cte;
++---------------------+-------------------------+
+| now()               | now() +  interval n day |
++---------------------+-------------------------+
+| 2026-03-10 16:42:56 | 2026-03-11 16:42:56     |
+| 2026-03-10 16:42:56 | 2026-03-12 16:42:56     |
+| 2026-03-10 16:42:56 | 2026-03-13 16:42:56     |
+| 2026-03-10 16:42:56 | 2026-03-14 16:42:56     |
+| 2026-03-10 16:42:56 | 2026-03-15 16:42:56     |
+| 2026-03-10 16:42:56 | 2026-03-16 16:42:56     |
+| 2026-03-10 16:42:56 | 2026-03-17 16:42:56     |
+| 2026-03-10 16:42:56 | 2026-03-18 16:42:56     |
+| 2026-03-10 16:42:56 | 2026-03-19 16:42:56     |
+| 2026-03-10 16:42:56 | 2026-03-20 16:42:56     |
++---------------------+-------------------------+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select now() +  interval n day from cte;
++-------------------------+
+| now() +  interval n day |
++-------------------------+
+| 2026-03-11 16:43:04     |
+| 2026-03-12 16:43:04     |
+| 2026-03-13 16:43:04     |
+| 2026-03-14 16:43:04     |
+| 2026-03-15 16:43:04     |
+| 2026-03-16 16:43:04     |
+| 2026-03-17 16:43:04     |
+| 2026-03-18 16:43:04     |
+| 2026-03-19 16:43:04     |
+| 2026-03-20 16:43:04     |
++-------------------------+
+10 rows in set (0.00 sec)
+
+mysql> with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select now() +  interval n day from cte;
++-------------------------+
+| now() +  interval n day |
++-------------------------+
+| 2026-03-11 16:43:22     |
+| 2026-03-12 16:43:22     |
+| 2026-03-13 16:43:22     |
+| 2026-03-14 16:43:22     |
+| 2026-03-15 16:43:22     |
+| 2026-03-16 16:43:22     |
+| 2026-03-17 16:43:22     |
+| 2026-03-18 16:43:22     |
+| 2026-03-19 16:43:22     |
+| 2026-03-20 16:43:22     |
++-------------------------+
+10 rows in set (0.00 sec)
+
+mysql>  insert into x values  with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select now() +  interval n day from cte;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'with recursive cte as (select 1 n union select n + 1 from cte where n < 10) sele' at line 1
+mysql>  insert into x values  with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select now() +  interval n day from cte;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'with recursive cte as (select 1 n union select n + 1 from cte where n < 10) sele' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>  insert into x  with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select now() +  interval n day from cte;
+Query OK, 10 rows affected, 10 warnings (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 10
+
+mysql> select * from x;
++------------+
+| c1         |
++------------+
+| 2026-03-11 |
+| 2026-03-12 |
+| 2026-03-13 |
+| 2026-03-14 |
+| 2026-03-15 |
+| 2026-03-16 |
+| 2026-03-17 |
+| 2026-03-18 |
+| 2026-03-19 |
+| 2026-03-20 |
++------------+
+10 rows in set (0.00 sec)
+
+mysql>  insert into x  with recursive cte as (select 1 n union select n + 1 from cte where n < 10) select now() +  interval n day from cte;

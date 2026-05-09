@@ -1,0 +1,1635 @@
+mysql> select empno, ename, mgr from emp;
++-------+----------+------+
+| empno | ename    | mgr  |
++-------+----------+------+
+|  6001 | GITA     | 7920 |
+|  6129 | VRUSHALI | 7920 |
+|  6473 | SHARMIN  | 7920 |
+|  6781 | BANDISH  | 7920 |
+|  7369 | SMITH    | 7902 |
+|  7415 | AARAV    | 7902 |
+|  7421 | THOMAS   | 7920 |
+|  7499 | ALLEN    | 7698 |
+|  7521 | WARD     | 7698 |
+|  7566 | JONES    | 7839 |
+|  7654 | MARTIN   | 7698 |
+|  7698 | BLAKE    | 7839 |
+|  7782 | CLARK    | 7839 |
+|  7788 | SCOTT    | 7566 |
+|  7839 | KING     | NULL |
+|  7840 | FRED     | 7839 |
+|  7844 | TURNER   | 7698 |
+|  7876 | ADAMS    | 7788 |
+|  7888 | Ruhan    | 7888 |
+|  7889 | Neel     | 7839 |
+|  7900 | JAMES    | 7698 |
+|  7902 | FORD     | 7566 |
+|  7919 | HOFFMAN  | 7566 |
+|  7920 | GRASS    | 7919 |
+|  7934 | MILLER   | 7782 |
+|  7945 | AARUSH   | 7902 |
+|  7949 | ALEX     | 7698 |
+|  8433 | NATASHA  | 7920 |
+|  9400 | SANGITA  | 7920 |
+|  9473 | SUPRIYA  | 7920 |
++-------+----------+------+
+30 rows in set (0.01 sec)
+
+mysql> select * from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.01 sec)
+
+mysql> select emp.* from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.00 sec)
+
+mysql> select emp.* from emp a;
+ERROR 1051 (42S02): Unknown table 'emp'
+mysql> select a.* from emp a;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+30 rows in set (0.00 sec)
+
+mysql> select a.* from emp;
+ERROR 1051 (42S02): Unknown table 'a'
+mysql> select empno, ename, mgr from emp e;
++-------+----------+------+
+| empno | ename    | mgr  |
++-------+----------+------+
+|  6001 | GITA     | 7920 |
+|  6129 | VRUSHALI | 7920 |
+|  6473 | SHARMIN  | 7920 |
+|  6781 | BANDISH  | 7920 |
+|  7369 | SMITH    | 7902 |
+|  7415 | AARAV    | 7902 |
+|  7421 | THOMAS   | 7920 |
+|  7499 | ALLEN    | 7698 |
+|  7521 | WARD     | 7698 |
+|  7566 | JONES    | 7839 |
+|  7654 | MARTIN   | 7698 |
+|  7698 | BLAKE    | 7839 |
+|  7782 | CLARK    | 7839 |
+|  7788 | SCOTT    | 7566 |
+|  7839 | KING     | NULL |
+|  7840 | FRED     | 7839 |
+|  7844 | TURNER   | 7698 |
+|  7876 | ADAMS    | 7788 |
+|  7888 | Ruhan    | 7888 |
+|  7889 | Neel     | 7839 |
+|  7900 | JAMES    | 7698 |
+|  7902 | FORD     | 7566 |
+|  7919 | HOFFMAN  | 7566 |
+|  7920 | GRASS    | 7919 |
+|  7934 | MILLER   | 7782 |
+|  7945 | AARUSH   | 7902 |
+|  7949 | ALEX     | 7698 |
+|  8433 | NATASHA  | 7920 |
+|  9400 | SANGITA  | 7920 |
+|  9473 | SUPRIYA  | 7920 |
++-------+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> select empno, ename, mgr from emp m;
++-------+----------+------+
+| empno | ename    | mgr  |
++-------+----------+------+
+|  6001 | GITA     | 7920 |
+|  6129 | VRUSHALI | 7920 |
+|  6473 | SHARMIN  | 7920 |
+|  6781 | BANDISH  | 7920 |
+|  7369 | SMITH    | 7902 |
+|  7415 | AARAV    | 7902 |
+|  7421 | THOMAS   | 7920 |
+|  7499 | ALLEN    | 7698 |
+|  7521 | WARD     | 7698 |
+|  7566 | JONES    | 7839 |
+|  7654 | MARTIN   | 7698 |
+|  7698 | BLAKE    | 7839 |
+|  7782 | CLARK    | 7839 |
+|  7788 | SCOTT    | 7566 |
+|  7839 | KING     | NULL |
+|  7840 | FRED     | 7839 |
+|  7844 | TURNER   | 7698 |
+|  7876 | ADAMS    | 7788 |
+|  7888 | Ruhan    | 7888 |
+|  7889 | Neel     | 7839 |
+|  7900 | JAMES    | 7698 |
+|  7902 | FORD     | 7566 |
+|  7919 | HOFFMAN  | 7566 |
+|  7920 | GRASS    | 7919 |
+|  7934 | MILLER   | 7782 |
+|  7945 | AARUSH   | 7902 |
+|  7949 | ALEX     | 7698 |
+|  8433 | NATASHA  | 7920 |
+|  9400 | SANGITA  | 7920 |
+|  9473 | SUPRIYA  | 7920 |
++-------+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> select empno, ename, mgr from emp, emp;
+ERROR 1066 (42000): Not unique table/alias: 'emp'
+mysql>
+mysql>
+mysql> select empno, ename, mgr from emp e, emp m;
+ERROR 1052 (23000): Column 'empno' in field list is ambiguous
+mysql> select e.empno, m.ename, a.mgr from emp e, emp m;
+ERROR 1054 (42S22): Unknown column 'a.mgr' in 'field list'
+mysql> select e.empno, m.ename, e.mgr from emp e, emp m;
++-------+----------+------+
+| empno | ename    | mgr  |
++-------+----------+------+
+|  9473 | GITA     | 7920 |
+|  9400 | GITA     | 7920 |
+|  8433 | GITA     | 7920 |
+|  7421 | GITA     | 7920 |
+|  6781 | GITA     | 7920 |
+|  6473 | GITA     | 7920 |
+|  6129 | GITA     | 7920 |
+|  6001 | GITA     | 7920 |
+|  7920 | GITA     | 7919 |
+|  7945 | GITA     | 7902 |
+|  7415 | GITA     | 7902 |
+|  7369 | GITA     | 7902 |
+|  7888 | GITA     | 7888 |
+|  7889 | GITA     | 7839 |
+|  7840 | GITA     | 7839 |
+|  7782 | GITA     | 7839 |
+|  7698 | GITA     | 7839 |
+|  7566 | GITA     | 7839 |
+|  7876 | GITA     | 7788 |
+|  7934 | GITA     | 7782 |
+|  7949 | GITA     | 7698 |
+|  7900 | GITA     | 7698 |
+|  7844 | GITA     | 7698 |
+|  7654 | GITA     | 7698 |
+|  7521 | GITA     | 7698 |
+|  7499 | GITA     | 7698 |
+|  7919 | GITA     | 7566 |
+|  7902 | GITA     | 7566 |
+|  7788 | GITA     | 7566 |
+|  7839 | GITA     | NULL |
+|  9473 | VRUSHALI | 7920 |
+|  9400 | VRUSHALI | 7920 |
+|  8433 | VRUSHALI | 7920 |
+|  7421 | VRUSHALI | 7920 |
+|  6781 | VRUSHALI | 7920 |
+|  6473 | VRUSHALI | 7920 |
+|  6129 | VRUSHALI | 7920 |
+|  6001 | VRUSHALI | 7920 |
+|  7920 | VRUSHALI | 7919 |
+|  7945 | VRUSHALI | 7902 |
+|  7415 | VRUSHALI | 7902 |
+|  7369 | VRUSHALI | 7902 |
+|  7888 | VRUSHALI | 7888 |
+|  7889 | VRUSHALI | 7839 |
+|  7840 | VRUSHALI | 7839 |
+|  7782 | VRUSHALI | 7839 |
+|  7698 | VRUSHALI | 7839 |
+|  7566 | VRUSHALI | 7839 |
+|  7876 | VRUSHALI | 7788 |
+|  7934 | VRUSHALI | 7782 |
+|  7949 | VRUSHALI | 7698 |
+|  7900 | VRUSHALI | 7698 |
+|  7844 | VRUSHALI | 7698 |
+|  7654 | VRUSHALI | 7698 |
+|  7521 | VRUSHALI | 7698 |
+|  7499 | VRUSHALI | 7698 |
+|  7919 | VRUSHALI | 7566 |
+|  7902 | VRUSHALI | 7566 |
+|  7788 | VRUSHALI | 7566 |
+|  7839 | VRUSHALI | NULL |
+|  9473 | SHARMIN  | 7920 |
+|  9400 | SHARMIN  | 7920 |
+|  8433 | SHARMIN  | 7920 |
+|  7421 | SHARMIN  | 7920 |
+|  6781 | SHARMIN  | 7920 |
+|  6473 | SHARMIN  | 7920 |
+|  6129 | SHARMIN  | 7920 |
+|  6001 | SHARMIN  | 7920 |
+|  7920 | SHARMIN  | 7919 |
+|  7945 | SHARMIN  | 7902 |
+|  7415 | SHARMIN  | 7902 |
+|  7369 | SHARMIN  | 7902 |
+|  7888 | SHARMIN  | 7888 |
+|  7889 | SHARMIN  | 7839 |
+|  7840 | SHARMIN  | 7839 |
+|  7782 | SHARMIN  | 7839 |
+|  7698 | SHARMIN  | 7839 |
+|  7566 | SHARMIN  | 7839 |
+|  7876 | SHARMIN  | 7788 |
+|  7934 | SHARMIN  | 7782 |
+|  7949 | SHARMIN  | 7698 |
+|  7900 | SHARMIN  | 7698 |
+|  7844 | SHARMIN  | 7698 |
+|  7654 | SHARMIN  | 7698 |
+|  7521 | SHARMIN  | 7698 |
+|  7499 | SHARMIN  | 7698 |
+|  7919 | SHARMIN  | 7566 |
+|  7902 | SHARMIN  | 7566 |
+|  7788 | SHARMIN  | 7566 |
+|  7839 | SHARMIN  | NULL |
+|  9473 | BANDISH  | 7920 |
+|  9400 | BANDISH  | 7920 |
+|  8433 | BANDISH  | 7920 |
+|  7421 | BANDISH  | 7920 |
+|  6781 | BANDISH  | 7920 |
+|  6473 | BANDISH  | 7920 |
+|  6129 | BANDISH  | 7920 |
+|  6001 | BANDISH  | 7920 |
+|  7920 | BANDISH  | 7919 |
+|  7945 | BANDISH  | 7902 |
+|  7415 | BANDISH  | 7902 |
+|  7369 | BANDISH  | 7902 |
+|  7888 | BANDISH  | 7888 |
+|  7889 | BANDISH  | 7839 |
+|  7840 | BANDISH  | 7839 |
+|  7782 | BANDISH  | 7839 |
+|  7698 | BANDISH  | 7839 |
+|  7566 | BANDISH  | 7839 |
+|  7876 | BANDISH  | 7788 |
+|  7934 | BANDISH  | 7782 |
+|  7949 | BANDISH  | 7698 |
+|  7900 | BANDISH  | 7698 |
+|  7844 | BANDISH  | 7698 |
+|  7654 | BANDISH  | 7698 |
+|  7521 | BANDISH  | 7698 |
+|  7499 | BANDISH  | 7698 |
+|  7919 | BANDISH  | 7566 |
+|  7902 | BANDISH  | 7566 |
+|  7788 | BANDISH  | 7566 |
+|  7839 | BANDISH  | NULL |
+|  9473 | SMITH    | 7920 |
+|  9400 | SMITH    | 7920 |
+|  8433 | SMITH    | 7920 |
+|  7421 | SMITH    | 7920 |
+|  6781 | SMITH    | 7920 |
+|  6473 | SMITH    | 7920 |
+|  6129 | SMITH    | 7920 |
+|  6001 | SMITH    | 7920 |
+|  7920 | SMITH    | 7919 |
+|  7945 | SMITH    | 7902 |
+|  7415 | SMITH    | 7902 |
+|  7369 | SMITH    | 7902 |
+|  7888 | SMITH    | 7888 |
+|  7889 | SMITH    | 7839 |
+|  7840 | SMITH    | 7839 |
+|  7782 | SMITH    | 7839 |
+|  7698 | SMITH    | 7839 |
+|  7566 | SMITH    | 7839 |
+|  7876 | SMITH    | 7788 |
+|  7934 | SMITH    | 7782 |
+|  7949 | SMITH    | 7698 |
+|  7900 | SMITH    | 7698 |
+|  7844 | SMITH    | 7698 |
+|  7654 | SMITH    | 7698 |
+|  7521 | SMITH    | 7698 |
+|  7499 | SMITH    | 7698 |
+|  7919 | SMITH    | 7566 |
+|  7902 | SMITH    | 7566 |
+|  7788 | SMITH    | 7566 |
+|  7839 | SMITH    | NULL |
+|  9473 | AARAV    | 7920 |
+|  9400 | AARAV    | 7920 |
+|  8433 | AARAV    | 7920 |
+|  7421 | AARAV    | 7920 |
+|  6781 | AARAV    | 7920 |
+|  6473 | AARAV    | 7920 |
+|  6129 | AARAV    | 7920 |
+|  6001 | AARAV    | 7920 |
+|  7920 | AARAV    | 7919 |
+|  7945 | AARAV    | 7902 |
+|  7415 | AARAV    | 7902 |
+|  7369 | AARAV    | 7902 |
+|  7888 | AARAV    | 7888 |
+|  7889 | AARAV    | 7839 |
+|  7840 | AARAV    | 7839 |
+|  7782 | AARAV    | 7839 |
+|  7698 | AARAV    | 7839 |
+|  7566 | AARAV    | 7839 |
+|  7876 | AARAV    | 7788 |
+|  7934 | AARAV    | 7782 |
+|  7949 | AARAV    | 7698 |
+|  7900 | AARAV    | 7698 |
+|  7844 | AARAV    | 7698 |
+|  7654 | AARAV    | 7698 |
+|  7521 | AARAV    | 7698 |
+|  7499 | AARAV    | 7698 |
+|  7919 | AARAV    | 7566 |
+|  7902 | AARAV    | 7566 |
+|  7788 | AARAV    | 7566 |
+|  7839 | AARAV    | NULL |
+|  9473 | THOMAS   | 7920 |
+|  9400 | THOMAS   | 7920 |
+|  8433 | THOMAS   | 7920 |
+|  7421 | THOMAS   | 7920 |
+|  6781 | THOMAS   | 7920 |
+|  6473 | THOMAS   | 7920 |
+|  6129 | THOMAS   | 7920 |
+|  6001 | THOMAS   | 7920 |
+|  7920 | THOMAS   | 7919 |
+|  7945 | THOMAS   | 7902 |
+|  7415 | THOMAS   | 7902 |
+|  7369 | THOMAS   | 7902 |
+|  7888 | THOMAS   | 7888 |
+|  7889 | THOMAS   | 7839 |
+|  7840 | THOMAS   | 7839 |
+|  7782 | THOMAS   | 7839 |
+|  7698 | THOMAS   | 7839 |
+|  7566 | THOMAS   | 7839 |
+|  7876 | THOMAS   | 7788 |
+|  7934 | THOMAS   | 7782 |
+|  7949 | THOMAS   | 7698 |
+|  7900 | THOMAS   | 7698 |
+|  7844 | THOMAS   | 7698 |
+|  7654 | THOMAS   | 7698 |
+|  7521 | THOMAS   | 7698 |
+|  7499 | THOMAS   | 7698 |
+|  7919 | THOMAS   | 7566 |
+|  7902 | THOMAS   | 7566 |
+|  7788 | THOMAS   | 7566 |
+|  7839 | THOMAS   | NULL |
+|  9473 | ALLEN    | 7920 |
+|  9400 | ALLEN    | 7920 |
+|  8433 | ALLEN    | 7920 |
+|  7421 | ALLEN    | 7920 |
+|  6781 | ALLEN    | 7920 |
+|  6473 | ALLEN    | 7920 |
+|  6129 | ALLEN    | 7920 |
+|  6001 | ALLEN    | 7920 |
+|  7920 | ALLEN    | 7919 |
+|  7945 | ALLEN    | 7902 |
+|  7415 | ALLEN    | 7902 |
+|  7369 | ALLEN    | 7902 |
+|  7888 | ALLEN    | 7888 |
+|  7889 | ALLEN    | 7839 |
+|  7840 | ALLEN    | 7839 |
+|  7782 | ALLEN    | 7839 |
+|  7698 | ALLEN    | 7839 |
+|  7566 | ALLEN    | 7839 |
+|  7876 | ALLEN    | 7788 |
+|  7934 | ALLEN    | 7782 |
+|  7949 | ALLEN    | 7698 |
+|  7900 | ALLEN    | 7698 |
+|  7844 | ALLEN    | 7698 |
+|  7654 | ALLEN    | 7698 |
+|  7521 | ALLEN    | 7698 |
+|  7499 | ALLEN    | 7698 |
+|  7919 | ALLEN    | 7566 |
+|  7902 | ALLEN    | 7566 |
+|  7788 | ALLEN    | 7566 |
+|  7839 | ALLEN    | NULL |
+|  9473 | WARD     | 7920 |
+|  9400 | WARD     | 7920 |
+|  8433 | WARD     | 7920 |
+|  7421 | WARD     | 7920 |
+|  6781 | WARD     | 7920 |
+|  6473 | WARD     | 7920 |
+|  6129 | WARD     | 7920 |
+|  6001 | WARD     | 7920 |
+|  7920 | WARD     | 7919 |
+|  7945 | WARD     | 7902 |
+|  7415 | WARD     | 7902 |
+|  7369 | WARD     | 7902 |
+|  7888 | WARD     | 7888 |
+|  7889 | WARD     | 7839 |
+|  7840 | WARD     | 7839 |
+|  7782 | WARD     | 7839 |
+|  7698 | WARD     | 7839 |
+|  7566 | WARD     | 7839 |
+|  7876 | WARD     | 7788 |
+|  7934 | WARD     | 7782 |
+|  7949 | WARD     | 7698 |
+|  7900 | WARD     | 7698 |
+|  7844 | WARD     | 7698 |
+|  7654 | WARD     | 7698 |
+|  7521 | WARD     | 7698 |
+|  7499 | WARD     | 7698 |
+|  7919 | WARD     | 7566 |
+|  7902 | WARD     | 7566 |
+|  7788 | WARD     | 7566 |
+|  7839 | WARD     | NULL |
+|  9473 | JONES    | 7920 |
+|  9400 | JONES    | 7920 |
+|  8433 | JONES    | 7920 |
+|  7421 | JONES    | 7920 |
+|  6781 | JONES    | 7920 |
+|  6473 | JONES    | 7920 |
+|  6129 | JONES    | 7920 |
+|  6001 | JONES    | 7920 |
+|  7920 | JONES    | 7919 |
+|  7945 | JONES    | 7902 |
+|  7415 | JONES    | 7902 |
+|  7369 | JONES    | 7902 |
+|  7888 | JONES    | 7888 |
+|  7889 | JONES    | 7839 |
+|  7840 | JONES    | 7839 |
+|  7782 | JONES    | 7839 |
+|  7698 | JONES    | 7839 |
+|  7566 | JONES    | 7839 |
+|  7876 | JONES    | 7788 |
+|  7934 | JONES    | 7782 |
+|  7949 | JONES    | 7698 |
+|  7900 | JONES    | 7698 |
+|  7844 | JONES    | 7698 |
+|  7654 | JONES    | 7698 |
+|  7521 | JONES    | 7698 |
+|  7499 | JONES    | 7698 |
+|  7919 | JONES    | 7566 |
+|  7902 | JONES    | 7566 |
+|  7788 | JONES    | 7566 |
+|  7839 | JONES    | NULL |
+|  9473 | MARTIN   | 7920 |
+|  9400 | MARTIN   | 7920 |
+|  8433 | MARTIN   | 7920 |
+|  7421 | MARTIN   | 7920 |
+|  6781 | MARTIN   | 7920 |
+|  6473 | MARTIN   | 7920 |
+|  6129 | MARTIN   | 7920 |
+|  6001 | MARTIN   | 7920 |
+|  7920 | MARTIN   | 7919 |
+|  7945 | MARTIN   | 7902 |
+|  7415 | MARTIN   | 7902 |
+|  7369 | MARTIN   | 7902 |
+|  7888 | MARTIN   | 7888 |
+|  7889 | MARTIN   | 7839 |
+|  7840 | MARTIN   | 7839 |
+|  7782 | MARTIN   | 7839 |
+|  7698 | MARTIN   | 7839 |
+|  7566 | MARTIN   | 7839 |
+|  7876 | MARTIN   | 7788 |
+|  7934 | MARTIN   | 7782 |
+|  7949 | MARTIN   | 7698 |
+|  7900 | MARTIN   | 7698 |
+|  7844 | MARTIN   | 7698 |
+|  7654 | MARTIN   | 7698 |
+|  7521 | MARTIN   | 7698 |
+|  7499 | MARTIN   | 7698 |
+|  7919 | MARTIN   | 7566 |
+|  7902 | MARTIN   | 7566 |
+|  7788 | MARTIN   | 7566 |
+|  7839 | MARTIN   | NULL |
+|  9473 | BLAKE    | 7920 |
+|  9400 | BLAKE    | 7920 |
+|  8433 | BLAKE    | 7920 |
+|  7421 | BLAKE    | 7920 |
+|  6781 | BLAKE    | 7920 |
+|  6473 | BLAKE    | 7920 |
+|  6129 | BLAKE    | 7920 |
+|  6001 | BLAKE    | 7920 |
+|  7920 | BLAKE    | 7919 |
+|  7945 | BLAKE    | 7902 |
+|  7415 | BLAKE    | 7902 |
+|  7369 | BLAKE    | 7902 |
+|  7888 | BLAKE    | 7888 |
+|  7889 | BLAKE    | 7839 |
+|  7840 | BLAKE    | 7839 |
+|  7782 | BLAKE    | 7839 |
+|  7698 | BLAKE    | 7839 |
+|  7566 | BLAKE    | 7839 |
+|  7876 | BLAKE    | 7788 |
+|  7934 | BLAKE    | 7782 |
+|  7949 | BLAKE    | 7698 |
+|  7900 | BLAKE    | 7698 |
+|  7844 | BLAKE    | 7698 |
+|  7654 | BLAKE    | 7698 |
+|  7521 | BLAKE    | 7698 |
+|  7499 | BLAKE    | 7698 |
+|  7919 | BLAKE    | 7566 |
+|  7902 | BLAKE    | 7566 |
+|  7788 | BLAKE    | 7566 |
+|  7839 | BLAKE    | NULL |
+|  9473 | CLARK    | 7920 |
+|  9400 | CLARK    | 7920 |
+|  8433 | CLARK    | 7920 |
+|  7421 | CLARK    | 7920 |
+|  6781 | CLARK    | 7920 |
+|  6473 | CLARK    | 7920 |
+|  6129 | CLARK    | 7920 |
+|  6001 | CLARK    | 7920 |
+|  7920 | CLARK    | 7919 |
+|  7945 | CLARK    | 7902 |
+|  7415 | CLARK    | 7902 |
+|  7369 | CLARK    | 7902 |
+|  7888 | CLARK    | 7888 |
+|  7889 | CLARK    | 7839 |
+|  7840 | CLARK    | 7839 |
+|  7782 | CLARK    | 7839 |
+|  7698 | CLARK    | 7839 |
+|  7566 | CLARK    | 7839 |
+|  7876 | CLARK    | 7788 |
+|  7934 | CLARK    | 7782 |
+|  7949 | CLARK    | 7698 |
+|  7900 | CLARK    | 7698 |
+|  7844 | CLARK    | 7698 |
+|  7654 | CLARK    | 7698 |
+|  7521 | CLARK    | 7698 |
+|  7499 | CLARK    | 7698 |
+|  7919 | CLARK    | 7566 |
+|  7902 | CLARK    | 7566 |
+|  7788 | CLARK    | 7566 |
+|  7839 | CLARK    | NULL |
+|  9473 | SCOTT    | 7920 |
+|  9400 | SCOTT    | 7920 |
+|  8433 | SCOTT    | 7920 |
+|  7421 | SCOTT    | 7920 |
+|  6781 | SCOTT    | 7920 |
+|  6473 | SCOTT    | 7920 |
+|  6129 | SCOTT    | 7920 |
+|  6001 | SCOTT    | 7920 |
+|  7920 | SCOTT    | 7919 |
+|  7945 | SCOTT    | 7902 |
+|  7415 | SCOTT    | 7902 |
+|  7369 | SCOTT    | 7902 |
+|  7888 | SCOTT    | 7888 |
+|  7889 | SCOTT    | 7839 |
+|  7840 | SCOTT    | 7839 |
+|  7782 | SCOTT    | 7839 |
+|  7698 | SCOTT    | 7839 |
+|  7566 | SCOTT    | 7839 |
+|  7876 | SCOTT    | 7788 |
+|  7934 | SCOTT    | 7782 |
+|  7949 | SCOTT    | 7698 |
+|  7900 | SCOTT    | 7698 |
+|  7844 | SCOTT    | 7698 |
+|  7654 | SCOTT    | 7698 |
+|  7521 | SCOTT    | 7698 |
+|  7499 | SCOTT    | 7698 |
+|  7919 | SCOTT    | 7566 |
+|  7902 | SCOTT    | 7566 |
+|  7788 | SCOTT    | 7566 |
+|  7839 | SCOTT    | NULL |
+|  9473 | KING     | 7920 |
+|  9400 | KING     | 7920 |
+|  8433 | KING     | 7920 |
+|  7421 | KING     | 7920 |
+|  6781 | KING     | 7920 |
+|  6473 | KING     | 7920 |
+|  6129 | KING     | 7920 |
+|  6001 | KING     | 7920 |
+|  7920 | KING     | 7919 |
+|  7945 | KING     | 7902 |
+|  7415 | KING     | 7902 |
+|  7369 | KING     | 7902 |
+|  7888 | KING     | 7888 |
+|  7889 | KING     | 7839 |
+|  7840 | KING     | 7839 |
+|  7782 | KING     | 7839 |
+|  7698 | KING     | 7839 |
+|  7566 | KING     | 7839 |
+|  7876 | KING     | 7788 |
+|  7934 | KING     | 7782 |
+|  7949 | KING     | 7698 |
+|  7900 | KING     | 7698 |
+|  7844 | KING     | 7698 |
+|  7654 | KING     | 7698 |
+|  7521 | KING     | 7698 |
+|  7499 | KING     | 7698 |
+|  7919 | KING     | 7566 |
+|  7902 | KING     | 7566 |
+|  7788 | KING     | 7566 |
+|  7839 | KING     | NULL |
+|  9473 | FRED     | 7920 |
+|  9400 | FRED     | 7920 |
+|  8433 | FRED     | 7920 |
+|  7421 | FRED     | 7920 |
+|  6781 | FRED     | 7920 |
+|  6473 | FRED     | 7920 |
+|  6129 | FRED     | 7920 |
+|  6001 | FRED     | 7920 |
+|  7920 | FRED     | 7919 |
+|  7945 | FRED     | 7902 |
+|  7415 | FRED     | 7902 |
+|  7369 | FRED     | 7902 |
+|  7888 | FRED     | 7888 |
+|  7889 | FRED     | 7839 |
+|  7840 | FRED     | 7839 |
+|  7782 | FRED     | 7839 |
+|  7698 | FRED     | 7839 |
+|  7566 | FRED     | 7839 |
+|  7876 | FRED     | 7788 |
+|  7934 | FRED     | 7782 |
+|  7949 | FRED     | 7698 |
+|  7900 | FRED     | 7698 |
+|  7844 | FRED     | 7698 |
+|  7654 | FRED     | 7698 |
+|  7521 | FRED     | 7698 |
+|  7499 | FRED     | 7698 |
+|  7919 | FRED     | 7566 |
+|  7902 | FRED     | 7566 |
+|  7788 | FRED     | 7566 |
+|  7839 | FRED     | NULL |
+|  9473 | TURNER   | 7920 |
+|  9400 | TURNER   | 7920 |
+|  8433 | TURNER   | 7920 |
+|  7421 | TURNER   | 7920 |
+|  6781 | TURNER   | 7920 |
+|  6473 | TURNER   | 7920 |
+|  6129 | TURNER   | 7920 |
+|  6001 | TURNER   | 7920 |
+|  7920 | TURNER   | 7919 |
+|  7945 | TURNER   | 7902 |
+|  7415 | TURNER   | 7902 |
+|  7369 | TURNER   | 7902 |
+|  7888 | TURNER   | 7888 |
+|  7889 | TURNER   | 7839 |
+|  7840 | TURNER   | 7839 |
+|  7782 | TURNER   | 7839 |
+|  7698 | TURNER   | 7839 |
+|  7566 | TURNER   | 7839 |
+|  7876 | TURNER   | 7788 |
+|  7934 | TURNER   | 7782 |
+|  7949 | TURNER   | 7698 |
+|  7900 | TURNER   | 7698 |
+|  7844 | TURNER   | 7698 |
+|  7654 | TURNER   | 7698 |
+|  7521 | TURNER   | 7698 |
+|  7499 | TURNER   | 7698 |
+|  7919 | TURNER   | 7566 |
+|  7902 | TURNER   | 7566 |
+|  7788 | TURNER   | 7566 |
+|  7839 | TURNER   | NULL |
+|  9473 | ADAMS    | 7920 |
+|  9400 | ADAMS    | 7920 |
+|  8433 | ADAMS    | 7920 |
+|  7421 | ADAMS    | 7920 |
+|  6781 | ADAMS    | 7920 |
+|  6473 | ADAMS    | 7920 |
+|  6129 | ADAMS    | 7920 |
+|  6001 | ADAMS    | 7920 |
+|  7920 | ADAMS    | 7919 |
+|  7945 | ADAMS    | 7902 |
+|  7415 | ADAMS    | 7902 |
+|  7369 | ADAMS    | 7902 |
+|  7888 | ADAMS    | 7888 |
+|  7889 | ADAMS    | 7839 |
+|  7840 | ADAMS    | 7839 |
+|  7782 | ADAMS    | 7839 |
+|  7698 | ADAMS    | 7839 |
+|  7566 | ADAMS    | 7839 |
+|  7876 | ADAMS    | 7788 |
+|  7934 | ADAMS    | 7782 |
+|  7949 | ADAMS    | 7698 |
+|  7900 | ADAMS    | 7698 |
+|  7844 | ADAMS    | 7698 |
+|  7654 | ADAMS    | 7698 |
+|  7521 | ADAMS    | 7698 |
+|  7499 | ADAMS    | 7698 |
+|  7919 | ADAMS    | 7566 |
+|  7902 | ADAMS    | 7566 |
+|  7788 | ADAMS    | 7566 |
+|  7839 | ADAMS    | NULL |
+|  9473 | Ruhan    | 7920 |
+|  9400 | Ruhan    | 7920 |
+|  8433 | Ruhan    | 7920 |
+|  7421 | Ruhan    | 7920 |
+|  6781 | Ruhan    | 7920 |
+|  6473 | Ruhan    | 7920 |
+|  6129 | Ruhan    | 7920 |
+|  6001 | Ruhan    | 7920 |
+|  7920 | Ruhan    | 7919 |
+|  7945 | Ruhan    | 7902 |
+|  7415 | Ruhan    | 7902 |
+|  7369 | Ruhan    | 7902 |
+|  7888 | Ruhan    | 7888 |
+|  7889 | Ruhan    | 7839 |
+|  7840 | Ruhan    | 7839 |
+|  7782 | Ruhan    | 7839 |
+|  7698 | Ruhan    | 7839 |
+|  7566 | Ruhan    | 7839 |
+|  7876 | Ruhan    | 7788 |
+|  7934 | Ruhan    | 7782 |
+|  7949 | Ruhan    | 7698 |
+|  7900 | Ruhan    | 7698 |
+|  7844 | Ruhan    | 7698 |
+|  7654 | Ruhan    | 7698 |
+|  7521 | Ruhan    | 7698 |
+|  7499 | Ruhan    | 7698 |
+|  7919 | Ruhan    | 7566 |
+|  7902 | Ruhan    | 7566 |
+|  7788 | Ruhan    | 7566 |
+|  7839 | Ruhan    | NULL |
+|  9473 | Neel     | 7920 |
+|  9400 | Neel     | 7920 |
+|  8433 | Neel     | 7920 |
+|  7421 | Neel     | 7920 |
+|  6781 | Neel     | 7920 |
+|  6473 | Neel     | 7920 |
+|  6129 | Neel     | 7920 |
+|  6001 | Neel     | 7920 |
+|  7920 | Neel     | 7919 |
+|  7945 | Neel     | 7902 |
+|  7415 | Neel     | 7902 |
+|  7369 | Neel     | 7902 |
+|  7888 | Neel     | 7888 |
+|  7889 | Neel     | 7839 |
+|  7840 | Neel     | 7839 |
+|  7782 | Neel     | 7839 |
+|  7698 | Neel     | 7839 |
+|  7566 | Neel     | 7839 |
+|  7876 | Neel     | 7788 |
+|  7934 | Neel     | 7782 |
+|  7949 | Neel     | 7698 |
+|  7900 | Neel     | 7698 |
+|  7844 | Neel     | 7698 |
+|  7654 | Neel     | 7698 |
+|  7521 | Neel     | 7698 |
+|  7499 | Neel     | 7698 |
+|  7919 | Neel     | 7566 |
+|  7902 | Neel     | 7566 |
+|  7788 | Neel     | 7566 |
+|  7839 | Neel     | NULL |
+|  9473 | JAMES    | 7920 |
+|  9400 | JAMES    | 7920 |
+|  8433 | JAMES    | 7920 |
+|  7421 | JAMES    | 7920 |
+|  6781 | JAMES    | 7920 |
+|  6473 | JAMES    | 7920 |
+|  6129 | JAMES    | 7920 |
+|  6001 | JAMES    | 7920 |
+|  7920 | JAMES    | 7919 |
+|  7945 | JAMES    | 7902 |
+|  7415 | JAMES    | 7902 |
+|  7369 | JAMES    | 7902 |
+|  7888 | JAMES    | 7888 |
+|  7889 | JAMES    | 7839 |
+|  7840 | JAMES    | 7839 |
+|  7782 | JAMES    | 7839 |
+|  7698 | JAMES    | 7839 |
+|  7566 | JAMES    | 7839 |
+|  7876 | JAMES    | 7788 |
+|  7934 | JAMES    | 7782 |
+|  7949 | JAMES    | 7698 |
+|  7900 | JAMES    | 7698 |
+|  7844 | JAMES    | 7698 |
+|  7654 | JAMES    | 7698 |
+|  7521 | JAMES    | 7698 |
+|  7499 | JAMES    | 7698 |
+|  7919 | JAMES    | 7566 |
+|  7902 | JAMES    | 7566 |
+|  7788 | JAMES    | 7566 |
+|  7839 | JAMES    | NULL |
+|  9473 | FORD     | 7920 |
+|  9400 | FORD     | 7920 |
+|  8433 | FORD     | 7920 |
+|  7421 | FORD     | 7920 |
+|  6781 | FORD     | 7920 |
+|  6473 | FORD     | 7920 |
+|  6129 | FORD     | 7920 |
+|  6001 | FORD     | 7920 |
+|  7920 | FORD     | 7919 |
+|  7945 | FORD     | 7902 |
+|  7415 | FORD     | 7902 |
+|  7369 | FORD     | 7902 |
+|  7888 | FORD     | 7888 |
+|  7889 | FORD     | 7839 |
+|  7840 | FORD     | 7839 |
+|  7782 | FORD     | 7839 |
+|  7698 | FORD     | 7839 |
+|  7566 | FORD     | 7839 |
+|  7876 | FORD     | 7788 |
+|  7934 | FORD     | 7782 |
+|  7949 | FORD     | 7698 |
+|  7900 | FORD     | 7698 |
+|  7844 | FORD     | 7698 |
+|  7654 | FORD     | 7698 |
+|  7521 | FORD     | 7698 |
+|  7499 | FORD     | 7698 |
+|  7919 | FORD     | 7566 |
+|  7902 | FORD     | 7566 |
+|  7788 | FORD     | 7566 |
+|  7839 | FORD     | NULL |
+|  9473 | HOFFMAN  | 7920 |
+|  9400 | HOFFMAN  | 7920 |
+|  8433 | HOFFMAN  | 7920 |
+|  7421 | HOFFMAN  | 7920 |
+|  6781 | HOFFMAN  | 7920 |
+|  6473 | HOFFMAN  | 7920 |
+|  6129 | HOFFMAN  | 7920 |
+|  6001 | HOFFMAN  | 7920 |
+|  7920 | HOFFMAN  | 7919 |
+|  7945 | HOFFMAN  | 7902 |
+|  7415 | HOFFMAN  | 7902 |
+|  7369 | HOFFMAN  | 7902 |
+|  7888 | HOFFMAN  | 7888 |
+|  7889 | HOFFMAN  | 7839 |
+|  7840 | HOFFMAN  | 7839 |
+|  7782 | HOFFMAN  | 7839 |
+|  7698 | HOFFMAN  | 7839 |
+|  7566 | HOFFMAN  | 7839 |
+|  7876 | HOFFMAN  | 7788 |
+|  7934 | HOFFMAN  | 7782 |
+|  7949 | HOFFMAN  | 7698 |
+|  7900 | HOFFMAN  | 7698 |
+|  7844 | HOFFMAN  | 7698 |
+|  7654 | HOFFMAN  | 7698 |
+|  7521 | HOFFMAN  | 7698 |
+|  7499 | HOFFMAN  | 7698 |
+|  7919 | HOFFMAN  | 7566 |
+|  7902 | HOFFMAN  | 7566 |
+|  7788 | HOFFMAN  | 7566 |
+|  7839 | HOFFMAN  | NULL |
+|  9473 | GRASS    | 7920 |
+|  9400 | GRASS    | 7920 |
+|  8433 | GRASS    | 7920 |
+|  7421 | GRASS    | 7920 |
+|  6781 | GRASS    | 7920 |
+|  6473 | GRASS    | 7920 |
+|  6129 | GRASS    | 7920 |
+|  6001 | GRASS    | 7920 |
+|  7920 | GRASS    | 7919 |
+|  7945 | GRASS    | 7902 |
+|  7415 | GRASS    | 7902 |
+|  7369 | GRASS    | 7902 |
+|  7888 | GRASS    | 7888 |
+|  7889 | GRASS    | 7839 |
+|  7840 | GRASS    | 7839 |
+|  7782 | GRASS    | 7839 |
+|  7698 | GRASS    | 7839 |
+|  7566 | GRASS    | 7839 |
+|  7876 | GRASS    | 7788 |
+|  7934 | GRASS    | 7782 |
+|  7949 | GRASS    | 7698 |
+|  7900 | GRASS    | 7698 |
+|  7844 | GRASS    | 7698 |
+|  7654 | GRASS    | 7698 |
+|  7521 | GRASS    | 7698 |
+|  7499 | GRASS    | 7698 |
+|  7919 | GRASS    | 7566 |
+|  7902 | GRASS    | 7566 |
+|  7788 | GRASS    | 7566 |
+|  7839 | GRASS    | NULL |
+|  9473 | MILLER   | 7920 |
+|  9400 | MILLER   | 7920 |
+|  8433 | MILLER   | 7920 |
+|  7421 | MILLER   | 7920 |
+|  6781 | MILLER   | 7920 |
+|  6473 | MILLER   | 7920 |
+|  6129 | MILLER   | 7920 |
+|  6001 | MILLER   | 7920 |
+|  7920 | MILLER   | 7919 |
+|  7945 | MILLER   | 7902 |
+|  7415 | MILLER   | 7902 |
+|  7369 | MILLER   | 7902 |
+|  7888 | MILLER   | 7888 |
+|  7889 | MILLER   | 7839 |
+|  7840 | MILLER   | 7839 |
+|  7782 | MILLER   | 7839 |
+|  7698 | MILLER   | 7839 |
+|  7566 | MILLER   | 7839 |
+|  7876 | MILLER   | 7788 |
+|  7934 | MILLER   | 7782 |
+|  7949 | MILLER   | 7698 |
+|  7900 | MILLER   | 7698 |
+|  7844 | MILLER   | 7698 |
+|  7654 | MILLER   | 7698 |
+|  7521 | MILLER   | 7698 |
+|  7499 | MILLER   | 7698 |
+|  7919 | MILLER   | 7566 |
+|  7902 | MILLER   | 7566 |
+|  7788 | MILLER   | 7566 |
+|  7839 | MILLER   | NULL |
+|  9473 | AARUSH   | 7920 |
+|  9400 | AARUSH   | 7920 |
+|  8433 | AARUSH   | 7920 |
+|  7421 | AARUSH   | 7920 |
+|  6781 | AARUSH   | 7920 |
+|  6473 | AARUSH   | 7920 |
+|  6129 | AARUSH   | 7920 |
+|  6001 | AARUSH   | 7920 |
+|  7920 | AARUSH   | 7919 |
+|  7945 | AARUSH   | 7902 |
+|  7415 | AARUSH   | 7902 |
+|  7369 | AARUSH   | 7902 |
+|  7888 | AARUSH   | 7888 |
+|  7889 | AARUSH   | 7839 |
+|  7840 | AARUSH   | 7839 |
+|  7782 | AARUSH   | 7839 |
+|  7698 | AARUSH   | 7839 |
+|  7566 | AARUSH   | 7839 |
+|  7876 | AARUSH   | 7788 |
+|  7934 | AARUSH   | 7782 |
+|  7949 | AARUSH   | 7698 |
+|  7900 | AARUSH   | 7698 |
+|  7844 | AARUSH   | 7698 |
+|  7654 | AARUSH   | 7698 |
+|  7521 | AARUSH   | 7698 |
+|  7499 | AARUSH   | 7698 |
+|  7919 | AARUSH   | 7566 |
+|  7902 | AARUSH   | 7566 |
+|  7788 | AARUSH   | 7566 |
+|  7839 | AARUSH   | NULL |
+|  9473 | ALEX     | 7920 |
+|  9400 | ALEX     | 7920 |
+|  8433 | ALEX     | 7920 |
+|  7421 | ALEX     | 7920 |
+|  6781 | ALEX     | 7920 |
+|  6473 | ALEX     | 7920 |
+|  6129 | ALEX     | 7920 |
+|  6001 | ALEX     | 7920 |
+|  7920 | ALEX     | 7919 |
+|  7945 | ALEX     | 7902 |
+|  7415 | ALEX     | 7902 |
+|  7369 | ALEX     | 7902 |
+|  7888 | ALEX     | 7888 |
+|  7889 | ALEX     | 7839 |
+|  7840 | ALEX     | 7839 |
+|  7782 | ALEX     | 7839 |
+|  7698 | ALEX     | 7839 |
+|  7566 | ALEX     | 7839 |
+|  7876 | ALEX     | 7788 |
+|  7934 | ALEX     | 7782 |
+|  7949 | ALEX     | 7698 |
+|  7900 | ALEX     | 7698 |
+|  7844 | ALEX     | 7698 |
+|  7654 | ALEX     | 7698 |
+|  7521 | ALEX     | 7698 |
+|  7499 | ALEX     | 7698 |
+|  7919 | ALEX     | 7566 |
+|  7902 | ALEX     | 7566 |
+|  7788 | ALEX     | 7566 |
+|  7839 | ALEX     | NULL |
+|  9473 | NATASHA  | 7920 |
+|  9400 | NATASHA  | 7920 |
+|  8433 | NATASHA  | 7920 |
+|  7421 | NATASHA  | 7920 |
+|  6781 | NATASHA  | 7920 |
+|  6473 | NATASHA  | 7920 |
+|  6129 | NATASHA  | 7920 |
+|  6001 | NATASHA  | 7920 |
+|  7920 | NATASHA  | 7919 |
+|  7945 | NATASHA  | 7902 |
+|  7415 | NATASHA  | 7902 |
+|  7369 | NATASHA  | 7902 |
+|  7888 | NATASHA  | 7888 |
+|  7889 | NATASHA  | 7839 |
+|  7840 | NATASHA  | 7839 |
+|  7782 | NATASHA  | 7839 |
+|  7698 | NATASHA  | 7839 |
+|  7566 | NATASHA  | 7839 |
+|  7876 | NATASHA  | 7788 |
+|  7934 | NATASHA  | 7782 |
+|  7949 | NATASHA  | 7698 |
+|  7900 | NATASHA  | 7698 |
+|  7844 | NATASHA  | 7698 |
+|  7654 | NATASHA  | 7698 |
+|  7521 | NATASHA  | 7698 |
+|  7499 | NATASHA  | 7698 |
+|  7919 | NATASHA  | 7566 |
+|  7902 | NATASHA  | 7566 |
+|  7788 | NATASHA  | 7566 |
+|  7839 | NATASHA  | NULL |
+|  9473 | SANGITA  | 7920 |
+|  9400 | SANGITA  | 7920 |
+|  8433 | SANGITA  | 7920 |
+|  7421 | SANGITA  | 7920 |
+|  6781 | SANGITA  | 7920 |
+|  6473 | SANGITA  | 7920 |
+|  6129 | SANGITA  | 7920 |
+|  6001 | SANGITA  | 7920 |
+|  7920 | SANGITA  | 7919 |
+|  7945 | SANGITA  | 7902 |
+|  7415 | SANGITA  | 7902 |
+|  7369 | SANGITA  | 7902 |
+|  7888 | SANGITA  | 7888 |
+|  7889 | SANGITA  | 7839 |
+|  7840 | SANGITA  | 7839 |
+|  7782 | SANGITA  | 7839 |
+|  7698 | SANGITA  | 7839 |
+|  7566 | SANGITA  | 7839 |
+|  7876 | SANGITA  | 7788 |
+|  7934 | SANGITA  | 7782 |
+|  7949 | SANGITA  | 7698 |
+|  7900 | SANGITA  | 7698 |
+|  7844 | SANGITA  | 7698 |
+|  7654 | SANGITA  | 7698 |
+|  7521 | SANGITA  | 7698 |
+|  7499 | SANGITA  | 7698 |
+|  7919 | SANGITA  | 7566 |
+|  7902 | SANGITA  | 7566 |
+|  7788 | SANGITA  | 7566 |
+|  7839 | SANGITA  | NULL |
+|  9473 | SUPRIYA  | 7920 |
+|  9400 | SUPRIYA  | 7920 |
+|  8433 | SUPRIYA  | 7920 |
+|  7421 | SUPRIYA  | 7920 |
+|  6781 | SUPRIYA  | 7920 |
+|  6473 | SUPRIYA  | 7920 |
+|  6129 | SUPRIYA  | 7920 |
+|  6001 | SUPRIYA  | 7920 |
+|  7920 | SUPRIYA  | 7919 |
+|  7945 | SUPRIYA  | 7902 |
+|  7415 | SUPRIYA  | 7902 |
+|  7369 | SUPRIYA  | 7902 |
+|  7888 | SUPRIYA  | 7888 |
+|  7889 | SUPRIYA  | 7839 |
+|  7840 | SUPRIYA  | 7839 |
+|  7782 | SUPRIYA  | 7839 |
+|  7698 | SUPRIYA  | 7839 |
+|  7566 | SUPRIYA  | 7839 |
+|  7876 | SUPRIYA  | 7788 |
+|  7934 | SUPRIYA  | 7782 |
+|  7949 | SUPRIYA  | 7698 |
+|  7900 | SUPRIYA  | 7698 |
+|  7844 | SUPRIYA  | 7698 |
+|  7654 | SUPRIYA  | 7698 |
+|  7521 | SUPRIYA  | 7698 |
+|  7499 | SUPRIYA  | 7698 |
+|  7919 | SUPRIYA  | 7566 |
+|  7902 | SUPRIYA  | 7566 |
+|  7788 | SUPRIYA  | 7566 |
+|  7839 | SUPRIYA  | NULL |
++-------+----------+------+
+900 rows in set (0.01 sec)
+
+mysql> select e.ename, m.ename from emp e, emp m where e.mgr = m.empno;
++----------+---------+
+| ename    | ename   |
++----------+---------+
+| GITA     | GRASS   |
+| VRUSHALI | GRASS   |
+| SHARMIN  | GRASS   |
+| BANDISH  | GRASS   |
+| SMITH    | FORD    |
+| AARAV    | FORD    |
+| THOMAS   | GRASS   |
+| ALLEN    | BLAKE   |
+| WARD     | BLAKE   |
+| JONES    | KING    |
+| MARTIN   | BLAKE   |
+| BLAKE    | KING    |
+| CLARK    | KING    |
+| SCOTT    | JONES   |
+| FRED     | KING    |
+| TURNER   | BLAKE   |
+| ADAMS    | SCOTT   |
+| Ruhan    | Ruhan   |
+| Neel     | KING    |
+| JAMES    | BLAKE   |
+| FORD     | JONES   |
+| HOFFMAN  | JONES   |
+| GRASS    | HOFFMAN |
+| MILLER   | CLARK   |
+| AARUSH   | FORD    |
+| ALEX     | BLAKE   |
+| NATASHA  | GRASS   |
+| SANGITA  | GRASS   |
+| SUPRIYA  | GRASS   |
++----------+---------+
+29 rows in set (0.01 sec)
+
+mysql> select ename, hiredate from emo ordr by 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by 2' at line 1
+mysql>
+mysql>
+mysql>
+mysql> select ename, hiredate from emo order by 2;
+ERROR 1146 (42S02): Table 'db1.emo' doesn't exist
+mysql> select ename, hiredate from emp order by 2;
++----------+------------+
+| ename    | hiredate   |
++----------+------------+
+| GRASS    | 1980-02-14 |
+| AARUSH   | 1980-02-14 |
+| SMITH    | 1980-12-17 |
+| ALLEN    | 1981-02-20 |
+| WARD     | 1981-02-22 |
+| JONES    | 1981-04-02 |
+| BLAKE    | 1981-05-01 |
+| CLARK    | 1981-06-09 |
+| GITA     | 1981-07-19 |
+| VRUSHALI | 1981-07-19 |
+| SHARMIN  | 1981-07-19 |
+| BANDISH  | 1981-07-19 |
+| THOMAS   | 1981-07-19 |
+| NATASHA  | 1981-07-19 |
+| SANGITA  | 1981-07-19 |
+| SUPRIYA  | 1981-07-19 |
+| TURNER   | 1981-09-08 |
+| MARTIN   | 1981-09-28 |
+| KING     | 1981-11-17 |
+| JAMES    | 1981-12-03 |
+| FORD     | 1981-12-03 |
+| AARAV    | 1981-12-31 |
+| MILLER   | 1982-01-23 |
+| ALEX     | 1982-01-24 |
+| HOFFMAN  | 1982-03-24 |
+| SCOTT    | 1982-12-09 |
+| ADAMS    | 1983-01-12 |
+| FRED     | 1983-08-09 |
+| Ruhan    | 1983-08-09 |
+| Neel     | 1983-08-09 |
++----------+------------+
+30 rows in set (0.01 sec)
+
+mysql> select ename, hiredate from emp;
++----------+------------+
+| ename    | hiredate   |
++----------+------------+
+| GITA     | 1981-07-19 |
+| VRUSHALI | 1981-07-19 |
+| SHARMIN  | 1981-07-19 |
+| BANDISH  | 1981-07-19 |
+| SMITH    | 1980-12-17 |
+| AARAV    | 1981-12-31 |
+| THOMAS   | 1981-07-19 |
+| ALLEN    | 1981-02-20 |
+| WARD     | 1981-02-22 |
+| JONES    | 1981-04-02 |
+| MARTIN   | 1981-09-28 |
+| BLAKE    | 1981-05-01 |
+| CLARK    | 1981-06-09 |
+| SCOTT    | 1982-12-09 |
+| KING     | 1981-11-17 |
+| FRED     | 1983-08-09 |
+| TURNER   | 1981-09-08 |
+| ADAMS    | 1983-01-12 |
+| Ruhan    | 1983-08-09 |
+| Neel     | 1983-08-09 |
+| JAMES    | 1981-12-03 |
+| FORD     | 1981-12-03 |
+| HOFFMAN  | 1982-03-24 |
+| GRASS    | 1980-02-14 |
+| MILLER   | 1982-01-23 |
+| AARUSH   | 1980-02-14 |
+| ALEX     | 1982-01-24 |
+| NATASHA  | 1981-07-19 |
+| SANGITA  | 1981-07-19 |
+| SUPRIYA  | 1981-07-19 |
++----------+------------+
+30 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> select ename, hiredate from emp a where exists (select true from emp b where a.hiredate = b.hiredate);
++----------+------------+
+| ename    | hiredate   |
++----------+------------+
+| GITA     | 1981-07-19 |
+| VRUSHALI | 1981-07-19 |
+| SHARMIN  | 1981-07-19 |
+| BANDISH  | 1981-07-19 |
+| SMITH    | 1980-12-17 |
+| AARAV    | 1981-12-31 |
+| THOMAS   | 1981-07-19 |
+| ALLEN    | 1981-02-20 |
+| WARD     | 1981-02-22 |
+| JONES    | 1981-04-02 |
+| MARTIN   | 1981-09-28 |
+| BLAKE    | 1981-05-01 |
+| CLARK    | 1981-06-09 |
+| SCOTT    | 1982-12-09 |
+| KING     | 1981-11-17 |
+| FRED     | 1983-08-09 |
+| TURNER   | 1981-09-08 |
+| ADAMS    | 1983-01-12 |
+| Ruhan    | 1983-08-09 |
+| Neel     | 1983-08-09 |
+| JAMES    | 1981-12-03 |
+| FORD     | 1981-12-03 |
+| HOFFMAN  | 1982-03-24 |
+| GRASS    | 1980-02-14 |
+| MILLER   | 1982-01-23 |
+| AARUSH   | 1980-02-14 |
+| ALEX     | 1982-01-24 |
+| NATASHA  | 1981-07-19 |
+| SANGITA  | 1981-07-19 |
+| SUPRIYA  | 1981-07-19 |
++----------+------------+
+30 rows in set (0.03 sec)
+
+mysql> select ename, hiredate from emp a where exists (select true from emp b where a.hiredate = b.hiredate and a.empno <> b.empno);
++----------+------------+
+| ename    | hiredate   |
++----------+------------+
+| GITA     | 1981-07-19 |
+| VRUSHALI | 1981-07-19 |
+| SHARMIN  | 1981-07-19 |
+| BANDISH  | 1981-07-19 |
+| THOMAS   | 1981-07-19 |
+| FRED     | 1983-08-09 |
+| Ruhan    | 1983-08-09 |
+| Neel     | 1983-08-09 |
+| JAMES    | 1981-12-03 |
+| FORD     | 1981-12-03 |
+| GRASS    | 1980-02-14 |
+| AARUSH   | 1980-02-14 |
+| NATASHA  | 1981-07-19 |
+| SANGITA  | 1981-07-19 |
+| SUPRIYA  | 1981-07-19 |
++----------+------------+
+15 rows in set (0.00 sec)
+
+mysql> select ename, sal from emp a where exists (select true from emp b where a.sal = b.sal and a.empno <> b.empno);
++----------+------+
+| ename    | sal  |
++----------+------+
+| GITA     | 1750 |
+| VRUSHALI | 1750 |
+| SHARMIN  | 1750 |
+| BANDISH  | 1750 |
+| THOMAS   | 1750 |
+| WARD     | 1250 |
+| MARTIN   | 1250 |
+| SCOTT    | 3000 |
+| KING     | 5000 |
+| FRED     | 5000 |
+| FORD     | 3000 |
+| ALEX     | 1250 |
+| NATASHA  | 1750 |
+| SANGITA  | 1750 |
++----------+------+
+14 rows in set (0.00 sec)
+
+mysql> select ename, sal from emp a where exists (select true from emp b where a.sal = b.sal and a.empno <> b.empno) order by sal;
++----------+------+
+| ename    | sal  |
++----------+------+
+| WARD     | 1250 |
+| MARTIN   | 1250 |
+| ALEX     | 1250 |
+| GITA     | 1750 |
+| VRUSHALI | 1750 |
+| SHARMIN  | 1750 |
+| BANDISH  | 1750 |
+| THOMAS   | 1750 |
+| NATASHA  | 1750 |
+| SANGITA  | 1750 |
+| SCOTT    | 3000 |
+| FORD     | 3000 |
+| KING     | 5000 |
+| FRED     | 5000 |
++----------+------+
+14 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select max(deptno) from dept;
++-------------+
+| max(deptno) |
++-------------+
+|          60 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(deptno) + 10 from dept;
++------------------+
+| max(deptno) + 10 |
++------------------+
+|               70 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.04 sec)
+
+mysql> insert into dept(deptno) select max(deptno) + 10 from dept;
+Query OK, 1 row affected (0.02 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|     70 | NULL       | NULL     | NULL       | NULL       |
++--------+------------+----------+------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select max(deptno) + 10 from dept;
++------------------+
+| max(deptno) + 10 |
++------------------+
+|               80 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select max(deptno) + 10,'xyz','xyz', 'xyz', 'xyz' from dept;
++------------------+-----+-----+-----+-----+
+| max(deptno) + 10 | xyz | xyz | xyz | xyz |
++------------------+-----+-----+-----+-----+
+|               80 | xyz | xyz | xyz | xyz |
++------------------+-----+-----+-----+-----+
+1 row in set (0.00 sec)
+
+mysql> insert into dept  select max(deptno) + 10,'xyz','xyz', 'xyz', 'xyz' from dept;
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|     70 | NULL       | NULL     | NULL       | NULL       |
+|     80 | xyz        | xyz      | xyz        | xyz        |
++--------+------------+----------+------------+------------+
+8 rows in set (0.00 sec)
+
+mysql> insert into dept(deptno) select max(deptno) + 10 from dept;
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> insert into dept(deptno) select max(deptno) + 10 from dept;
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|     70 | NULL       | NULL     | NULL       | NULL       |
+|     80 | xyz        | xyz      | xyz        | xyz        |
+|     90 | NULL       | NULL     | NULL       | NULL       |
+|    100 | NULL       | NULL     | NULL       | NULL       |
++--------+------------+----------+------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> insert into dept  select max(deptno) + 10,'xyz','xyz', 'xyz', 'xyz' from dept;
+Query OK, 1 row affected (0.02 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> insert into dept  select max(deptno) + 10,'xyz','xyz', 'xyz', 'xyz' from dept;
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|     70 | NULL       | NULL     | NULL       | NULL       |
+|     80 | xyz        | xyz      | xyz        | xyz        |
+|     90 | NULL       | NULL     | NULL       | NULL       |
+|    100 | NULL       | NULL     | NULL       | NULL       |
+|    110 | xyz        | xyz      | xyz        | xyz        |
+|    120 | xyz        | xyz      | xyz        | xyz        |
++--------+------------+----------+------------+------------+
+12 rows in set (0.00 sec)
+
+mysql> insert into dept(deptno) select max(deptno) + 10 from dept;
+Query OK, 1 row affected (0.02 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|     70 | NULL       | NULL     | NULL       | NULL       |
+|     80 | xyz        | xyz      | xyz        | xyz        |
+|     90 | NULL       | NULL     | NULL       | NULL       |
+|    100 | NULL       | NULL     | NULL       | NULL       |
+|    110 | xyz        | xyz      | xyz        | xyz        |
+|    120 | xyz        | xyz      | xyz        | xyz        |
+|    130 | NULL       | NULL     | NULL       | NULL       |
++--------+------------+----------+------------+------------+
+13 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> delete from emp where deptno = select deptno from dept where dname='sales';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select deptno from dept where dname='sales'' at line 1
+mysql> delete from emp where deptno = (select deptno from dept where dname='sales');
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`db1`.`emp`, CONSTRAINT `EMP_FOREIGN_KEY_mgr` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`))
+mysql>
+mysql> delete from emp where deptno = (select deptno from dept where dname='RESEARCH');
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`db1`.`emp`, CONSTRAINT `EMP_FOREIGN_KEY_mgr` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`))
+mysql> delete from emp where deptno = (select deptno from dept where dname='HR');
+Query OK, 3 rows affected (0.02 sec)
+
+mysql> select deptno from emp order by 1 desc
+    -> ;
++--------+
+| deptno |
++--------+
+|     60 |
+|     60 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     10 |
++--------+
+27 rows in set (0.00 sec)
+
+mysql> delete from emp where deptno = (select deptno from dept where dname='IT');
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`db1`.`emp`, CONSTRAINT `EMP_FOREIGN_KEY_mgr` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`))
+mysql>
+mysql>
+mysql>
+mysql> delete from emp where deptno = (select deptno from dept where dname='IT');
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`db1`.`emp`, CONSTRAINT `EMP_FOREIGN_KEY_mgr` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`))
+mysql>
+mysql>
+mysql>
+mysql> select ename, sal from emp where deptno=60;
++-------+------+
+| ename | sal  |
++-------+------+
+| Ruhan | 2000 |
+| Neel  | 1000 |
++-------+------+
+2 rows in set (0.01 sec)
+
+mysql> update emp set sal= -1 where eptno = (select deptno from dept where dname='IT');
+ERROR 1054 (42S22): Unknown column 'eptno' in 'where clause'
+mysql> update emp set sal= -1 where deptno = (select deptno from dept where dname='IT');
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select ename, sal from emp where deptno=60;
++-------+------+
+| ename | sal  |
++-------+------+
+| Ruhan |   -1 |
+| Neel  |   -1 |
++-------+------+
+2 rows in set (0.00 sec)
+
+mysql> update emp set sal= -1 where deptno = (select deptno from dept where dname='IT');
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 2  Changed: 0  Warnings: 0
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> exit\
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'exit' at line 1
+mysql> exit

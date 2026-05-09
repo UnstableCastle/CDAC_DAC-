@@ -1,0 +1,2151 @@
+mysql> select database();
++------------+
+| database() |
++------------+
+| db1        |
++------------+
+1 row in set (0.00 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_db1       |
++---------------------+
+| a                   |
+| a1                  |
+| a2                  |
+| activity            |
+| agent               |
+| airline_seats       |
+| andor               |
+| atm                 |
+| b                   |
+| bankloan            |
+| batch_schedule      |
+| betweensalary       |
+| bitwise             |
+| blanktablea         |
+| blanktableb         |
+| blocks              |
+| blog                |
+| bonus               |
+| books               |
+| brands              |
+| bus_stops           |
+| cafe                |
+| candidate           |
+| cardpayments        |
+| cars                |
+| cashpayments        |
+| categories          |
+| category            |
+| city                |
+| classandsubjects    |
+| client              |
+| cnumbers            |
+| coalesce            |
+| comments            |
+| company             |
+| countnulls          |
+| countnumbers        |
+| cricketwinnerteam   |
+| customer            |
+| customers           |
+| d                   |
+| d_history           |
+| demodept1           |
+| demodept2           |
+| dept                |
+| dept1               |
+| dhl                 |
+| docs                |
+| doctor              |
+| doctorvisits        |
+| dummy               |
+| duplicate           |
+| e                   |
+| e1                  |
+| e2                  |
+| e3                  |
+| emp                 |
+| emp1                |
+| emp2                |
+| emp_attendance      |
+| emp_cards           |
+| emp_phone           |
+| empj                |
+| envelope            |
+| facebook            |
+| fedex               |
+| food                |
+| food_category_tags  |
+| food_items          |
+| fromstoreorders     |
+| fruits              |
+| fullname            |
+| hall_ticket         |
+| hobby               |
+| i                   |
+| ipl                 |
+| item                |
+| job_list            |
+| key_parts           |
+| labtestlist         |
+| leading_zeroes      |
+| leadtable           |
+| licence             |
+| linkedin            |
+| loan                |
+| location            |
+| managers            |
+| mass_table          |
+| medicinelist        |
+| menucard            |
+| missingnumbers      |
+| nearest             |
+| new                 |
+| newbooks            |
+| null1               |
+| null2               |
+| nullif              |
+| numberstring        |
+| onlineorders        |
+| ord                 |
+| ord1                |
+| order1              |
+| order_items         |
+| orderdetails        |
+| orders              |
+| overlapping_dates   |
+| overtime            |
+| patient             |
+| phonecall           |
+| pivot_table         |
+| plumber             |
+| plumber_service_map |
+| points              |
+| population          |
+| price               |
+| product             |
+| product_sales       |
+| products            |
+| pune_metro_stations |
+| quarterly_revenue   |
+| r                   |
+| r1                  |
+| r2                  |
+| races               |
+| regexpr             |
+| repeatingnumbers    |
+| replacedept         |
+| reservations        |
+| revenue             |
+| rockets             |
+| room_assigned       |
+| room_staff          |
+| rooms               |
+| runners             |
+| runningserver       |
+| sales               |
+| sales1              |
+| sales_channel       |
+| salespeople         |
+| salesperson         |
+| salgrade            |
+| server              |
+| service             |
+| seta                |
+| setb                |
+| shop                |
+| softdrink           |
+| sort                |
+| sourcecity          |
+| sourcenames         |
+| stadium             |
+| stages              |
+| states              |
+| station             |
+| status              |
+| stocks              |
+| stringnumber        |
+| student             |
+| swapcity            |
+| t                   |
+| tablea              |
+| tableaa             |
+| tableb              |
+| tablebb             |
+| targetcity          |
+| targetnames         |
+| task1               |
+| tasks               |
+| teams               |
+| temp1               |
+| temperature         |
+| trainers            |
+| trains              |
+| traintimetable      |
+| transactions        |
+| unpivot_table       |
+| ups                 |
+| vote_response       |
+| votes               |
+| warehouse           |
+| x                   |
+| y                   |
+| y1                  |
+| year_of_service     |
+| yearly_revenue      |
+| years               |
+| z                   |
++---------------------+
+187 rows in set (0.01 sec)
+
+mysql> show full tables;
++---------------------+------------+
+| Tables_in_db1       | Table_type |
++---------------------+------------+
+| a                   | BASE TABLE |
+| a1                  | BASE TABLE |
+| a2                  | BASE TABLE |
+| activity            | BASE TABLE |
+| agent               | BASE TABLE |
+| airline_seats       | BASE TABLE |
+| andor               | BASE TABLE |
+| atm                 | BASE TABLE |
+| b                   | BASE TABLE |
+| bankloan            | BASE TABLE |
+| batch_schedule      | BASE TABLE |
+| betweensalary       | BASE TABLE |
+| bitwise             | BASE TABLE |
+| blanktablea         | BASE TABLE |
+| blanktableb         | BASE TABLE |
+| blocks              | BASE TABLE |
+| blog                | BASE TABLE |
+| bonus               | BASE TABLE |
+| books               | BASE TABLE |
+| brands              | BASE TABLE |
+| bus_stops           | BASE TABLE |
+| cafe                | BASE TABLE |
+| candidate           | BASE TABLE |
+| cardpayments        | BASE TABLE |
+| cars                | BASE TABLE |
+| cashpayments        | BASE TABLE |
+| categories          | BASE TABLE |
+| category            | BASE TABLE |
+| city                | BASE TABLE |
+| classandsubjects    | BASE TABLE |
+| client              | BASE TABLE |
+| cnumbers            | BASE TABLE |
+| coalesce            | BASE TABLE |
+| comments            | BASE TABLE |
+| company             | BASE TABLE |
+| countnulls          | BASE TABLE |
+| countnumbers        | BASE TABLE |
+| cricketwinnerteam   | BASE TABLE |
+| customer            | BASE TABLE |
+| customers           | BASE TABLE |
+| d                   | BASE TABLE |
+| d_history           | BASE TABLE |
+| demodept1           | BASE TABLE |
+| demodept2           | BASE TABLE |
+| dept                | BASE TABLE |
+| dept1               | BASE TABLE |
+| dhl                 | BASE TABLE |
+| docs                | BASE TABLE |
+| doctor              | BASE TABLE |
+| doctorvisits        | BASE TABLE |
+| dummy               | BASE TABLE |
+| duplicate           | BASE TABLE |
+| e                   | BASE TABLE |
+| e1                  | BASE TABLE |
+| e2                  | BASE TABLE |
+| e3                  | BASE TABLE |
+| emp                 | BASE TABLE |
+| emp1                | BASE TABLE |
+| emp2                | BASE TABLE |
+| emp_attendance      | BASE TABLE |
+| emp_cards           | BASE TABLE |
+| emp_phone           | BASE TABLE |
+| empj                | BASE TABLE |
+| envelope            | BASE TABLE |
+| facebook            | BASE TABLE |
+| fedex               | BASE TABLE |
+| food                | BASE TABLE |
+| food_category_tags  | BASE TABLE |
+| food_items          | BASE TABLE |
+| fromstoreorders     | BASE TABLE |
+| fruits              | BASE TABLE |
+| fullname            | BASE TABLE |
+| hall_ticket         | BASE TABLE |
+| hobby               | BASE TABLE |
+| i                   | BASE TABLE |
+| ipl                 | BASE TABLE |
+| item                | BASE TABLE |
+| job_list            | BASE TABLE |
+| key_parts           | BASE TABLE |
+| labtestlist         | BASE TABLE |
+| leading_zeroes      | BASE TABLE |
+| leadtable           | BASE TABLE |
+| licence             | BASE TABLE |
+| linkedin            | BASE TABLE |
+| loan                | BASE TABLE |
+| location            | BASE TABLE |
+| managers            | BASE TABLE |
+| mass_table          | BASE TABLE |
+| medicinelist        | BASE TABLE |
+| menucard            | BASE TABLE |
+| missingnumbers      | BASE TABLE |
+| nearest             | BASE TABLE |
+| new                 | BASE TABLE |
+| newbooks            | BASE TABLE |
+| null1               | BASE TABLE |
+| null2               | BASE TABLE |
+| nullif              | BASE TABLE |
+| numberstring        | BASE TABLE |
+| onlineorders        | BASE TABLE |
+| ord                 | BASE TABLE |
+| ord1                | BASE TABLE |
+| order1              | BASE TABLE |
+| order_items         | BASE TABLE |
+| orderdetails        | BASE TABLE |
+| orders              | BASE TABLE |
+| overlapping_dates   | BASE TABLE |
+| overtime            | BASE TABLE |
+| patient             | BASE TABLE |
+| phonecall           | BASE TABLE |
+| pivot_table         | BASE TABLE |
+| plumber             | BASE TABLE |
+| plumber_service_map | BASE TABLE |
+| points              | BASE TABLE |
+| population          | BASE TABLE |
+| price               | BASE TABLE |
+| product             | BASE TABLE |
+| product_sales       | BASE TABLE |
+| products            | BASE TABLE |
+| pune_metro_stations | BASE TABLE |
+| quarterly_revenue   | BASE TABLE |
+| r                   | BASE TABLE |
+| r1                  | BASE TABLE |
+| r2                  | BASE TABLE |
+| races               | BASE TABLE |
+| regexpr             | BASE TABLE |
+| repeatingnumbers    | BASE TABLE |
+| replacedept         | BASE TABLE |
+| reservations        | BASE TABLE |
+| revenue             | BASE TABLE |
+| rockets             | BASE TABLE |
+| room_assigned       | BASE TABLE |
+| room_staff          | BASE TABLE |
+| rooms               | BASE TABLE |
+| runners             | BASE TABLE |
+| runningserver       | BASE TABLE |
+| sales               | VIEW       |
+| sales1              | BASE TABLE |
+| sales_channel       | BASE TABLE |
+| salespeople         | BASE TABLE |
+| salesperson         | BASE TABLE |
+| salgrade            | BASE TABLE |
+| server              | BASE TABLE |
+| service             | BASE TABLE |
+| seta                | BASE TABLE |
+| setb                | BASE TABLE |
+| shop                | BASE TABLE |
+| softdrink           | BASE TABLE |
+| sort                | BASE TABLE |
+| sourcecity          | BASE TABLE |
+| sourcenames         | BASE TABLE |
+| stadium             | BASE TABLE |
+| stages              | BASE TABLE |
+| states              | BASE TABLE |
+| station             | BASE TABLE |
+| status              | BASE TABLE |
+| stocks              | BASE TABLE |
+| stringnumber        | BASE TABLE |
+| student             | BASE TABLE |
+| swapcity            | BASE TABLE |
+| t                   | BASE TABLE |
+| tablea              | BASE TABLE |
+| tableaa             | BASE TABLE |
+| tableb              | BASE TABLE |
+| tablebb             | BASE TABLE |
+| targetcity          | BASE TABLE |
+| targetnames         | BASE TABLE |
+| task1               | BASE TABLE |
+| tasks               | BASE TABLE |
+| teams               | BASE TABLE |
+| temp1               | BASE TABLE |
+| temperature         | BASE TABLE |
+| trainers            | BASE TABLE |
+| trains              | BASE TABLE |
+| traintimetable      | BASE TABLE |
+| transactions        | BASE TABLE |
+| unpivot_table       | BASE TABLE |
+| ups                 | BASE TABLE |
+| vote_response       | BASE TABLE |
+| votes               | BASE TABLE |
+| warehouse           | BASE TABLE |
+| x                   | BASE TABLE |
+| y                   | BASE TABLE |
+| y1                  | BASE TABLE |
+| year_of_service     | BASE TABLE |
+| yearly_revenue      | BASE TABLE |
+| years               | BASE TABLE |
+| z                   | BASE TABLE |
++---------------------+------------+
+187 rows in set (0.01 sec)
+
+mysql> show full tables like 'e%';
++--------------------+------------+
+| Tables_in_db1 (e%) | Table_type |
++--------------------+------------+
+| e                  | BASE TABLE |
+| e1                 | BASE TABLE |
+| e2                 | BASE TABLE |
+| e3                 | BASE TABLE |
+| emp                | BASE TABLE |
+| emp1               | BASE TABLE |
+| emp2               | BASE TABLE |
+| emp_attendance     | BASE TABLE |
+| emp_cards          | BASE TABLE |
+| emp_phone          | BASE TABLE |
+| empj               | BASE TABLE |
+| envelope           | BASE TABLE |
++--------------------+------------+
+12 rows in set (0.02 sec)
+
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> explain emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> show columns from emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> show columns from emp like 'E#';
+Empty set (0.00 sec)
+
+mysql> show columns from emp like 'E%' ;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| EMPNO | int         | NO   | PRI | NULL    |       |
+| ENAME | varchar(12) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> select empno, ename, sal from emp;
++-------+----------+------+
+| empno | ename    | sal  |
++-------+----------+------+
+|  6001 | GITA     | 1750 |
+|  6129 | VRUSHALI | 1750 |
+|  6473 | SHARMIN  | 1750 |
+|  6781 | BANDISH  | 1750 |
+|  7369 | SMITH    |  800 |
+|  7415 | AARAV    | 3350 |
+|  7421 | THOMAS   | 1750 |
+|  7499 | ALLEN    | 1600 |
+|  7521 | WARD     | 1250 |
+|  7566 | JONES    | 2975 |
+|  7654 | MARTIN   | 1250 |
+|  7698 | BLAKE    | 2850 |
+|  7782 | CLARK    | 2450 |
+|  7788 | SCOTT    | 3000 |
+|  7839 | KING     | 5000 |
+|  7840 | FRED     | 5000 |
+|  7844 | TURNER   | 1500 |
+|  7876 | ADAMS    | 1100 |
+|  7888 | Ruhan    | 2000 |
+|  7889 | Neel     | 1000 |
+|  7900 | JAMES    |  950 |
+|  7902 | FORD     | 3000 |
+|  7919 | HOFFMAN  | 4150 |
+|  7920 | GRASS    | 2575 |
+|  7934 | MILLER   | 1300 |
+|  7945 | AARUSH   | 1350 |
+|  7949 | ALEX     | 1250 |
+|  8433 | NATASHA  | 1750 |
+|  9400 | SANGITA  | 1750 |
+|  9473 | SUPRIYA  | 1750 |
++-------+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> select 1750 + 400;
++------------+
+| 1750 + 400 |
++------------+
+|       2150 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> show  variables like 'auto%';
++--------------------------+-------+
+| Variable_name            | Value |
++--------------------------+-------+
+| auto_generate_certs      | ON    |
+| auto_increment_increment | 1     |
+| auto_increment_offset    | 1     |
+| autocommit               | ON    |
+| automatic_sp_privileges  | ON    |
++--------------------------+-------+
+5 rows in set (0.06 sec)
+
+mysql> set autocommit=false;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show  variables like 'auto%';
++--------------------------+-------+
+| Variable_name            | Value |
++--------------------------+-------+
+| auto_generate_certs      | ON    |
+| auto_increment_increment | 1     |
+| auto_increment_offset    | 1     |
+| autocommit               | OFF   |
+| automatic_sp_privileges  | ON    |
++--------------------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select empno, ename, sal from emp;
++-------+----------+------+
+| empno | ename    | sal  |
++-------+----------+------+
+|  6001 | GITA     | 1750 |
+|  6129 | VRUSHALI | 1750 |
+|  6473 | SHARMIN  | 1750 |
+|  6781 | BANDISH  | 1750 |
+|  7369 | SMITH    |  800 |
+|  7415 | AARAV    | 3350 |
+|  7421 | THOMAS   | 1750 |
+|  7499 | ALLEN    | 1600 |
+|  7521 | WARD     | 1250 |
+|  7566 | JONES    | 2975 |
+|  7654 | MARTIN   | 1250 |
+|  7698 | BLAKE    | 2850 |
+|  7782 | CLARK    | 2450 |
+|  7788 | SCOTT    | 3000 |
+|  7839 | KING     | 5000 |
+|  7840 | FRED     | 5000 |
+|  7844 | TURNER   | 1500 |
+|  7876 | ADAMS    | 1100 |
+|  7888 | Ruhan    | 2000 |
+|  7889 | Neel     | 1000 |
+|  7900 | JAMES    |  950 |
+|  7902 | FORD     | 3000 |
+|  7919 | HOFFMAN  | 4150 |
+|  7920 | GRASS    | 2575 |
+|  7934 | MILLER   | 1300 |
+|  7945 | AARUSH   | 1350 |
+|  7949 | ALEX     | 1250 |
+|  8433 | NATASHA  | 1750 |
+|  9400 | SANGITA  | 1750 |
+|  9473 | SUPRIYA  | 1750 |
++-------+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> update emp set sal=-1;
+Query OK, 30 rows affected (0.02 sec)
+Rows matched: 30  Changed: 30  Warnings: 0
+
+mysql> select empno, ename, sal from emp;
++-------+----------+------+
+| empno | ename    | sal  |
++-------+----------+------+
+|  6001 | GITA     |   -1 |
+|  6129 | VRUSHALI |   -1 |
+|  6473 | SHARMIN  |   -1 |
+|  6781 | BANDISH  |   -1 |
+|  7369 | SMITH    |   -1 |
+|  7415 | AARAV    |   -1 |
+|  7421 | THOMAS   |   -1 |
+|  7499 | ALLEN    |   -1 |
+|  7521 | WARD     |   -1 |
+|  7566 | JONES    |   -1 |
+|  7654 | MARTIN   |   -1 |
+|  7698 | BLAKE    |   -1 |
+|  7782 | CLARK    |   -1 |
+|  7788 | SCOTT    |   -1 |
+|  7839 | KING     |   -1 |
+|  7840 | FRED     |   -1 |
+|  7844 | TURNER   |   -1 |
+|  7876 | ADAMS    |   -1 |
+|  7888 | Ruhan    |   -1 |
+|  7889 | Neel     |   -1 |
+|  7900 | JAMES    |   -1 |
+|  7902 | FORD     |   -1 |
+|  7919 | HOFFMAN  |   -1 |
+|  7920 | GRASS    |   -1 |
+|  7934 | MILLER   |   -1 |
+|  7945 | AARUSH   |   -1 |
+|  7949 | ALEX     |   -1 |
+|  8433 | NATASHA  |   -1 |
+|  9400 | SANGITA  |   -1 |
+|  9473 | SUPRIYA  |   -1 |
++-------+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select empno, ename, sal from emp;
++-------+----------+------+
+| empno | ename    | sal  |
++-------+----------+------+
+|  6001 | GITA     | 1750 |
+|  6129 | VRUSHALI | 1750 |
+|  6473 | SHARMIN  | 1750 |
+|  6781 | BANDISH  | 1750 |
+|  7369 | SMITH    |  800 |
+|  7415 | AARAV    | 3350 |
+|  7421 | THOMAS   | 1750 |
+|  7499 | ALLEN    | 1600 |
+|  7521 | WARD     | 1250 |
+|  7566 | JONES    | 2975 |
+|  7654 | MARTIN   | 1250 |
+|  7698 | BLAKE    | 2850 |
+|  7782 | CLARK    | 2450 |
+|  7788 | SCOTT    | 3000 |
+|  7839 | KING     | 5000 |
+|  7840 | FRED     | 5000 |
+|  7844 | TURNER   | 1500 |
+|  7876 | ADAMS    | 1100 |
+|  7888 | Ruhan    | 2000 |
+|  7889 | Neel     | 1000 |
+|  7900 | JAMES    |  950 |
+|  7902 | FORD     | 3000 |
+|  7919 | HOFFMAN  | 4150 |
+|  7920 | GRASS    | 2575 |
+|  7934 | MILLER   | 1300 |
+|  7945 | AARUSH   | 1350 |
+|  7949 | ALEX     | 1250 |
+|  8433 | NATASHA  | 1750 |
+|  9400 | SANGITA  | 1750 |
+|  9473 | SUPRIYA  | 1750 |
++-------+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> update emp set sal=sal+400;
+Query OK, 30 rows affected (0.01 sec)
+Rows matched: 30  Changed: 30  Warnings: 0
+
+mysql> select empno, ename, sal from emp;
++-------+----------+------+
+| empno | ename    | sal  |
++-------+----------+------+
+|  6001 | GITA     | 2150 |
+|  6129 | VRUSHALI | 2150 |
+|  6473 | SHARMIN  | 2150 |
+|  6781 | BANDISH  | 2150 |
+|  7369 | SMITH    | 1200 |
+|  7415 | AARAV    | 3750 |
+|  7421 | THOMAS   | 2150 |
+|  7499 | ALLEN    | 2000 |
+|  7521 | WARD     | 1650 |
+|  7566 | JONES    | 3375 |
+|  7654 | MARTIN   | 1650 |
+|  7698 | BLAKE    | 3250 |
+|  7782 | CLARK    | 2850 |
+|  7788 | SCOTT    | 3400 |
+|  7839 | KING     | 5400 |
+|  7840 | FRED     | 5400 |
+|  7844 | TURNER   | 1900 |
+|  7876 | ADAMS    | 1500 |
+|  7888 | Ruhan    | 2400 |
+|  7889 | Neel     | 1400 |
+|  7900 | JAMES    | 1350 |
+|  7902 | FORD     | 3400 |
+|  7919 | HOFFMAN  | 4550 |
+|  7920 | GRASS    | 2975 |
+|  7934 | MILLER   | 1700 |
+|  7945 | AARUSH   | 1750 |
+|  7949 | ALEX     | 1650 |
+|  8433 | NATASHA  | 2150 |
+|  9400 | SANGITA  | 2150 |
+|  9473 | SUPRIYA  | 2150 |
++-------+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> update emp set sal=sal+400 where empno=9473;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select empno, ename, sal from emp;
++-------+----------+------+
+| empno | ename    | sal  |
++-------+----------+------+
+|  6001 | GITA     | 1750 |
+|  6129 | VRUSHALI | 1750 |
+|  6473 | SHARMIN  | 1750 |
+|  6781 | BANDISH  | 1750 |
+|  7369 | SMITH    |  800 |
+|  7415 | AARAV    | 3350 |
+|  7421 | THOMAS   | 1750 |
+|  7499 | ALLEN    | 1600 |
+|  7521 | WARD     | 1250 |
+|  7566 | JONES    | 2975 |
+|  7654 | MARTIN   | 1250 |
+|  7698 | BLAKE    | 2850 |
+|  7782 | CLARK    | 2450 |
+|  7788 | SCOTT    | 3000 |
+|  7839 | KING     | 5000 |
+|  7840 | FRED     | 5000 |
+|  7844 | TURNER   | 1500 |
+|  7876 | ADAMS    | 1100 |
+|  7888 | Ruhan    | 2000 |
+|  7889 | Neel     | 1000 |
+|  7900 | JAMES    |  950 |
+|  7902 | FORD     | 3000 |
+|  7919 | HOFFMAN  | 4150 |
+|  7920 | GRASS    | 2575 |
+|  7934 | MILLER   | 1300 |
+|  7945 | AARUSH   | 1350 |
+|  7949 | ALEX     | 1250 |
+|  8433 | NATASHA  | 1750 |
+|  9400 | SANGITA  | 1750 |
+|  9473 | SUPRIYA  | 2150 |
++-------+----------+------+
+30 rows in set (0.00 sec)
+
+mysql> use db2;
+Database changed
+mysql> drop table x;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table x(id int, ename varchar, sal int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', sal int)' at line 1
+mysql>
+mysql> create table x(id int, sal int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into x values(1,3000), (2,null), (3,4000),(4,null);
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from x;
++------+------+
+| id   | sal  |
++------+------+
+|    1 | 3000 |
+|    2 | NULL |
+|    3 | 4000 |
+|    4 | NULL |
++------+------+
+4 rows in set (0.00 sec)
+
+mysql> select sal from x;
++------+
+| sal  |
++------+
+| 3000 |
+| NULL |
+| 4000 |
+| NULL |
++------+
+4 rows in set (0.00 sec)
+
+mysql> update x set sal=1000 where sal=null;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select sal from x;
++------+
+| sal  |
++------+
+| 3000 |
+| NULL |
+| 4000 |
+| NULL |
++------+
+4 rows in set (0.00 sec)
+
+mysql> update x set sal=1000 where sal <=> null;
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select sal from x;
++------+
+| sal  |
++------+
+| 3000 |
+| 1000 |
+| 4000 |
+| 1000 |
++------+
+4 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select sal from x;
+Empty set (0.00 sec)
+
+mysql> insert into x values(1,3000), (2,null), (3,4000),(4,null);
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> commit;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select sal from x;
++------+
+| sal  |
++------+
+| 3000 |
+| NULL |
+| 4000 |
+| NULL |
++------+
+4 rows in set (0.00 sec)
+
+mysql> select ifnull(sal, 1000) from x;
++-------------------+
+| ifnull(sal, 1000) |
++-------------------+
+|              3000 |
+|              1000 |
+|              4000 |
+|              1000 |
++-------------------+
+4 rows in set (0.00 sec)
+
+mysql> select sal, ifnull(sal, 1000) from x;
++------+-------------------+
+| sal  | ifnull(sal, 1000) |
++------+-------------------+
+| 3000 |              3000 |
+| NULL |              1000 |
+| 4000 |              4000 |
+| NULL |              1000 |
++------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> update x set sal=  ifnull(sal, 1000);
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 4  Changed: 2  Warnings: 0
+
+mysql> select sal from x;
++------+
+| sal  |
++------+
+| 3000 |
+| 1000 |
+| 4000 |
+| 1000 |
++------+
+4 rows in set (0.00 sec)
+
+mysql> rollkack;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rollkack' at line 1
+mysql> rollback;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from x;
++------+------+
+| id   | sal  |
++------+------+
+|    1 | 3000 |
+|    2 | NULL |
+|    3 | 4000 |
+|    4 | NULL |
++------+------+
+4 rows in set (0.00 sec)
+
+mysql> select sal, case when id=2 then 1000 end from x;
++------+------------------------------+
+| sal  | case when id=2 then 1000 end |
++------+------------------------------+
+| 3000 |                         NULL |
+| NULL |                         1000 |
+| 4000 |                         NULL |
+| NULL |                         NULL |
++------+------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select id, sal, case when id=2 then 1000 end R1 from x;
++------+------+------+
+| id   | sal  | R1   |
++------+------+------+
+|    1 | 3000 | NULL |
+|    2 | NULL | 1000 |
+|    3 | 4000 | NULL |
+|    4 | NULL | NULL |
++------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select id, sal, case when id=2 then 1000 when id=4 then 2000 end R1 from x;
++------+------+------+
+| id   | sal  | R1   |
++------+------+------+
+|    1 | 3000 | NULL |
+|    2 | NULL | 1000 |
+|    3 | 4000 | NULL |
+|    4 | NULL | 2000 |
++------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> update x set sal = case when id=2 then 1000 when id=4 then 2000 end;
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select * from x;
++------+------+
+| id   | sal  |
++------+------+
+|    1 | NULL |
+|    2 | 1000 |
+|    3 | NULL |
+|    4 | 2000 |
++------+------+
+4 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> update x set sal = case when id=2 then 1000 when id=4 then 2000 else sal end;
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 4  Changed: 2  Warnings: 0
+
+mysql> select * from x;
++------+------+
+| id   | sal  |
++------+------+
+|    1 | 3000 |
+|    2 | 1000 |
+|    3 | 4000 |
+|    4 | 2000 |
++------+------+
+4 rows in set (0.00 sec)
+
+mysql> drop table x;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table x(c1 int, c2 int, c3 int default(c1+c2));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into x values(10,20, default);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into x(c1, c2) values(100,200);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> table x;
++------+------+------+
+| c1   | c2   | c3   |
++------+------+------+
+|   10 |   20 |   30 |
+|  100 |  200 |  300 |
++------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> update x set c2=1234 where c1=100;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> table x;
++------+------+------+
+| c1   | c2   | c3   |
++------+------+------+
+|   10 |   20 |   30 |
+|  100 | 1234 |  300 |
++------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> update x set c3=default;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 2  Changed: 1  Warnings: 0
+
+mysql> table x;
++------+------+------+
+| c1   | c2   | c3   |
++------+------+------+
+|   10 |   20 |   30 |
+|  100 | 1234 | 1334 |
++------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> drop table x;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table x(c1 int, c2 int, c3 int default(c1+c2), c4 int generated  always as(c1+c2) virtual);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc x;
++-------+------+------+-----+---------------+-------------------+
+| Field | Type | Null | Key | Default       | Extra             |
++-------+------+------+-----+---------------+-------------------+
+| c1    | int  | YES  |     | NULL          |                   |
+| c2    | int  | YES  |     | NULL          |                   |
+| c3    | int  | YES  |     | (`c1` + `c2`) | DEFAULT_GENERATED |
+| c4    | int  | YES  |     | NULL          | VIRTUAL GENERATED |
++-------+------+------+-----+---------------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into x(c1, c2) values(10,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from x;
++------+------+------+------+
+| c1   | c2   | c3   | c4   |
++------+------+------+------+
+|   10 |   20 |   30 |   30 |
++------+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> update x set c1=80;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from x;
++------+------+------+------+
+| c1   | c2   | c3   | c4   |
++------+------+------+------+
+|   80 |   20 |   30 |  100 |
++------+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> update x set c3=default;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from x;
++------+------+------+------+
+| c1   | c2   | c3   | c4   |
++------+------+------+------+
+|   80 |   20 |  100 |  100 |
++------+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> desc x;
++-------+------+------+-----+---------------+-------------------+
+| Field | Type | Null | Key | Default       | Extra             |
++-------+------+------+-----+---------------+-------------------+
+| c1    | int  | YES  |     | NULL          |                   |
+| c2    | int  | YES  |     | NULL          |                   |
+| c3    | int  | YES  |     | (`c1` + `c2`) | DEFAULT_GENERATED |
+| c4    | int  | YES  |     | NULL          | VIRTUAL GENERATED |
++-------+------+------+-----+---------------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> update x set c3=-1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from x;
++------+------+------+------+
+| c1   | c2   | c3   | c4   |
++------+------+------+------+
+|   80 |   20 |   -1 |  100 |
++------+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> update x set c4=-1;
+ERROR 3105 (HY000): The value specified for generated column 'c4' in table 'x' is not allowed.
+mysql>
+mysql> select 3+2;
++-----+
+| 3+2 |
++-----+
+|   5 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> select 3-2;
++-----+
+| 3-2 |
++-----+
+|   1 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> select 3*2;
++-----+
+| 3*2 |
++-----+
+|   6 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> select 3/2;
++--------+
+| 3/2    |
++--------+
+| 1.5000 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select 3\2;
+ERROR:
+Unknown command '\2'.
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\2' at line 1
+mysql>
+mysql>
+mysql>
+mysql> select 3/2;
++--------+
+| 3/2    |
++--------+
+| 1.5000 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select 3/2, 3 div 2;
++--------+---------+
+| 3/2    | 3 div 2 |
++--------+---------+
+| 1.5000 |       1 |
++--------+---------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> select 7/2, 7 div 2;
++--------+---------+
+| 7/2    | 7 div 2 |
++--------+---------+
+| 3.5000 |       3 |
++--------+---------+
+1 row in set (0.00 sec)
+
+mysql> select 74/2, 74 div 2;
++---------+----------+
+| 74/2    | 74 div 2 |
++---------+----------+
+| 37.0000 |       37 |
++---------+----------+
+1 row in set (0.00 sec)
+
+mysql> select '1' + '1';
++-----------+
+| '1' + '1' |
++-----------+
+|         2 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select '1a' + '1';
++------------+
+| '1a' + '1' |
++------------+
+|          2 |
++------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select 'a1' + '1';
++------------+
+| 'a1' + '1' |
++------------+
+|          1 |
++------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> desc student;
+ERROR 1146 (42S02): Table 'db2.student' doesn't exist
+mysql> desc student;
+ERROR 1146 (42S02): Table 'db2.student' doesn't exist
+mysql> use db1
+Database changed
+mysql> desc studnt;
+ERROR 1146 (42S02): Table 'db1.studnt' doesn't exist
+mysql> desc studnts;
+ERROR 1146 (42S02): Table 'db1.studnts' doesn't exist
+mysql> use db1f;
+ERROR 1049 (42000): Unknown database 'db1f'
+mysql> desc students;
+ERROR 1146 (42S02): Table 'db1.students' doesn't exist
+mysql> desc student;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| studentID | int         | NO   | PRI | NULL    |       |
+| name      | varchar(45) | YES  |     | NULL    |       |
+| rnk       | int         | YES  |     | NULL    |       |
+| emailID   | varchar(40) | YES  |     | NULL    |       |
+| userName  | varchar(40) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select studentID,name,rnk from student;
++-----------+----------+------+
+| studentID | name     | rnk  |
++-----------+----------+------+
+|      1001 | Saleel   |    1 |
+|      1002 | Sharmin  |    1 |
+|      1003 | Vrushali |    2 |
+|      1005 | Ruhan    |    3 |
+|      1006 | Neel     |    2 |
+|      1007 | Deep     |    1 |
+|      1008 | Nitish   |    4 |
+|      1009 | Gau      |    5 |
+|      1010 | Mai      |    4 |
+|      1011 | Bipin    |    5 |
+|      1012 | Natasha  |    3 |
+|      1013 | Bandish  |    2 |
++-----------+----------+------+
+12 rows in set (0.00 sec)
+
+mysql> select studentID,name,rnk, '' GRade from student;
++-----------+----------+------+-------+
+| studentID | name     | rnk  | GRade |
++-----------+----------+------+-------+
+|      1001 | Saleel   |    1 |       |
+|      1002 | Sharmin  |    1 |       |
+|      1003 | Vrushali |    2 |       |
+|      1005 | Ruhan    |    3 |       |
+|      1006 | Neel     |    2 |       |
+|      1007 | Deep     |    1 |       |
+|      1008 | Nitish   |    4 |       |
+|      1009 | Gau      |    5 |       |
+|      1010 | Mai      |    4 |       |
+|      1011 | Bipin    |    5 |       |
+|      1012 | Natasha  |    3 |       |
+|      1013 | Bandish  |    2 |       |
++-----------+----------+------+-------+
+12 rows in set (0.00 sec)
+
+mysql> select studentID,name,rnk, case when rnk=1 then 'A+' end GRade from student;
++-----------+----------+------+-------+
+| studentID | name     | rnk  | GRade |
++-----------+----------+------+-------+
+|      1001 | Saleel   |    1 | A+    |
+|      1002 | Sharmin  |    1 | A+    |
+|      1003 | Vrushali |    2 | NULL  |
+|      1005 | Ruhan    |    3 | NULL  |
+|      1006 | Neel     |    2 | NULL  |
+|      1007 | Deep     |    1 | A+    |
+|      1008 | Nitish   |    4 | NULL  |
+|      1009 | Gau      |    5 | NULL  |
+|      1010 | Mai      |    4 | NULL  |
+|      1011 | Bipin    |    5 | NULL  |
+|      1012 | Natasha  |    3 | NULL  |
+|      1013 | Bandish  |    2 | NULL  |
++-----------+----------+------+-------+
+12 rows in set (0.00 sec)
+
+mysql> select studentID,name,rnk, case when rnk=1 then 'A+' when rnk=2 then "B"  end GRade from student;
++-----------+----------+------+-------+
+| studentID | name     | rnk  | GRade |
++-----------+----------+------+-------+
+|      1001 | Saleel   |    1 | A+    |
+|      1002 | Sharmin  |    1 | A+    |
+|      1003 | Vrushali |    2 | B     |
+|      1005 | Ruhan    |    3 | NULL  |
+|      1006 | Neel     |    2 | B     |
+|      1007 | Deep     |    1 | A+    |
+|      1008 | Nitish   |    4 | NULL  |
+|      1009 | Gau      |    5 | NULL  |
+|      1010 | Mai      |    4 | NULL  |
+|      1011 | Bipin    |    5 | NULL  |
+|      1012 | Natasha  |    3 | NULL  |
+|      1013 | Bandish  |    2 | B     |
++-----------+----------+------+-------+
+12 rows in set (0.00 sec)
+
+mysql> select studentID,name,rnk, case when rnk=1 then 'A+' when rnk=2 then "B" else 'Fail' end GRade from student;
++-----------+----------+------+-------+
+| studentID | name     | rnk  | GRade |
++-----------+----------+------+-------+
+|      1001 | Saleel   |    1 | A+    |
+|      1002 | Sharmin  |    1 | A+    |
+|      1003 | Vrushali |    2 | B     |
+|      1005 | Ruhan    |    3 | Fail  |
+|      1006 | Neel     |    2 | B     |
+|      1007 | Deep     |    1 | A+    |
+|      1008 | Nitish   |    4 | Fail  |
+|      1009 | Gau      |    5 | Fail  |
+|      1010 | Mai      |    4 | Fail  |
+|      1011 | Bipin    |    5 | Fail  |
+|      1012 | Natasha  |    3 | Fail  |
+|      1013 | Bandish  |    2 | B     |
++-----------+----------+------+-------+
+12 rows in set (0.00 sec)
+
+mysql> use db2;
+Database changed
+mysql> drop table x;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table x(id int, rnk int, grade char(2) generated always as (case when rnk=1 then 'A+' when rnk=2 then "B" else 'Fail' end) virtual);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc x;
++-------+---------+------+-----+---------+-------------------+
+| Field | Type    | Null | Key | Default | Extra             |
++-------+---------+------+-----+---------+-------------------+
+| id    | int     | YES  |     | NULL    |                   |
+| rnk   | int     | YES  |     | NULL    |                   |
+| grade | char(2) | YES  |     | NULL    | VIRTUAL GENERATED |
++-------+---------+------+-----+---------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into x(id,rnk) values(100,1), (200,2), (3, 7);
+ERROR 1406 (22001): Data too long for column 'grade' at row 3
+mysql> drop table x;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table x(id int, rnk int, grade char(10) generated always as (case when rnk=1 then 'A+' when rnk=2 then "B" else 'Fail' end) virtual);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into x(id,rnk) values(100,1), (200,2), (3, 7);
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from x;
++------+------+-------+
+| id   | rnk  | grade |
++------+------+-------+
+|  100 |    1 | A+    |
+|  200 |    2 | B     |
+|    3 |    7 | Fail  |
++------+------+-------+
+3 rows in set (0.00 sec)
+
+mysql> update x set rnk=2 where id=100;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from x;
++------+------+-------+
+| id   | rnk  | grade |
++------+------+-------+
+|  100 |    2 | B     |
+|  200 |    2 | B     |
+|    3 |    7 | Fail  |
++------+------+-------+
+3 rows in set (0.00 sec)
+
+mysql> use db1;
+Database changed
+mysql> select * from numberstring;
++---------------+
+| c1            |
++---------------+
+| 1saleel       |
+| 34sharmin     |
+| 56731vrushali |
+| 6001GITA      |
+| 6129VRUSHALI  |
+| 6473SHARMIN   |
+| 6781BANDISH   |
+| 7369SMITH     |
+| 7415AARAV     |
+| 7421THOMAS    |
+| 743ruhan      |
+| 7499ALLEN     |
+| 7521WARD      |
+| 7566JONES     |
+| 7654MARTIN    |
+| 7657822ajay   |
+| 7698BLAKE     |
+| 7782CLARK     |
+| 7788SCOTT     |
+| 7839KING      |
+| 7840FRED      |
+| 7844TURNER    |
+| 7876ADAMS     |
+| 7888Ruhan     |
+| 7889Neel      |
+| 7900JAMES     |
+| 7902FORD      |
+| 7919HOFFMAN   |
+| 7920GRASS     |
+| 7934MILLER    |
+| 7945AARUSH    |
+| 7949ALEX      |
+| 836379bandish |
+| 8433NATASHA   |
+| 9400SANGITA   |
+| 9473SUPRIYA   |
++---------------+
+36 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select c1, c1+0 R1 from numberstring;
++---------------+---------+
+| c1            | R1      |
++---------------+---------+
+| 1saleel       |       1 |
+| 34sharmin     |      34 |
+| 56731vrushali |   56731 |
+| 6001GITA      |    6001 |
+| 6129VRUSHALI  |    6129 |
+| 6473SHARMIN   |    6473 |
+| 6781BANDISH   |    6781 |
+| 7369SMITH     |    7369 |
+| 7415AARAV     |    7415 |
+| 7421THOMAS    |    7421 |
+| 743ruhan      |     743 |
+| 7499ALLEN     |    7499 |
+| 7521WARD      |    7521 |
+| 7566JONES     |    7566 |
+| 7654MARTIN    |    7654 |
+| 7657822ajay   | 7657822 |
+| 7698BLAKE     |    7698 |
+| 7782CLARK     |    7782 |
+| 7788SCOTT     |    7788 |
+| 7839KING      |    7839 |
+| 7840FRED      |    7840 |
+| 7844TURNER    |    7844 |
+| 7876ADAMS     |    7876 |
+| 7888Ruhan     |    7888 |
+| 7889Neel      |    7889 |
+| 7900JAMES     |    7900 |
+| 7902FORD      |    7902 |
+| 7919HOFFMAN   |    7919 |
+| 7920GRASS     |    7920 |
+| 7934MILLER    |    7934 |
+| 7945AARUSH    |    7945 |
+| 7949ALEX      |    7949 |
+| 836379bandish |  836379 |
+| 8433NATASHA   |    8433 |
+| 9400SANGITA   |    9400 |
+| 9473SUPRIYA   |    9473 |
++---------------+---------+
+36 rows in set, 36 warnings (0.00 sec)
+
+mysql>
+mysql> select c1, c1+0 R1, c1/1 R2 from numberstring;
++---------------+---------+---------+
+| c1            | R1      | R2      |
++---------------+---------+---------+
+| 1saleel       |       1 |       1 |
+| 34sharmin     |      34 |      34 |
+| 56731vrushali |   56731 |   56731 |
+| 6001GITA      |    6001 |    6001 |
+| 6129VRUSHALI  |    6129 |    6129 |
+| 6473SHARMIN   |    6473 |    6473 |
+| 6781BANDISH   |    6781 |    6781 |
+| 7369SMITH     |    7369 |    7369 |
+| 7415AARAV     |    7415 |    7415 |
+| 7421THOMAS    |    7421 |    7421 |
+| 743ruhan      |     743 |     743 |
+| 7499ALLEN     |    7499 |    7499 |
+| 7521WARD      |    7521 |    7521 |
+| 7566JONES     |    7566 |    7566 |
+| 7654MARTIN    |    7654 |    7654 |
+| 7657822ajay   | 7657822 | 7657822 |
+| 7698BLAKE     |    7698 |    7698 |
+| 7782CLARK     |    7782 |    7782 |
+| 7788SCOTT     |    7788 |    7788 |
+| 7839KING      |    7839 |    7839 |
+| 7840FRED      |    7840 |    7840 |
+| 7844TURNER    |    7844 |    7844 |
+| 7876ADAMS     |    7876 |    7876 |
+| 7888Ruhan     |    7888 |    7888 |
+| 7889Neel      |    7889 |    7889 |
+| 7900JAMES     |    7900 |    7900 |
+| 7902FORD      |    7902 |    7902 |
+| 7919HOFFMAN   |    7919 |    7919 |
+| 7920GRASS     |    7920 |    7920 |
+| 7934MILLER    |    7934 |    7934 |
+| 7945AARUSH    |    7945 |    7945 |
+| 7949ALEX      |    7949 |    7949 |
+| 836379bandish |  836379 |  836379 |
+| 8433NATASHA   |    8433 |    8433 |
+| 9400SANGITA   |    9400 |    9400 |
+| 9473SUPRIYA   |    9473 |    9473 |
++---------------+---------+---------+
+36 rows in set, 72 warnings (0.00 sec)
+
+mysql> select * from cnumbers;
++----+------+
+| id | num  |
++----+------+
+|  1 |    1 |
+|  2 |    1 |
+|  3 |    1 |
+|  4 |    2 |
+|  5 |    1 |
+|  6 |    2 |
+|  7 |    2 |
+|  8 |    7 |
+|  9 |    7 |
+| 10 |    7 |
+| 11 |    5 |
+| 12 |    5 |
+| 13 |    2 |
+| 14 |    4 |
+| 15 |    4 |
+| 16 |    4 |
++----+------+
+16 rows in set (0.00 sec)
+
+mysql> select c1, '' R1 from cnumbers;
+ERROR 1054 (42S22): Unknown column 'c1' in 'field list'
+mysql> select id, '' R1 from cnumbers;
++----+----+
+| id | R1 |
++----+----+
+|  1 |    |
+|  2 |    |
+|  3 |    |
+|  4 |    |
+|  5 |    |
+|  6 |    |
+|  7 |    |
+|  8 |    |
+|  9 |    |
+| 10 |    |
+| 11 |    |
+| 12 |    |
+| 13 |    |
+| 14 |    |
+| 15 |    |
+| 16 |    |
++----+----+
+16 rows in set (0.00 sec)
+
+mysql> select 1/5, 2/5;
++--------+--------+
+| 1/5    | 2/5    |
++--------+--------+
+| 0.2000 | 0.4000 |
++--------+--------+
+1 row in set (0.00 sec)
+
+mysql> select 1/5, 2/5, 1%5, 2^5;
++--------+--------+------+-----+
+| 1/5    | 2/5    | 1%5  | 2^5 |
++--------+--------+------+-----+
+| 0.2000 | 0.4000 |    1 |   7 |
++--------+--------+------+-----+
+1 row in set (0.00 sec)
+
+mysql> select id, id/5 R1 from cnumbers;
++----+--------+
+| id | R1     |
++----+--------+
+|  1 | 0.2000 |
+|  2 | 0.4000 |
+|  3 | 0.6000 |
+|  4 | 0.8000 |
+|  5 | 1.0000 |
+|  6 | 1.2000 |
+|  7 | 1.4000 |
+|  8 | 1.6000 |
+|  9 | 1.8000 |
+| 10 | 2.0000 |
+| 11 | 2.2000 |
+| 12 | 2.4000 |
+| 13 | 2.6000 |
+| 14 | 2.8000 |
+| 15 | 3.0000 |
+| 16 | 3.2000 |
++----+--------+
+16 rows in set (0.00 sec)
+
+mysql> select id, id%5 R1 from cnumbers;
++----+------+
+| id | R1   |
++----+------+
+|  1 |    1 |
+|  2 |    2 |
+|  3 |    3 |
+|  4 |    4 |
+|  5 |    0 |
+|  6 |    1 |
+|  7 |    2 |
+|  8 |    3 |
+|  9 |    4 |
+| 10 |    0 |
+| 11 |    1 |
+| 12 |    2 |
+| 13 |    3 |
+| 14 |    4 |
+| 15 |    0 |
+| 16 |    1 |
++----+------+
+16 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> select id,case when id%5=0 then 5 else end id%5 R1 from cnumbers;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id%5 R1 from cnumbers' at line 1
+mysql>
+mysql>
+mysql>
+mysql> select id,case when id%5=0 then 5 else end id%5 end R1 from cnumbers;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id%5 end R1 from cnumbers' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select id,case when id%5=0 then 5 else id%5 end R1 from cnumbers;
++----+------+
+| id | R1   |
++----+------+
+|  1 |    1 |
+|  2 |    2 |
+|  3 |    3 |
+|  4 |    4 |
+|  5 |    5 |
+|  6 |    1 |
+|  7 |    2 |
+|  8 |    3 |
+|  9 |    4 |
+| 10 |    5 |
+| 11 |    1 |
+| 12 |    2 |
+| 13 |    3 |
+| 14 |    4 |
+| 15 |    5 |
+| 16 |    1 |
++----+------+
+16 rows in set (0.00 sec)
+
+mysql>
+mysql> select curtime();
++-----------+
+| curtime() |
++-----------+
+| 16:44:49  |
++-----------+
+1 row in set (0.02 sec)
+
+mysql> select curdate(), curtime();
++------------+-----------+
+| curdate()  | curtime() |
++------------+-----------+
+| 2026-03-02 | 16:44:58  |
++------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select curdate(), curtime(), now();
++------------+-----------+---------------------+
+| curdate()  | curtime() | now()               |
++------------+-----------+---------------------+
+| 2026-03-02 | 16:45:06  | 2026-03-02 16:45:06 |
++------------+-----------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), now() + interval i days R1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'days R1' at line 1
+mysql> select now(), now() + interval 1 days R1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'days R1' at line 1
+mysql>
+mysql> select now(), now() + interval 1 day R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2026-03-02 16:48:18 | 2026-03-03 16:48:18 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), now() - interval 1 day R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2026-03-02 16:48:53 | 2026-03-01 16:48:53 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), now() - interval 4 day R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2026-03-02 16:49:19 | 2026-02-26 16:49:19 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), now()  interval 4 day R1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'interval 4 day R1' at line 1
+mysql> select now(), now() + interval 1 hout R1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'hout R1' at line 1
+mysql> select now(), now() + interval 1 hour R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2026-03-02 16:50:37 | 2026-03-02 17:50:37 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), now() + interval '1 0:5' DAY_MINUTE R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2026-03-02 16:53:21 | 2026-03-03 16:58:21 |
++---------------------+---------------------+
+1 row in set (0.01 sec)
+
+mysql> select now() Visit, now() + interval '1 0:5' DAY_MINUTE R1;
++---------------------+---------------------+
+| Visit               | R1                  |
++---------------------+---------------------+
+| 2026-03-02 16:54:56 | 2026-03-03 16:59:56 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now() Visit_date, now() + interval '1 0:5' DAY_MINUTE R1;
++---------------------+---------------------+
+| Visit_date          | R1                  |
++---------------------+---------------------+
+| 2026-03-02 16:55:06 | 2026-03-03 17:00:06 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now() 'Visit Date', now() + interval 5 DAY 'Next Visit';
++---------------------+---------------------+
+| Visit Date          | Next Visit          |
++---------------------+---------------------+
+| 2026-03-02 16:56:08 | 2026-03-07 16:56:08 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now() 'Visit Date', now() + interval 365 DAY 'Next Visit';
++---------------------+---------------------+
+| Visit Date          | Next Visit          |
++---------------------+---------------------+
+| 2026-03-02 16:57:28 | 2027-03-02 16:57:28 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), quarter(now());
++---------------------+----------------+
+| now()               | quarter(now()) |
++---------------------+----------------+
+| 2026-03-02 17:06:45 |              1 |
++---------------------+----------------+
+1 row in set (0.01 sec)
+
+mysql> use db1
+Database changed
+mysql> select ename, hiredate from emp;
++----------+------------+
+| ename    | hiredate   |
++----------+------------+
+| GITA     | 1981-07-19 |
+| VRUSHALI | 1981-07-19 |
+| SHARMIN  | 1981-07-19 |
+| BANDISH  | 1981-07-19 |
+| SMITH    | 1980-12-17 |
+| AARAV    | 1981-12-31 |
+| THOMAS   | 1981-07-19 |
+| ALLEN    | 1981-02-20 |
+| WARD     | 1981-02-22 |
+| JONES    | 1981-04-02 |
+| MARTIN   | 1981-09-28 |
+| BLAKE    | 1981-05-01 |
+| CLARK    | 1981-06-09 |
+| SCOTT    | 1982-12-09 |
+| KING     | 1981-11-17 |
+| FRED     | 1983-08-09 |
+| TURNER   | 1981-09-08 |
+| ADAMS    | 1983-01-12 |
+| Ruhan    | 1983-08-09 |
+| Neel     | 1983-08-09 |
+| JAMES    | 1981-12-03 |
+| FORD     | 1981-12-03 |
+| HOFFMAN  | 1982-03-24 |
+| GRASS    | 1980-02-14 |
+| MILLER   | 1982-01-23 |
+| AARUSH   | 1980-02-14 |
+| ALEX     | 1982-01-24 |
+| NATASHA  | 1981-07-19 |
+| SANGITA  | 1981-07-19 |
+| SUPRIYA  | 1981-07-19 |
++----------+------------+
+30 rows in set (0.00 sec)
+
+mysql> select ename, hiredate, extract(quarter from hiredate) from emp;
++----------+------------+--------------------------------+
+| ename    | hiredate   | extract(quarter from hiredate) |
++----------+------------+--------------------------------+
+| GITA     | 1981-07-19 |                              3 |
+| VRUSHALI | 1981-07-19 |                              3 |
+| SHARMIN  | 1981-07-19 |                              3 |
+| BANDISH  | 1981-07-19 |                              3 |
+| SMITH    | 1980-12-17 |                              4 |
+| AARAV    | 1981-12-31 |                              4 |
+| THOMAS   | 1981-07-19 |                              3 |
+| ALLEN    | 1981-02-20 |                              1 |
+| WARD     | 1981-02-22 |                              1 |
+| JONES    | 1981-04-02 |                              2 |
+| MARTIN   | 1981-09-28 |                              3 |
+| BLAKE    | 1981-05-01 |                              2 |
+| CLARK    | 1981-06-09 |                              2 |
+| SCOTT    | 1982-12-09 |                              4 |
+| KING     | 1981-11-17 |                              4 |
+| FRED     | 1983-08-09 |                              3 |
+| TURNER   | 1981-09-08 |                              3 |
+| ADAMS    | 1983-01-12 |                              1 |
+| Ruhan    | 1983-08-09 |                              3 |
+| Neel     | 1983-08-09 |                              3 |
+| JAMES    | 1981-12-03 |                              4 |
+| FORD     | 1981-12-03 |                              4 |
+| HOFFMAN  | 1982-03-24 |                              1 |
+| GRASS    | 1980-02-14 |                              1 |
+| MILLER   | 1982-01-23 |                              1 |
+| AARUSH   | 1980-02-14 |                              1 |
+| ALEX     | 1982-01-24 |                              1 |
+| NATASHA  | 1981-07-19 |                              3 |
+| SANGITA  | 1981-07-19 |                              3 |
+| SUPRIYA  | 1981-07-19 |                              3 |
++----------+------------+--------------------------------+
+30 rows in set (0.00 sec)
+
+mysql> select ename, hiredate, extract(quarter from hiredate) R1 from emp;
++----------+------------+------+
+| ename    | hiredate   | R1   |
++----------+------------+------+
+| GITA     | 1981-07-19 |    3 |
+| VRUSHALI | 1981-07-19 |    3 |
+| SHARMIN  | 1981-07-19 |    3 |
+| BANDISH  | 1981-07-19 |    3 |
+| SMITH    | 1980-12-17 |    4 |
+| AARAV    | 1981-12-31 |    4 |
+| THOMAS   | 1981-07-19 |    3 |
+| ALLEN    | 1981-02-20 |    1 |
+| WARD     | 1981-02-22 |    1 |
+| JONES    | 1981-04-02 |    2 |
+| MARTIN   | 1981-09-28 |    3 |
+| BLAKE    | 1981-05-01 |    2 |
+| CLARK    | 1981-06-09 |    2 |
+| SCOTT    | 1982-12-09 |    4 |
+| KING     | 1981-11-17 |    4 |
+| FRED     | 1983-08-09 |    3 |
+| TURNER   | 1981-09-08 |    3 |
+| ADAMS    | 1983-01-12 |    1 |
+| Ruhan    | 1983-08-09 |    3 |
+| Neel     | 1983-08-09 |    3 |
+| JAMES    | 1981-12-03 |    4 |
+| FORD     | 1981-12-03 |    4 |
+| HOFFMAN  | 1982-03-24 |    1 |
+| GRASS    | 1980-02-14 |    1 |
+| MILLER   | 1982-01-23 |    1 |
+| AARUSH   | 1980-02-14 |    1 |
+| ALEX     | 1982-01-24 |    1 |
+| NATASHA  | 1981-07-19 |    3 |
+| SANGITA  | 1981-07-19 |    3 |
+| SUPRIYA  | 1981-07-19 |    3 |
++----------+------------+------+
+30 rows in set (0.00 sec)
+
+mysql> desc ord;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| ORDID          | int         | NO   | PRI | NULL    |       |
+| ORDERDATE      | date        | YES  |     | NULL    |       |
+| COMMPLAN       | varchar(1)  | YES  |     | NULL    |       |
+| CUSTID         | int         | YES  | MUL | NULL    |       |
+| SHIPDATE       | date        | YES  |     | NULL    |       |
+| actualShipDate | date        | YES  |     | NULL    |       |
+| STATUSDATE     | date        | YES  |     | NULL    |       |
+| STATUS         | varchar(45) | YES  |     | NULL    |       |
+| TOTAL          | float(8,2)  | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> select  extract(quarter from SHIPDATE) R1 from ord;
++------+
+| R1   |
++------+
+|    2 |
+|    2 |
+|    2 |
+|    2 |
+|    3 |
+|    3 |
+|    3 |
+|    3 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
+|    1 |
++------+
+33 rows in set (0.00 sec)
+
+mysql> select ord.* ,extract(quarter from SHIPDATE) R1 from ord;
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+------+
+| ORDID | ORDERDATE  | COMMPLAN | CUSTID | SHIPDATE   | actualShipDate | STATUSDATE | STATUS     | TOTAL    | R1   |
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+------+
+|   601 | 1986-05-01 | A        |    106 | 1986-05-30 | 1986-06-02     | NULL       | In Process |     2.40 |    2 |
+|   602 | 1986-06-05 | B        |    102 | 1986-06-20 | NULL           | 1986-07-09 | On Hold    |    56.00 |    2 |
+|   603 | 1986-06-05 | NULL     |    102 | 1986-06-05 | 1986-06-07     | 1986-06-10 | Cancelled  |   224.00 |    2 |
+|   604 | 1986-06-15 | A        |    106 | 1986-05-30 | NULL           | 1986-07-04 | Resolved   |   698.00 |    2 |
+|   606 | 1986-07-14 | A        |    100 | 1986-07-30 | 1986-07-30     | NULL       | Shipped    |     3.40 |    3 |
+|   607 | 1986-07-18 | C        |    104 | 1986-07-18 | 1986-07-20     | NULL       | In Process |     5.60 |    3 |
+|   608 | 1986-07-25 | C        |    104 | 1986-07-25 | 1986-07-25     | NULL       | Shipped    |    35.20 |    3 |
+|   609 | 1986-08-01 | B        |    100 | 1986-08-15 | NULL           | 1986-08-19 | On Hold    |    97.50 |    3 |
+|   610 | 1987-01-07 | A        |    101 | 1987-01-08 | 1987-01-08     | NULL       | In Process |   101.40 |    1 |
+|   611 | 1987-01-11 | B        |    102 | 1987-01-11 | NULL           | NULL       | Shipped    |    45.00 |    1 |
+|   612 | 1987-01-15 | C        |    104 | 1987-01-20 | 1987-01-23     | 1987-01-21 | Cancelled  |  5860.00 |    1 |
+|   613 | 1987-02-01 | NULL     |    108 | 1987-02-01 | 1987-02-01     | NULL       | Shipped    |  6400.00 |    1 |
+|   614 | 1987-02-01 | NULL     |    102 | 1987-02-05 | 1987-02-06     | NULL       | In Process | 23940.00 |    1 |
+|   615 | 1987-02-01 | NULL     |    107 | 1987-02-06 | 1987-02-12     | NULL       | In Process |   710.00 |    1 |
+|   616 | 1987-02-03 | NULL     |    103 | 1987-02-10 | 1987-02-10     | 1987-02-10 | Resolved   |   764.00 |    1 |
+|   617 | 1987-02-05 | NULL     |    105 | 1987-03-03 | 1987-03-03     | NULL       | Shipped    | 46370.00 |    1 |
+|   618 | 1987-02-15 | A        |    102 | 1987-03-06 | NULL           | 1987-03-16 | On Hold    |  3510.50 |    1 |
+|   619 | 1987-02-22 | NULL     |    104 | 1987-02-04 | 1987-02-04     | NULL       | In Process |  1260.00 |    1 |
+|   620 | 1987-03-12 | NULL     |    100 | 1987-03-12 | NULL           | 1987-03-12 | Cancelled  |  4450.00 |    1 |
+|   621 | 1987-03-15 | A        |    100 | 1987-03-01 | 1987-01-06     | NULL       | Shipped    |   730.00 |    1 |
+|   622 | 1986-12-31 | a        |    105 | 1987-01-01 | NULL           | 1987-01-06 | Delivered  |  1125.00 |    1 |
+|   624 | 1987-01-06 | c        |    105 | 1987-01-06 | 1987-01-06     | 1987-01-09 | Delivered  |   189.00 |    1 |
+|   625 | 1987-01-09 | NULL     |    105 | 1987-01-10 | 1987-01-12     | 1987-01-16 | Delivered  |  1255.00 |    1 |
+|   626 | 1987-01-31 | NULL     |    107 | 1987-02-01 | NULL           | 1987-02-06 | shipped    |  1675.00 |    1 |
+|   627 | 1987-02-13 | NULL     |    100 | 1987-02-14 | 1987-02-17     | 1987-02-22 | Delivered  |   250.00 |    1 |
+|   628 | 1987-03-13 | A        |    100 | 1987-03-14 | 1987-03-19     | 1987-03-15 | Shipped    |   473.93 |    1 |
+|   629 | 1987-03-14 | A        |    100 | 1987-03-16 | 1987-03-16     | 1987-03-17 | Shipped    |   289.99 |    1 |
+|   630 | 1987-02-21 | D        |    104 | 1987-02-22 | 1987-02-23     | 1987-02-23 | Delivered  |   362.12 |    1 |
+|   631 | 1987-02-23 | F        |    104 | 1987-02-23 | NULL           | 1987-02-24 | Delivered  |   232.87 |    1 |
+|   632 | 1987-03-13 | A        |   NULL | 1987-03-14 | 1987-03-14     | 1987-03-15 | Shipped    |   473.93 |    1 |
+|   633 | 1987-03-14 | A        |   NULL | 1987-03-16 | 1987-03-20     | 1987-03-17 | Shipped    |   289.99 |    1 |
+|   634 | 1987-02-21 | D        |   NULL | 1987-02-22 | 1987-02-24     | 1987-02-23 | Delivered  |   362.12 |    1 |
+|   635 | 1987-02-23 | F        |   NULL | 1987-02-23 | 1987-02-23     | 1987-02-24 | Delivered  |   232.87 |    1 |
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+------+
+33 rows in set (0.00 sec)
+
+mysql>
+mysql> select ord.* ,extract(quarter from SHIPDATE) R1 from ord where R1=2;
+ERROR 1054 (42S22): Unknown column 'R1' in 'where clause'
+mysql> select ord.* ,extract(quarter from SHIPDATE) R1 from ord;
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+------+
+| ORDID | ORDERDATE  | COMMPLAN | CUSTID | SHIPDATE   | actualShipDate | STATUSDATE | STATUS     | TOTAL    | R1   |
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+------+
+|   601 | 1986-05-01 | A        |    106 | 1986-05-30 | 1986-06-02     | NULL       | In Process |     2.40 |    2 |
+|   602 | 1986-06-05 | B        |    102 | 1986-06-20 | NULL           | 1986-07-09 | On Hold    |    56.00 |    2 |
+|   603 | 1986-06-05 | NULL     |    102 | 1986-06-05 | 1986-06-07     | 1986-06-10 | Cancelled  |   224.00 |    2 |
+|   604 | 1986-06-15 | A        |    106 | 1986-05-30 | NULL           | 1986-07-04 | Resolved   |   698.00 |    2 |
+|   606 | 1986-07-14 | A        |    100 | 1986-07-30 | 1986-07-30     | NULL       | Shipped    |     3.40 |    3 |
+|   607 | 1986-07-18 | C        |    104 | 1986-07-18 | 1986-07-20     | NULL       | In Process |     5.60 |    3 |
+|   608 | 1986-07-25 | C        |    104 | 1986-07-25 | 1986-07-25     | NULL       | Shipped    |    35.20 |    3 |
+|   609 | 1986-08-01 | B        |    100 | 1986-08-15 | NULL           | 1986-08-19 | On Hold    |    97.50 |    3 |
+|   610 | 1987-01-07 | A        |    101 | 1987-01-08 | 1987-01-08     | NULL       | In Process |   101.40 |    1 |
+|   611 | 1987-01-11 | B        |    102 | 1987-01-11 | NULL           | NULL       | Shipped    |    45.00 |    1 |
+|   612 | 1987-01-15 | C        |    104 | 1987-01-20 | 1987-01-23     | 1987-01-21 | Cancelled  |  5860.00 |    1 |
+|   613 | 1987-02-01 | NULL     |    108 | 1987-02-01 | 1987-02-01     | NULL       | Shipped    |  6400.00 |    1 |
+|   614 | 1987-02-01 | NULL     |    102 | 1987-02-05 | 1987-02-06     | NULL       | In Process | 23940.00 |    1 |
+|   615 | 1987-02-01 | NULL     |    107 | 1987-02-06 | 1987-02-12     | NULL       | In Process |   710.00 |    1 |
+|   616 | 1987-02-03 | NULL     |    103 | 1987-02-10 | 1987-02-10     | 1987-02-10 | Resolved   |   764.00 |    1 |
+|   617 | 1987-02-05 | NULL     |    105 | 1987-03-03 | 1987-03-03     | NULL       | Shipped    | 46370.00 |    1 |
+|   618 | 1987-02-15 | A        |    102 | 1987-03-06 | NULL           | 1987-03-16 | On Hold    |  3510.50 |    1 |
+|   619 | 1987-02-22 | NULL     |    104 | 1987-02-04 | 1987-02-04     | NULL       | In Process |  1260.00 |    1 |
+|   620 | 1987-03-12 | NULL     |    100 | 1987-03-12 | NULL           | 1987-03-12 | Cancelled  |  4450.00 |    1 |
+|   621 | 1987-03-15 | A        |    100 | 1987-03-01 | 1987-01-06     | NULL       | Shipped    |   730.00 |    1 |
+|   622 | 1986-12-31 | a        |    105 | 1987-01-01 | NULL           | 1987-01-06 | Delivered  |  1125.00 |    1 |
+|   624 | 1987-01-06 | c        |    105 | 1987-01-06 | 1987-01-06     | 1987-01-09 | Delivered  |   189.00 |    1 |
+|   625 | 1987-01-09 | NULL     |    105 | 1987-01-10 | 1987-01-12     | 1987-01-16 | Delivered  |  1255.00 |    1 |
+|   626 | 1987-01-31 | NULL     |    107 | 1987-02-01 | NULL           | 1987-02-06 | shipped    |  1675.00 |    1 |
+|   627 | 1987-02-13 | NULL     |    100 | 1987-02-14 | 1987-02-17     | 1987-02-22 | Delivered  |   250.00 |    1 |
+|   628 | 1987-03-13 | A        |    100 | 1987-03-14 | 1987-03-19     | 1987-03-15 | Shipped    |   473.93 |    1 |
+|   629 | 1987-03-14 | A        |    100 | 1987-03-16 | 1987-03-16     | 1987-03-17 | Shipped    |   289.99 |    1 |
+|   630 | 1987-02-21 | D        |    104 | 1987-02-22 | 1987-02-23     | 1987-02-23 | Delivered  |   362.12 |    1 |
+|   631 | 1987-02-23 | F        |    104 | 1987-02-23 | NULL           | 1987-02-24 | Delivered  |   232.87 |    1 |
+|   632 | 1987-03-13 | A        |   NULL | 1987-03-14 | 1987-03-14     | 1987-03-15 | Shipped    |   473.93 |    1 |
+|   633 | 1987-03-14 | A        |   NULL | 1987-03-16 | 1987-03-20     | 1987-03-17 | Shipped    |   289.99 |    1 |
+|   634 | 1987-02-21 | D        |   NULL | 1987-02-22 | 1987-02-24     | 1987-02-23 | Delivered  |   362.12 |    1 |
+|   635 | 1987-02-23 | F        |   NULL | 1987-02-23 | 1987-02-23     | 1987-02-24 | Delivered  |   232.87 |    1 |
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+------+
+33 rows in set (0.00 sec)
+
+mysql> select ord.* ,extract (quarter from SHIPDATE) R1 from ord;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from SHIPDATE) R1 from ord' at line 1
+mysql> select ord.* ,extract(quarter from SHIPDATE) R1 from ord;
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+------+
+| ORDID | ORDERDATE  | COMMPLAN | CUSTID | SHIPDATE   | actualShipDate | STATUSDATE | STATUS     | TOTAL    | R1   |
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+------+
+|   601 | 1986-05-01 | A        |    106 | 1986-05-30 | 1986-06-02     | NULL       | In Process |     2.40 |    2 |
+|   602 | 1986-06-05 | B        |    102 | 1986-06-20 | NULL           | 1986-07-09 | On Hold    |    56.00 |    2 |
+|   603 | 1986-06-05 | NULL     |    102 | 1986-06-05 | 1986-06-07     | 1986-06-10 | Cancelled  |   224.00 |    2 |
+|   604 | 1986-06-15 | A        |    106 | 1986-05-30 | NULL           | 1986-07-04 | Resolved   |   698.00 |    2 |
+|   606 | 1986-07-14 | A        |    100 | 1986-07-30 | 1986-07-30     | NULL       | Shipped    |     3.40 |    3 |
+|   607 | 1986-07-18 | C        |    104 | 1986-07-18 | 1986-07-20     | NULL       | In Process |     5.60 |    3 |
+|   608 | 1986-07-25 | C        |    104 | 1986-07-25 | 1986-07-25     | NULL       | Shipped    |    35.20 |    3 |
+|   609 | 1986-08-01 | B        |    100 | 1986-08-15 | NULL           | 1986-08-19 | On Hold    |    97.50 |    3 |
+|   610 | 1987-01-07 | A        |    101 | 1987-01-08 | 1987-01-08     | NULL       | In Process |   101.40 |    1 |
+|   611 | 1987-01-11 | B        |    102 | 1987-01-11 | NULL           | NULL       | Shipped    |    45.00 |    1 |
+|   612 | 1987-01-15 | C        |    104 | 1987-01-20 | 1987-01-23     | 1987-01-21 | Cancelled  |  5860.00 |    1 |
+|   613 | 1987-02-01 | NULL     |    108 | 1987-02-01 | 1987-02-01     | NULL       | Shipped    |  6400.00 |    1 |
+|   614 | 1987-02-01 | NULL     |    102 | 1987-02-05 | 1987-02-06     | NULL       | In Process | 23940.00 |    1 |
+|   615 | 1987-02-01 | NULL     |    107 | 1987-02-06 | 1987-02-12     | NULL       | In Process |   710.00 |    1 |
+|   616 | 1987-02-03 | NULL     |    103 | 1987-02-10 | 1987-02-10     | 1987-02-10 | Resolved   |   764.00 |    1 |
+|   617 | 1987-02-05 | NULL     |    105 | 1987-03-03 | 1987-03-03     | NULL       | Shipped    | 46370.00 |    1 |
+|   618 | 1987-02-15 | A        |    102 | 1987-03-06 | NULL           | 1987-03-16 | On Hold    |  3510.50 |    1 |
+|   619 | 1987-02-22 | NULL     |    104 | 1987-02-04 | 1987-02-04     | NULL       | In Process |  1260.00 |    1 |
+|   620 | 1987-03-12 | NULL     |    100 | 1987-03-12 | NULL           | 1987-03-12 | Cancelled  |  4450.00 |    1 |
+|   621 | 1987-03-15 | A        |    100 | 1987-03-01 | 1987-01-06     | NULL       | Shipped    |   730.00 |    1 |
+|   622 | 1986-12-31 | a        |    105 | 1987-01-01 | NULL           | 1987-01-06 | Delivered  |  1125.00 |    1 |
+|   624 | 1987-01-06 | c        |    105 | 1987-01-06 | 1987-01-06     | 1987-01-09 | Delivered  |   189.00 |    1 |
+|   625 | 1987-01-09 | NULL     |    105 | 1987-01-10 | 1987-01-12     | 1987-01-16 | Delivered  |  1255.00 |    1 |
+|   626 | 1987-01-31 | NULL     |    107 | 1987-02-01 | NULL           | 1987-02-06 | shipped    |  1675.00 |    1 |
+|   627 | 1987-02-13 | NULL     |    100 | 1987-02-14 | 1987-02-17     | 1987-02-22 | Delivered  |   250.00 |    1 |
+|   628 | 1987-03-13 | A        |    100 | 1987-03-14 | 1987-03-19     | 1987-03-15 | Shipped    |   473.93 |    1 |
+|   629 | 1987-03-14 | A        |    100 | 1987-03-16 | 1987-03-16     | 1987-03-17 | Shipped    |   289.99 |    1 |
+|   630 | 1987-02-21 | D        |    104 | 1987-02-22 | 1987-02-23     | 1987-02-23 | Delivered  |   362.12 |    1 |
+|   631 | 1987-02-23 | F        |    104 | 1987-02-23 | NULL           | 1987-02-24 | Delivered  |   232.87 |    1 |
+|   632 | 1987-03-13 | A        |   NULL | 1987-03-14 | 1987-03-14     | 1987-03-15 | Shipped    |   473.93 |    1 |
+|   633 | 1987-03-14 | A        |   NULL | 1987-03-16 | 1987-03-20     | 1987-03-17 | Shipped    |   289.99 |    1 |
+|   634 | 1987-02-21 | D        |   NULL | 1987-02-22 | 1987-02-24     | 1987-02-23 | Delivered  |   362.12 |    1 |
+|   635 | 1987-02-23 | F        |   NULL | 1987-02-23 | 1987-02-23     | 1987-02-24 | Delivered  |   232.87 |    1 |
++-------+------------+----------+--------+------------+----------------+------------+------------+----------+------+
+33 rows in set (0.00 sec)
+
+mysql> selectf now(), DAYOFYEAR(now());
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectf now(), DAYOFYEAR(now())' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select now(), DAYOFYEAR(now());
++---------------------+------------------+
+| now()               | DAYOFYEAR(now()) |
++---------------------+------------------+
+| 2026-03-02 17:20:01 |               61 |
++---------------------+------------------+
+1 row in set (0.01 sec)
+
+mysql> select now(), DAYOFYEAR(now() + interval 1 day);
++---------------------+-----------------------------------+
+| now()               | DAYOFYEAR(now() + interval 1 day) |
++---------------------+-----------------------------------+
+| 2026-03-02 17:20:35 |                                62 |
++---------------------+-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), last_day(now());
++---------------------+-----------------+
+| now()               | last_day(now()) |
++---------------------+-----------------+
+| 2026-03-02 17:22:38 | 2026-03-31      |
++---------------------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> select '2026-03-01' 'First Day', last_day(now()) 'Last Day';
++---------------------+------------+
+| 2026-03-01          | Last Day   |
++---------------------+------------+
+| 2026-03-01First Day | 2026-03-31 |
++---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select '2026-03-01' AS  'First Day', last_day(now()) 'Last Day';
++------------+------------+
+| First Day  | Last Day   |
++------------+------------+
+| 2026-03-01 | 2026-03-31 |
++------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select HIREDATE, last_day(HIREDATE) FROM DB1.EMP;
++------------+--------------------+
+| HIREDATE   | last_day(HIREDATE) |
++------------+--------------------+
+| 1981-07-19 | 1981-07-31         |
+| 1981-07-19 | 1981-07-31         |
+| 1981-07-19 | 1981-07-31         |
+| 1981-07-19 | 1981-07-31         |
+| 1980-12-17 | 1980-12-31         |
+| 1981-12-31 | 1981-12-31         |
+| 1981-07-19 | 1981-07-31         |
+| 1981-02-20 | 1981-02-28         |
+| 1981-02-22 | 1981-02-28         |
+| 1981-04-02 | 1981-04-30         |
+| 1981-09-28 | 1981-09-30         |
+| 1981-05-01 | 1981-05-31         |
+| 1981-06-09 | 1981-06-30         |
+| 1982-12-09 | 1982-12-31         |
+| 1981-11-17 | 1981-11-30         |
+| 1983-08-09 | 1983-08-31         |
+| 1981-09-08 | 1981-09-30         |
+| 1983-01-12 | 1983-01-31         |
+| 1983-08-09 | 1983-08-31         |
+| 1983-08-09 | 1983-08-31         |
+| 1981-12-03 | 1981-12-31         |
+| 1981-12-03 | 1981-12-31         |
+| 1982-03-24 | 1982-03-31         |
+| 1980-02-14 | 1980-02-29         |
+| 1982-01-23 | 1982-01-31         |
+| 1980-02-14 | 1980-02-29         |
+| 1982-01-24 | 1982-01-31         |
+| 1981-07-19 | 1981-07-31         |
+| 1981-07-19 | 1981-07-31         |
+| 1981-07-19 | 1981-07-31         |
++------------+--------------------+
+30 rows in set (0.00 sec)
+
+mysql>

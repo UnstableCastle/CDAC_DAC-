@@ -1,0 +1,1631 @@
+mysql> desc x;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| ename | varchar(10) | YES  |     | NULL    |       |
+| dob   | date        | YES  |     | NULL    |       |
+| sal   | int         | YES  |     | NULL    |       |
+| flag  | tinyint     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> load data infile "c:/Files/Person.csv" into table x fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) SET dob=str_to_date(@dob, '%Y-%m-%d'),flag=if(@flag='true',1,0);
+Query OK, 1 row affected (0.02 sec)
+Records: 1  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from x;
++------+--------+------------+------+------+
+| id   | ename  | dob        | sal  | flag |
++------+--------+------------+------+------+
+|    1 | saleel | 2026-01-01 | 5000 |    1 |
++------+--------+------------+------+------+
+1 row in set (0.01 sec)
+
+mysql> load data infile "c:/person.json" into table y (@JSON) set document=@JSON
+    -> ;
+ERROR 29 (HY000): File 'c:\person.json' not found (OS errno 2 - No such file or directory)
+mysql> load data infile "c:/person.json" into table y (@json) set document=@json;
+ERROR 29 (HY000): File 'c:\person.json' not found (OS errno 2 - No such file or directory)
+mysql>
+mysql>
+mysql> load data infile "c:/Files/person.json" into table y (@json) set document=@json;
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from y;
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| id | document                                                                                                                                                                                                                                                                                                                                            |
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|  7 | {"name": "LED Smart TV 50-inch", "brand": "VisionPro", "price": {"amount": 499.99, "currency": "USD"}, "stock": {"quantity": 0, "available": false}, "category": "Electronics", "productId": "P1004", "description": "4K Ultra HD, HDR, WiFi enabled.", "specifications": {"hdmiPorts": 3, "resolution": "4K", "screenSize": "50 inch"}}            |
+|  8 | {"name": "Wooden Coffee Table", "brand": "HomeCraft", "price": {"amount": 149.99, "currency": "USD"}, "stock": {"quantity": 35, "available": true}, "category": "Furniture", "productId": "P1005", "description": "Classic design with oak finish.", "specifications": {"material": "Oak Wood", "dimensions": "120x60x45 cm"}}                      |
+|  9 | {"name": "Stainless Steel Water Bottle", "brand": "HydraCool", "price": {"amount": 19.99, "currency": "USD"}, "stock": {"quantity": 500, "available": true}, "category": "Home & Kitchen", "productId": "P1006", "description": "Insulated bottle keeps drinks hot/cold for 12 hours.", "specifications": {"color": "Silver", "capacity": "750ml"}} |
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select document-> "$.name" from y;
++--------------------------------+
+| document-> "$.name"            |
++--------------------------------+
+| "LED Smart TV 50-inch"         |
+| "Wooden Coffee Table"          |
+| "Stainless Steel Water Bottle" |
++--------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select document->> "$.name" from y;
++------------------------------+
+| document->> "$.name"         |
++------------------------------+
+| LED Smart TV 50-inch         |
+| Wooden Coffee Table          |
+| Stainless Steel Water Bottle |
++------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select document->> "$.sal" from y;
++---------------------+
+| document->> "$.sal" |
++---------------------+
+| NULL                |
+| NULL                |
+| NULL                |
++---------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from y;
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| id | document                                                                                                                                                                                                                                                                                                                                            |
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|  7 | {"name": "LED Smart TV 50-inch", "brand": "VisionPro", "price": {"amount": 499.99, "currency": "USD"}, "stock": {"quantity": 0, "available": false}, "category": "Electronics", "productId": "P1004", "description": "4K Ultra HD, HDR, WiFi enabled.", "specifications": {"hdmiPorts": 3, "resolution": "4K", "screenSize": "50 inch"}}            |
+|  8 | {"name": "Wooden Coffee Table", "brand": "HomeCraft", "price": {"amount": 149.99, "currency": "USD"}, "stock": {"quantity": 35, "available": true}, "category": "Furniture", "productId": "P1005", "description": "Classic design with oak finish.", "specifications": {"material": "Oak Wood", "dimensions": "120x60x45 cm"}}                      |
+|  9 | {"name": "Stainless Steel Water Bottle", "brand": "HydraCool", "price": {"amount": 19.99, "currency": "USD"}, "stock": {"quantity": 500, "available": true}, "category": "Home & Kitchen", "productId": "P1006", "description": "Insulated bottle keeps drinks hot/cold for 12 hours.", "specifications": {"color": "Silver", "capacity": "750ml"}} |
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from null1;
+ERROR 1146 (42S02): Table 'db2.null1' doesn't exist
+mysql> use db1
+Database changed
+mysql> select * from null1;
++------+-------------+
+| id   | productName |
++------+-------------+
+|    1 | Bread       |
+|    2 | Cheese      |
+|    3 | Butter      |
+| NULL | Jam         |
++------+-------------+
+4 rows in set (0.03 sec)
+
+mysql> select * from nul2;
+ERROR 1146 (42S02): Table 'db1.nul2' doesn't exist
+mysql> select * from null2;
++------+-------+
+| id   | price |
++------+-------+
+|    1 |    45 |
+|    2 |   175 |
+|    3 |   125 |
+| NULL |   120 |
+| NULL |   140 |
++------+-------+
+5 rows in set (0.02 sec)
+
+mysql> select * from null1, null2 wehre null1.id = null2.id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null1.id = null2.id' at line 1
+mysql>
+mysql>
+mysql>
+mysql> select * from null1, null2 where null1.id = null2.id;
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+|    1 | Bread       |    1 |    45 |
+|    2 | Cheese      |    2 |   175 |
+|    3 | Butter      |    3 |   125 |
++------+-------------+------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from null1, null2 where nullif(null1.id) = nullif(null2.id);
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'nullif'
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select nullif(id) from null2;
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'nullif'
+mysql> select nullif(id) from null2;
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'nullif'
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select isnull(id) from null1;
++------------+
+| isnull(id) |
++------------+
+|          0 |
+|          0 |
+|          0 |
+|          1 |
++------------+
+4 rows in set (0.01 sec)
+
+mysql> select * from null1, null2 where is(null1.id) = isnull(null2.id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'is(null1.id) = isnull(null2.id)' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select * from null1, null2 where isnull(null1.id) = isnull(null2.id)
+    -> ;
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+|    3 | Butter      |    1 |    45 |
+|    2 | Cheese      |    1 |    45 |
+|    1 | Bread       |    1 |    45 |
+|    3 | Butter      |    2 |   175 |
+|    2 | Cheese      |    2 |   175 |
+|    1 | Bread       |    2 |   175 |
+|    3 | Butter      |    3 |   125 |
+|    2 | Cheese      |    3 |   125 |
+|    1 | Bread       |    3 |   125 |
+| NULL | Jam         | NULL |   120 |
+| NULL | Jam         | NULL |   140 |
++------+-------------+------+-------+
+11 rows in set (0.00 sec)
+
+mysql> select * from null1, null2 where (isnull(null1.id), isnull(null2.id) = (1,1));
+ERROR 1241 (21000): Operand should contain 1 column(s)
+mysql>
+mysql>
+mysql>
+mysql> select * from null1, null2 where (isnull(null1.id), isnull(null2.id) = (1,1));
+ERROR 1241 (21000): Operand should contain 1 column(s)
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select * from null1, null2 where (isnull(null1.id), isnull(null2.id)) = (1,1);
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+| NULL | Jam         | NULL |   120 |
+| NULL | Jam         | NULL |   140 |
++------+-------------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from null1;
++------+-------------+
+| id   | productName |
++------+-------------+
+|    1 | Bread       |
+|    2 | Cheese      |
+|    3 | Butter      |
+| NULL | Jam         |
++------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from null2;
++------+-------+
+| id   | price |
++------+-------+
+|    1 |    45 |
+|    2 |   175 |
+|    3 |   125 |
+| NULL |   120 |
+| NULL |   140 |
++------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from null1, null2 where (isnull(null1.id), isnull(null2.id)) = (0,0);
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+|    3 | Butter      |    1 |    45 |
+|    2 | Cheese      |    1 |    45 |
+|    1 | Bread       |    1 |    45 |
+|    3 | Butter      |    2 |   175 |
+|    2 | Cheese      |    2 |   175 |
+|    1 | Bread       |    2 |   175 |
+|    3 | Butter      |    3 |   125 |
+|    2 | Cheese      |    3 |   125 |
+|    1 | Bread       |    3 |   125 |
++------+-------------+------+-------+
+9 rows in set (0.00 sec)
+
+mysql> select * from null1, null2 where (isnull(null1.id), isnull(null2.id));
+ERROR 1241 (21000): Operand should contain 1 column(s)
+mysql> select * from null1, null2 where (isnull(null1.id), isnull(null2.id)) = (1,1);
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+| NULL | Jam         | NULL |   120 |
+| NULL | Jam         | NULL |   140 |
++------+-------------+------+-------+
+2 rows in set (0.01 sec)
+
+mysql> select * from null1, null2 where (isnull(null1.id), isnull(null2.id)) = (true, true);
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+| NULL | Jam         | NULL |   120 |
+| NULL | Jam         | NULL |   140 |
++------+-------------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from null1, null2 where (isnull(null1.id), isnull(null2.id)) = (0,0);
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+|    3 | Butter      |    1 |    45 |
+|    2 | Cheese      |    1 |    45 |
+|    1 | Bread       |    1 |    45 |
+|    3 | Butter      |    2 |   175 |
+|    2 | Cheese      |    2 |   175 |
+|    1 | Bread       |    2 |   175 |
+|    3 | Butter      |    3 |   125 |
+|    2 | Cheese      |    3 |   125 |
+|    1 | Bread       |    3 |   125 |
++------+-------------+------+-------+
+9 rows in set (0.00 sec)
+
+mysql> select null1.*, null2.*  from null1, null2 where (isnull(null1.id), isnull(null2.id)) = (0,0);
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+|    3 | Butter      |    1 |    45 |
+|    2 | Cheese      |    1 |    45 |
+|    1 | Bread       |    1 |    45 |
+|    3 | Butter      |    2 |   175 |
+|    2 | Cheese      |    2 |   175 |
+|    1 | Bread       |    2 |   175 |
+|    3 | Butter      |    3 |   125 |
+|    2 | Cheese      |    3 |   125 |
+|    1 | Bread       |    3 |   125 |
++------+-------------+------+-------+
+9 rows in set (0.01 sec)
+
+mysql> select null1.*, null2.*  from null1, null2 where (isnull(null1.id), isnull(null2.id)) = (0,0);
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+|    3 | Butter      |    1 |    45 |
+|    2 | Cheese      |    1 |    45 |
+|    1 | Bread       |    1 |    45 |
+|    3 | Butter      |    2 |   175 |
+|    2 | Cheese      |    2 |   175 |
+|    1 | Bread       |    2 |   175 |
+|    3 | Butter      |    3 |   125 |
+|    2 | Cheese      |    3 |   125 |
+|    1 | Bread       |    3 |   125 |
++------+-------------+------+-------+
+9 rows in set (0.00 sec)
+
+mysql> select * from null1, null2 where (isnull(null1.id), isnull(null2.id)) = (1,1);
++------+-------------+------+-------+
+| id   | productName | id   | price |
++------+-------------+------+-------+
+| NULL | Jam         | NULL |   120 |
+| NULL | Jam         | NULL |   140 |
++------+-------------+------+-------+
+2 rows in set (0.01 sec)
+
+mysql> use db2
+Database changed
+mysql> delete from x;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> delete from y;
+Query OK, 3 rows affected (0.02 sec)
+
+mysql> desc x;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| ename | varchar(10) | YES  |     | NULL    |       |
+| dob   | date        | YES  |     | NULL    |       |
+| sal   | int         | YES  |     | NULL    |       |
+| flag  | tinyint     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+
+mysql> load data infile "c:/Flles/Person.csv" into table x fields terminated by "," lines terminated by "\n" (id, ename, @dob,sal,@flag) set dbo=str_to_date(@dob, "%Y-%m-%d"), flag=if(@flag='true',1,0);
+ERROR 1054 (42S22): Unknown column 'dbo' in 'field list'
+mysql> load data infile "c:/Flles/Person.csv" into table x fields terminated by "," lines terminated by "\n" (id, ename, @dob,sal,@flag) set dbo=str_to_date(@dob, "%Y-%m-%d"), flag=if(@flag='true',1,0);
+ERROR 1054 (42S22): Unknown column 'dbo' in 'field list'
+mysql> load data infile "c:/Flles/Person.csv" into table x fields terminated by "," lines terminated by "\n" (id, ename, @dob,sal,@flag) set dbo=str_to_date(@dob, "%Y-%m-%d"), flag=if(@flag='true',1,0);
+ERROR 1054 (42S22): Unknown column 'dbo' in 'field list'
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> load data infile "c:/Flles/Person.csv" into table x fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dbo=str_to_date(@dob, "%Y-%m-%d"), flag=if(@flag='true',1,0);
+ERROR 1054 (42S22): Unknown column 'dbo' in 'field list'
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> load data infile "c:/Flles/Person.csv" into table x fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob=str_to_date(@dob, "%Y-%m-%d"), flag=if(@flag='true',1,0);
+ERROR 29 (HY000): File 'c:\Flles\Person.csv' not found (OS errno 2 - No such file or directory)
+mysql>
+mysql>
+mysql>
+mysql> load data infile "c:/Flles/Person.csv" into table x fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob=str_to_date(@dob, "%Y-%m-%d"),flag=if(@flag='true',1,0);
+ERROR 29 (HY000): File 'c:\Flles\Person.csv' not found (OS errno 2 - No such file or directory)
+mysql>
+mysql> load data infile "c:\\Flles\\Person.csv" into table x fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob=str_to_date(@dob, "%Y-%m-%d"),flag=if(@flag='true',1,0);
+ERROR 29 (HY000): File 'c:\Flles\Person.csv' not found (OS errno 2 - No such file or directory)
+mysql>
+mysql>
+mysql>
+mysql> select * from x;
+Empty set (0.00 sec)
+
+mysql> desc x;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| ename | varchar(10) | YES  |     | NULL    |       |
+| dob   | date        | YES  |     | NULL    |       |
+| sal   | int         | YES  |     | NULL    |       |
+| flag  | tinyint     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> load data infile "c:/files/person.csv" into table x fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob=str_to_date(@dob, "%Y-%m-%d"), flag=if(@flag="true",1,0);
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from x;
++------+--------+------------+------+------+
+| id   | ename  | dob        | sal  | flag |
++------+--------+------------+------+------+
+|    1 | saleel | 2026-01-01 | 5000 |    1 |
++------+--------+------------+------+------+
+1 row in set (0.00 sec)
+
+mysql> load data infile "c:/files/person.json" into table y fealds terminated by "," (@json) set document=@json;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fealds terminated by "," (@json) set document=@json' at line 1
+mysql>
+mysql>
+mysql>
+mysql> desc y;
++----------+------+------+-----+---------+----------------+
+| Field    | Type | Null | Key | Default | Extra          |
++----------+------+------+-----+---------+----------------+
+| id       | int  | NO   | PRI | NULL    | auto_increment |
+| document | json | YES  |     | NULL    |                |
++----------+------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> load data infile "c:/files/person.json" into table y fealds (@json) set document=@json;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fealds (@json) set document=@json' at line 1
+mysql>
+mysql>
+mysql>
+mysql> load data infile "c:/files/person.json" into table y (@json) set document=@json;
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from y;
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| id | document                                                                                                                                                                                                                                                                                                                                            |
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 10 | {"name": "LED Smart TV 50-inch", "brand": "VisionPro", "price": {"amount": 499.99, "currency": "USD"}, "stock": {"quantity": 0, "available": false}, "category": "Electronics", "productId": "P1004", "description": "4K Ultra HD, HDR, WiFi enabled.", "specifications": {"hdmiPorts": 3, "resolution": "4K", "screenSize": "50 inch"}}            |
+| 11 | {"name": "Wooden Coffee Table", "brand": "HomeCraft", "price": {"amount": 149.99, "currency": "USD"}, "stock": {"quantity": 35, "available": true}, "category": "Furniture", "productId": "P1005", "description": "Classic design with oak finish.", "specifications": {"material": "Oak Wood", "dimensions": "120x60x45 cm"}}                      |
+| 12 | {"name": "Stainless Steel Water Bottle", "brand": "HydraCool", "price": {"amount": 19.99, "currency": "USD"}, "stock": {"quantity": 500, "available": true}, "category": "Home & Kitchen", "productId": "P1006", "description": "Insulated bottle keeps drinks hot/cold for 12 hours.", "specifications": {"color": "Silver", "capacity": "750ml"}} |
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select document -> '$.name' from y;
++--------------------------------+
+| document -> '$.name'           |
++--------------------------------+
+| "LED Smart TV 50-inch"         |
+| "Wooden Coffee Table"          |
+| "Stainless Steel Water Bottle" |
++--------------------------------+
+3 rows in set (0.01 sec)
+
+mysql> select document ->> '$.name' from y;
++------------------------------+
+| document ->> '$.name'        |
++------------------------------+
+| LED Smart TV 50-inch         |
+| Wooden Coffee Table          |
+| Stainless Steel Water Bottle |
++------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select id, document ->> '$.name' from y;
++----+------------------------------+
+| id | document ->> '$.name'        |
++----+------------------------------+
+| 10 | LED Smart TV 50-inch         |
+| 11 | Wooden Coffee Table          |
+| 12 | Stainless Steel Water Bottle |
++----+------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> truncate table y;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> truncate table x;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> use db2'
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+mysql> use db2
+Database changed
+mysql> desc x;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| ename | varchar(10) | YES  |     | NULL    |       |
+| dob   | date        | YES  |     | NULL    |       |
+| sal   | int         | YES  |     | NULL    |       |
+| flag  | tinyint     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.06 sec)
+
+mysql> load data infile "c:/files/person.csv" into table x  fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob= str_to_date(@dob, '%Y-%m-%d'), flag=if(@flag ='true',1,0);
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from x;
++------+---------+------------+------+------+
+| id   | ename   | dob        | sal  | flag |
++------+---------+------------+------+------+
+|    1 | saleel  | 2026-01-01 | 5000 |    0 |
+|    2 | sharmin | 2026-02-02 | 6000 |    0 |
++------+---------+------------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> truncate table x;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc x;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| ename | varchar(10) | YES  |     | NULL    |       |
+| dob   | date        | YES  |     | NULL    |       |
+| sal   | int         | YES  |     | NULL    |       |
+| flag  | tinyint     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> load data infile "c:/files/person.csv" into table x  fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob= str_to_date(@dob, '%Y-%m-%d'), flag=if(@flag=true,1,0);
+'RROR 1292 (22007): Truncated incorrect DOUBLE value: 'true
+mysql> load data infile "c:/files/person.csv" into table x  fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob= str_to_date(@dob, '%Y-%m-%d'), flag=if(@flag='true',1,0);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from x;
++------+---------+------------+------+------+
+| id   | ename   | dob        | sal  | flag |
++------+---------+------------+------+------+
+|    1 | saleel  | 2026-01-01 | 5000 |    0 |
+|    2 | sharmin | 2026-02-02 | 6000 |    0 |
++------+---------+------------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> load data infile "c:/files/person.csv" into table x  fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob= str_to_date(@dob, '%Y-%m-%d'), flag=if(@flag=true,1,0);
+'RROR 1292 (22007): Truncated incorrect DOUBLE value: 'true
+mysql> load data infile "c:/files/person.csv" into table x  fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob= str_to_date(@dob, '%Y-%m-%d'), flag=if(@flag="true",1,0);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from x;
++------+---------+------------+------+------+
+| id   | ename   | dob        | sal  | flag |
++------+---------+------------+------+------+
+|    1 | saleel  | 2026-01-01 | 5000 |    0 |
+|    2 | sharmin | 2026-02-02 | 6000 |    0 |
+|    1 | saleel  | 2026-01-01 | 5000 |    0 |
+|    2 | sharmin | 2026-02-02 | 6000 |    0 |
++------+---------+------------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> load data infile "c:/files/person.csv" into table x  fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob= str_to_date(@dob, '%Y-%m-%d'), flag=if(@flag="false",0,1);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from x;
++------+---------+------------+------+------+
+| id   | ename   | dob        | sal  | flag |
++------+---------+------------+------+------+
+|    1 | saleel  | 2026-01-01 | 5000 |    0 |
+|    2 | sharmin | 2026-02-02 | 6000 |    0 |
+|    1 | saleel  | 2026-01-01 | 5000 |    0 |
+|    2 | sharmin | 2026-02-02 | 6000 |    0 |
+|    1 | saleel  | 2026-01-01 | 5000 |    1 |
+|    2 | sharmin | 2026-02-02 | 6000 |    0 |
++------+---------+------------+------+------+
+6 rows in set (0.00 sec)
+
+mysql> truncate table x;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> load data infile "c:/files/person.csv" into table x  fields terminated by "," lines terminated by "\n" (id,ename,@dob,sal,@flag) set dob= str_to_date(@dob, '%Y-%m-%d'), flag=if(@flag="false",0,1);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from x;
++------+---------+------------+------+------+
+| id   | ename   | dob        | sal  | flag |
++------+---------+------------+------+------+
+|    1 | saleel  | 2026-01-01 | 5000 |    1 |
+|    2 | sharmin | 2026-02-02 | 6000 |    0 |
++------+---------+------------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> desc y;
++----------+------+------+-----+---------+----------------+
+| Field    | Type | Null | Key | Default | Extra          |
++----------+------+------+-----+---------+----------------+
+| id       | int  | NO   | PRI | NULL    | auto_increment |
+| document | json | YES  |     | NULL    |                |
++----------+------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from y;
+Empty set (0.01 sec)
+
+mysql> load data infile "c:/files/person.json" into table y (@json) set  document=@json;
+Query OK, 3 rows affected (0.03 sec)
+Records: 3  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from y;
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| id | document                                                                                                                                                                                                                                                                                                                                            |
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|  1 | {"name": "LED Smart TV 50-inch", "brand": "VisionPro", "price": {"amount": 499.99, "currency": "USD"}, "stock": {"quantity": 0, "available": false}, "category": "Electronics", "productId": "P1004", "description": "4K Ultra HD, HDR, WiFi enabled.", "specifications": {"hdmiPorts": 3, "resolution": "4K", "screenSize": "50 inch"}}            |
+|  2 | {"name": "Wooden Coffee Table", "brand": "HomeCraft", "price": {"amount": 149.99, "currency": "USD"}, "stock": {"quantity": 35, "available": true}, "category": "Furniture", "productId": "P1005", "description": "Classic design with oak finish.", "specifications": {"material": "Oak Wood", "dimensions": "120x60x45 cm"}}                      |
+|  3 | {"name": "Stainless Steel Water Bottle", "brand": "HydraCool", "price": {"amount": 19.99, "currency": "USD"}, "stock": {"quantity": 500, "available": true}, "category": "Home & Kitchen", "productId": "P1006", "description": "Insulated bottle keeps drinks hot/cold for 12 hours.", "specifications": {"color": "Silver", "capacity": "750ml"}} |
++----+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+3 rows in set (0.01 sec)
+
+mysql> select id, document->"$.productId" from y;
++----+-------------------------+
+| id | document->"$.productId" |
++----+-------------------------+
+|  1 | "P1004"                 |
+|  2 | "P1005"                 |
+|  3 | "P1006"                 |
++----+-------------------------+
+3 rows in set (0.01 sec)
+
+mysql> select id, document->"$.productId" R1 from y;
++----+---------+
+| id | R1      |
++----+---------+
+|  1 | "P1004" |
+|  2 | "P1005" |
+|  3 | "P1006" |
++----+---------+
+3 rows in set (0.00 sec)
+
+ ysql> select id, document->"$.productId" R1, document->"$.name" from y;
++----+---------+--------------------------------+
+| id | R1      | document->"$.name"             |
++----+---------+--------------------------------+
+|  1 | "P1004" | "LED Smart TV 50-inch"         |
+|  2 | "P1005" | "Wooden Coffee Table"          |
+|  3 | "P1006" | "Stainless Steel Water Bottle" |
++----+---------+--------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select id, document->>"$.productId" R1, document->"$.name" from y;
++----+-------+--------------------------------+
+| id | R1    | document->"$.name"             |
++----+-------+--------------------------------+
+|  1 | P1004 | "LED Smart TV 50-inch"         |
+|  2 | P1005 | "Wooden Coffee Table"          |
+|  3 | P1006 | "Stainless Steel Water Bottle" |
++----+-------+--------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select id, document->>"$.productId" R1, document->"$.name" from y where document->>"$.productId" = "P1004";
++----+-------+------------------------+
+| id | R1    | document->"$.name"     |
++----+-------+------------------------+
+|  1 | P1004 | "LED Smart TV 50-inch" |
++----+-------+------------------------+
+1 row in set (0.01 sec)
+
+mysql> select id, document->>"$.productId" R1, document->"$.name" from y where document->>"$.productId" = "p1004";
+Empty set (0.00 sec)
+
+mysql> create table z1 (id varchar(10) not null, ename varchar(20) not null) engine=csv;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc z1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | varchar(10) | NO   |     | NULL    |       |
+| ename | varchar(20) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> insert into z1 values(1,'ulka madam');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into z1 values(2,'sanchali');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from z1;
++----+------------+
+| id | ename      |
++----+------------+
+| 1  | ulka madam |
+| 2  | sanchali   |
++----+------------+
+2 rows in set (0.00 sec)
+
+mysql> select count(*) from emp;
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.05 sec)
+
+mysql> use db1;
+Database changed
+mysql> select count(*) from emp;
++----------+
+| count(*) |
++----------+
+|       30 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> select count(*) from dept;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> select 30*6;
++------+
+| 30*6 |
++------+
+|  180 |
++------+
+1 row in set (0.01 sec)
+
+mysql> select * from emp, dept
+    -> ;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+--------+------------+----------+------------+------------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive | DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+--------+------------+----------+------------+------------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7888 | Ruhan    | M      | Network             | 7888 | 1983-08-09 | 2000 | NULL |     60 |       1 | Ruhan        | BRD@1122   | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7889 | Neel     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 1000 | NULL |     60 |       0 | Neel         | BRD@1122   | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | 1300 |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |     60 | IT         | BARODA   | BRD@1122   | 02/10/1989 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 2150 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+--------+------------+----------+------------+------------+
+180 rows in set (0.01 sec)
+
+mysql> select * from r;
++----+------+
+| id | c1   |
++----+------+
+|  1 |   -2 |
+|  2 | NULL |
+|  3 |    1 |
+|  4 |    2 |
+|  5 |   -1 |
+|  6 | NULL |
+|  7 |    3 |
+|  8 |   -2 |
+|  9 | NULL |
+| 10 |    1 |
+| 11 |    5 |
+| 12 |    2 |
+| 13 | NULL |
+| 14 |    1 |
+| 15 | NULL |
++----+------+
+15 rows in set (0.01 sec)
+
+mysql> select * from r1;
++------+
+| c1   |
++------+
+|    1 |
+|    2 |
+|    3 |
+|    4 |
++------+
+4 rows in set (0.02 sec)
+
+mysql> select * from r2;
++------+------+
+| c1   | c2   |
++------+------+
+|    1 | a    |
+|    2 | b    |
+|    1 | c    |
+|    3 | d    |
+|    2 | e    |
+|    1 | f    |
++------+------+
+6 rows in set (0.01 sec)
+
+mysql> select * from r1, r2;
++------+------+------+
+| c1   | c1   | c2   |
++------+------+------+
+|    4 |    1 | a    |
+|    3 |    1 | a    |
+|    2 |    1 | a    |
+|    1 |    1 | a    |
+|    4 |    2 | b    |
+|    3 |    2 | b    |
+|    2 |    2 | b    |
+|    1 |    2 | b    |
+|    4 |    1 | c    |
+|    3 |    1 | c    |
+|    2 |    1 | c    |
+|    1 |    1 | c    |
+|    4 |    3 | d    |
+|    3 |    3 | d    |
+|    2 |    3 | d    |
+|    1 |    3 | d    |
+|    4 |    2 | e    |
+|    3 |    2 | e    |
+|    2 |    2 | e    |
+|    1 |    2 | e    |
+|    4 |    1 | f    |
+|    3 |    1 | f    |
+|    2 |    1 | f    |
+|    1 |    1 | f    |
++------+------+------+
+24 rows in set (0.00 sec)
+
+mysql> select * from softdrink;
++------+----------------------+------+
+| ID   | NAME                 | RATE |
++------+----------------------+------+
+|    1 | Coca-Cola            |   45 |
+|    2 | Mello Yello          |   75 |
+|    3 | Diet Coke            |   60 |
+|    4 | Frozen Fanta Cherry  |   65 |
+|    5 | Iced Tea             |   35 |
++------+----------------------+------+
+5 rows in set (0.01 sec)
+
+mysql> select ename, name from emp, softdrink;
++----------+----------------------+
+| ename    | name                 |
++----------+----------------------+
+| GITA     | Iced Tea             |
+| GITA     | Frozen Fanta Cherry  |
+| GITA     | Diet Coke            |
+| GITA     | Mello Yello          |
+| GITA     | Coca-Cola            |
+| VRUSHALI | Iced Tea             |
+| VRUSHALI | Frozen Fanta Cherry  |
+| VRUSHALI | Diet Coke            |
+| VRUSHALI | Mello Yello          |
+| VRUSHALI | Coca-Cola            |
+| SHARMIN  | Iced Tea             |
+| SHARMIN  | Frozen Fanta Cherry  |
+| SHARMIN  | Diet Coke            |
+| SHARMIN  | Mello Yello          |
+| SHARMIN  | Coca-Cola            |
+| BANDISH  | Iced Tea             |
+| BANDISH  | Frozen Fanta Cherry  |
+| BANDISH  | Diet Coke            |
+| BANDISH  | Mello Yello          |
+| BANDISH  | Coca-Cola            |
+| SMITH    | Iced Tea             |
+| SMITH    | Frozen Fanta Cherry  |
+| SMITH    | Diet Coke            |
+| SMITH    | Mello Yello          |
+| SMITH    | Coca-Cola            |
+| AARAV    | Iced Tea             |
+| AARAV    | Frozen Fanta Cherry  |
+| AARAV    | Diet Coke            |
+| AARAV    | Mello Yello          |
+| AARAV    | Coca-Cola            |
+| THOMAS   | Iced Tea             |
+| THOMAS   | Frozen Fanta Cherry  |
+| THOMAS   | Diet Coke            |
+| THOMAS   | Mello Yello          |
+| THOMAS   | Coca-Cola            |
+| ALLEN    | Iced Tea             |
+| ALLEN    | Frozen Fanta Cherry  |
+| ALLEN    | Diet Coke            |
+| ALLEN    | Mello Yello          |
+| ALLEN    | Coca-Cola            |
+| WARD     | Iced Tea             |
+| WARD     | Frozen Fanta Cherry  |
+| WARD     | Diet Coke            |
+| WARD     | Mello Yello          |
+| WARD     | Coca-Cola            |
+| JONES    | Iced Tea             |
+| JONES    | Frozen Fanta Cherry  |
+| JONES    | Diet Coke            |
+| JONES    | Mello Yello          |
+| JONES    | Coca-Cola            |
+| MARTIN   | Iced Tea             |
+| MARTIN   | Frozen Fanta Cherry  |
+| MARTIN   | Diet Coke            |
+| MARTIN   | Mello Yello          |
+| MARTIN   | Coca-Cola            |
+| BLAKE    | Iced Tea             |
+| BLAKE    | Frozen Fanta Cherry  |
+| BLAKE    | Diet Coke            |
+| BLAKE    | Mello Yello          |
+| BLAKE    | Coca-Cola            |
+| CLARK    | Iced Tea             |
+| CLARK    | Frozen Fanta Cherry  |
+| CLARK    | Diet Coke            |
+| CLARK    | Mello Yello          |
+| CLARK    | Coca-Cola            |
+| SCOTT    | Iced Tea             |
+| SCOTT    | Frozen Fanta Cherry  |
+| SCOTT    | Diet Coke            |
+| SCOTT    | Mello Yello          |
+| SCOTT    | Coca-Cola            |
+| KING     | Iced Tea             |
+| KING     | Frozen Fanta Cherry  |
+| KING     | Diet Coke            |
+| KING     | Mello Yello          |
+| KING     | Coca-Cola            |
+| FRED     | Iced Tea             |
+| FRED     | Frozen Fanta Cherry  |
+| FRED     | Diet Coke            |
+| FRED     | Mello Yello          |
+| FRED     | Coca-Cola            |
+| TURNER   | Iced Tea             |
+| TURNER   | Frozen Fanta Cherry  |
+| TURNER   | Diet Coke            |
+| TURNER   | Mello Yello          |
+| TURNER   | Coca-Cola            |
+| ADAMS    | Iced Tea             |
+| ADAMS    | Frozen Fanta Cherry  |
+| ADAMS    | Diet Coke            |
+| ADAMS    | Mello Yello          |
+| ADAMS    | Coca-Cola            |
+| Ruhan    | Iced Tea             |
+| Ruhan    | Frozen Fanta Cherry  |
+| Ruhan    | Diet Coke            |
+| Ruhan    | Mello Yello          |
+| Ruhan    | Coca-Cola            |
+| Neel     | Iced Tea             |
+| Neel     | Frozen Fanta Cherry  |
+| Neel     | Diet Coke            |
+| Neel     | Mello Yello          |
+| Neel     | Coca-Cola            |
+| JAMES    | Iced Tea             |
+| JAMES    | Frozen Fanta Cherry  |
+| JAMES    | Diet Coke            |
+| JAMES    | Mello Yello          |
+| JAMES    | Coca-Cola            |
+| FORD     | Iced Tea             |
+| FORD     | Frozen Fanta Cherry  |
+| FORD     | Diet Coke            |
+| FORD     | Mello Yello          |
+| FORD     | Coca-Cola            |
+| HOFFMAN  | Iced Tea             |
+| HOFFMAN  | Frozen Fanta Cherry  |
+| HOFFMAN  | Diet Coke            |
+| HOFFMAN  | Mello Yello          |
+| HOFFMAN  | Coca-Cola            |
+| GRASS    | Iced Tea             |
+| GRASS    | Frozen Fanta Cherry  |
+| GRASS    | Diet Coke            |
+| GRASS    | Mello Yello          |
+| GRASS    | Coca-Cola            |
+| MILLER   | Iced Tea             |
+| MILLER   | Frozen Fanta Cherry  |
+| MILLER   | Diet Coke            |
+| MILLER   | Mello Yello          |
+| MILLER   | Coca-Cola            |
+| AARUSH   | Iced Tea             |
+| AARUSH   | Frozen Fanta Cherry  |
+| AARUSH   | Diet Coke            |
+| AARUSH   | Mello Yello          |
+| AARUSH   | Coca-Cola            |
+| ALEX     | Iced Tea             |
+| ALEX     | Frozen Fanta Cherry  |
+| ALEX     | Diet Coke            |
+| ALEX     | Mello Yello          |
+| ALEX     | Coca-Cola            |
+| NATASHA  | Iced Tea             |
+| NATASHA  | Frozen Fanta Cherry  |
+| NATASHA  | Diet Coke            |
+| NATASHA  | Mello Yello          |
+| NATASHA  | Coca-Cola            |
+| SANGITA  | Iced Tea             |
+| SANGITA  | Frozen Fanta Cherry  |
+| SANGITA  | Diet Coke            |
+| SANGITA  | Mello Yello          |
+| SANGITA  | Coca-Cola            |
+| SUPRIYA  | Iced Tea             |
+| SUPRIYA  | Frozen Fanta Cherry  |
+| SUPRIYA  | Diet Coke            |
+| SUPRIYA  | Mello Yello          |
+| SUPRIYA  | Coca-Cola            |
++----------+----------------------+
+150 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select * from softdrink;
++------+----------------------+------+
+| ID   | NAME                 | RATE |
++------+----------------------+------+
+|    1 | Coca-Cola            |   45 |
+|    2 | Mello Yello          |   75 |
+|    3 | Diet Coke            |   60 |
+|    4 | Frozen Fanta Cherry  |   65 |
+|    5 | Iced Tea             |   35 |
++------+----------------------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from menucard;
++------+------------------------------+------+
+| ID   | NAME                         | RATE |
++------+------------------------------+------+
+|   14 | Onion Hamburger              |  115 |
+|    6 | Extra Long Cheeseburger      |  100 |
+|    2 | Double Stacker               |  125 |
+|    8 | Double Cheeseburger          |  100 |
+|   13 | Cheese Hamburger             |  125 |
+|    4 | Hamburger                    |   85 |
+|   11 | Classic Grilled Dog          |   95 |
+|    1 | Chili Cheese Grilled Dog     |  115 |
+|    7 | Flame Grilled Chicken Burger |  135 |
+|    3 | Original Chicken Sandwich    |   55 |
+|    9 | McALLO TIKKI                 |   45 |
+|   12 | Veg Maharaja Mac             |   75 |
+|    5 | Big Spicy Chicken Wrap       |  100 |
+|   15 | Cheese Onion Hamburger       |  145 |
+|   10 | McVeggie Schezwan            |   85 |
++------+------------------------------+------+
+15 rows in set (0.01 sec)
+
+mysql> select * from menucard, softdrink;
++------+------------------------------+------+------+----------------------+------+
+| ID   | NAME                         | RATE | ID   | NAME                 | RATE |
++------+------------------------------+------+------+----------------------+------+
+|   14 | Onion Hamburger              |  115 |    5 | Iced Tea             |   35 |
+|   14 | Onion Hamburger              |  115 |    4 | Frozen Fanta Cherry  |   65 |
+|   14 | Onion Hamburger              |  115 |    3 | Diet Coke            |   60 |
+|   14 | Onion Hamburger              |  115 |    2 | Mello Yello          |   75 |
+|   14 | Onion Hamburger              |  115 |    1 | Coca-Cola            |   45 |
+|    6 | Extra Long Cheeseburger      |  100 |    5 | Iced Tea             |   35 |
+|    6 | Extra Long Cheeseburger      |  100 |    4 | Frozen Fanta Cherry  |   65 |
+|    6 | Extra Long Cheeseburger      |  100 |    3 | Diet Coke            |   60 |
+|    6 | Extra Long Cheeseburger      |  100 |    2 | Mello Yello          |   75 |
+|    6 | Extra Long Cheeseburger      |  100 |    1 | Coca-Cola            |   45 |
+|    2 | Double Stacker               |  125 |    5 | Iced Tea             |   35 |
+|    2 | Double Stacker               |  125 |    4 | Frozen Fanta Cherry  |   65 |
+|    2 | Double Stacker               |  125 |    3 | Diet Coke            |   60 |
+|    2 | Double Stacker               |  125 |    2 | Mello Yello          |   75 |
+|    2 | Double Stacker               |  125 |    1 | Coca-Cola            |   45 |
+|    8 | Double Cheeseburger          |  100 |    5 | Iced Tea             |   35 |
+|    8 | Double Cheeseburger          |  100 |    4 | Frozen Fanta Cherry  |   65 |
+|    8 | Double Cheeseburger          |  100 |    3 | Diet Coke            |   60 |
+|    8 | Double Cheeseburger          |  100 |    2 | Mello Yello          |   75 |
+|    8 | Double Cheeseburger          |  100 |    1 | Coca-Cola            |   45 |
+|   13 | Cheese Hamburger             |  125 |    5 | Iced Tea             |   35 |
+|   13 | Cheese Hamburger             |  125 |    4 | Frozen Fanta Cherry  |   65 |
+|   13 | Cheese Hamburger             |  125 |    3 | Diet Coke            |   60 |
+|   13 | Cheese Hamburger             |  125 |    2 | Mello Yello          |   75 |
+|   13 | Cheese Hamburger             |  125 |    1 | Coca-Cola            |   45 |
+|    4 | Hamburger                    |   85 |    5 | Iced Tea             |   35 |
+|    4 | Hamburger                    |   85 |    4 | Frozen Fanta Cherry  |   65 |
+|    4 | Hamburger                    |   85 |    3 | Diet Coke            |   60 |
+|    4 | Hamburger                    |   85 |    2 | Mello Yello          |   75 |
+|    4 | Hamburger                    |   85 |    1 | Coca-Cola            |   45 |
+|   11 | Classic Grilled Dog          |   95 |    5 | Iced Tea             |   35 |
+|   11 | Classic Grilled Dog          |   95 |    4 | Frozen Fanta Cherry  |   65 |
+|   11 | Classic Grilled Dog          |   95 |    3 | Diet Coke            |   60 |
+|   11 | Classic Grilled Dog          |   95 |    2 | Mello Yello          |   75 |
+|   11 | Classic Grilled Dog          |   95 |    1 | Coca-Cola            |   45 |
+|    1 | Chili Cheese Grilled Dog     |  115 |    5 | Iced Tea             |   35 |
+|    1 | Chili Cheese Grilled Dog     |  115 |    4 | Frozen Fanta Cherry  |   65 |
+|    1 | Chili Cheese Grilled Dog     |  115 |    3 | Diet Coke            |   60 |
+|    1 | Chili Cheese Grilled Dog     |  115 |    2 | Mello Yello          |   75 |
+|    1 | Chili Cheese Grilled Dog     |  115 |    1 | Coca-Cola            |   45 |
+|    7 | Flame Grilled Chicken Burger |  135 |    5 | Iced Tea             |   35 |
+|    7 | Flame Grilled Chicken Burger |  135 |    4 | Frozen Fanta Cherry  |   65 |
+|    7 | Flame Grilled Chicken Burger |  135 |    3 | Diet Coke            |   60 |
+|    7 | Flame Grilled Chicken Burger |  135 |    2 | Mello Yello          |   75 |
+|    7 | Flame Grilled Chicken Burger |  135 |    1 | Coca-Cola            |   45 |
+|    3 | Original Chicken Sandwich    |   55 |    5 | Iced Tea             |   35 |
+|    3 | Original Chicken Sandwich    |   55 |    4 | Frozen Fanta Cherry  |   65 |
+|    3 | Original Chicken Sandwich    |   55 |    3 | Diet Coke            |   60 |
+|    3 | Original Chicken Sandwich    |   55 |    2 | Mello Yello          |   75 |
+|    3 | Original Chicken Sandwich    |   55 |    1 | Coca-Cola            |   45 |
+|    9 | McALLO TIKKI                 |   45 |    5 | Iced Tea             |   35 |
+|    9 | McALLO TIKKI                 |   45 |    4 | Frozen Fanta Cherry  |   65 |
+|    9 | McALLO TIKKI                 |   45 |    3 | Diet Coke            |   60 |
+|    9 | McALLO TIKKI                 |   45 |    2 | Mello Yello          |   75 |
+|    9 | McALLO TIKKI                 |   45 |    1 | Coca-Cola            |   45 |
+|   12 | Veg Maharaja Mac             |   75 |    5 | Iced Tea             |   35 |
+|   12 | Veg Maharaja Mac             |   75 |    4 | Frozen Fanta Cherry  |   65 |
+|   12 | Veg Maharaja Mac             |   75 |    3 | Diet Coke            |   60 |
+|   12 | Veg Maharaja Mac             |   75 |    2 | Mello Yello          |   75 |
+|   12 | Veg Maharaja Mac             |   75 |    1 | Coca-Cola            |   45 |
+|    5 | Big Spicy Chicken Wrap       |  100 |    5 | Iced Tea             |   35 |
+|    5 | Big Spicy Chicken Wrap       |  100 |    4 | Frozen Fanta Cherry  |   65 |
+|    5 | Big Spicy Chicken Wrap       |  100 |    3 | Diet Coke            |   60 |
+|    5 | Big Spicy Chicken Wrap       |  100 |    2 | Mello Yello          |   75 |
+|    5 | Big Spicy Chicken Wrap       |  100 |    1 | Coca-Cola            |   45 |
+|   15 | Cheese Onion Hamburger       |  145 |    5 | Iced Tea             |   35 |
+|   15 | Cheese Onion Hamburger       |  145 |    4 | Frozen Fanta Cherry  |   65 |
+|   15 | Cheese Onion Hamburger       |  145 |    3 | Diet Coke            |   60 |
+|   15 | Cheese Onion Hamburger       |  145 |    2 | Mello Yello          |   75 |
+|   15 | Cheese Onion Hamburger       |  145 |    1 | Coca-Cola            |   45 |
+|   10 | McVeggie Schezwan            |   85 |    5 | Iced Tea             |   35 |
+|   10 | McVeggie Schezwan            |   85 |    4 | Frozen Fanta Cherry  |   65 |
+|   10 | McVeggie Schezwan            |   85 |    3 | Diet Coke            |   60 |
+|   10 | McVeggie Schezwan            |   85 |    2 | Mello Yello          |   75 |
+|   10 | McVeggie Schezwan            |   85 |    1 | Coca-Cola            |   45 |
++------+------------------------------+------+------+----------------------+------+
+75 rows in set (0.00 sec)
+
+mysql> select name, rate from menucard, softdrink;
+ERROR 1052 (23000): Column 'name' in field list is ambiguous
+mysql>
+mysql>
+mysql>
+mysql> select menucardb.name, rate from menucard, softdrink;
+ERROR 1054 (42S22): Unknown column 'menucardb.name' in 'field list'
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select m.name, m.rate from menucard m, softdrink s;
++------------------------------+------+
+| name                         | rate |
++------------------------------+------+
+| Onion Hamburger              |  115 |
+| Onion Hamburger              |  115 |
+| Onion Hamburger              |  115 |
+| Onion Hamburger              |  115 |
+| Onion Hamburger              |  115 |
+| Extra Long Cheeseburger      |  100 |
+| Extra Long Cheeseburger      |  100 |
+| Extra Long Cheeseburger      |  100 |
+| Extra Long Cheeseburger      |  100 |
+| Extra Long Cheeseburger      |  100 |
+| Double Stacker               |  125 |
+| Double Stacker               |  125 |
+| Double Stacker               |  125 |
+| Double Stacker               |  125 |
+| Double Stacker               |  125 |
+| Double Cheeseburger          |  100 |
+| Double Cheeseburger          |  100 |
+| Double Cheeseburger          |  100 |
+| Double Cheeseburger          |  100 |
+| Double Cheeseburger          |  100 |
+| Cheese Hamburger             |  125 |
+| Cheese Hamburger             |  125 |
+| Cheese Hamburger             |  125 |
+| Cheese Hamburger             |  125 |
+| Cheese Hamburger             |  125 |
+| Hamburger                    |   85 |
+| Hamburger                    |   85 |
+| Hamburger                    |   85 |
+| Hamburger                    |   85 |
+| Hamburger                    |   85 |
+| Classic Grilled Dog          |   95 |
+| Classic Grilled Dog          |   95 |
+| Classic Grilled Dog          |   95 |
+| Classic Grilled Dog          |   95 |
+| Classic Grilled Dog          |   95 |
+| Chili Cheese Grilled Dog     |  115 |
+| Chili Cheese Grilled Dog     |  115 |
+| Chili Cheese Grilled Dog     |  115 |
+| Chili Cheese Grilled Dog     |  115 |
+| Chili Cheese Grilled Dog     |  115 |
+| Flame Grilled Chicken Burger |  135 |
+| Flame Grilled Chicken Burger |  135 |
+| Flame Grilled Chicken Burger |  135 |
+| Flame Grilled Chicken Burger |  135 |
+| Flame Grilled Chicken Burger |  135 |
+| Original Chicken Sandwich    |   55 |
+| Original Chicken Sandwich    |   55 |
+| Original Chicken Sandwich    |   55 |
+| Original Chicken Sandwich    |   55 |
+| Original Chicken Sandwich    |   55 |
+| McALLO TIKKI                 |   45 |
+| McALLO TIKKI                 |   45 |
+| McALLO TIKKI                 |   45 |
+| McALLO TIKKI                 |   45 |
+| McALLO TIKKI                 |   45 |
+| Veg Maharaja Mac             |   75 |
+| Veg Maharaja Mac             |   75 |
+| Veg Maharaja Mac             |   75 |
+| Veg Maharaja Mac             |   75 |
+| Veg Maharaja Mac             |   75 |
+| Big Spicy Chicken Wrap       |  100 |
+| Big Spicy Chicken Wrap       |  100 |
+| Big Spicy Chicken Wrap       |  100 |
+| Big Spicy Chicken Wrap       |  100 |
+| Big Spicy Chicken Wrap       |  100 |
+| Cheese Onion Hamburger       |  145 |
+| Cheese Onion Hamburger       |  145 |
+| Cheese Onion Hamburger       |  145 |
+| Cheese Onion Hamburger       |  145 |
+| Cheese Onion Hamburger       |  145 |
+| McVeggie Schezwan            |   85 |
+| McVeggie Schezwan            |   85 |
+| McVeggie Schezwan            |   85 |
+| McVeggie Schezwan            |   85 |
+| McVeggie Schezwan            |   85 |
++------------------------------+------+
+75 rows in set (0.01 sec)
+
+mysql>
+mysql>
+mysql> select m.name, m.rate,s.name, s.rate from menucard m, softdrink s;
++------------------------------+------+----------------------+------+
+| name                         | rate | name                 | rate |
++------------------------------+------+----------------------+------+
+| Onion Hamburger              |  115 | Iced Tea             |   35 |
+| Onion Hamburger              |  115 | Frozen Fanta Cherry  |   65 |
+| Onion Hamburger              |  115 | Diet Coke            |   60 |
+| Onion Hamburger              |  115 | Mello Yello          |   75 |
+| Onion Hamburger              |  115 | Coca-Cola            |   45 |
+| Extra Long Cheeseburger      |  100 | Iced Tea             |   35 |
+| Extra Long Cheeseburger      |  100 | Frozen Fanta Cherry  |   65 |
+| Extra Long Cheeseburger      |  100 | Diet Coke            |   60 |
+| Extra Long Cheeseburger      |  100 | Mello Yello          |   75 |
+| Extra Long Cheeseburger      |  100 | Coca-Cola            |   45 |
+| Double Stacker               |  125 | Iced Tea             |   35 |
+| Double Stacker               |  125 | Frozen Fanta Cherry  |   65 |
+| Double Stacker               |  125 | Diet Coke            |   60 |
+| Double Stacker               |  125 | Mello Yello          |   75 |
+| Double Stacker               |  125 | Coca-Cola            |   45 |
+| Double Cheeseburger          |  100 | Iced Tea             |   35 |
+| Double Cheeseburger          |  100 | Frozen Fanta Cherry  |   65 |
+| Double Cheeseburger          |  100 | Diet Coke            |   60 |
+| Double Cheeseburger          |  100 | Mello Yello          |   75 |
+| Double Cheeseburger          |  100 | Coca-Cola            |   45 |
+| Cheese Hamburger             |  125 | Iced Tea             |   35 |
+| Cheese Hamburger             |  125 | Frozen Fanta Cherry  |   65 |
+| Cheese Hamburger             |  125 | Diet Coke            |   60 |
+| Cheese Hamburger             |  125 | Mello Yello          |   75 |
+| Cheese Hamburger             |  125 | Coca-Cola            |   45 |
+| Hamburger                    |   85 | Iced Tea             |   35 |
+| Hamburger                    |   85 | Frozen Fanta Cherry  |   65 |
+| Hamburger                    |   85 | Diet Coke            |   60 |
+| Hamburger                    |   85 | Mello Yello          |   75 |
+| Hamburger                    |   85 | Coca-Cola            |   45 |
+| Classic Grilled Dog          |   95 | Iced Tea             |   35 |
+| Classic Grilled Dog          |   95 | Frozen Fanta Cherry  |   65 |
+| Classic Grilled Dog          |   95 | Diet Coke            |   60 |
+| Classic Grilled Dog          |   95 | Mello Yello          |   75 |
+| Classic Grilled Dog          |   95 | Coca-Cola            |   45 |
+| Chili Cheese Grilled Dog     |  115 | Iced Tea             |   35 |
+| Chili Cheese Grilled Dog     |  115 | Frozen Fanta Cherry  |   65 |
+| Chili Cheese Grilled Dog     |  115 | Diet Coke            |   60 |
+| Chili Cheese Grilled Dog     |  115 | Mello Yello          |   75 |
+| Chili Cheese Grilled Dog     |  115 | Coca-Cola            |   45 |
+| Flame Grilled Chicken Burger |  135 | Iced Tea             |   35 |
+| Flame Grilled Chicken Burger |  135 | Frozen Fanta Cherry  |   65 |
+| Flame Grilled Chicken Burger |  135 | Diet Coke            |   60 |
+| Flame Grilled Chicken Burger |  135 | Mello Yello          |   75 |
+| Flame Grilled Chicken Burger |  135 | Coca-Cola            |   45 |
+| Original Chicken Sandwich    |   55 | Iced Tea             |   35 |
+| Original Chicken Sandwich    |   55 | Frozen Fanta Cherry  |   65 |
+| Original Chicken Sandwich    |   55 | Diet Coke            |   60 |
+| Original Chicken Sandwich    |   55 | Mello Yello          |   75 |
+| Original Chicken Sandwich    |   55 | Coca-Cola            |   45 |
+| McALLO TIKKI                 |   45 | Iced Tea             |   35 |
+| McALLO TIKKI                 |   45 | Frozen Fanta Cherry  |   65 |
+| McALLO TIKKI                 |   45 | Diet Coke            |   60 |
+| McALLO TIKKI                 |   45 | Mello Yello          |   75 |
+| McALLO TIKKI                 |   45 | Coca-Cola            |   45 |
+| Veg Maharaja Mac             |   75 | Iced Tea             |   35 |
+| Veg Maharaja Mac             |   75 | Frozen Fanta Cherry  |   65 |
+| Veg Maharaja Mac             |   75 | Diet Coke            |   60 |
+| Veg Maharaja Mac             |   75 | Mello Yello          |   75 |
+| Veg Maharaja Mac             |   75 | Coca-Cola            |   45 |
+| Big Spicy Chicken Wrap       |  100 | Iced Tea             |   35 |
+| Big Spicy Chicken Wrap       |  100 | Frozen Fanta Cherry  |   65 |
+| Big Spicy Chicken Wrap       |  100 | Diet Coke            |   60 |
+| Big Spicy Chicken Wrap       |  100 | Mello Yello          |   75 |
+| Big Spicy Chicken Wrap       |  100 | Coca-Cola            |   45 |
+| Cheese Onion Hamburger       |  145 | Iced Tea             |   35 |
+| Cheese Onion Hamburger       |  145 | Frozen Fanta Cherry  |   65 |
+| Cheese Onion Hamburger       |  145 | Diet Coke            |   60 |
+| Cheese Onion Hamburger       |  145 | Mello Yello          |   75 |
+| Cheese Onion Hamburger       |  145 | Coca-Cola            |   45 |
+| McVeggie Schezwan            |   85 | Iced Tea             |   35 |
+| McVeggie Schezwan            |   85 | Frozen Fanta Cherry  |   65 |
+| McVeggie Schezwan            |   85 | Diet Coke            |   60 |
+| McVeggie Schezwan            |   85 | Mello Yello          |   75 |
+| McVeggie Schezwan            |   85 | Coca-Cola            |   45 |
++------------------------------+------+----------------------+------+
+75 rows in set (0.01 sec)
+
+mysql> select m.name, m.rate,s.name, s.rate, m.rate+s.rate Amount from menucard m, softdrink s;
++------------------------------+------+----------------------+------+--------+
+| name                         | rate | name                 | rate | Amount |
++------------------------------+------+----------------------+------+--------+
+| Onion Hamburger              |  115 | Iced Tea             |   35 |    150 |
+| Onion Hamburger              |  115 | Frozen Fanta Cherry  |   65 |    180 |
+| Onion Hamburger              |  115 | Diet Coke            |   60 |    175 |
+| Onion Hamburger              |  115 | Mello Yello          |   75 |    190 |
+| Onion Hamburger              |  115 | Coca-Cola            |   45 |    160 |
+| Extra Long Cheeseburger      |  100 | Iced Tea             |   35 |    135 |
+| Extra Long Cheeseburger      |  100 | Frozen Fanta Cherry  |   65 |    165 |
+| Extra Long Cheeseburger      |  100 | Diet Coke            |   60 |    160 |
+| Extra Long Cheeseburger      |  100 | Mello Yello          |   75 |    175 |
+| Extra Long Cheeseburger      |  100 | Coca-Cola            |   45 |    145 |
+| Double Stacker               |  125 | Iced Tea             |   35 |    160 |
+| Double Stacker               |  125 | Frozen Fanta Cherry  |   65 |    190 |
+| Double Stacker               |  125 | Diet Coke            |   60 |    185 |
+| Double Stacker               |  125 | Mello Yello          |   75 |    200 |
+| Double Stacker               |  125 | Coca-Cola            |   45 |    170 |
+| Double Cheeseburger          |  100 | Iced Tea             |   35 |    135 |
+| Double Cheeseburger          |  100 | Frozen Fanta Cherry  |   65 |    165 |
+| Double Cheeseburger          |  100 | Diet Coke            |   60 |    160 |
+| Double Cheeseburger          |  100 | Mello Yello          |   75 |    175 |
+| Double Cheeseburger          |  100 | Coca-Cola            |   45 |    145 |
+| Cheese Hamburger             |  125 | Iced Tea             |   35 |    160 |
+| Cheese Hamburger             |  125 | Frozen Fanta Cherry  |   65 |    190 |
+| Cheese Hamburger             |  125 | Diet Coke            |   60 |    185 |
+| Cheese Hamburger             |  125 | Mello Yello          |   75 |    200 |
+| Cheese Hamburger             |  125 | Coca-Cola            |   45 |    170 |
+| Hamburger                    |   85 | Iced Tea             |   35 |    120 |
+| Hamburger                    |   85 | Frozen Fanta Cherry  |   65 |    150 |
+| Hamburger                    |   85 | Diet Coke            |   60 |    145 |
+| Hamburger                    |   85 | Mello Yello          |   75 |    160 |
+| Hamburger                    |   85 | Coca-Cola            |   45 |    130 |
+| Classic Grilled Dog          |   95 | Iced Tea             |   35 |    130 |
+| Classic Grilled Dog          |   95 | Frozen Fanta Cherry  |   65 |    160 |
+| Classic Grilled Dog          |   95 | Diet Coke            |   60 |    155 |
+| Classic Grilled Dog          |   95 | Mello Yello          |   75 |    170 |
+| Classic Grilled Dog          |   95 | Coca-Cola            |   45 |    140 |
+| Chili Cheese Grilled Dog     |  115 | Iced Tea             |   35 |    150 |
+| Chili Cheese Grilled Dog     |  115 | Frozen Fanta Cherry  |   65 |    180 |
+| Chili Cheese Grilled Dog     |  115 | Diet Coke            |   60 |    175 |
+| Chili Cheese Grilled Dog     |  115 | Mello Yello          |   75 |    190 |
+| Chili Cheese Grilled Dog     |  115 | Coca-Cola            |   45 |    160 |
+| Flame Grilled Chicken Burger |  135 | Iced Tea             |   35 |    170 |
+| Flame Grilled Chicken Burger |  135 | Frozen Fanta Cherry  |   65 |    200 |
+| Flame Grilled Chicken Burger |  135 | Diet Coke            |   60 |    195 |
+| Flame Grilled Chicken Burger |  135 | Mello Yello          |   75 |    210 |
+| Flame Grilled Chicken Burger |  135 | Coca-Cola            |   45 |    180 |
+| Original Chicken Sandwich    |   55 | Iced Tea             |   35 |     90 |
+| Original Chicken Sandwich    |   55 | Frozen Fanta Cherry  |   65 |    120 |
+| Original Chicken Sandwich    |   55 | Diet Coke            |   60 |    115 |
+| Original Chicken Sandwich    |   55 | Mello Yello          |   75 |    130 |
+| Original Chicken Sandwich    |   55 | Coca-Cola            |   45 |    100 |
+| McALLO TIKKI                 |   45 | Iced Tea             |   35 |     80 |
+| McALLO TIKKI                 |   45 | Frozen Fanta Cherry  |   65 |    110 |
+| McALLO TIKKI                 |   45 | Diet Coke            |   60 |    105 |
+| McALLO TIKKI                 |   45 | Mello Yello          |   75 |    120 |
+| McALLO TIKKI                 |   45 | Coca-Cola            |   45 |     90 |
+| Veg Maharaja Mac             |   75 | Iced Tea             |   35 |    110 |
+| Veg Maharaja Mac             |   75 | Frozen Fanta Cherry  |   65 |    140 |
+| Veg Maharaja Mac             |   75 | Diet Coke            |   60 |    135 |
+| Veg Maharaja Mac             |   75 | Mello Yello          |   75 |    150 |
+| Veg Maharaja Mac             |   75 | Coca-Cola            |   45 |    120 |
+| Big Spicy Chicken Wrap       |  100 | Iced Tea             |   35 |    135 |
+| Big Spicy Chicken Wrap       |  100 | Frozen Fanta Cherry  |   65 |    165 |
+| Big Spicy Chicken Wrap       |  100 | Diet Coke            |   60 |    160 |
+| Big Spicy Chicken Wrap       |  100 | Mello Yello          |   75 |    175 |
+| Big Spicy Chicken Wrap       |  100 | Coca-Cola            |   45 |    145 |
+| Cheese Onion Hamburger       |  145 | Iced Tea             |   35 |    180 |
+| Cheese Onion Hamburger       |  145 | Frozen Fanta Cherry  |   65 |    210 |
+| Cheese Onion Hamburger       |  145 | Diet Coke            |   60 |    205 |
+| Cheese Onion Hamburger       |  145 | Mello Yello          |   75 |    220 |
+| Cheese Onion Hamburger       |  145 | Coca-Cola            |   45 |    190 |
+| McVeggie Schezwan            |   85 | Iced Tea             |   35 |    120 |
+| McVeggie Schezwan            |   85 | Frozen Fanta Cherry  |   65 |    150 |
+| McVeggie Schezwan            |   85 | Diet Coke            |   60 |    145 |
+| McVeggie Schezwan            |   85 | Mello Yello          |   75 |    160 |
+| McVeggie Schezwan            |   85 | Coca-Cola            |   45 |    130 |
++------------------------------+------+----------------------+------+--------+
+75 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select count(*) from emp;
++----------+
+| count(*) |
++----------+
+|       30 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*), name from emp, softdrink;
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'db1.softdrink.NAME'; this is incompatible with sql_mode=only_full_group_by
+mysql>
+mysql>
+mysql>
+mysql> select count(*), name from emp, softdrink group by name;
++----------+----------------------+
+| count(*) | name                 |
++----------+----------------------+
+|       30 | Iced Tea             |
+|       30 | Frozen Fanta Cherry  |
+|       30 | Diet Coke            |
+|       30 | Mello Yello          |
+|       30 | Coca-Cola            |
++----------+----------------------+
+5 rows in set (0.02 sec)
+
+mysql> select count(*) R1, name from emp, softdrink group by name;
++----+----------------------+
+| R1 | name                 |
++----+----------------------+
+| 30 | Iced Tea             |
+| 30 | Frozen Fanta Cherry  |
+| 30 | Diet Coke            |
+| 30 | Mello Yello          |
+| 30 | Coca-Cola            |
++----+----------------------+
+5 rows in set (0.00 sec)
+
+mysql> select count(*) R1, name,rate from emp, softdrink group by name;
+ERROR 1055 (42000): Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'db1.softdrink.RATE' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select count(*) R1, name,rate from emp, softdrink group by name, rate;
++----+----------------------+------+
+| R1 | name                 | rate |
++----+----------------------+------+
+| 30 | Iced Tea             |   35 |
+| 30 | Frozen Fanta Cherry  |   65 |
+| 30 | Diet Coke            |   60 |
+| 30 | Mello Yello          |   75 |
+| 30 | Coca-Cola            |   45 |
++----+----------------------+------+
+5 rows in set (0.00 sec)
+
+mysql> select count(ename) R1, name,rate from emp, softdrink group by name, rate;
++----+----------------------+------+
+| R1 | name                 | rate |
++----+----------------------+------+
+| 30 | Iced Tea             |   35 |
+| 30 | Frozen Fanta Cherry  |   65 |
+| 30 | Diet Coke            |   60 |
+| 30 | Mello Yello          |   75 |
+| 30 | Coca-Cola            |   45 |
++----+----------------------+------+
+5 rows in set (0.01 sec)
+
+mysql> select count(ename) R1, name,rate,  count(ename) * rate from emp, softdrink group by name, rate;
++----+----------------------+------+---------------------+
+| R1 | name                 | rate | count(ename) * rate |
++----+----------------------+------+---------------------+
+| 30 | Iced Tea             |   35 |                1050 |
+| 30 | Frozen Fanta Cherry  |   65 |                1950 |
+| 30 | Diet Coke            |   60 |                1800 |
+| 30 | Mello Yello          |   75 |                2250 |
+| 30 | Coca-Cola            |   45 |                1350 |
++----+----------------------+------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql>                                                      
