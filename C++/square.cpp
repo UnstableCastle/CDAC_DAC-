@@ -1,5 +1,5 @@
-// #include<iostream>
-// usnig namespace std;
+#include<iostream>
+usnig namespace std;
 
 // int main(){
 //     for(int i = 1 ; i<=25;i++){
