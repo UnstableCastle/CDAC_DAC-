@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <string>
 using namespace std;
-int main(){  /////////////////////////// GET LINE 
+int main(){
 
 char line[20];
 
@@ -14,7 +14,7 @@ char c;
     cout <<"enter char  ";
     cin.get(c);
     cout<<" "<<c<<endl;
-    std::cout << std::setw(10) << std::setfill('*') <<"hellloooo "<< std::endl;
+    cout << setw(10) << setfill('*') <<"hellloooo "<< endl;
     return 0;
 
 }

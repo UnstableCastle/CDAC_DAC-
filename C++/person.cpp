@@ -121,7 +121,17 @@ int main()
 	p1[0] = new doctor(12,"Lokesh",54,"Cardiologist",1200.00f);
 	p1[1] = new student(10,"Pooja",20,"BE");
 	p1[2] = new teacher(11,"Savita",45,"CoreJava",1200.00f);
+
+
 	for(int i = 0 ;i <3 ; i++)
 	    p1[i]->talk();
 	return 0;
+
+	delete p;
+
+	for(int i = 0 ;i <3 ; i++)
+	 delete p1[i]
+	
+	return 0;
+
 }
