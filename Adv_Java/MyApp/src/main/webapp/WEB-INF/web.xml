@@ -7,14 +7,5 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
-	<servlet>
-		<description></description>
-		<display-name>MyServlet</display-name>
-		<servlet-name>MyServlet</servlet-name>
-		<servlet-class>com.app.MyServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>MyServlet</servlet-name>
-		<url-pattern>/MyServlet</url-pattern>
-	</servlet-mapping>
+
 </web-app>
