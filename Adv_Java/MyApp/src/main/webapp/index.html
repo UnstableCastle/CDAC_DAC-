@@ -1,59 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Registration</title>
-    <script type="text/javascript" src="resources/js/app.js"></script>
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration</title>
+
+<script src="resources/js/app.js"></script>
+
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(to right, #141e30, #243b55);
+	font-family: Arial, sans-serif;
+}
+
+form {
+	background: white;
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td {
+	padding: 10px;
+}
+
+input, select {
+	width: 220px;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+	width: auto;
+}
+
+input[type="submit"], input[type="button"] {
+	width: 120px;
+	cursor: pointer;
+	background: #243b55;
+	color: white;
+	border: none;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+	background: #141e30;
+}
+</style>
+
 </head>
+
 <body>
-    <form name="regform" method="get" action="serv2" onsubmit="return validate()">
-        <table>
-            <tr>
-                <td>Name :</td>
-                <td><input type="text" name="txtName"></td>
-            </tr>
-            <tr>
-                <td>Password :</td>
-                <td><input type="password" name="txtPassword"></td>
-            </tr>
-            <tr>
-                <td>Email :</td>
-                <td><input type="email" name="txtEmail"></td>
-            </tr>
-            <tr>
-                <td>Gender :</td>
-                <td>
-                    Male <input type="radio" name="gender" value="Male">
-                    Female <input type="radio" name="gender" value="Female">
-                </td>
-            </tr>
-            <tr>
-                <td>Age :</td>
-                <td>
-                   <select name="age">
-        <option value="select" selected="selected">select</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Terms & Conditions :</td>
-                <td><input type="checkbox" name="chbx"></td>
-            </tr>
-            <tr>
-                
-                <td colspan="2" style="text-align: center;">
-                    <input type="submit" value="Register"> 
-                    <input type="button" value="Login" onclick="location.href='login.html'">
-                </td>
-            </tr>
-        </table>
-    </form>
+
+	<form name="regform" method="post" action="serv2"
+		onsubmit="return validate()">
+
+		<table>
+
+			<tr>
+				<td>Name :</td>
+				<td><input type="text" name="txtName" required></td>
+			</tr>
+
+			<tr>
+				<td>Password :</td>
+				<td><input type="password" name="txtPassword" required>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Email :</td>
+				<td><input type="email" name="txtEmail" required></td>
+			</tr>
+
+			<tr>
+				<td>Gender :</td>
+
+				<td><input type="radio" name="gender" value="Male" required>
+					Male <input type="radio" name="gender" value="Female">
+					Female</td>
+			</tr>
+
+			<tr>
+				<td>Age :</td>
+
+				<td><select name="age" required>
+
+						<option value="">Select</option>
+
+						<option value="20-25">20-25</option>
+						<option value="26-30">26-30</option>
+						<option value="30-35">30-35</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>Terms & Conditions :</td>
+
+				<td><input type="checkbox" name="chbx" required> I
+					Agree</td>
+			</tr>
+
+			<tr>
+
+				<td colspan="2" style="text-align: center;"><input
+					type="submit" value="Register"> <input type="button"
+					value="Login" onclick="window.location.href='login.html'">
+
+				</td>
+
+			</tr>
+
+		</table>
+
+	</form>
+
 </body>
 </html>
