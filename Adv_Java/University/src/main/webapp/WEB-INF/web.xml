@@ -4,5 +4,19 @@
   <welcome-file-list>
     <welcome-file>Login.html</welcome-file>
   </welcome-file-list>
-  
+  <servlet>
+    <description></description>
+    <display-name>Servlet3</display-name>
+    <servlet-name>Servlet3</servlet-name>
+    <servlet-class>com.app.Servlet3</servlet-class>
+    <init-param>
+      <description></description>
+      <param-name>Driver</param-name>
+      <param-value>com.mysql.cj.jdbc.Driver</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Servlet3</servlet-name>
+    <url-pattern>/serv3</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -83,6 +83,24 @@ input[type="submit"] {
 	margin-top: 10px;
 }
 
+input[type="button"] {
+	width: 100%;
+	background-color: #3b82f6;
+	color: white;
+	border: none;
+	padding: 12px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	margin-top: 10px;
+}
+
+input[type="button"]:hover {
+	background-color: #2563eb;
+}
+
 input[type="submit"]:hover {
 	background-color: #2563eb;
 }
@@ -96,6 +114,7 @@ input[type="submit"]:hover {
 
 		<form action="serv2" method="post">
 			<table>
+				<tr></tr>
 				<tr>
 					<td><label for="PRN">PRN :</label></td>
 					<td><input type="text" id="username" name="txtPRN"></td>
@@ -128,12 +147,17 @@ input[type="submit"]:hover {
 
 				<tr>
 
-					<td colspan="2"><input type="submit" value="Enter"></td>
+					<td><input type="submit" value="Enter"></td>
+					<td>
+					<td><input type=button value="Add New Student"
+						onclick="window.location.href='addStud.html'"></td>
+
 				</tr>
 			</table>
 		</form>
+
+
 	</div>
 
-</body>
 </body>
 </html>

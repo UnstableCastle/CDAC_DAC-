@@ -21,20 +21,22 @@ public class Servlet2 extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request,
+            HttpServletResponse response)
             throws ServletException, IOException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
         String prn = request.getParameter("txtPRN");
-        String sub1 = request.getParameter("txtsub1");
-        String sub2 = request.getParameter("txtsub2");
-        String sub3 = request.getParameter("txtsub3");
-        String sub4 = request.getParameter("txtsub4");
-        String sub5 = request.getParameter("txtsub5");
 
         try {
+
+            int sub1 = Integer.parseInt(request.getParameter("txtsub1"));
+            int sub2 = Integer.parseInt(request.getParameter("txtsub2"));
+            int sub3 = Integer.parseInt(request.getParameter("txtsub3"));
+            int sub4 = Integer.parseInt(request.getParameter("txtsub4"));
+            int sub5 = Integer.parseInt(request.getParameter("txtsub5"));
 
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -43,45 +45,57 @@ public class Servlet2 extends HttpServlet {
                     "root",
                     "1234");
 
-            String query =
-                    "UPDATE STUDENT SET SUB1=?, SUB2=?, SUB3=?, SUB4=?, SUB5=? WHERE PRN=?";
+            String query = "UPDATE student SET sub1=?, sub2=?, sub3=?, sub4=?, sub5=? WHERE prn=?";
 
             PreparedStatement pstmt = con.prepareStatement(query);
 
-            pstmt.setInt(1, Integer.parseInt(sub1));
-            pstmt.setInt(2, Integer.parseInt(sub2));
-            pstmt.setInt(3, Integer.parseInt(sub3));
-            pstmt.setInt(4, Integer.parseInt(sub4));
-            pstmt.setInt(5, Integer.parseInt(sub5));
+            pstmt.setInt(1, sub1);
+            pstmt.setInt(2, sub2);
+            pstmt.setInt(3, sub3);
+            pstmt.setInt(4, sub4);
+            pstmt.setInt(5, sub5);
             pstmt.setString(6, prn);
 
             int res = pstmt.executeUpdate();
 
             if (res > 0) {
+
+                int total = sub1 + sub2 + sub3 + sub4 + sub5;
+                double percentage = total / 5.0;
+
                 out.println("<h2>Marks Updated Successfully</h2>");
+                out.println("<h3>Total Marks: " + total + "</h3>");
+                out.println("<h3>Percentage: " + percentage + "%</h3>");
+
             } else {
-                out.println("<h3>No record found for PRN: " + prn + "</h3>");
+
+                out.println("<h3>No student found with PRN: " + prn + "</h3>");
+
             }
 
             pstmt.close();
             con.close();
 
+        } catch (NumberFormatException e) {
+
+            out.println("<h3>Please enter valid numeric marks</h3>");
+
         } catch (ClassNotFoundException e) {
-            out.println("Driver not found");
-            e.printStackTrace();
+
+            out.println("<h3>MySQL Driver Not Found</h3>");
 
         } catch (SQLException e) {
-            out.println("Database Error");
+
+            out.println("<h3>Database Error</h3>");
             e.printStackTrace();
 
-        } catch (NumberFormatException e) {
-            out.println("Please enter valid numeric marks");
         }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request,
+            HttpServletResponse response)
             throws ServletException, IOException {
 
-        doGet(request, response);
+        doPost(request, response);
     }
 }
