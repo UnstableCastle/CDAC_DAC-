@@ -14,16 +14,16 @@
 
 body {
 	background: #f4f6f9;
+	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
 }
 
 .container {
+	width: 400px;
 	background: white;
 	padding: 30px;
-	width: 400px;
 	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -39,29 +39,57 @@ table {
 }
 
 td {
-	padding: 10px 5px;
+	padding: 10px;
+}
+input[type="text"], input[type="password"] {
+	
+	padding: 10px;
+	border: 1px solid #cbd5e1;
+	border-radius: 4px;
+	font-size: 14px;
+	transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"]:focus, input[type="password"]:focus {
+	outline: none;
+	border-color: #3b82f6;
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+input[type="button"] {
 	width: 100%;
-	padding: 10px;
-	border: 1px solid #ccc;
+	padding: 12px;
+	border: none;
 	border-radius: 5px;
+	background: #2563eb;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+input[type="button"]:hover {
+background: #1d4ed8;
 }
 
 input[type="submit"] {
 	width: 100%;
 	padding: 12px;
 	border: none;
+	border-radius: 5px;
 	background: #2563eb;
 	color: white;
 	font-size: 16px;
-	border-radius: 5px;
 	cursor: pointer;
 }
 
 input[type="submit"]:hover {
 	background: #1d4ed8;
+}
+
+#msg {
+	display: block;
+	text-align: center;
+	margin-bottom: 15px;
+	font-weight: bold;
 }
 </style>
 
@@ -70,7 +98,9 @@ input[type="submit"]:hover {
 
 	<div class="container">
 
-		<h2>Add New Student</h2>
+		<h2>Add Student</h2>
+
+		<span id="msg"></span>
 
 		<form action="serv3" method="post">
 
@@ -93,15 +123,38 @@ input[type="submit"]:hover {
 				</tr>
 
 				<tr>
-					<td colspan="2"><input type="submit" value="Add Student">
-					</td>
+					
+					<td colspan="2"><input type="submit" value="Enter"></td>
+					<td>
+					
+					
 				</tr>
+				<tr><td colspan="2"><input type=button value="Back to Enter Marks"
+						onclick="window.location.href='studMark.html'"></td></tr>
 
 			</table>
 
 		</form>
 
 	</div>
+
+	<script>
+		const params = new URLSearchParams(window.location.search);
+
+		if (params.get("success") === "1") {
+
+			document.getElementById("msg").innerHTML = "Student Added Successfully";
+
+			document.getElementById("msg").style.color = "green";
+		}
+
+		if (params.get("error") === "1") {
+
+			document.getElementById("msg").innerHTML = "Student Already Exists";
+
+			document.getElementById("msg").style.color = "red";
+		}
+	</script>
 
 </body>
 </html>

@@ -101,7 +101,6 @@ public class Servlet1 extends HttpServlet {
 				}
 
 				rs.close();
-				pstmt.close();
 				con.close();
 
 			} catch (ClassNotFoundException e) {
