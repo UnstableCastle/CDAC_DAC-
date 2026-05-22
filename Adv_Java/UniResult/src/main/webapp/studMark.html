@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	background-color: #f4f6f9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+/* Card Container */
+.form-container {
+	background-color: #ffffff;
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
+}
+
+.form-container h2 {
+	color: #2c3e50;
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 24px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+td {
+	padding: 10px 0;
+	vertical-align: middle;
+}
+
+td:first-child {
+	color: #4a5568;
+	font-weight: 600;
+	width: 35%;
+}
+
+/* Input Fields */
+input[type="text"], input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #cbd5e1;
+	border-radius: 4px;
+	font-size: 14px;
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+	outline: none;
+	border-color: #3b82f6;
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Submit Button */
+input[type="submit"] {
+	width: 100%;
+	background-color: #3b82f6;
+	color: white;
+	border: none;
+	padding: 12px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	margin-top: 10px;
+}
+
+input[type="button"] {
+	width: 100%;
+	background-color: #3b82f6;
+	color: white;
+	border: none;
+	padding: 12px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	margin-top: 10px;
+}
+
+input[type="button"]:hover {
+	background-color: #2563eb;
+}
+
+input[type="submit"]:hover {
+	background-color: #2563eb;
+}
+</style>
+</head>
+<body>
+
+	<div class="form-container">
+		<h2>Student Marks</h2>
+
+
+<form action="updateMarks" method="post">			<table>
+				<tr></tr>
+				<tr>
+					<td><label for="PRN">PRN :</label></td>
+					<td><input type="text" id="username" name="txtPRN"></td>
+				</tr>
+				<tr>
+
+					<td><label for="Sub">Sub1:</label></td>
+					<td><input type="text" id="sub1" name="txtsub1"></td>
+				</tr>
+				<tr>
+
+					<td><label for="Sub">Sub2:</label></td>
+					<td><input type="text" id="sub2" name="txtsub2"></td>
+				</tr>
+				<tr>
+
+					<td><label for="Sub">Sub3:</label></td>
+					<td><input type="text" id="sub3" name="txtsub3"></td>
+				</tr>
+				<tr>
+
+					<td><label for="Sub">Sub4:</label></td>
+					<td><input type="text" id="sub4" name="txtsub4"></td>
+				</tr>
+				<tr>
+
+					<td><label for="Sub">Sub5:</label></td>
+					<td><input type="text" id="sub5" name="txtsub5"></td>
+				</tr>
+
+				<tr>
+
+					<td><input type="submit" value="Enter"></td>
+					<td>
+					<td><input type=button value="Add New Student"
+						onclick="window.location.href='addStud.html'"></td>
+
+				</tr>
+			</table>
+		</form>
+
+
+	</div>
+
+</body>
+</html>

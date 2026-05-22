@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title>University Result</title>
+
+<style>
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	background-color: #f4f6f9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.form-container {
+	background-color: #ffffff;
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
+}
+
+.form-container h2 {
+	color: #2c3e50;
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 24px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+td {
+	padding: 10px 0;
+	vertical-align: middle;
+}
+
+td:first-child {
+	color: #4a5568;
+	font-weight: 600;
+	width: 35%;
+}
+
+input[type="text"], input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #cbd5e1;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+input[type="submit"] {
+	width: 100%;
+	background-color: #3b82f6;
+	color: white;
+	border: none;
+	padding: 12px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+	background-color: #2563eb;
+}
+
+#error {
+	color: red;
+	text-align: center;
+	display: block;
+	margin-bottom: 15px;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div class="form-container">
+
+		<h2>Login</h2>
+
+		<span id="error"></span>
+
+		<form action="login" method="post">
+			<table>
+
+				<tr>
+					<td><label for="username">User-Name:</label></td>
+
+					<td><input type="text" id="username" name="txtUserName">
+					</td>
+				</tr>
+
+				<tr>
+
+					<td><label for="password">Password:</label></td>
+
+					<td><input type="password" id="password" name="txtPassword">
+					</td>
+
+				</tr>
+
+				<tr>
+
+					<td colspan="2"><input type="submit" value="Enter"></td>
+
+				</tr>
+
+			</table>
+
+		</form>
+
+	</div>
+
+	<script>
+		const params = new URLSearchParams(window.location.search);
+
+		if (params.get("error") === "1") {
+
+			document.getElementById("error").innerHTML = "Invalid User Name or Password";
+
+		}
+	</script>
+
+</body>
+</html>

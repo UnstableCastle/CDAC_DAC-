@@ -22,8 +22,10 @@ public class Servlet1 extends HttpServlet {
 		super();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+//		response.setContentType("application/pdf");
 
 		response.setContentType("text/html");
 
@@ -32,7 +34,7 @@ public class Servlet1 extends HttpServlet {
 		String prn = request.getParameter("txtUserName");
 		String pass = request.getParameter("txtPassword");
 
-		if ("admin".equals(prn) && "admin".equals(pass)) {
+		if (prn.equals("admin") && "admin".equals(pass)) {
 
 			response.sendRedirect("studMark.html");
 
@@ -65,7 +67,7 @@ public class Servlet1 extends HttpServlet {
 
 					int total = sub1 + sub2 + sub3 + sub4 + sub5;
 
-					double percentage = total / 5.0;
+					double percentage = total/5;
 
 					request.setAttribute("prn", prn);
 					request.setAttribute("name", name);
@@ -93,7 +95,9 @@ public class Servlet1 extends HttpServlet {
 
 					request.setAttribute("grade", grade);
 
+//					request.getRequestDispatcher("check.html").forward(request, response);
 					request.getRequestDispatcher("result.jsp").forward(request, response);
+
 
 				} else {
 
@@ -117,9 +121,9 @@ public class Servlet1 extends HttpServlet {
 		}
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		doPost(request, response);
+		doGet(request, response);
 	}
 }
