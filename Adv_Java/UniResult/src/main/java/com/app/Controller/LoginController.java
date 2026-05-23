@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 import com.app.DAO.StudentDAO;
@@ -38,11 +40,16 @@ public class LoginController extends HttpServlet {
 
 		String pass = request.getParameter("txtPassword");
 
+		HttpSession session = request.getSession();
+
 		if (prn.equals("admin") && pass.equals("admin")) {
 
-			response.sendRedirect("studMark.html");
+			session.setAttribute("admin", "admin");
 
-		} else {
+			response.sendRedirect("studMark.jsp");
+		}
+
+		else {
 
 			StudentDAO dao = new StudentDAO();
 
@@ -50,12 +57,15 @@ public class LoginController extends HttpServlet {
 
 			if (student != null) {
 
-				request.setAttribute("student", student);
+				session.setAttribute("student", student);
 
-				response.sendRedirect("checkResult.html");
-			} else {
+				response.sendRedirect("checkResult.jsp");
+			}
 
-				response.sendRedirect("login.html?error=1");
+			else {
+
+				response.sendRedirect("Login.jsp?error=1");
+
 			}
 		}
 	}

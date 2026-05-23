@@ -60,12 +60,12 @@ public class MarksController extends HttpServlet {
 	        if (status) {
 
 	            response.sendRedirect(
-	                    "studMark.html?success=1");
+	                    "studMark.jsp?success=1");
 
 	        } else {
 
 	            response.sendRedirect(
-	                    "studMark.html?error=1");
+	                    "studMark.jsp?error=1");
 	        }
 	
 	

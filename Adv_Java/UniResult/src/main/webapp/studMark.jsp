@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,12 +109,23 @@ input[type="submit"]:hover {
 </style>
 </head>
 <body>
+	<%
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+
+	if (session.getAttribute("admin") == null) {
+
+		response.sendRedirect("Login.jsp");
+
+		return;
+	}
+	%>
 
 	<div class="form-container">
 		<h2>Student Marks</h2>
 
 
-<form action="updateMarks" method="post">			<table>
+		<form action="updateMarks" method="post">
+			<table>
 				<tr></tr>
 				<tr>
 					<td><label for="PRN">PRN :</label></td>
@@ -149,7 +162,7 @@ input[type="submit"]:hover {
 					<td><input type="submit" value="Enter"></td>
 					<td>
 					<td><input type=button value="Add New Student"
-						onclick="window.location.href='addStud.html'"></td>
+						onclick="window.location.href='addStud.jsp'"></td>
 
 				</tr>
 			</table>

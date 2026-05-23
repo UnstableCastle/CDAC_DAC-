@@ -16,51 +16,41 @@ import com.app.model.Student;
 @WebServlet("/checkResult")
 public class CheckResultController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CheckResultController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public CheckResultController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-    String prn =
-            request.getParameter("txtUserName");
+		String prn = request.getParameter("txtUserName");
 
-    StudentDAO dao = new StudentDAO();
+		StudentDAO dao = new StudentDAO();
 
-    Student student =
-            dao.getStudentByPRN(prn);
+		Student student = dao.getStudentByPRN(prn);
 
-    if(student != null) {
+		request.setAttribute("student", student);
 
-        request.setAttribute(
-                "student",
-                student);
+		request.getRequestDispatcher("result.jsp").forward(request, response);
+	}
 
-        request.getRequestDispatcher(
-                "result.jsp")
-                .forward(request, response);
-
-    } else {
-
-        response.sendRedirect(
-                "checkResult.jsp?error=1");
-    }
-}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

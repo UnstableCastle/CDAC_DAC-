@@ -1,8 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>University Result</title>
+
+<meta charset="UTF-8">
+
+<title>Login</title>
 
 <style>
 * {
@@ -38,18 +45,10 @@ body {
 
 table {
 	width: 100%;
-	border-collapse: collapse;
 }
 
 td {
 	padding: 10px 0;
-	vertical-align: middle;
-}
-
-td:first-child {
-	color: #4a5568;
-	font-weight: 600;
-	width: 35%;
 }
 
 input[type="text"], input[type="password"] {
@@ -57,31 +56,28 @@ input[type="text"], input[type="password"] {
 	padding: 10px;
 	border: 1px solid #cbd5e1;
 	border-radius: 4px;
-	font-size: 14px;
 }
 
 input[type="submit"] {
 	width: 100%;
-	background-color: #3b82f6;
+	background: #2563eb;
 	color: white;
 	border: none;
 	padding: 12px;
-	font-size: 16px;
-	font-weight: 600;
-	border-radius: 4px;
+	border-radius: 5px;
 	cursor: pointer;
-	margin-top: 10px;
 }
 
 input[type="submit"]:hover {
-	background-color: #2563eb;
+	background: #1d4ed8;
 }
 
 #error {
-	color: red;
-	text-align: center;
 	display: block;
+	text-align: center;
 	margin-bottom: 15px;
+	font-weight: bold;
+	color: red;
 }
 </style>
 
@@ -96,27 +92,30 @@ input[type="submit"]:hover {
 		<span id="error"></span>
 
 		<form action="login" method="post">
+
 			<table>
 
 				<tr>
-					<td><label for="username">User-Name:</label></td>
 
-					<td><input type="text" id="username" name="txtUserName">
-					</td>
-				</tr>
+					<td>User Name</td>
 
-				<tr>
-
-					<td><label for="password">Password:</label></td>
-
-					<td><input type="password" id="password" name="txtPassword">
-					</td>
+					<td><input type="text" name="txtUserName" required></td>
 
 				</tr>
 
 				<tr>
 
-					<td colspan="2"><input type="submit" value="Enter"></td>
+					<td>Password</td>
+
+					<td><input type="password" name="txtPassword" required>
+
+					</td>
+
+				</tr>
+
+				<tr>
+
+					<td colspan="2"><input type="submit" value="Login"></td>
 
 				</tr>
 
@@ -131,10 +130,10 @@ input[type="submit"]:hover {
 
 		if (params.get("error") === "1") {
 
-			document.getElementById("error").innerHTML = "Invalid User Name or Password";
-
+			document.getElementById("error").innerHTML = "Invalid Username or Password";
 		}
 	</script>
 
 </body>
+
 </html>

@@ -9,166 +9,223 @@ import com.app.util.DBConnection;
 
 public class StudentDAO {
 
-	public Student login(String prn, String password) {
+    public Student login(
+            String prn,
+            String password) {
 
-		Student student = null;
+        Student student = null;
 
-		try {
+        try {
 
-			Connection con = DBConnection.getConnection();
+            Connection con =
+                    DBConnection.getConnection();
 
-			String query = "SELECT * FROM student WHERE prn=? AND password=?";
+            String query =
+                    "select * from student where prn=? and password=?";
 
-			PreparedStatement pstmt = con.prepareStatement(query);
+            PreparedStatement pstmt =
+                    con.prepareStatement(query);
 
-			pstmt.setString(1, prn);
-			pstmt.setString(2, password);
+            pstmt.setString(1, prn);
+            pstmt.setString(2, password);
 
-			ResultSet rs = pstmt.executeQuery();
+            ResultSet rs =
+                    pstmt.executeQuery();
 
-			if (rs.next()) {
+            if(rs.next()) {
 
-				student = new Student();
+                student = new Student();
 
-				student.setPrn(rs.getString("prn"));
-				student.setName(rs.getString("name"));
+                student.setPrn(
+                        rs.getString("prn"));
 
-				student.setSub1(rs.getInt("sub1"));
-				student.setSub2(rs.getInt("sub2"));
-				student.setSub3(rs.getInt("sub3"));
-				student.setSub4(rs.getInt("sub4"));
-				student.setSub5(rs.getInt("sub5"));
-			}
+                student.setName(
+                        rs.getString("name"));
 
-			rs.close();
-			pstmt.close();
-			con.close();
+                student.setPassword(
+                        rs.getString("password"));
 
-		} catch (Exception e) {
+                student.setSub1(
+                        rs.getInt("sub1"));
 
-			e.printStackTrace();
-		}
+                student.setSub2(
+                        rs.getInt("sub2"));
 
-		return student;
-	}
+                student.setSub3(
+                        rs.getInt("sub3"));
 
-	public boolean addStudent(Student student) {
+                student.setSub4(
+                        rs.getInt("sub4"));
 
-		boolean status = false;
+                student.setSub5(
+                        rs.getInt("sub5"));
+            }
 
-		try {
+            rs.close();
+            pstmt.close();
+            con.close();
 
-			Connection con = DBConnection.getConnection();
+        } catch (Exception e) {
 
-			String query = "INSERT INTO student(prn,name,password) VALUES(?,?,?)";
+            e.printStackTrace();
+        }
 
-			PreparedStatement pstmt = con.prepareStatement(query);
+        return student;
+    }
 
-			pstmt.setString(1, student.getPrn());
-			pstmt.setString(2, student.getName());
-			pstmt.setString(3, student.getPassword());
+    public Student getStudentByPRN(
+            String prn) {
 
-			int res = pstmt.executeUpdate();
+        Student student = null;
 
-			if (res > 0) {
+        try {
 
-				status = true;
-			}
+            Connection con =
+                    DBConnection.getConnection();
 
-			pstmt.close();
-			con.close();
+            String query =
+                    "select * from student where prn=?";
 
-		} catch (Exception e) {
+            PreparedStatement pstmt =
+                    con.prepareStatement(query);
 
-			e.printStackTrace();
-		}
+            pstmt.setString(1, prn);
 
-		return status;
-	}
+            ResultSet rs =
+                    pstmt.executeQuery();
 
-	public boolean updateMarks(Student student) {
+            if(rs.next()) {
 
-		boolean status = false;
+                student = new Student();
 
-		try {
+                student.setPrn(
+                        rs.getString("prn"));
 
-			Connection con = DBConnection.getConnection();
+                student.setName(
+                        rs.getString("name"));
 
-			String query = "UPDATE student SET sub1=?,sub2=?,sub3=?,sub4=?,sub5=? WHERE prn=?";
+                student.setSub1(
+                        rs.getInt("sub1"));
 
-			PreparedStatement pstmt = con.prepareStatement(query);
+                student.setSub2(
+                        rs.getInt("sub2"));
 
-			pstmt.setInt(1, student.getSub1());
-			pstmt.setInt(2, student.getSub2());
-			pstmt.setInt(3, student.getSub3());
-			pstmt.setInt(4, student.getSub4());
-			pstmt.setInt(5, student.getSub5());
+                student.setSub3(
+                        rs.getInt("sub3"));
 
-			pstmt.setString(6, student.getPrn());
+                student.setSub4(
+                        rs.getInt("sub4"));
 
-			int res = pstmt.executeUpdate();
+                student.setSub5(
+                        rs.getInt("sub5"));
+            }
 
-			if (res > 0) {
+            rs.close();
+            pstmt.close();
+            con.close();
 
-				status = true;
-			}
+        } catch (Exception e) {
 
-			pstmt.close();
-			con.close();
+            e.printStackTrace();
+        }
 
-		} catch (Exception e) {
+        return student;
+    }
 
-			e.printStackTrace();
-		}
+    public boolean updateMarks(
+            Student student) {
 
-		return status;
-	}
+        boolean status = false;
 
-	public Student getStudentByPRN(String prn) {
+        try {
 
-		Student student = null;
+            Connection con =
+                    DBConnection.getConnection();
 
-		try {
+            String query =
+                    "update student set sub1=?,sub2=?,sub3=?,sub4=?,sub5=? where prn=?";
 
-			Connection con = DBConnection.getConnection();
+            PreparedStatement pstmt =
+                    con.prepareStatement(query);
 
-			String query = "SELECT * FROM student WHERE prn=?";
+            pstmt.setInt(1,
+                    student.getSub1());
 
-			PreparedStatement pstmt = con.prepareStatement(query);
+            pstmt.setInt(2,
+                    student.getSub2());
 
-			pstmt.setString(1, prn);
+            pstmt.setInt(3,
+                    student.getSub3());
 
-			ResultSet rs = pstmt.executeQuery();
+            pstmt.setInt(4,
+                    student.getSub4());
 
-			if (rs.next()) {
+            pstmt.setInt(5,
+                    student.getSub5());
 
-				student = new Student();
+            pstmt.setString(6,
+                    student.getPrn());
 
-				student.setPrn(rs.getString("prn"));
+            int res =
+                    pstmt.executeUpdate();
 
-				student.setName(rs.getString("name"));
+            if(res > 0) {
 
-				student.setSub1(rs.getInt("sub1"));
+                status = true;
+            }
 
-				student.setSub2(rs.getInt("sub2"));
+            pstmt.close();
+            con.close();
 
-				student.setSub3(rs.getInt("sub3"));
+        } catch (Exception e) {
 
-				student.setSub4(rs.getInt("sub4"));
+            e.printStackTrace();
+        }
 
-				student.setSub5(rs.getInt("sub5"));
-			}
+        return status;
+    }
 
-			rs.close();
-			pstmt.close();
-			con.close();
+    public boolean addStudent(
+            Student student) {
 
-		} catch (Exception e) {
+        boolean status = false;
 
-			e.printStackTrace();
-		}
+        try {
 
-		return student;
-	}
+            Connection con =
+                    DBConnection.getConnection();
 
+            String query =
+                    "insert into student(prn,name,password) values(?,?,?)";
+
+            PreparedStatement pstmt =
+                    con.prepareStatement(query);
+
+            pstmt.setString(1,
+                    student.getPrn());
+
+            pstmt.setString(2,
+                    student.getName());
+
+            pstmt.setString(3,
+                    student.getPassword());
+
+            int res =
+                    pstmt.executeUpdate();
+
+            if(res > 0) {
+
+                status = true;
+            }
+
+            pstmt.close();
+            con.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+        return status;
+    }
 }

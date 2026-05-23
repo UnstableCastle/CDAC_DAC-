@@ -1,4 +1,5 @@
 package com.app.model;
+
 import lombok.*;
 
 @Data
@@ -8,41 +9,41 @@ import lombok.*;
 @Setter
 public class Student {
 
-    private String prn;
-    private String name;
-    private String password;
-    private int sub1, sub2, sub3, sub4, sub5;
+	private String prn;
+	private String name;
+	private String password;
+	private int sub1, sub2, sub3, sub4, sub5;
 
-    public int getTotal() {
+	public int getTotal() {
 
-        return sub1 + sub2 + sub3 + sub4 + sub5;
-    }
+		return sub1 + sub2 + sub3 + sub4 + sub5;
+	}
 
-    public double getPercentage() {
+	public double getPercentage() {
 
-        return getTotal() / 5.0;
-    }
+		return getTotal() / 5.0;
+	}
 
-    public String getGrade() {
+	public String getGrade() {
 
-        double percentage = getPercentage();
+		double percentage = getPercentage();
 
-        if (percentage >= 75) {
+		if (percentage >= 75) {
 
-            return "Distinction";
+			return "Pass - Distinction";
 
-        } else if (percentage >= 60) {
+		} else if (percentage >= 60) {
 
-            return "First Class";
+			return "Pass - First Class";
 
-        } else if (percentage >= 40) {
+		} else if (percentage >= 40) {
 
-            return "Pass";
+			return "Pass - Second Class";
 
-        } else {
+		} else {
 
-            return "Fail";
-        }
-    }
+			return "Fail";
+		}
+	}
 
 }
