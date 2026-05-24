@@ -1,7 +1,7 @@
 package com.app;
 
 
-import jakarta.security.auth.message.callback.PrivateKeyCallback.Request;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -32,8 +32,8 @@ public class Servlet1 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-//	response.setContentType("text/html");
-	response.setContentType("application/pdf");
+
+	response.setContentType("text/html");
 
 	PrintWriter pw = response.getWriter();
 	

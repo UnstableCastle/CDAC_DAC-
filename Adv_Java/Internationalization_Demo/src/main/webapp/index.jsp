@@ -48,3 +48,11 @@
 
 </body>
 </html>
+<!-- 
+locale = Language code + country code
+Internationalization - i18n multi lingual application
+fmt:setlocale
+fmt:setBundle
+format - UTF-8
+
+ -->
