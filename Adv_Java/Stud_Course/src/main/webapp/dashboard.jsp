@@ -16,32 +16,43 @@ if (s == null) {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dash-board</title>
+<title>Dashboard</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
 </head>
-<body>
+<body class="bg-light">
 
-	<h1>
-		Welcome
-		<%=s.getFirstName()%></h1>
+	<div class="container mt-5">
 
-	<h2>
-		Course :
-		<%=s.getCourse()%>
-	</h2>
+		<div class="card shadow p-4 text-center">
 
-	<h2>
-		Age :
-		<%=s.getAge()%>
-	</h2>
+			<h1 class="text-primary mb-4">
+				Welcome
+				<%=s.getFirstName()%>
+			</h1>
 
-	<h3>
-		Session ID :
-		<%=session.getId()%>
-	</h3>
+			<h4 class="mb-4">
+				Session ID :
+				<%=session.getId()%>
+			</h4>
 
-	<br>
+			<h5 class="mb-4">
 
-	<a href="logout.jsp">Logout</a>
+				PRN :
+				<%=s.getPrn()%>
+
+			</h5>
+			<a href="viewDetails.jsp" class="btn btn-success mb-3"> View
+				Details </a> <a href="selectCourse.jsp" class="btn btn-warning mb-3">
+				Select Course </a> <a href="logout.jsp" class="btn btn-danger">
+				Logout </a>
+
+		</div>
+
+	</div>
 
 </body>
 </html>

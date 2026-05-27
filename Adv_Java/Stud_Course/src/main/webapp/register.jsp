@@ -1,34 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@page import="com.app.dao.StudentDao"%>
 <%@page import="com.app.bean.Student"%>
 
 <%
 String msg = "";
 
-if (request.getMethod().equalsIgnoreCase("POST")) {
-
-	String fname = request.getParameter("fname");
-	String lname = request.getParameter("lname");
-	int age = Integer.parseInt(request.getParameter("age"));
-	String course = request.getParameter("course");
+if (request.getParameter("fname") != null) {
 
 	Student s = new Student();
 
-	s.setFirstName(fname);
-	s.setLaststName(lname);
-	s.setAge(age);
-	s.setCourse(course);
+	s.setPrn(request.getParameter("prn"));
+	s.setFirstName(request.getParameter("fname"));
+	s.setLaststName(request.getParameter("lname"));
+	s.setAge(Integer.parseInt(request.getParameter("age")));
 
 	int status = StudentDao.save(s);
 
-	if (status > 0) {
-
-		msg = "Registration Successful";
-	} else {
-
-		msg = "Registration Failed";
-	}
+	msg = (status > 0) ? "Registration Successful" : "Registration Failed";
 }
 %>
 
@@ -37,32 +24,67 @@ if (request.getMethod().equalsIgnoreCase("POST")) {
 <head>
 <meta charset="UTF-8">
 <title>Register</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
 </head>
-<body>
+<body class="bg-light">
 
-	<h1>Student Registration</h1>
+	<div class="container mt-5">
 
-	<form method="post">
+		<div class="card shadow p-4">
 
-		First Name : <input type="text" name="fname" required> <br>
-		<br> Last Name : <input type="text" name="lname" required>
+			<h2 class="text-center text-success mb-4">Student Registration</h2>
 
-		<br>
-		<br> Age : <input type="number" name="age" required> <br>
-		<br> Course : <select name="course">
+			<form method="post">
 
-			<option>Java</option>
-			<option>C</option>
-			<option>Web Development</option>
+				<div class="mb-3">
 
-		</select> <br>
-		<br> <input type="submit" value="Register">
+					<label class="form-label">PRN</label> <input type="text" name="prn"
+						class="form-control" required>
 
-	</form>
+				</div>
 
-	<h3><%=msg%></h3>
+				<div class="mb-3">
 
-	<a href="login.jsp">Login</a>
+					<label class="form-label">First Name</label> <input type="text"
+						name="fname" class="form-control" required>
+
+				</div>
+
+				<div class="mb-3">
+
+					<label class="form-label">Last Name</label> <input type="text"
+						name="lname" class="form-control" required>
+
+				</div>
+
+				<div class="mb-3">
+
+					<label class="form-label">Age</label> <input type="number"
+						name="age" class="form-control" required>
+
+				</div>
+
+				<button class="btn btn-success w-100">Register</button>
+
+			</form>
+
+			<h5 class="text-center text-primary mt-3">
+				<%=msg%>
+			</h5>
+
+			<div class="text-center mt-3">
+
+				<a href="login.jsp"> Already Registered? </a>
+
+			</div>
+
+		</div>
+
+	</div>
 
 </body>
 </html>

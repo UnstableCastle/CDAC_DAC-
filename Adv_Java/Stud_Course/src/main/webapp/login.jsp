@@ -1,25 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@page import="com.app.dao.StudentDao"%>
 <%@page import="com.app.bean.Student"%>
 
 <%
 String msg = "";
 
-if (request.getMethod().equalsIgnoreCase("POST")) {
+if(request.getParameter("prn") != null){
 
-	int id = Integer.parseInt(request.getParameter("id"));
+	String prn = request.getParameter("prn");
 
 	String fname = request.getParameter("fname");
 
-	Student s = StudentDao.login(id, fname);
+	Student s = StudentDao.login(prn, fname);
 
-	if (s != null) {
+	if(s != null){
 
 		session.setAttribute("student", s);
 
 		response.sendRedirect("dashboard.jsp");
-	} else {
+	}
+	else{
 
 		msg = "Invalid Login";
 	}
@@ -31,24 +30,47 @@ if (request.getMethod().equalsIgnoreCase("POST")) {
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
 </head>
-<body>
+<body class="bg-light">
 
-	<h1>Student Login</h1>
+	<div class="container mt-5">
 
-	<form method="post">
+		<div class="card shadow p-4">
 
-		Student ID : <input type="number" name="id" required> <br>
-		<br> First Name : <input type="text" name="fname" required>
+			<h2 class="text-center text-primary mb-4">Student Login</h2>
 
-		<br>
-		<br> <input type="submit" value="Login">
+			<form method="post">
 
-	</form>
+				<div class="mb-3">
 
-	<h3><%=msg%></h3>
+					<label class="form-label">PRN</label> <input type="text" name="prn"
+						class="form-control" required>
 
-	<a href="register.jsp">New Student Registration</a>
+				</div>
+
+				<div class="mb-3">
+
+					<label class="form-label">First Name</label> <input type="text"
+						name="fname" class="form-control" required>
+
+				</div>
+
+				<button class="btn btn-primary w-100">Login</button>
+
+			</form>
+
+			<h5 class="text-center text-danger mt-3">
+				<%= msg %>
+			</h5>
+
+		</div>
+
+	</div>
 
 </body>
 </html>

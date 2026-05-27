@@ -14,13 +14,15 @@ public class Student implements Serializable {
 	private String laststName;
 	private int age;
 	private String course;
+	private String prn;
 
-	public Student(String firstName, String laststName, int age, String course) {
+	public Student(String firstName, String laststName, int age, String course, String prn) {
 		super();
 		this.firstName = firstName;
 		this.laststName = laststName;
 		this.age = age;
 		this.course = course;
+		this.prn = prn;
 	}
 
 }

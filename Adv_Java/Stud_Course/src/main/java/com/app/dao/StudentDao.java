@@ -21,10 +21,7 @@ public class StudentDao {
 
 		System.out.println("Driver Found");
 
-		con = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/db1",
-				"root",
-				"1234");
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1", "root", "1234");
 
 		System.out.println("Connection Established");
 
@@ -40,14 +37,14 @@ public class StudentDao {
 
 			con = getConnection();
 
-			String sql = "insert into STUD_COURSE(firstName,laststName,age,course) values(?,?,?,?)";
+			String sql = "insert into STUD_COURSE(prn,firstName,laststName,age) values(?,?,?,?)";
 
 			pstmt = con.prepareStatement(sql);
 
-			pstmt.setString(1, e.getFirstName());
-			pstmt.setString(2, e.getLaststName());
-			pstmt.setInt(3, e.getAge());
-			pstmt.setString(4, e.getCourse());
+			pstmt.setString(1, e.getPrn());
+			pstmt.setString(2, e.getFirstName());
+			pstmt.setString(3, e.getLaststName());
+			pstmt.setInt(4, e.getAge());
 
 			i = pstmt.executeUpdate();
 
@@ -62,7 +59,7 @@ public class StudentDao {
 	}
 
 	// LOGIN
-	public static Student login(int id, String firstName) {
+	public static Student login(String prn, String firstName) {
 
 		Student s = null;
 
@@ -70,11 +67,11 @@ public class StudentDao {
 
 			con = getConnection();
 
-			String sql = "select * from STUD_COURSE where id=? and firstName=?";
+			String sql = "select * from STUD_COURSE where prn=? and firstName=?";
 
 			pstmt = con.prepareStatement(sql);
 
-			pstmt.setInt(1, id);
+			pstmt.setString(1, prn);
 			pstmt.setString(2, firstName);
 
 			rs = pstmt.executeQuery();
@@ -84,6 +81,7 @@ public class StudentDao {
 				s = new Student();
 
 				s.setId(rs.getInt("id"));
+				s.setPrn(rs.getString("prn"));
 				s.setFirstName(rs.getString("firstName"));
 				s.setLaststName(rs.getString("laststName"));
 				s.setAge(rs.getInt("age"));
@@ -99,4 +97,34 @@ public class StudentDao {
 
 		return s;
 	}
+	
+	//UPDATE
+
+	public static int updateCourse(int id, String course) {
+
+		int i = 0;
+
+		try {
+
+			con = getConnection();
+
+			String sql = "update STUD_COURSE set course=? where id=?";
+
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, course);
+			pstmt.setInt(2, id);
+
+			i = pstmt.executeUpdate();
+
+			con.close();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+		return i;
+	}
+
 }
