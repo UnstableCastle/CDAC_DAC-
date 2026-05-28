@@ -14,7 +14,7 @@ import com.app.entity.Book;
 /**
  * Servlet implementation class UpdateBookServlet
  */
-@WebServlet("/updateBook")
+@WebServlet("/updateBookServlet")
 public class UpdateBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -70,9 +70,11 @@ public class UpdateBookServlet extends HttpServlet {
         boolean updated = BookDAO.updateBook(b);
 
         if(updated){
-        	 pw.write("<a href=/index.jsp>home</a>");
-            pw.write("Book Updated Successfully!");
-           
+
+            pw.write("<h2>Book Updated Successfully!</h2>");
+
+            pw.write("<a href='" + request.getContextPath() + "/index.jsp'>Home</a>");
+
         }else{
 
             pw.write("Book Update Failed!");

@@ -41,23 +41,92 @@ public class BuyBookServlet extends HttpServlet {
         int c = b.getShop().getCopies();
         if(c <= 0){
 
-            pw.write("Book Out Of Stock");
+            pw.write(
+                    "<html>" +
+                    "<head>" +
+                    "<link rel='stylesheet' " +
+                    "href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>" +
+                    "</head>" +
+
+                    "<body class='bg-light'>" +
+
+                    "<div class='container mt-5'>" +
+
+                    "<div class='alert alert-danger text-center shadow p-4'>" +
+
+                    "<h2>Book out of Stock!</h2>" +
+
+                    "<br>" +
+
+                    "<a href='viewBookServlet' class='btn btn-primary'>Back to Home</a>" +
+
+                    "</div>" +
+                    "</div>" +
+
+                    "</body>" +
+                    "</html>"
+                );
 
             return;
         }
         b.getShop().setCopies(c-1);
         boolean updated = BookDAO.updateBook(b);
-
         if(updated){
 
-            pw.write("Book Purchased Successfully!");
+            pw.write(
+                "<html>" +
+                "<head>" +
+                "<link rel='stylesheet' " +
+                "href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>" +
+                "</head>" +
+
+                "<body class='bg-light'>" +
+
+                "<div class='container mt-5'>" +
+
+                "<div class='alert alert-success text-center shadow p-4'>" +
+
+                "<h2>Book Purchased Successfully!</h2>" +
+
+                "<br>" +
+
+                "<a href='viewBookServlet' class='btn btn-primary'>Back to Home</a>" +
+
+                "</div>" +
+                "</div>" +
+
+                "</body>" +
+                "</html>"
+            );
 
         }else{
 
-            pw.write("Purchase Failed");
+            pw.write(
+                "<html>" +
+                "<head>" +
+                "<link rel='stylesheet' " +
+                "href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>" +
+                "</head>" +
+
+                "<body class='bg-light'>" +
+
+                "<div class='container mt-5'>" +
+
+                "<div class='alert alert-danger text-center shadow p-4'>" +
+
+                "<h2>Purchase Failed!</h2>" +
+
+                "<br>" +
+
+                "<a href='viewBookServlet' class='btn btn-dark'>Try Again</a>" +
+
+                "</div>" +
+                "</div>" +
+
+                "</body>" +
+                "</html>"
+            );
         }
-        
-        
 	}
 
 	/**
