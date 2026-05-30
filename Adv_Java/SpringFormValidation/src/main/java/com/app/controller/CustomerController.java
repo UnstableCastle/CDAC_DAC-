@@ -16,11 +16,8 @@ public class CustomerController {
 
 	@RequestMapping("/showForm")
 	public String customerForm(Model theModel) {
-
 		Customer customer = new Customer();
-
 		theModel.addAttribute("theCustomer", customer);
-
 		return "customer-form";
 	}
 
