@@ -27,6 +27,13 @@ public class LibraryController {
 		theModel.addAttribute("thelibrary", thelibrary);
 		return "list-library";
 	}
+	
+	@GetMapping("/list1")
+	public String listLibrary1(Model theModel) {
+		List<Library> thelibrary = libraryService.getLibrary();
+		theModel.addAttribute("thelibrary", thelibrary);
+		return "list-library1";
+	}
 
 	@GetMapping("/showForm")
 	public String showFormForAdd(Model theModel) {

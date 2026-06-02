@@ -24,6 +24,9 @@ public class Library {
 	@Column(name = "Author_name")
 	private String authorName;
 	
+	@Column(name = "Copies")
+	private String copies;
+	
 	@Column(name = "Price")
 	private String price;
 

@@ -44,6 +44,11 @@
                         <form:input path="price" placeholder="0.00" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all" />
                     </div>
 
+                    <div class="space-y-1">
+                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">No of Copies</label>
+                        <form:input path="copies" placeholder="0.00" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all" />
+                    </div>
+
                     <div class="pt-2 flex flex-col sm:flex-row gap-3">
                         <input type="submit" value="Save Book" class="w-full sm:flex-1 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm rounded-xl transition-all shadow-lg shadow-indigo-600/10 cursor-pointer text-center" />
                         <a href="${pageContext.request.contextPath}/library/list" class="w-full sm:w-auto px-5 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl text-slate-300 font-medium text-sm transition-all text-center">

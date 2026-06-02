@@ -21,13 +21,16 @@ public class AccountDAO {
 		List<Account> myAccounts = new ArrayList<Account>();
 
 		// create sample Accounts
-		Account a1 = new Account("ajinkya", "bhosale");
-		Account a2 = new Account("shubham", "patil");
-		Account a3 = new Account("pratik", "jadhav");
-
+		Account a1 = new Account("john", "doe");
+		Account a2 = new Account("alice", "smith");
+		Account a3 = new Account("bob", "johnson");
+		Account a4 = new Account("emma", "wilson");
+		Account a5 = new Account("david", "brown");
 		myAccounts.add(a1);
 		myAccounts.add(a2);
 		myAccounts.add(a3);
+		myAccounts.add(a4);
+		myAccounts.add(a5);
 
 		return myAccounts;
 	}
