@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Employee Directory</title>
+<style>
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 20px;
+}
+
+th, td {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+
+	<h3>Employee Table</h3>
+
+	<button >Add</button>
+
+	<table>
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="tempEmployee : ${employees}">
+
+				<td th:text="${tempEmployee.firstName}">First Name Placeholder</td>
+				<td th:text="${tempEmployee.lastName}">Last Name Placeholder</td>
+				<td th:text="${tempEmployee.email}">Email Placeholder</td>
+
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
