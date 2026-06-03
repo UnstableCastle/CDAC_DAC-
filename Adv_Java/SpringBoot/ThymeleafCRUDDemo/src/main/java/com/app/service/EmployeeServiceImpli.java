@@ -48,12 +48,14 @@ public class EmployeeServiceImpli implements EmployeeService {
 		employeeRepository.save(theEmployee);
 	}
 
+	
 	@Override
 	@Transactional
-	public void deleteByID(int theId) {
+	public void deleteById(int theId) {
 		// TODO Auto-generated method stub
 		employeeRepository.deleteById(theId);
-		
 	}
+
+	
 
 }
