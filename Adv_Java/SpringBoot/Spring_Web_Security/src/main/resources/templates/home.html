@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Company | Home</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts for premium typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a4ebd 100%);
+            color: white;
+            padding: 100px 0;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Professional Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">MyCompany</a>
+            <button class="navbar-collapse-target navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fancy Hero Welcome Section -->
+    <header class="hero-section text-center shadow">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold mb-3">Welcome to My Company</h1>
+                   <!--   <p class="lead mb-4 fs-4 text-white-50">We build modern, secure, and robust digital solutions tailored just for you.</p>
+                    --><div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <button type="button" class="btn btn-warning btn-lg px-4 me-sm-3 fw-semibold">Get Started</button>
+                        <button type="button" class="btn btn-outline-light btn-lg px-4">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Highlight Cards Section -->
+    <main class="container my-5 py-4">
+        <div class="row text-center g-4">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 rounded-4">
+                    <div class="card-body">
+                        <div class="text-primary mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-lightning-charge-fill" viewBox="0 0 16 16">
+                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                            </svg>
+                        </div>
+                        <h3 class="h5 fw-bold">Lightning Fast</h3>
+                      <!--   <p class="text-muted card-text">Optimized production performance designed to handle requests at peak efficiency.</p>
+                   -->  </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 rounded-4">
+                    <div class="card-body">
+                        <div class="text-primary mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-shield-lock-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.158 7.158 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.54 1.54 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm0 5a1.5 1.5 0 0 1 .5 2.915V10a.5.5 0 0 1-1 0V7.915A1.5 1.5 0 0 1 8 5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="h5 fw-bold">Highly Secure</h3>
+                       <!--  <p class="text-muted card-text">Built-in best security practices ensuring data validation and user protection.</p>
+                  -->   </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 rounded-4">
+                    <div class="card-body">
+                        <div class="text-primary mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-palette-fill" viewBox="0 0 16 16">
+                                <path d="M12.433 10.07C14.133 10.585 16 11.15 16 12c0 2.5-3.5 3-8 3S0 14.5 0 12c0-3.5 2.5-6 5.5-6a5.496 5.496 0 0 1 4.144 1.867 1.99 1.99 0 0 0 2.79 2.203z"/>
+                            </svg>
+                        </div>
+                        <h3 class="h5 fw-bold">Elegant Layout</h3>
+                        <!-- <p class="text-muted card-text">Clean grid alignments, responsive design breakpoints, and interactive components.</p>
+                     --></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    l
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

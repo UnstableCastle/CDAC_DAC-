@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Secure Portal</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts (Inter) for crisp, modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Premium, modern mesh-gradient background */
+            background: radial-gradient(at 0% 0%, rgba(240, 244, 255, 1) 0, transparent 50%), 
+                        radial-gradient(at 100% 0%, rgba(228, 236, 255, 1) 0, transparent 50%), 
+                        radial-gradient(at 100% 100%, rgba(245, 247, 255, 1) 0, transparent 50%), 
+                        radial-gradient(at 0% 100%, rgba(235, 240, 255, 1) 0, transparent 50%);
+            background-color: #f1f5f9;
+        }
+
+        .login-card {
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 
+                        0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid #cbd5e1;
+            font-size: 0.95rem;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Smooth transition for input focus */
+        .form-control:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            border-color: #2563eb;
+            border-radius: 8px;
+            padding: 0.6rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .alert-custom-danger {
+            background-color: #fef2f2;
+            border: 1px solid #fee2e2;
+            color: #991b1b;
+            border-radius: 8px;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="min-vh-100 d-flex align-items-center justify-content-center">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-7 col-lg-5 col-xl-4">
+                
+                <!-- Fancy Login Card -->
+                <div class="card login-card p-4 p-sm-5">
+                    
+                    <!-- App Logo Icon Placeholder -->
+                    <div class="text-center mb-3">
+                        <div class="bg-primary bg-opacity-10 text-primary d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 56px; height: 56px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16">
+                                <path d="M5.338 1.59a61 61 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.7 10.7 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .34 0c.076-.022.174-.061.294-.118.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.481 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.541-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56z"/>
+                                <path d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415V11a.5.5 0 0 1-1 0V7.915A1.5 1.5 0 0 1 6.5 6.5 1.5 1.5 0 0 1 8 5a1.5 1.5 0 0 1 1.5 1.5z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <h3 class="text-center fw-bold mb-1 text-dark">Welcome</h3>
+                    <p class="text-center text-muted small mb-4">Please enter your details to sign in</p>
+                    
+                    <form th:action="@{/authenticateTheUser}" method="post">
+                    
+                        <!-- Fixed Thymeleaf Error Block with Premium alert styling -->
+                        <div th:if="${param.error}" class="alert alert-info py-2.5 px-3 text-center mb-4" role="alert">
+                            <div class="d-flex align-items-center justify-content-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                </svg>
+                                <span>Invalid username or password.</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Username Input -->
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-semibold text-secondary small">User Name</label>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="username" 
+                                   name="username" 
+                                   placeholder="name@company.com"
+                                   autocomplete="username"
+                                   required>
+                        </div>
+                        
+                        <!-- Password Input -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label for="password" class="form-label fw-semibold text-secondary small mb-0">Password</label>
+                                <a href="#" class="text-decoration-none small fw-medium" style="color: #2563eb; font-size: 0.8rem;">Forgot?</a>
+                            </div>
+                            <input type="password" 
+                                   class="form-control" 
+                                   id="password" 
+                                   name="password" 
+                                   placeholder="••••••••"
+                                   autocomplete="current-password"
+                                   required>
+                        </div>
+                        
+                        <!-- Submit Action -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary shadow-sm">Sign In</button>
+                        </div>
+                        
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
