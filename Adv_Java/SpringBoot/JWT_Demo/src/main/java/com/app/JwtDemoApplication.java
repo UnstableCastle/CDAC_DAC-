@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Spring_Web_Security {
+public class JwtDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Spring_Web_Security.class, args);
+		SpringApplication.run(JwtDemoApplication.class, args);
 	}
 
 }
