@@ -1,5 +1,6 @@
 package com.app.controller;
 
+import com.app.service.JwtService;
 import  org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,6 +16,8 @@ import com.app.service.UserService;
 
 @RestController
 public class UserController {
+
+	private final JwtService jwtService;
 
 	@Autowired
 	private UserService userService;
@@ -33,6 +36,10 @@ public class UserController {
 	
 	@Autowired
 	AuthenticationManager authenticationManager;
+
+	UserController(JwtService jwtService) {
+		this.jwtService = jwtService;
+	}
 	
 	
 	@PostMapping("/login")
@@ -40,7 +47,7 @@ public class UserController {
 		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername() ,user.getPassword()));
 
 		if(authentication.isAuthenticated()) {
-			return "Success!!!";
+			return jwtService.generateToken(user.getUsername());
 		}
 		else {
 			return "Failed";
