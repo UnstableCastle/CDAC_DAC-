@@ -53,5 +53,13 @@ public class SecurityConfig {
 		return config.getAuthenticationManager();
 
 	}
+	//@Autowired
+	private JwtFilter jwtFilter;
+	
+	public SecurityConfig(JwtFilter jwtFilter) {
+		super();
+		this.jwtFilter=jwtFilter;
+	}
+	
 
 }
