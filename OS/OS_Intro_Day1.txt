@@ -1,0 +1,605 @@
+=================================================
+            OPERATING SYSTEM (OS)
+=================================================
+
+1. SOFTWARE AND PROGRAMS
+-------------------------------------------------
+
+Program
+- A set of instructions given to a computer system.
+
+Software
+- A collection of programs designed to solve a problem.
+
+Example:
+- Calculator
+- Browser
+- MS Word
+- WhatsApp
+
+=================================================
+2. TYPES OF SOFTWARE
+=================================================
+
+A. System Software
+------------------
+Software used to manage and operate the system.
+
+Examples:
+- Operating System (OS)
+- Device Drivers
+- Compiler
+- Interpreter
+- Loader
+- Linker
+
+B. Application Software
+------------------------
+Software developed to solve user problems.
+
+Examples:
+- Calculator
+- Media Player
+- Browser
+- Notepad
+- PowerPoint
+- WhatsApp
+- Canva
+- Instagram
+- Excel
+- Google Maps
+- Google Pay
+- LLMs (ChatGPT, Grok)
+
+=================================================
+3. COMPILER
+=================================================
+
+Definition:
+- Converts source code from one language into another.
+
+Example 1:
+Source (.c/.cpp)
+      |
+      v
+     GCC
+      |
+      v
+Machine Language
+
+Example 2:
+Source (.java)
+      |
+      v
+    javac
+      |
+      v
+Bytecode (.class)
+
+=================================================
+4. INTERPRETER
+=================================================
+
+Definition:
+- Translates one line at a time.
+- Executes immediately.
+- Repeats until program ends.
+
+Important:
+- NEVER produces an output file.
+
+Examples:
+
+.py  ---> Python Interpreter
+
+.js  ---> Node.js Interpreter
+
+.class ---> JVM (Java Interpreter)
+
+=================================================
+5. LOADER
+=================================================
+
+Definition:
+- Loads executable files from secondary storage
+  (SSD/HDD) into RAM.
+
+Examples:
+
+Class Loader:
+.class --> RAM
+
+GRUB Loader:
+Boot program --> RAM
+
+=================================================
+6. LINKER
+=================================================
+
+Definition:
+- Converts offset addresses into actual addresses.
+
+=================================================
+7. OPERATING SYSTEM (OS)
+=================================================
+
+Definition:
+- OS is a System Software.
+
+Acts as Interface Between:
+
+1. User and System
+   - GUI (Graphical User Interface)
+   - CLI (Command Line Interface)
+
+2. Application and System
+   - System Calls
+
+=================================================
+8. FUNCTIONS OF OPERATING SYSTEM
+=================================================
+
+1. Process Management
+2. Memory Management
+3. Device Management
+4. Security & Authentication
+
+=================================================
+9. SYSTEM CALLS
+=================================================
+
+Application Program:
+
+add.c
+
+main()
+{
+    printf("Enter numbers");
+    scanf(...);
+    sum = x + y;
+    printf(sum);
+}
+
+OS View:
+
+write() system call
+read() system call
+sum = x + y
+write() system call
+
+Definition:
+- A system call requests services from OS.
+
+Kernel:
+- Core part of Operating System.
+- Executes system calls.
+
+=================================================
+10. WHAT IS A SYSTEM?
+=================================================
+
+A system consists of hardware:
+
+- CPU
+- RAM
+- ROM
+- GPU
+- Motherboard
+- Battery
+- SSD/HDD
+
+=================================================
+11. PROGRAM EXECUTION FLOW
+=================================================
+
+Step 1:
+Write add.c using keyboard.
+
+Step 2:
+Store add.c in SSD/HDD.
+
+Step 3:
+Compiler generates add.exe.
+
+Step 4:
+Loader loads add.exe into RAM.
+
+Step 5:
+CPU executes instructions.
+
+Step 6:
+Results stored in RAM.
+
+=================================================
+12. MEMORY ORGANIZATION
+=================================================
+
+Secondary Storage
+-----------------
+- SSD
+- HDD
+
+Primary Memory
+--------------
+- RAM
+
+=================================================
+13. CPU ARCHITECTURE
+=================================================
+
+CPU contains Registers.
+
+Registers:
+- Very small
+- Very fast
+- Hold one value at a time
+
+Important Registers:
+
+1. IR (Instruction Register)
+2. DR0 (Data Register 0)
+3. DR1 (Data Register 1)
+4. PC (Program Counter)
+5. Accumulator
+
+Example:
+
+sum = x + y
+
+IR  = +
+DR0 = x
+DR1 = y
+
+        IR
+         |
+DR0 --> ALU <-- DR1
+         |
+         v
+    Accumulator
+
+=================================================
+14. ALU (Arithmetic Logic Unit)
+=================================================
+
+Executes CPU Instructions.
+
+Arithmetic:
+- +
+- -
+- *
+- /
+- %
+
+Logical:
+- &&
+- ||
+- !
+
+Relational:
+- <
+- >
+- <=
+- >=
+- ==
+- !=
+
+=================================================
+15. DMA CONTROLLER
+=================================================
+
+DMA = Direct Memory Access
+
+Purpose:
+- Performs I/O operations.
+- Can transfer data without CPU involvement.
+
+Functions:
+- Device -> RAM
+- RAM -> Device
+
+=================================================
+16. TYPES OF INSTRUCTIONS
+=================================================
+
+CPU Instructions
+----------------
+Executed by ALU.
+
+Examples:
+- Arithmetic
+- Logical
+- Relational
+
+I/O Instructions
+----------------
+Executed by DMA Controller.
+
+=================================================
+17. OS DEPENDENCY ON HARDWARE
+=================================================
+
+Operating systems are hardware dependent.
+
+Reasons:
+- Different registers
+- Different register sizes
+- Different instruction sets
+
+Examples:
+- Windows on Intel
+- Windows on AMD
+
+=================================================
+18. INPUT AND OUTPUT DEVICES
+=================================================
+
+Input Devices
+-------------
+- Keyboard
+- Mouse
+- Camera
+- Scanner
+- Fingerprint Scanner
+- Retina Scanner
+- QR Scanner
+- Microphone
+- Pen Drive
+- Card Reader
+- SSD/HDD
+- Joystick
+
+Output Devices
+--------------
+- Monitor
+- Printer
+- Speaker
+- Projector
+- Plotter
+- Pen Drive
+- SSD/HDD
+
+=================================================
+19. TYPES OF OPERATING SYSTEMS
+=================================================
+
+1. GPOS (General Purpose OS)
+   Example: Windows
+
+2. RTOS (Real Time OS)
+   Example: RTLinux
+
+3. Multiuser OS
+   Example: Linux
+
+4. Mobile OS
+   - Android
+   - iOS
+
+5. Embedded OS
+   - Smart Washing Machine
+   - Smart Car
+
+6. Server OS
+   - Unix
+   - Solaris
+
+7. Network OS
+   - Windows NT
+
+=================================================
+20. USER MODE vs KERNEL MODE
+=================================================
+
+User Mode
+---------
+- Restricted Mode
+- User applications run here
+- Limited access
+
+Kernel Mode
+-----------
+- Privileged Mode
+- Kernel runs here
+- Full system access
+
+=================================================
+21. MEMORY SPACE DIVISION
+=================================================
+
+RAM is divided into:
+
+1. User Space
+   - Stores user programs
+
+2. Kernel Space
+   - Stores OS programs
+
+Important:
+- User programs cannot access kernel space.
+
+=================================================
+22. LINUX INTRODUCTION
+=================================================
+
+Linux is not a single OS.
+
+Linux Distributions:
+
+- Red Hat
+- Fedora
+- Ubuntu
+- Mint
+- CentOS
+- Debian
+- BOSS
+- Mandrake
+- Mandriva
+
+All use:
+- Linux Kernel
+
+=================================================
+23. LINUX SERVER LOGIN
+=================================================
+
+Protocol:
+- Telnet
+
+Tool:
+- PuTTY
+
+Example IP:
+192.168.100.21
+
+Login:
+- Username
+- Password
+
+Interface:
+- CLI (Command Line Interface)
+
+=================================================
+24. SHELLS IN LINUX
+=================================================
+
+Shell:
+- Command interpreter
+
+Types:
+- Bash Shell
+- C Shell
+- K Shell
+
+Default:
+- Bash Shell
+
+=================================================
+25. LINUX FILE SYSTEM
+=================================================
+
+Linux:
+------
+Ext3 File System
+
+Single Root:
+/
+
+Windows:
+---------
+FAT32 / NTFS
+
+Multiple Roots:
+C:/
+D:/
+E:/
+
+=================================================
+26. BASIC LINUX COMMANDS
+=================================================
+
+1. pwd
+-------
+Print current directory.
+
+Example:
+$ pwd
+
+-------------------------------------------------
+
+2. cd
+------
+Change directory.
+
+Examples:
+
+$ cd /
+
+$ cd /home
+
+$ cd /home/faculty
+
+-------------------------------------------------
+
+3. ls
+------
+List directory contents.
+
+Example:
+
+$ ls
+
+-------------------------------------------------
+
+4. mkdir
+---------
+Create directory.
+
+Example:
+
+$ mkdir /home/yourlogin/OS
+
+-------------------------------------------------
+
+5. Clear Screen
+---------------
+
+$ clear
+
+=================================================
+27. LINUX LAB PRACTICALS
+=================================================
+
+Exercise 1:
+-----------
+pwd
+cd /home
+cd /
+pwd
+
+Exercise 2:
+-----------
+cd /home/faculty
+pwd
+clear
+
+Exercise 3:
+-----------
+ls
+
+Exercise 4:
+-----------
+mkdir /home/yourlogin/OS
+ls
+
+Exercise 5:
+-----------
+cd /home
+ls
+
+Observation:
+Each user has a separate folder.
+
+Exercise 6:
+-----------
+Try accessing another user's folder.
+
+Observation:
+Permission denied.
+
+Exercise 7:
+-----------
+cd /
+ls
+
+Exercise 8:
+-----------
+cd /home/yourlogin/OS
+
+mkdir day1
+mkdir day2
+
+ls
+
+=================================================
+                END OF NOTES
+=================================================
