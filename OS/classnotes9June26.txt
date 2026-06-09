@@ -1,0 +1,277 @@
+
+
+PROMPT 
+
+[faculty@infoway ~]$
+
+ [ loginname@hostname tilde]$
+  
+ tilde = HOME folder of the logged in user 
+ On login the tilde folder is /home/faculty
+ MY home folder is /home/faculty
+ 
+ Prompt is SET using a Environment Variable
+ called as PS1 = Prompt String 1
+ For sub prompts  PS2 
+ 
+ Environment variable is kind of a global variable which is available to all programs and OS also 
+ 
+ How to see the current PROMPT String ?
+    bash command   = echo "$variablename" 
+ 
+ Value of PS1 variable is  [\u@\h \W]\$
+ Output [faculty@infoway ~]$
+
+$ = meta charachter = used to show the variable value 
+
+How to change the value of any environment variable ?
+  export variablename=newvalue
+  
+  No spaces before and after = sign
+
+________________________  
+EX9
+Observe the prompt string 
+see the current value of PS1 variable 
+		using  echo "$PS1"
+change the value of PS1 variable using 
+	  export PS1="\W >>" 
+	  OR you can give any value of your choice
+Observe the changed PROMPT
+cd /
+cd /home
+cd /home/faculty/OS  
+Observe the PROMPT
+________________________________________
+
+How to see the names of other environment variables ?  use the command env
+
+-------------------------
+Ex10
+ run the env command and see different environment variables 
+  print the values of following env variables
+    using echo  ---- PATH , HOME , USER
+observe the output
+____________________________________
+
+How to specify paths in bash commands ?
+ 
+  Two ways to specify the paths of files or folders 
+  1. relative paths = w.r.t current folder
+  2. absolute paths = w.r.t topmost / folder
+
+________________________
+Ex11
+    Ensure that pwd is ~ 
+	create a folder planets in ~ 
+           mkdir  ./planets  } relative path
+		   ls
+	create a folder earth and jupiter inside planets folder without changing the pwd 
+	Ensure that pwd is ~ 
+        mkdir ./planets/earth ./planets/jupiter
+	Check if the folders are created
+    ls ./planets }} u should see earth jupiter
+	Ensure that pwd is ~ 
+    create a folder Moon inside earth 
+	check if the folder is created 
+________________________________________
+Ex12 
+     create a folder day2 in OS using absolute path 
+	 mkdir /home/faculty/OS/day2
+	 check if day2 is created using ls with absolute path 
+________________________________________
+
+. = current folder 
+.. = parent folder 
+
+____________________________________
+Ex13
+    cd to previous folder using cd .. 
+	till you reach  / 
+	go to Moon folder using single cd
+	go to /home folder using single cd with relative path 
+	   for example ---  cd ../../..
+____________________________________	  
+
+Interrupt
+
+   Who interrupts Whom ? 
+   
+   There are interrupt pins on the CPU receive the interrupt signals 
+   the signals are sent by hardware like kbd,mouse, harddisk ,printer once an action is completed 
+   
+  What happens when interrupt signals arrive at CPU ? 
+  The Interrupt Handler is EXECUTED/RUN 
+  and the currently running process is HALTED
+  
+  ------------------------------
+  Interrupt handler is a pre written function of the OS 
+  For some interrupts we can change the handler , for some we cannot 
+	- Maskable and Non Maskable interrupts 
+	
+	+  whether Timer interrupt is Maskable or not 
+---------------------------------
+	The handlers are maintained in a table 
+	Interrupt Table / Interrupt Vector Table 
+	
+	  InterruptNumber |  Ptr to Handler
+	     1					 fun1
+		 2                   fun2 
+		 ...
+		 
+	Kernel will find the interrupt number occuring at the CPU and accordingly run the Interrupt handler mapped to it in the interrupt handler 
+_______________________________________
+	Software Interrupts Example
+    Hardware Interrupts Example
+	
+	who generates the interrupt WHY 
+	who receives the interrupt
+_________________________________________	
+		 
+Jobs of the OS  - Interfacing , process management, memory management, device management, security	 
+
+____________________________________
+
+Process Management 
+
+What is a process ? 
+  --- Program in execution  is a process
+  
+Where is the program stored ? SSD/HDD
+Where does the process Sit ?   RAM/Memory
+
+How to find a program ? file explorer
+How to find a process ? 
+	windows - task manager 
+	linux based OS - command ps 
+
+One program notepad.exe=> c:/windows/notepad.exe
+
+I created 3 processes of the notepad.exe program } each with a separate pid 
+5152, 6380, 7944
+__________________________________________
+
+Every process has a life cycle - created and terminated 
+
+Following phases/states of process life cycle ?
+    1.created/born
+	2.ready
+	3.Running/executing
+	4.IO wait/suspend
+	5.Terminate 
+	
+created/born phase of process 
+	1. process gets a PCB= Process Control Block 
+			PCB has process Info  like pid, priority, status
+	2. process gets a address space 
+			process space in RAM 
+			for ex - a c process gets space for 
+			 for parts - code segment , data segment, stack segment, heap segment 
+			this is c process address space !!
+			Java process space = JVM = class area, stack area, heap area  
+
+
+ready phase/state = the process is ready for execution so it is waiting for the CPU in a ready queue in kernel space 
+
+Running/executing phase/state = the process gets the CPU and it is running the CPU instructions of the process
+
+IO Wait state/suspended phase/state = the next instruction of the process is IO instruction so the process leaves the cPU and the DMA runs the IO instruction - meanwhile process waits for IO to complete 
+
+Terminate state = the process reaches the end of execution code so it terminates the kernel will now release the PID ,PCB , address space and other resources of the process .
+____________________________________________
+Process Scheduling/cpu scheduling/low level scheduling
+
+cpu-Schedular/low-level-schedular/schedular of the Kernel  will
+ 
+  Select a process from ready queue 
+   and then
+  allocate the process to the cPU
+
+
+Parameters that must be improved - schedular keeps these parameters in mind while selecting next process to run on cpu !!!
+
+1. CPU-burst-time = Total time taken by all cpu-instructions in one process is called as CPU-burst-time of that process.
+
+2. IO-burst-time= Total time taken by all io-instructions in one process is called as io-burst-time of that process.
+
+3. Average Wait Time  = Wt
+    Wait time = total time spent by the process in the ready queue is the Wait time of the process
+	
+	Average Wait Time = (Wt1 + Wt2 + Wt3+...+Wtn)/n
+	
+	Good Avg Time is as small as possible !!!
+	
+4. Average Turnaround time = Ta 
+	  Turnaround time = the total time spent by the process from create to terminate excluding IO wait-time 
+	  
+	  Average T A T  = (Ta1 + Ta2 +Ta3+...+Tan)/n
+	  
+	  Ta = Wt + CPUt 
+	     = Wait time  + CPU-burst-time
+	  
+	  Good Average Tat will be as small as possible 
+	  
+5. Response time  = the time taken by the process to respond to the user 
+
+   Good response time should be as small as possible 
+   
+6.  Througput of the system = It is the number of processes completed in unit time 
+		processes compeleted per sec
+	
+	Good throughput should be as high as possible 
+
+
+
+Common Process Scheduling Algorithms = these are the techniques used by the schedular to select a proces from the ready queue for running on cpu 
+
+1. FCFS
+2.Shortest Job First 
+3.Priority
+4.RR = round robin 
+5.Queue 
+
+
+
+
+   
+   
+   
+   
+	  
+	  
+	  
+	  
+	  
+	  
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+		 
+	
+	
+	
+	
+	
+	
+	
+	
+  
+  
+  
+  
+  
+  
+  
+  

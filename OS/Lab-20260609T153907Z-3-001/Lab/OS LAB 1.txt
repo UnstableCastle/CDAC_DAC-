@@ -1,0 +1,135 @@
+
+
+login as: group043
+group043@192.168.100.21's password:
+[group043@infoway ~]$
+
+
+[group043@infoway ~]$ pwd
+/home/group043
+
+
+[group043@infoway ~]$ mkdir OS
+[group043@infoway ~]$ ls
+OS
+[group043@infoway ~]$ cd OS
+[group043@infoway OS]$ ls
+
+
+
+[group043@infoway OS]$ mkdir Day1
+[group043@infoway OS]$ ls
+Day1
+[group043@infoway OS]$
+
+
+[group043@infoway OS]$ cd ..
+[group043@infoway ~]$ cd ..
+[group043@infoway home]$ cd ..
+[group043@infoway /]$ cd ..
+[group043@infoway /]$
+
+
+[group043@infoway /]$ cd home/group044
+-bash: cd: home/group044: Permission denied
+[group043@infoway /]$
+
+
+
+[group043@infoway /]$ env
+XDG_SESSION_ID=10494
+HOSTNAME=infoway
+SELINUX_ROLE_REQUESTED=
+TERM=xterm
+SHELL=/bin/bash
+HISTSIZE=1000
+SSH_CLIENT=192.168.100.84 54495 22
+SELINUX_USE_CURRENT_RANGE=
+SSH_TTY=/dev/pts/12
+USER=group043
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:
+MAIL=/var/spool/mail/group043
+PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/group043/.local/bin:/home/group043/bin
+PWD=/
+LANG=en_IN.UTF-8
+SELINUX_LEVEL_REQUESTED=
+HISTCONTROL=ignoredups
+SHLVL=1
+HOME=/home/group043
+LOGNAME=group043
+XDG_DATA_DIRS=/home/group043/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+SSH_CONNECTION=192.168.100.84 54495 192.168.100.21 22
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+XDG_RUNTIME_DIR=/run/user/1044
+_=/usr/bin/env
+OLDPWD=/home
+[group043@infoway /]$
+
+
+
+[group043@infoway /]$ echo "$PS1"
+[\u@\h \W]\$
+[group043@infoway /]$
+
+ echo "$PATH"
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/group043/.local/bin:/home/group043/bin
+[group043@infoway /]$
+
+
+[group043@infoway /]$ echo "$HOME"
+/home/group043
+[group043@infoway /]$
+
+
+
+[group043@infoway /]$ mkdir ./home/group043/planets
+[group043@infoway /]$ ls ./home/group043/
+OS  planets
+[group043@infoway /]$
+
+[group043@infoway /]$ mkdir ./home/group043/planets/Earth
+[group043@infoway /]$ mkdir ./home/group043/planets/Jupiter
+[group043@infoway /]$ ls ./home/group043/planets/
+Earth  Jupiter
+[group043@infoway /]$
+
+
+
+[group043@infoway /]$ ls ./home/group043/planets/Jupiter
+Moon
+[group043@infoway /]$ ls ./home/group043/planets/Earth
+Moon
+[group043@infoway /]$
+
+
+
+[group043@infoway /]$ ls
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+[group043@infoway /]$
+
+
+
+[group043@infoway /]$ cd ./home
+[group043@infoway home]$ ls
+admin     group010  group021  group032  group043  group054  user11  user4
+faculty   group011  group022  group033  group044  group055  user12  user5
+group001  group012  group023  group034  group045  group056  user13  user6
+group002  group013  group024  group035  group046  group057  user14  user7
+group003  group014  group025  group036  group047  group058  user15  user8
+group004  group015  group026  group037  group048  group059  user16
+group005  group016  group027  group038  group049  group060  user17
+group006  group017  group028  group039  group050  group061  user18
+group007  group018  group029  group040  group051  group062  user19
+group008  group019  group030  group041  group052  group063  user20
+group009  group020  group031  group042  group053  user10    user3
+[group043@infoway home]$
+
+
+
+
+
+
+
+
+
