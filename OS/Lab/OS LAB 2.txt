@@ -1,0 +1,516 @@
+
+[group043@infoway ~]$ ps
+  PID TTY          TIME CMD
+12442 pts/53   00:00:00 bash
+13029 pts/53   00:00:00 ps
+[group043@infoway ~]$
+
+[group043@infoway ~]$ ps -e
+  PID TTY          TIME CMD
+    1 ?        00:05:56 systemd
+    2 ?        00:00:01 kthreadd
+    4 ?        00:00:00 kworker/0:0H
+    6 ?        00:04:37 ksoftirqd/0
+    7 ?        00:00:00 migration/0
+    8 ?        00:00:00 rcu_bh
+    9 ?        00:06:01 rcu_sched
+   10 ?        00:00:00 lru-add-drain
+   11 ?        00:01:58 watchdog/0
+   13 ?        00:00:00 kdevtmpfs
+   14 ?        00:00:00 netns
+   15 ?        00:00:03 khungtaskd
+   16 ?        00:00:00 writeback
+   17 ?        00:00:00 kintegrityd
+   18 ?        00:00:00 bioset
+   19 ?        00:00:00 bioset
+   20 ?        00:00:00 bioset
+   21 ?        00:00:00 kblockd
+   22 ?        00:00:00 md
+   23 ?        00:00:00 edac-poller
+   24 ?        00:00:00 watchdogd
+   30 ?        00:00:00 kswapd0
+   31 ?        00:00:00 ksmd
+   32 ?        00:00:25 khugepaged
+   33 ?        00:00:00 crypto
+   41 ?        00:00:00 kthrotld
+   43 ?        00:00:00 kmpath_rdacd
+   44 ?        00:00:00 kaluad
+   45 ?        00:00:00 kpsmoused
+   47 ?        00:00:00 ipv6_addrconf
+   60 ?        00:00:00 deferwq
+   94 ?        00:00:00 kauditd
+  261 ?        00:00:00 hv_vmbus_con
+  265 ?        00:00:00 hv_pri_chan
+  266 ?        00:00:00 hv_sub_chan
+  273 ?        00:00:00 ata_sff
+  284 ?        00:00:00 scsi_eh_0
+  287 ?        00:00:00 scsi_tmf_0
+  290 ?        00:00:00 scsi_eh_1
+  292 ?        00:00:00 scsi_tmf_1
+  295 ?        00:00:00 scsi_eh_2
+  297 ?        00:00:00 scsi_tmf_2
+  299 ?        00:00:00 storvsc_error_w
+  300 ?        00:00:00 scsi_eh_3
+  301 ?        00:00:00 scsi_tmf_3
+  302 ?        00:00:00 storvsc_error_w
+  315 ?        00:00:31 kworker/0:1H
+  373 ?        00:00:00 kdmflush
+  374 ?        00:00:00 bioset
+  383 ?        00:00:00 kdmflush
+  384 ?        00:00:00 bioset
+  397 ?        00:00:00 bioset
+  398 ?        00:00:00 xfsalloc
+  399 ?        00:00:00 xfs_mru_cache
+  400 ?        00:00:00 xfs-buf/dm-0
+  401 ?        00:00:00 xfs-data/dm-0
+  402 ?        00:00:00 xfs-conv/dm-0
+  403 ?        00:00:00 xfs-cil/dm-0
+  404 ?        00:00:00 xfs-reclaim/dm-
+  405 ?        00:00:00 xfs-log/dm-0
+  406 ?        00:00:00 xfs-eofblocks/d
+  407 ?        00:03:32 xfsaild/dm-0
+  490 ?        00:01:10 systemd-journal
+  518 ?        00:00:00 lvmetad
+  530 ?        00:00:00 systemd-udevd
+  545 ?        00:03:53 hv_balloon
+  608 ?        00:00:00 xfs-buf/sda1
+  609 ?        00:00:00 xfs-data/sda1
+  610 ?        00:00:00 xfs-conv/sda1
+  611 ?        00:00:00 xfs-cil/sda1
+  612 ?        00:00:00 xfs-reclaim/sda
+  613 ?        00:00:00 xfs-log/sda1
+  614 ?        00:00:00 xfs-eofblocks/s
+  615 ?        00:00:00 xfsaild/sda1
+  627 ?        00:00:00 kdmflush
+  628 ?        00:00:00 bioset
+  635 ?        00:00:00 xfs-buf/dm-2
+  636 ?        00:00:00 xfs-data/dm-2
+  637 ?        00:00:00 xfs-conv/dm-2
+  638 ?        00:00:00 xfs-cil/dm-2
+  639 ?        00:00:00 xfs-reclaim/dm-
+  640 ?        00:00:00 xfs-log/dm-2
+  641 ?        00:00:00 xfs-eofblocks/d
+  642 ?        00:00:03 xfsaild/dm-2
+  667 ?        00:00:00 rpciod
+  668 ?        00:00:00 xprtiod
+  670 ?        00:00:16 auditd
+  672 ?        00:00:33 audispd
+  674 ?        00:00:04 sedispatch
+  696 ?        00:01:37 systemd-logind
+  697 ?        00:00:38 udisksd
+  698 ?        00:00:00 hypervvssd
+  699 ?        00:04:27 dbus-daemon
+  700 ?        00:00:21 rpcbind
+  706 ?        00:09:27 rngd
+  707 ?        00:00:44 lsmd
+  709 ?        00:12:24 polkitd
+  710 ?        00:00:07 avahi-daemon
+  714 ?        00:00:11 ModemManager
+  718 ?        00:00:00 avahi-daemon
+  720 ?        00:00:19 gssproxy
+  735 ?        00:01:31 rtkit-daemon
+  740 ?        00:00:08 smartd
+  741 ?        00:00:00 abrtd
+  743 ?        00:00:09 abrt-watch-log
+  744 ?        00:00:23 accounts-daemon
+  745 ?        00:00:00 abrt-watch-log
+  770 ?        00:00:14 chronyd
+  773 ?        00:06:39 ksmtuned
+  780 ?        00:00:15 firewalld
+  833 ?        00:26:41 NetworkManager
+ 1151 ?        00:00:00 cupsd
+ 1153 ?        00:19:35 tuned
+ 1154 ?        00:00:00 hypervkvpd
+ 1156 ?        00:00:00 sshd
+ 1157 ?        00:13:02 rsyslogd
+ 1163 ?        00:00:01 libvirtd
+ 1203 ?        00:00:00 atd
+ 1204 ?        00:00:00 gdm
+ 1205 ?        00:00:32 crond
+ 1447 ?        00:00:47 master
+ 1489 ?        00:00:10 qmgr
+ 1698 ?        00:00:00 dnsmasq
+ 1700 ?        00:00:00 dnsmasq
+ 1741 tty1     00:00:36 X
+ 1883 ?        00:00:13 upowerd
+ 1932 ?        00:00:08 boltd
+ 1937 ?        00:02:08 packagekitd
+ 1941 ?        00:01:07 wpa_supplicant
+ 2027 ?        00:00:00 colord
+ 2038 ?        00:40:34 pcscd
+ 6156 ?        00:00:00 pickup
+ 6666 ?        00:00:01 kworker/0:3
+ 6709 ?        00:00:00 kworker/u128:2
+ 6788 ?        00:00:00 sshd
+ 6790 ?        00:00:00 sshd
+ 6823 ?        00:00:00 sshd
+ 6829 pts/0    00:00:00 bash
+ 6902 ?        00:00:00 sshd
+ 6906 ?        00:00:00 sshd
+ 6907 pts/1    00:00:00 bash
+ 6952 ?        00:00:00 sshd
+ 6966 ?        00:00:00 sshd
+ 6972 ?        00:00:00 sshd
+ 6976 pts/2    00:00:00 bash
+ 7036 ?        00:00:00 sshd
+ 7039 pts/3    00:00:00 bash
+ 7065 ?        00:00:00 sshd
+ 7067 pts/4    00:00:00 bash
+ 7134 ?        00:00:00 sshd
+ 7136 ?        00:00:01 kworker/0:2
+ 7137 ?        00:00:00 sshd
+ 7148 ?        00:00:00 sshd
+ 7152 pts/5    00:00:00 bash
+ 7235 ?        00:00:00 sshd
+ 7305 ?        00:00:00 sshd
+ 7309 pts/10   00:00:00 bash
+ 7368 ?        00:00:00 sshd
+ 7439 ?        00:00:00 sshd
+ 7446 ?        00:00:00 sshd
+ 7450 pts/9    00:00:00 bash
+ 7502 ?        00:00:00 sshd
+ 7506 ?        00:00:00 sshd
+ 7510 ?        00:00:00 sshd
+ 7512 ?        00:00:00 sshd
+ 7520 ?        00:00:00 sshd
+ 7524 pts/11   00:00:00 bash
+ 7569 ?        00:00:00 sshd
+ 7574 ?        00:00:00 sshd
+ 7579 pts/12   00:00:00 bash
+ 7619 ?        00:00:00 sshd
+ 7626 ?        00:00:00 sshd
+ 7628 pts/13   00:00:00 bash
+ 7649 ?        00:00:00 sshd
+ 7658 pts/15   00:00:00 bash
+ 7734 ?        00:00:00 sshd
+ 7738 pts/16   00:00:00 bash
+ 7798 ?        00:00:00 sshd
+ 7804 pts/18   00:00:00 bash
+ 7830 ?        00:00:00 sshd
+ 7848 ?        00:00:00 sshd
+ 7920 ?        00:00:00 sshd
+ 7929 pts/21   00:00:00 bash
+ 7978 ?        00:00:00 sshd
+ 7981 pts/22   00:00:00 bash
+ 8048 ?        00:00:00 sshd
+ 8050 ?        00:00:00 sshd
+ 8061 ?        00:00:00 sshd
+ 8088 ?        00:00:00 sshd
+ 8101 ?        00:00:00 sshd
+ 8107 pts/24   00:00:00 bash
+ 8166 ?        00:00:00 sshd
+ 8176 ?        00:00:00 sshd
+ 8179 pts/25   00:00:00 bash
+ 8227 ?        00:00:00 sshd
+ 8231 pts/27   00:00:00 bash
+ 8279 ?        00:00:00 sshd
+ 8283 pts/28   00:00:00 bash
+ 8327 ?        00:00:00 sshd
+ 8333 ?        00:00:00 sshd
+ 8337 pts/30   00:00:00 bash
+ 8397 ?        00:00:00 sshd
+ 8400 pts/31   00:00:00 bash
+ 8508 ?        00:00:00 sshd
+ 8512 pts/33   00:00:00 bash
+ 8574 ?        00:00:00 sshd
+ 8578 pts/34   00:00:00 bash
+ 8624 ?        00:00:00 sshd
+ 8643 pts/17   00:00:00 vim
+ 8658 ?        00:00:00 sshd
+ 8662 ?        00:00:00 sshd
+ 8666 pts/36   00:00:00 bash
+ 8713 ?        00:00:00 sshd
+ 8722 ?        00:00:00 sshd
+ 8726 pts/37   00:00:00 bash
+ 8796 ?        00:00:00 sshd
+ 8800 pts/38   00:00:00 bash
+ 8845 ?        00:00:00 sshd
+ 8849 ?        00:00:00 sshd
+ 8857 ?        00:00:00 sshd
+ 8862 ?        00:00:00 sshd
+ 8865 pts/39   00:00:00 bash
+ 8930 ?        00:00:00 sshd
+ 8936 pts/20   00:00:00 bash
+ 8991 ?        00:00:00 sshd
+ 8995 pts/40   00:00:00 bash
+ 9019 ?        00:00:00 sshd
+ 9042 ?        00:00:00 sshd
+ 9049 ?        00:00:00 sshd
+ 9053 pts/41   00:00:00 bash
+ 9124 ?        00:00:00 sshd
+ 9126 pts/32   00:00:00 bash
+ 9175 ?        00:00:00 sshd
+ 9273 ?        00:00:00 sshd
+ 9305 ?        00:00:00 sshd
+ 9311 pts/43   00:00:00 bash
+ 9421 ?        00:00:00 sshd
+ 9440 ?        00:00:00 sshd
+10950 ?        00:00:00 sshd
+10952 ?        00:00:00 sshd
+10967 ?        00:00:00 sshd
+10973 pts/7    00:00:00 bash
+11016 ?        00:00:00 sshd
+11072 ?        00:00:00 sshd
+11074 pts/45   00:00:00 bash
+11124 ?        00:00:00 sshd
+11132 ?        00:00:00 sshd
+11136 pts/46   00:00:00 bash
+11190 ?        00:00:00 sshd
+11193 ?        00:00:00 sshd
+11195 pts/47   00:00:00 bash
+11318 ?        00:00:00 sshd
+11451 ?        00:00:00 kworker/0:0
+11469 ?        00:00:00 kworker/u128:0
+11470 ?        00:00:00 sshd
+11471 ?        00:00:00 sshd
+11476 pts/48   00:00:00 bash
+11477 pts/44   00:00:00 bash
+12181 ?        00:00:00 sshd
+12186 ?        00:00:00 sshd
+12192 pts/49   00:00:00 bash
+12239 ?        00:00:00 sshd
+12246 ?        00:00:00 sshd
+12251 pts/50   00:00:00 bash
+12297 ?        00:00:00 sshd
+12300 pts/51   00:00:00 bash
+12355 ?        00:00:00 sshd
+12361 pts/52   00:00:00 bash
+12408 ?        00:00:00 sshd
+12410 ?        00:00:00 sshd
+12418 ?        00:00:00 sshd
+12431 ?        00:00:00 sshd
+12438 ?        00:00:00 sshd
+12442 pts/53   00:00:00 bash
+12488 ?        00:00:00 sshd
+12493 pts/54   00:00:00 bash
+12538 ?        00:00:00 sshd
+12542 pts/55   00:00:00 bash
+12589 ?        00:00:00 sshd
+12595 pts/56   00:00:00 bash
+12640 ?        00:00:00 sshd
+12645 pts/57   00:00:00 bash
+12759 ?        00:00:00 sshd
+12796 ?        00:00:00 sshd
+12799 pts/19   00:00:00 bash
+12845 pts/37   00:00:00 vim
+12855 ?        00:00:00 sshd
+12868 ?        00:00:00 sshd
+12874 pts/23   00:00:00 bash
+12949 pts/56   00:00:00 vim
+12976 pts/24   00:00:00 vim
+12984 pts/2    00:00:00 vim
+12998 pts/19   00:00:00 vim
+13005 pts/45   00:00:00 vim
+13030 ?        00:00:00 kworker/0:1
+13047 pts/7    00:00:00 vim
+13064 pts/34   00:00:00 vim
+13075 ?        00:00:00 sleep
+13086 pts/10   00:00:00 vim
+13108 pts/53   00:00:00 ps
+28058 ?        00:00:01 gdm-session-wor
+28071 ?        00:00:00 gnome-keyring-d
+28080 ?        00:00:01 gnome-session-b
+28102 ?        00:00:00 dbus-launch
+28103 ?        00:00:01 dbus-daemon
+28130 ?        00:00:00 imsettings-daem
+28134 ?        00:00:00 gvfsd
+28139 ?        00:00:00 gvfsd-fuse
+28222 ?        00:00:02 ssh-agent
+28240 ?        00:00:00 at-spi-bus-laun
+28245 ?        00:00:00 dbus-daemon
+28250 ?        00:00:00 at-spi2-registr
+28277 ?        00:03:59 gnome-shell
+28287 ?        00:00:00 pulseaudio
+28297 ?        00:00:03 ibus-daemon
+28301 ?        00:00:00 ibus-dconf
+28305 ?        00:00:00 ibus-x11
+28309 ?        00:00:00 ibus-portal
+28318 ?        00:00:00 xdg-permission-
+28319 ?        00:00:00 gnome-shell-cal
+28339 ?        00:00:01 evolution-sourc
+28341 ?        00:00:01 mission-control
+28346 ?        00:00:07 gvfs-udisks2-vo
+28351 ?        00:00:00 goa-daemon
+28357 ?        00:00:00 gvfs-gphoto2-vo
+28365 ?        00:00:00 gvfs-mtp-volume
+28373 ?        00:00:00 gvfs-goa-volume
+28409 ?        00:00:10 goa-identity-se
+28419 ?        00:00:00 gvfs-afc-volume
+28426 ?        00:00:01 gsd-power
+28427 ?        00:00:00 gsd-print-notif
+28429 ?        00:00:00 gsd-rfkill
+28432 ?        00:00:00 gsd-screensaver
+28436 ?        00:00:00 gsd-sharing
+28439 ?        00:00:00 gsd-sound
+28443 ?        00:00:00 gsd-xsettings
+28448 ?        00:00:00 gsd-wacom
+28450 ?        00:01:54 gsd-smartcard
+28459 ?        00:00:00 gsd-a11y-settin
+28467 ?        00:00:00 gsd-clipboard
+28471 ?        00:01:13 gsd-color
+28474 ?        00:00:00 gsd-datetime
+28475 ?        00:00:15 gsd-housekeepin
+28477 ?        00:00:00 gsd-keyboard
+28478 ?        00:00:00 gsd-media-keys
+28484 ?        00:00:00 gsd-mouse
+28485 ?        00:00:00 gsd-account
+28512 ?        00:00:00 gsd-printer
+28531 ?        00:00:01 nautilus-deskto
+28543 ?        00:00:01 gvfsd-trash
+28551 ?        00:00:01 geoclue
+28567 ?        00:00:14 gnome-software
+28573 ?        00:00:00 gsd-disk-utilit
+28579 ?        00:00:00 seapplet
+28587 ?        00:00:00 abrt-applet
+28593 ?        00:00:01 evolution-alarm
+28611 ?        00:00:00 tracker-extract
+28613 ?        00:00:00 tracker-miner-a
+28618 ?        00:00:00 tracker-miner-f
+28626 ?        00:00:00 tracker-miner-u
+28653 ?        00:00:00 tracker-store
+28666 ?        00:01:54 escd
+28699 ?        00:00:00 gvfsd-burn
+28734 ?        00:00:00 ibus-engine-sim
+28745 ?        00:00:00 dconf-service
+28759 ?        00:00:00 evolution-calen
+28876 ?        00:00:00 evolution-calen
+28891 ?        00:00:01 evolution-addre
+28919 ?        00:00:00 evolution-addre
+28949 ?        00:00:12 fwupd
+28975 ?        00:00:03 gnome-control-c
+29521 ?        00:00:00 gvfsd-network
+29686 ?        00:00:00 gvfsd-dnssd
+31078 ?        00:00:00 gvfsd-metadata
+48676 ?        00:00:00 sshd
+48769 ?        00:00:01 sshd
+48774 pts/6    00:00:00 bash
+48868 ?        00:00:00 sshd
+48927 ?        00:00:01 sshd
+48930 pts/8    00:00:00 bash
+49130 ?        00:00:00 sshd
+49197 ?        00:00:00 sshd
+49302 ?        00:00:00 sshd
+49311 pts/14   00:00:00 bash
+49470 ?        00:00:01 sshd
+49473 pts/17   00:00:00 bash
+49902 ?        00:00:00 sshd
+50139 ?        00:00:00 sshd
+50143 pts/26   00:00:00 bash
+50257 ?        00:00:00 sshd
+50319 ?        00:00:00 sshd
+50326 pts/29   00:00:00 bash
+50657 ?        00:00:00 sshd
+50838 ?        00:00:00 sshd
+50842 pts/35   00:00:00 bash
+
+
+
+[group043@infoway ~]$ ls
+OS  planets
+[group043@infoway ~]$ ls -R
+.:
+OS  planets
+
+./OS:
+Day1
+
+./OS/Day1:
+
+./planets:
+Earth  Jupiter
+
+./planets/Earth:
+Moon
+
+./planets/Earth/Moon:
+
+./planets/Jupiter:
+Moon
+
+./planets/Jupiter/Moon:
+
+
+
+[group043@infoway ~]$ vi hello.txt
+[group043@infoway ~]$ tac hello.txt
+3. hello!!!
+2. hi
+1. how are you ?
+[group043@infoway ~]$ cat hello.txt
+1. how are you ?
+2. hi
+3. hello!!!
+
+
+
+ rm hello.txt
+[group043@infoway ~]$ ls
+OS  planets
+
+
+[group043@infoway ~]$ mkdir notes
+[group043@infoway ~]$ mkdir practical
+
+
+[group043@infoway ~]$ mkdir ./practical/day1 ./practical/day2
+[group043@infoway ~]$ ls
+notes  OS  planets  practical
+
+[group043@infoway ~]$ rmdir practical
+rmdir: failed to remove ‘practical’: Directory not empty
+[group043@infoway ~]$ rmdir notes
+[group043@infoway ~]$ rm -r practical
+[group043@infoway ~]$ ls
+OS  planets
+
+[group043@infoway ~]$ man ls
+LS(1)                                                                      User Commands                                                                      LS(1)
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List information about the FILEs (the current directory by default).  Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
+
+       Mandatory arguments to long options are mandatory for short options too.
+
+       -a, --all
+              do not ignore entries starting with .
+
+       -A, --almost-all
+              do not list implied . and ..
+
+       --author
+              with -l, print the author of each file
+
+       -b, --escape
+              print C-style escapes for nongraphic characters
+
+       --block-size=SIZE
+              scale sizes by SIZE before printing them; e.g., '--block-size=M' prints sizes in units of 1,048,576 bytes; see SIZE format below
+
+       -B, --ignore-backups
+              do not list implied entries ending with ~
+
+       -c     with  -lt:  sort by, and show, ctime (time of last modification of file status information); with -l: show ctime and sort by name; otherwise: sort by
+              ctime, newest first
+
+       -C     list entries by columns
+
+       --color[=WHEN]
+              colorize the output; WHEN can be 'never', 'auto', or 'always' (the default); more info below
+
+       -d, --directory
+              list directories themselves, not their contents
+
+       -D, --dired
+
+
+
+
+
+
+
