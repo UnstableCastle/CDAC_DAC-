@@ -509,8 +509,25 @@ DESCRIPTION
        -D, --dired
 
 
+[group043@infoway ~]$ vi ./cprog/hello.c
+
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+
+void main(){
+
+printf("pid = %d  , ppid = %d",getpid(),getppid());
 
 
+}
+
+[group043@infoway ~]$ gcc -o ./cprog/h ./cprog/hello.c
+[group043@infoway ~]$ ./cprog/h
+pid = 56598  , ppid = 46396[group043@infoway ~]$
 
 
+group043 56846 46396 31 13:03 pts/35   00:00:31 ./cprog/h
 
+kill 57370
+ Terminated

@@ -1,3 +1,5 @@
+Good Morning :)
+
 
 
 PROMPT 
@@ -222,15 +224,125 @@ Parameters that must be improved - schedular keeps these parameters in mind whil
 
 
 
-Common Process Scheduling Algorithms = these are the techniques used by the schedular to select a proces from the ready queue for running on cpu 
+Common basic Process Scheduling Algorithms = these are the techniques used by the schedular to select a proces from the ready queue for running on cpu 
 
-1. FCFS
+1.FCFS
 2.Shortest Job First 
 3.Priority
 4.RR = round robin 
 5.Queue 
 
 
+1. Name of scheduling algorithm= FCFS = First come First serve
+   
+   Technique = The process that is in the front of the ready queue is selected for running on cpu 
+   
+   Non Preemptive algorithm = process can use the cpu for its CPU-burst-time and then leave the cpu 
+   
+   Advantage = simple , non preemptive 
+   Disadvantage = The process after the current process has to wait for the CPU-burst-time of the current process, if it is more then a smaller process has to wait for long time . Ta of small processes becomes HIGH . Average Ta increases , Throughput decreases . CONVOY EFFECT .
+   
+   Process     ArrivalTime      CPU-burst-time
+     P1          0                  5ms
+	 P2          1                  3ms
+	 P3          4                  4ms
+	 P4          3                  1ms 
+	 
+	Find the average Wt and Tat  using FCFS for above data 
+	
+	 Wait time =  Start time - arrival time 
+	     Wt1 =   0 - 0 = 0
+		 Wt2 =   5 - 1 = 4
+		 Wt3 =   9 - 4 = 5 
+		 Wt4 =   8 - 3=  5 
+		 
+		 Average Wt = (0+4+5+5)/4 = 3.5 
+		 
+	  Turnaround Time =  Wait time + CPU-burst-time
+	         Ta1 =  0 + 5 = 5 
+			 Ta2 =  4 + 3 = 7
+			 Ta3 = 5 + 4 = 9
+			 Ta4 = 5 + 1 = 6
+			 
+		Average Tat = ( 5+7+9+6)/4 =  6.75 
+			 
+			 
+2. Shortest Job First = (SJF ) 
+
+      Technique = Select the process that has smallest cpu-burst-time.
+	  
+	  
+	  Non Preemptive SJF = It can use the CPU for its CPU-burst-time
+	  
+	  Preemptive SJF = It can use the CPU till a new smaller cpu-burst-time process arrives in ready queue 
+	  
+time_remaining_of_current_process > cpu-burst-time_of new_arrival
+	  
+	  PREEMPTION Happens = current process returns to ready queue and new process runs on the CPU 
+	  
+	  
+	  Advantage of SJF =  No CONVOY Effect because smaller process gets selected first so average Wt is small
+	  average Tat small throughtput high 
+	  
+	  Disadvantage = 
+	   We cannot predict the cpu-burst-time beforehand 
+	   theoretical algorithm 
+	   
+	   Starvation of high cpu burst time process
+	   
+	   
+	Process     ArrivalTime      CPU-burst-time
+     P1          0                  7ms
+	 P2          1                  4ms
+	 P3          2                  2ms
+	
+	 Find the Average Wait time and average Tat using
+Non preemptive SJF 	 
+	        start - arrival
+	  Wt1 =  0 -0 = 0
+	  Wt2 =  9 - 1 = 8
+	  Wt3 =  7 - 2 = 5     avg = (0+8+5)/3
+	  
+	  
+	  Tat =  Wt + Tcpu
+	  Ta1 =  0 + 7 = 7
+	  Ta2 =  8+ 4  = 12
+	  Ta3 = 5 + 2 = 7 
+	                       Tat avg = (7+12+7)/3
+	  
+	  
+	
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+
+	  
+			 
+			 
+			 
+	  
+	  
+	  
+	  
+	  
+	  
+		 
+		 
+		 
+		 
+		 
+	 
+	 
+	 
+	 
+   
 
 
    

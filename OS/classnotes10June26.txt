@@ -1,0 +1,249 @@
+-------------------------------
+Ex1 
+
+open your terminal 
+and type  tty  = find out your terminal number
+Many people are connected to same INSTANCE of Linux CENT OS server , so everybody will get a different tty. observe tty of your partners left right 
+_________________________________
+type  ps  = it will show all the processes of the current terminal 
+   - the shell process is running with a pid, note the pid of the shell process
+   - the ps command is also a process 
+      note the pid of ps command process
+	  
+Linux based OS has a process created for each and every shell command.
+
+to see the process status of the entire system 
+	 type ps -e   ( e option for entire system )
+	 
+	 
+__________________________________
+EX2
+
+ type   ps   observe processes in current terminal
+ 
+ type ps -e  observe processes in entire system
+ 
+_____________________________________________
+
+In Win GUI   we can see the process details using task manager 
+_____________________________________________
+
+Our running C program is also a process
+
+Write a simple C program using editor - 
+		we use an editor - command line editor
+		Vi editor !!!
+		
+_________________________________
+Ex 3
+
+  create and open a file hello.txt in vi editor
+  Ensure that your pwd is ~  /home/loginname
+  vi hello.txt 
+  
+  press  i  ( editor will be in insert mode )
+  type whatever you want
+  after you are done 
+  press esc ( editor will be in command mode ) 
+  press :wq  ( w = save/write  q = quit edior ) 
+  
+  without opening the editor see the content
+  of the file using 
+  cat hello.txt 
+  OR
+  tac hello.txt 
+________________________________________________ 
+  Ex 4 
+  
+  Ensure your pwd is ~
+  remove the hello.txt 
+  
+  rm hello.txt 
+  ls }} check 
+___________________________________
+Ex 5 
+
+
+   Make your pwd as /home using cd /home
+   see the contents of the home folder using 
+   ls -R ( show the contents of all subfolders and their subfolders and their subfolders only if permitted ) 
+  
+    Make your pwd as ~ 
+	ls -R 
+	
+    Make your pwd as /
+	ls -R 
+	
+____________________________________
+  
+  
+rmdir OS  } will delete the empty folder 
+rm -r planets } will remove/delete non empty folder planets 
+  
+ _________________________________
+Ex 6
+
+ Ensure that your pwd is ~ 
+ create 2 folders notes and practicals in ~
+  using single mkdir and relative paths 
+    mkdir ./notes  ./practicals 
+	
+  create 2 subfolders in practicals - day1 and day2
+    using single mkdir and relative paths 
+	your pwd is still ~ 
+	
+	mkdir ./practicals/day1 ./practicals/day2
+    check using ls -R
+	
+	remove notes using rmdir
+	remove practicals using rm -r 
+	check using ls -R
+______________________________________________
+Ex 7
+     create a folder cprog
+	  create and open a file hello.c in cprog using vi editor
+	  type hello code 
+	  save and quit
+	  compile as follows 
+
+	 gcc -o ./cprog/h ./cprog/hello.c
+      gcc = gnu c compiler
+	  -o  = option to specify output execuatble file name and path 
+	  
+	  ./cprog/h  name and path of executable
+	  ./cprog/hello.c   name and path of source 
+	
+	run as follows 
+	to run h  just type the path on the prompt 
+	[faculty@infoway ~]$ ./cprog/h
+________________________________________
+	
+	We observed the pid of our c program from 
+	another terminal using  ps -e 
+	
+	We terminated the process from another terminal using  kill pid 
+			kill 5362 
+			
+_________________________________________
+To see the pid of c process using shell command = ps -e
+
+
+To see the pid of the c process programmatically using system call  =  getpid() 
+_________________________________
+Ex 8 
+       man ls  
+	   man getpid
+	   man ps
+	   man kill
+	   
+	   all will open manual in  Vi editor in READ ONLY mode
+		after reading press :q  ( to quit the editor )
+________________________________
+Ex9 
+    copy the hello.c to seepid.c 
+	 cp ./cprog/hello.c ./cprog/seepid.c
+     cp =  command
+	 ./cprog/hello.c   SOURCE 
+	 ./cprog/seepid.c   DESTINATION 
+	 
+	 check seepid.c using cat 
+	   cat ./cprog/seepid.c
+	   
+_________________________________
+Ex10  
+    modify seepid.c using vi editor 
+    add the two header files and also call the getpid()	
+	 
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+
+void main()
+{
+  while(1){
+  printf("\nhello %d \n ",getpid());
+  }
+
+}
+
+compile and run and observe the pid programmatically
+also confirm the pid using command ps -e in other putty 
+____________________________________________
+
+Parent PID  = PPID 
+
+Linux has a system in which a new process is SPAWNED by a parent process 
+
+To see the ppid using command = ps -e -f 
+To see ppid using system call programmatically 
+   use the system call getppid() 
+
+__________________________________
+Ex11 
+  change seepid.c to show the ppid  using getppid() system call.
+  compile 
+  run
+__________________________________________
+
+SHELL Programs 
+   programs written using shell script 
+   they are not compiled 
+   they are run using INTERPRETER 
+   we use the shell i.e.  bash interpreter
+________________________________
+
+EX 12 
+   write a shell script to print hello 
+   create a folder shells  in ~
+   in shells folder create and open a file ex1.sh
+
+      type    echo "hello" 
+    save and quit the editor
+	If your pwd is ~
+      run  using    bash ./shells/ex1.sh	
+
+ ________________________________
+Ex 13 
+   write a shell script to print hello followed by name entered by user  
+
+     open a file ex2.sh in shells folder
+        type 
+	echo "enter your name "
+	read name
+	echo "hello $name"
+  
+	save and quit
+	 run using  bash  ./shells/ex2.sh
+________________________________________
+Ex 14 
+    write a shell with following code 
+	
+	  echo  "hi"
+	  echo -n "hello"
+	  echo "bye"
+	  echo "end"
+
+    observe output of the shell program and tell me what 
+	  echo -n is doing differently from echo 
+____________________________________
+
+
+
+
+
+
+		
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+

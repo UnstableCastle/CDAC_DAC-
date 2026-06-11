@@ -1,0 +1,231 @@
+
+Problem on Preemptive SJF
+
+Process     ArrivalTime      CPU-burst-time
+     P1          0                  7ms
+	 P2          1                  4ms
+	 P3          2                  2ms
+	 P4          3                  5ms
+	 
+	calculate Average Wait time and Average Tat 
+    
+			Wt  =  start - arrival + Sum(resume-preempt)
+			Wt1 =  0-0  + sum (12 - 1 ) = 11ms
+			Wt2 =  1-1 + Sum( 4 -2 ) = 2ms
+			Wt3 =  2-2  = 0 ms
+			Wt4  =  7 - 3 = 4 ms
+			
+			Average Wt = ( 11 + 2 +0 + 4)/4
+			
+			Tat = Wt + CPU-burst-time
+			Ta1 = 11 + 7 = 18ms
+			Ta2 = 2 + 4 = 6ms
+			Ta3 = 0 + 2 = 2ms
+			Ta4 = 4+ 5 = 9ms
+			
+			average Tat = (18 + 6 + 2+ 9) /4
+			
+_____________________________________________
+
+3. Priority process scheduling algorithm 
+
+		every process has a priority assigned to it
+		Generally the priority is a number between 1 to 10 
+		1 = lowest  10 = highest priority
+		Who decides the priority of the process ? 
+		  kernel proces gets higher priority compared to user process.
+		  some user processes get higher priority than other user processes based on which user starts the process
+		  programatically processes can set their own priority using system calls
+			
+	Technique  = cpu schedular will select the process with highest priority amongst the processes in ready queue .	
+			
+	Non preemptive priority = a process running currently can run for its CPU-burst-time .
+
+    Preemptive Priority  = If a process with higher priority than currently running process arrives in ready queue then the current process will be preempted by the new process	
+	
+	Advantage - priority of the process is considered
+	Disadvantage - Starvation of low priority process may happen
+				
+			TO overcome starvation = AGEING technique is used
+			If a process is not gettting cpu for a threshold time then the process is promoted to next priority
+			
+	Assume = 1 is lowest  and 10 is highest 
+	
+	process    Arrival Time     CPU-burst-time     Priority 
+	  P1          0                 7                4
+	  P2          0                 4                7
+	  P3          3                 5                9
+	  P4          1                 2                1
+	
+Non Preemptive Priority 
+	          start - arrival
+	  Wt1  =   9 - 0 = 9
+	  Wt2  =   0 -0 = 0
+	  Wt3 =    4 - 3 = 1 
+	  Wt4 =   16 -1 = 15 
+	  
+	  Avg Wt = ( 9+ 0 +1+15) /4
+	  
+		      Wait  time  +  CPU-burst-time
+	  Ta1 =   9 + 7 = 16
+	  Ta2  =  0 + 4 = 4
+	  Ta3 = 1 + 5 = 6
+	  Ta4 = 15 + 2 = 17 
+	  
+	  Avg Tat = (16 +4+6 +17 ) /4  = 10.75 
+	  
+	  
+	  
+	process    Arrival Time     CPU-burst-time     Priority 
+	  P1          0                 7                4
+	  P2          0                 4                7
+	  P3          3                 5                9
+	  P4          1                 2                1  
+	  
+	  
+	Solve using Preemptive Priority 
+			  start-arrival +  sum ( resume-preempt ) 
+	Wt1  =    9 -  0 = 9 
+	Wt2 =  0 - 0 + 8 - 3 = 5
+	Wt3 =  3 - 3 = 0 
+	Wt4 = 16 - 1 = 15 
+	
+	Compute on your own  Avg Wt , Avg Tat  
+	
+_____________________________________________________
+
+RR = Round Robin Scheduling Algorithm 
+
+    Time slice = time quantum  = small time duration after which a TIMER interrupt occurs and the running process is preempted .
+
+	
+	technique = select the process that is in the front of the queue .
+	
+	Preemtive  =  after every time quantum the process using the cpu is preempted and next process runs 
+	
+	Advantage  = Improves the Response time  by giving an effect of Multitasking 
+	
+    Disadvantage =
+	
+		1. Each process waits every time after time quantum 
+			- Avg Wt is more , Avg Tat is high , throughput is low
+    	2.  Heavy context switching overhead 		
+	  
+	
+    Context = snapshot of the CPU registers at a given point of time 
+    context switching = save the last snapshot before leaving the CPU and load the snapshot before resuming on cpu 	
+	
+		time quantum = 2ms
+	  
+	process      arrivaltime      CPU-burst-time
+	  P1               0				4
+	  P2               1                5
+	  P3               2                3
+	  
+	  Use RR to compute the avt Tat and Wt 
+_____________________________________________________
+
+Queue  Scheduling Algorithm 
+
+		Multilevel Queues are created based on the Priority 
+		
+		technique = till the high priority queue is not empty the low priority queue is not executed 
+		the processes in one queue are executed using FCFS 
+		
+		Disadvantage = Starvation in low priority queues 
+						solution = Ageing 
+________________________________________________________
+		
+	  
+ Process Management - 
+     Every process has a parent process 
+	 Every parent process has a parent process 
+	  ultimateley all processes are children of process pid 0 
+	  
+	There is a system call to create a child from a parent = 
+	   fork system call
+ 
+ Vi editor 
+    save and quit  = :wq
+	quit a read only file without any changes =  :q
+	quit a file by not saving the changes =  :q! 
+	
+	  
+Orphan Process = Child process whose parent has terminated before the child's termination . this orphan process is adopted by process 1 of the kernel .  
+
+
+What happens if the parent process terminates before child process ? 
+	1. child process becomes orphan 
+	2. the resources of a child process are released by parent process after child termination . However if parent terminates before child  and child terminates later then the resources of the child are not released but child process is over - called as ZOMBIE state - unnecessary memory allocation .
+	3. IDEALLY  the parent should wait for the child to terminate and only after that the parent should terminate .
+		for this a system call = waitpid is used 
+		
+	 waitpid will block the parent code and prevent parent termination till the child is alive .
+	 after child changes state to terminate then waitpid unblocks and allows the parent to finish 
+		
+_______________________________________	
+
+	Ex 15 
+	Write a shell script that will accept a name from user and create a folder of that name in ~ 
+	also check the contents of ~ 
+	
+	echo "enter a name of folder"
+read foldername
+mkdir ~/$foldername
+
+echo "CHECK the contents of ~ "
+ls ~
+
+		
+_____________________________________________________
+Ex 16 
+   write a shell script to accept a filename from the user with path 
+   if the file exists then show the content of the file    
+	
+	echo "enter the file path "
+read filepath
+
+if [ -f $filepath ]
+then
+   cat $filepath
+else
+   echo "$filepath does not exist"
+fi
+___________________________________
+	OPTIONAL  FORK ASSIGNMENT 
+	
+	#include<stdio.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<wait.h>
+void main()
+{
+   int child_pid;
+   child_pid=fork();
+   printf("pid=%d, ppid=%d\n",getpid(),getppid());
+   
+   //waitpid(child_pid,status,options);
+   waitpid(child_pid,NULL,0);
+
+
+}//end of main
+	
+_____________________________________________
+
+
+
+
+
+	  
+	  
+	  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	  

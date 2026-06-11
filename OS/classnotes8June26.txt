@@ -1,0 +1,358 @@
+Good Morning :)
+
+Operating System - 
+	Is it Software or Hardware ?
+	OS is a Software
+	
+
+Program = Set of instructions to the system
+
+
+What is a Software ? set of programs to solve some problem !!
+
+Types of Software ? 
+1.System software - software to manage the system 
+Examples  - Drivers, OS , Compiler, Interpreter , Loader, Linker 
+
+Compiler = system software to convert/translate from ONE language (SOURCE CODE)  to another language ( TARGET CODE ) 
+
+Ex1
+ Source(HLL .c/.cpp)
+		---> gcc---> MachineLanguage
+					 
+Ex2 
+  Source (.java)--> 
+	javac-->Target (.class Bytecode)
+	
+
+Interpreter --> translates one line from source to target and execute immediately , then REPEAT 
+Interpreter NEVER produces any output file !!!!	
+
+Ex1
+Source (.py )--->python interpretor
+
+Ex2 
+Source ( .js) --> node interpretor
+
+Ex3 
+Source (.class)--> java 		interpretor(JVM )
+
+
+Loader = software to load the executable file from Secondary storage(SSD/HDD) to RAM(Memory)
+
+Ex1
+Classloader load .class from SSD/HDD
+To RAM 
+
+Ex2
+GRUBLoader  load the bootstrap program of OS from BIOS to RAM 
+
+
+Linker - system software  - converts the offset addresses to actual addresses 
+
+
+2. Application Software- Software to solve USER problems 
+Ex - Calculator, media player, word
+	  browser, notepad, ppt, whatsapp, canva , instagram
+	  LLM, groak ,excel ,google map , google pay,  
+
+What is OS ?
+Define OS = OS is a system software 
+It acts as an interface between 
+	a) system and end users(we)
+	How ? 
+	  1. using GUI 
+	  2. using CLI
+	
+	b) system and application programs
+	How?   using system calls
+
+OS performs system management tasks like
+1. process management
+2. memory management
+3. Device management
+4. Security ( authentication ) 	
+____________________________
+    add.c = application program
+       main()
+	   {
+			printf(enter 2 nos) - IO Instr
+			scanf(%d %d, &x,&y) - IO Instr
+			sum = x+y - CPU Instr
+			printf(%d, sum) -  IO Instr 
+	   }
+
+OS will come into picture 
+	   {
+			write system call
+			read system call
+			sum = x+y
+			write system call 
+	   }
+	   
+	   
+	  system call -  make a function call to the OS function 
+	  then the Kernel will take over and perform the JOB like using device drivers to communicate with hardware 
+	  
+	  Kernel = Operating system 
+	  
+_______________________________________
+What is a system ? 
+	system is a hardware 
+	CPU - Register 
+	RAM
+	ROM
+	GPU
+	Motherboard
+	Battery 
+	SSD/HDD 
+	
+	Flow of program execution in the System 
+
+	1. I write a program add.c 
+	   using Keyboard -IO device  ---- > file 
+	2. Where is my add.c stored ? SSD IO device
+	3. compiler  ---> add.exe 
+	    where is my add.exe  stored ? SSD
+	4. loader -> load the exe into RAM/Memory 
+	5. executer ->  load one instruction in the CPU 
+		CPU will run the instruction 
+		store the result in the RAM 
+		REPEAT 
+		
+_______________________________________
+
+System = basic computer organization 
+
+ SSD/HDD  = secondary storage
+ RAM /Memory = primary memory - exe is loaded
+ CPU 
+   Registers - small size fast access storage devices ( at a time they can hold only one value ) 
+   different registers -
+		IR = Instruction Register 
+		DR0 = data register 0
+		DR1 = data register1 
+		
+		sum = x + y 
+		IR = +
+		DR0 = value of x
+		DR1 = value of y
+		
+		IR ==>
+		DR0 ==>   ALU( Arithmetic and Logic ) 
+		DR1 ==>  
+		
+		After ALU circuit executes the instruction the result is stored in one more register = Accumulator 
+   
+        From Accumulator the output is saved to cache or RAM 
+		
+		PC = Program counter = It stores the address of the next instruction
+   
+		ALU = Arithmetic and logic unit 
+		Which instructions can it execute?
+             arithmetic instr = + - * / % 
+			 logic instr = && || ! 
+			 relational instr = < > <=>= != ==
+		All the above are called as 
+		CPU instructions 
+		
+_______________________________________
+IO coprocessor / IO processor / DMA controller
+
+DMA = Direct Memory Access ( SKIP CPU )
+this executes IO instructions
+  -  Transfer Data from IO device to RAM 
+     and from RAM to IO device 
+____________________________
+Any code is made up of Two types of instructions 
+  CPU instructions - executed by ALU of CPU 
+  IO instructions  - executed by DMA 
+_______________________________________
+Is the OS hardware dependent ?  
+  Yes they are different for different processor - 
+  because of different registers 
+  different register sizes
+  different instruction sets 
+  
+   Windows on intel
+   Windows on  AmdAthlon
+_______________________________________
+IO devices 
+
+Input devices = keyboard, mouse , camera , scanner (retina scanner , fingerprint , QR code ) , mic , pen drive , card reader ( atm , swipe card , credit card  ), , SSD/HDD, joystic 
+
+Output devices = printer , speaker, monitor, projector, pen drive , SSD/HDD , plotters
+
+_______________________________________
+Types of OS  
+
+	GPOS = General purpose OS  = windows 
+	RTOS = real time OS = RTLinux = deadline based scheduling 
+	MultiUser OS = at a time many users can log in to the system = Linux 
+	 Mobile OS = ios , android
+	Embedded OS = used in smart machines
+				smart washing machine, smart car 
+	Server OS = Unix , Solaris = these OS try to give 24/7 uptime 
+	Network OS = Windows NT = this OS handles multiple systems in a distributed network scenario 
+________________________________________
+   User mode = restricted mode  - program running in user mode has many restrictions 
+   user programs run in this mode - they are restricted to their own address space 
+   
+   Kernel mode = Privilaged mode 
+   Program running in this mode has many privilages = kernel programs run in this mode- they can access any space 
+____________________________
+RAM SPACE is divided into  
+ 1. User Space = part of the Memory where user programs are stored
+ 
+ 2. Kernel Space  = part of the Memory where kernel programs are stored 
+ 
+This partition is rigid -so a user program cannot travel to kernel space using pointers or any mechanism 
+_____________________________
+ Linux Lab
+ 
+ Do we have any OS named as Linux ? NO
+ We have flavors of Linux - Red Hat , Fedora , Ubuntu , Mint , Cent , BOSS , Mandrake, Mandriva , Debian , ......
+ All these use the Linux kernel with different peripheral features. 
+ 
+ _______________________________________
+ 
+ All your machines are connected to one linux server 
+ All login to that server with different logins at a time as Linux based OS is multiuser OS 
+ 
+ Use Telnet protocol  to connect to the server
+  using an app PUTTY 
+ 
+ 192.168.100.21 == IP address
+ enter your login and password 
+ you see the prompt 
+ press enter many times - see the prompt
+ type a command - clear  press enter 
+ 
+ WE are communicating with linux Cent OS using CLI !!
+ 
+ Linux based OS understands DIFFERENT command sets .These are called SHELLS 
+ EX -  bash shell , Cshell , Kshell , many more
+ 
+ The default command set is bash shell
+ We study ONLY bash commands
+ 
+ 
+ File System Commands !! accessing hard disk 
+ Ext3 file system format is used to organize files 
+     -  only one root   =   /  = forward slash
+	 
+	 
+FAT32 win FS  -  many roots  C:/, D:/ ,.. 
+ 
+ _____________________
+ Ex1
+ Do  pwd = check the present working directory 
+ Do cd and move to home  cd /home
+ Do cd and move to  /   cd /
+ Everytime check using /
+ __________________________________
+ Ex2 
+ Do cd and move to faculty   cd /home/faculty
+ check pwd 
+ clear
+ ____________________________
+ 
+Ex3 = check the content of faculty 
+	first your pwd should be faculty
+	 ls = list content
+_____________________________
+Ex4  = create a folder OS in your login direcrtory 
+
+    mkdir  /home/yourlogin/OS 
+	ls
+_______________________________________
+EX5   = Do cd and move to home folder and check content 
+
+   cd  /home 
+   ls
+   
+  Observe that every login gets a separate folder in home folder 
+  
+____________________________
+EX 6 =  all of you  cd to another group folder 
+observe that you dont have permission for other folders only your folder 
+__________________________________
+EX7 =  do cd and go to  /  and check content of  /  using ls 
+_______________________________________
+EX 8 =  do cd to OS folder  
+         create  two more folders 
+		  day1 and day2 
+		  check using ls 
+_______________________________________
+
+
+
+
+
+
+
+
+   
+   
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
