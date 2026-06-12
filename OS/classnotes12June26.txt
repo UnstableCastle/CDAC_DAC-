@@ -1,0 +1,417 @@
+Return value of fork 
+
+ On  success, the PID of the child process is
+       returned in the parent, and 0 is returned in
+       the  child. 
+	   
+   On  failure, -1 is returned in
+       the parent, no child process is created, and
+       errno is set appropriately.
+
+_________________________
+
+If consecutive fork() system calls are written in the code then 
+2 raised to number of consecutive forks  =  total processes created 
+
+fork()
+fork()
+fork()
+
+two raised to 3 = 8  processes are created including first parent 
+
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<wait.h>
+void main()
+{
+   int child_pid;
+   child_pid=fork();
+   fork();
+   fork();
+   printf("pid=%d, ppid=%d\n",getpid(),getppid());
+   //waitpid(child_pid,status,options);
+   waitpid(child_pid,NULL,0);
+
+
+}//end of main
+
+______________________________________________________
+
+exec system calls - we can execute a process within the child process .
+
+exec is family of system calls 
+  The  exec() family of functions replaces the
+       current process image  with  a  new  process
+       image. 
+	   
+	  THE difference lies in the way file names and arguments are provided 
+	  
+	 execl   =  provide file name and args as comma separeted list 
+	 
+	 execv  = provide arguments as array 
+	 
+	 #include<stdio.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<wait.h>
+void main()
+{
+   int child_pid;
+   child_pid=fork();
+   printf("pid=%d, ppid=%d\n",getpid(),getppid());
+
+if(child_pid > 0)
+{
+   printf("I am the parent \n");
+}
+else
+{
+  execl("./s","./s",NULL);
+}
+
+}
+	 
+_________________________________________________________
+
+Shell script programs  
+
+Integer Arithmetic Operations  = using expr 
+
+Ex1  - Write a shell script that will accept 2 numbers and add them and show the sum 
+ 
+  we use expr $num1 + $num2
+  
+echo "enter 2 numbers"
+read num1 num2
+
+expr $num1 + $num2
+
+expr $num1 - $num2
+
+expr $num1 / $num2
+
+expr $num1 \* $num2
+
+______________________________________________________
+Ex 2   Write a shell script that prints the sum of 3 numbers and then prints their average .
+
+
+We want to include the expr command in the assignment statement 
+   put the command in BACKQUOTES 
+   
+   echo "enter 3 numbers"
+read n1 n2 n3
+
+sum=`expr $n1 + $n2 + $n3 `
+
+echo "sum=$sum"
+
+average=`expr $sum / 3`
+
+echo "average=$average"
+
+______________________________________________________
+Ex3
+
+ 
+   bc = basic calculator 
+    
+	use the basic calc as the command on the prompt 
+  set the scale=2   //allow division upto 2 decimal places 
+  
+______________________________________________________
+
+Text handling commands 
+
+head     head  -2  players
+tail     tail -3 players 
+wc 
+
+
+____________________________
+ wc players
+  8  21 110 players
+[faculty@infoway shellscript]$ wc -l players
+8 players
+[faculty@infoway shellscript]$ wc -w players
+21 players
+[faculty@infoway shellscript]$ wc -c players
+110 players
+________________________________
+
+sort = sorts alphabetically ascending order 
+		lexicographical sort 
+		
+    sort players 
+	
+sort by second column  ,  , descending 
+ sort -k 2 -r players
+
+sort by third column numerical ascending 
+ sort -k 3 -n players
+______________________________________________________
+Pipes in Linux 
+
+    output on one command will be input to another command 
+	output of one process is input to another process
+	 inter process communication as command is a process
+
+   show all the marks names in ascending order of marks
+   sort -k 2 -n marks
+   
+   show the topper marks and name 
+    sort -k 2 -n marks | tail -1
+
+ show the niche se topper marks and name 
+    sort -k 2 -n -r marks	| tail -1
+	sort -k 2 -n marks | head -1
+
+ show the third topper  marks and name 
+   sort -k 2 -n -r marks | head -3 | tail -1 
+
+   OR
+   sort -k 2 -n marks | tail -3 | head -1
+______________________________________________________
+
+Ex  Write a shell script to accept a string from user and show its length 
+
+
+echo "enter a string"
+read str
+
+l=`echo "$str" | wc -c`
+
+len=`expr $l - 1`
+
+echo "length of $str is $len"
+______________________________________________________
+Ex WASS to accept two floating point numbers and add them using bc 
+
+
+echo "enter 2 numbers"
+read n1 n2
+
+echo "$n1 + $n2" | bc
+________________________________________
+
+Redirection  in linux  ---------
+     send the output to a file instead of console 
+	  >   = overwrite the file 
+
+	      try   ps -e > processinfo
+
+	  >>  = append to the file 
+
+________________________________________
+Ex 
+  WASS to accept many numbers from user and save it in a file
+  show the sorted numbers in ascending order 
+
+______________________________________________________
+
+file handling commands = cd , mkdir, rmdir, rm -r , rm , vi , cp, ls , ls -R , cat, tac 
+
+process handling commands = ps , ps -e , ps -e -f , kill
+
+text handling command  = head, tail, wc, sort , echo , grep
+
+grep = gnu regular expression  patterns
+
+grep command searches !!!  grep searches !! grep is for searching
+
+  We should tell grep WHAT to search = exact search string
+									OR we can give a PATTERN 
+									
+					  WHERE to search = files 
+								OR from input coming from pipe 
+
+				output of grep - it will show lines that have matches !!!!highlighting the matches 
+
+		1. search the lines of a file that has exact search string = "echo" 
+				grep "echo" ex1.sh
+                grep  what  where
+				
+			grep "echo" ex1.sh ex2.sh } where = many files 
+			grep "echo" ./ex*.* } where = all files begining with ex followed by anything followed by . followed by anything in current folder
+				
+		2. tell whether a given string has echo in it 
+			echo "Echological" | grep "Echo"
+			 echo "Echological" | grep  "echo"
+			 
+			 echo "Echological" | grep -i "echo"
+			     i= ignore case 
+				
+		3.  using ^ = begins with  
+		
+		
+		[faculty@infoway shellscript]$ grep "^s" players
+sachin tendukalrs 10
+[faculty@infoway shellscript]$ grep "s" players
+sachin tendukalrs 10
+ms dhoni 7
+rohit sharma 45
+lionel messi 10
+pv sindhu 3
+		
+		4. using $ = ends with 
+		
+		 echo "hello"| grep "o$"
+           output matches hello
+
+         echo "hollow" | grep "o$"
+		  no matches
+		  
+		5.  ^$  = empty line
+ grep "^$" players }} show empty lines in players file
+ 
+ show only non empty lines 
+ grep -v "^$" players
+ 
+ count all empty lines 
+ grep "^$" players | wc -l
+ 
+ count all non empty lines
+ grep -v "^$" players | wc -l
+ 
+  A  regular  expression  is  a  pattern  that
+       describes   a   set   of  strings.  
+	   
+   The period . matches any single character
+   
+     A bracket expression is a list of characters
+       enclosed by [ and ].  It matches any  single
+       character   in   that  list;  if  the  first
+       character of the list is the caret ^ then it
+       matches  any character not in the list.  For
+       example, the regular expression [0123456789]
+       matches any single digit.
+
+     A regular expression may be followed by  one
+       of several repetition operators:
+       ?      The  preceding  item  is optional and
+              matched at most once.
+       *      The preceding item  will  be  matched
+              zero or more times.
+       +      The  preceding  item  will be matched
+              one or more times.
+       {n}    The preceding item is matched exactly
+              n times.
+       {n,}   The  preceding  item  is matched n or
+              more times.
+       {,m}   The preceding item is matched at most
+              m times.  This is a GNU extension.
+       {n,m}  The  preceding  item  is  matched  at
+              least n times, but not  more  than  m
+              times. 
+ 
+ 
+   reg exp that matches exact 10 numbers between 0 to 9 
+ 
+		[0-9]{10}
+ 
+     echo "1234567899" | grep -E [0-9]{10}
+output = 1234567899
+[faculty@infoway shellscript]$ echo "123456" | grep -E [0-9]{10}
+
+	
+	  Month name should be start with capital and end with 2 small exactly 3 letters 
+	  
+	   [JFMASOND][a-z]{2}
+	  
+	   echo "Jan"| grep -E [JFMSODNA][a-z]{2}
+
+	  Regex for email 
+	     echo "abx123@gmail.com" | grep -E "^[A-Za-z][A-Za-z0-9]+@[a-z]+.[a-z]{2,3}$"
+
+	  Regex for Title case  [A-Z][a-z]+
+
+
+
+
+
+
+
+
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
