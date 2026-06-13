@@ -1,0 +1,256 @@
+OS ke kaam 
+  interfacing - CLI, GUI, System calls
+  Process Management -life cycle, cpu scheduling , process creation and management
+  
+  Memory Management - 
+	Memory = storage in terms of bits/bytes
+	           storage is divided into two parts = User space and Kernel space 
+			   User space = User process address spaces 
+			   Kernel space = Kernel process spaces + different data structures to manage system - ready queue
+			   interrupt handlers, Interrupt tables 
+			   
+	Addresses  -
+		offset address
+		logical address
+	physical address= location number of each byte in the RAM 
+		
+		actual address  =  
+		   What is the physical location of I2 of P2 ? 
+		   offset address of I2 of P2 is 1
+		   base address of P2 = 4 
+		   actual address of I2 of P2 = base + offset 
+										 4 + 1 = 5 
+										 
+      actual address of D1 in p1 = base of P1 + offset of D1
+									 0 + 3  =  3 
+									
+			
+		base address = It is the physical address from where the process is loaded in RAM 
+
+
+   Every Process has an internal addressing  - offset address, logical address , it always starts from 0 in every process 
+   
+   Long Term Schedular or High Level Schedular = selects a process from HDD/SSD to be loaded in RAM depending on available space in RAM
+   
+   COMPARATIVELY - Short Term Schedular or CPU schedular or Low Level Schedular - selects a process in ready Q to use CPU 
+   
+   ___________________________
+   
+   Variable Partition Scheme -  size of partitions vary 
+   as per process size 
+   
+   Fixed Partition Scheme - memory partitions are divided into equal size frames and they are fixed size  
+		
+		
+    Variable  =
+	1. continuos/consecutive locations are allocated as per process size 
+	2. free space is available but not consecutive then external fragmentation problem - process cant be loaded in RAM by LTS
+    3. No internal fragmentation as no frames 	
+	
+	Fixed  = 
+	1. consecutive frames are allocated as per process size 
+	2. free frames are available but not consecutive so process cant be loaded in RAM by LTS - external fragmentation 
+	3.  process size is not an exact multiple of frame size then the problem of space wastage within the frame = internal fragmentation
+	
+	
+	Theoretical solution for External Fragmentation  
+				=== Compaction !!!
+	
+	Free Hole Allocation Techniques  = 
+		If there are many free holes scattered in RAM that match the size of process to be loaded in RAM them LTS has a problem  -----
+		a. First Fit  = first available free hole >= process size
+		b. Best Fit= freehole nearest match to process size
+						MIN(freehole - process size )
+		c. Worst Fit= MAX(freehole -processsize) 
+	
+	Popular = Worst Fit !! reduces possibility of tiny fragments 
+	FH1 = 7kb
+	FH2 = 4Kb
+	FH3 = 10Kb
+	
+	Process = 3kb which free hole will be allocated ? 
+	Depends on the algorithm available with kernel LTS 
+	First Fit   who will be allocated = FH1 
+	Best Fit = FH2 
+	Worst Fit  = FH3 
+	__________________________________________________
+	
+	Practical Solution to External Fragmentation = Non contiguous memory allocation !!!
+	
+	How to divide the Process for non contiguous memory allocation? 
+	
+	2 criteria based on which the process is divided 
+		1. division based on content = Segmentation
+				
+		2. division based on size = Paging 
+	
+	
+	Segmentation = Process is divided into segments.
+	 which content based division - code segment, data segment , stack segment, heap segment.
+	 
+	 size of segments ? Unequal 
+	 
+	Paging  = Process is divided based on frame size 
+			 = each division is called as Page 
+			 
+			 size of pages = size of frames = equal sized 
+	  
+	
+	Hardware required for segmentation and paging  -----
+	
+	Segmentation -
+	   to keep track of locations of the Segments at non contiguos locations a data structure is used 
+	       =  Segment Table 
+		   
+		One segment table per process !!!
+		   
+		Segment table has 3 columns 
+	Segment Number |   segment base address | Limit (seg length)
+	     0					100                  2kb
+		 1                  120                  1kb
+		 2                  133                  1kb
+		 3                  178                  2kb 
+	   
+	   
+	 
+	 Paging - to keep track of pages in non consecutive frames 
+			Page table data structure is maintained per process
+			
+			  page number | frame number  
+			         0         34
+					 1         67
+					 2         89
+					 3         7
+					 4         90
+					 5         199
+					 
+	__________________________________________________
+		CPU register that holds address of next instruction 
+			= PC = Program Counter 
+			
+		MMU = It tranlates the offset address in PC to actual address in RAM
+		
+		
+		Segment Table
+		
+		segnum		|  seg base  | limit 
+		 0              100         4
+		 1              133         3
+		 2              154         2
+					 
+		This segment table is in the kernel space of memory 
+
+		When a process is in the running state 
+		 there is STBR  = Segment table Base Register 
+			 = holds the base address of the segment table of the current process 
+			 
+		When PC shows that next instruction is  0,2 
+		this is the segment number + segment offset 
+		
+		Now MMU has to TRANSLATE the offset to actual address 
+		1. Check the STBR and find the segment table 
+		2. use the Seg number to find seg base from seg table
+		     check in STLR  whether wrong seg number is not used 
+				STLR = Segment Table Length Register
+				     holds total number of segments 
+		3. use the Seg offset and find actual 
+				actual address of I2 = seg base + seg offset 
+				
+		
+		Advantages - External fragmentation is REDUCED
+					 No Internal Fragmentation as no frames 
+					 Small Segment Table size 
+					 
+		Disadvantages = External Fragmentation may still occur sometimes if no contiguous free hole is available for the segment  
+			Additional data structure Segment table and harware STBR , STLR are needed 
+____________________________________________________________
+	Command line arguments in linux  
+	
+   Ex - Write a shell script to accept few numbers from command line - show the total of all numbers 
+			 
+#echo "\$1=$1"
+#shift
+
+#echo "\$1=$1"
+
+#echo "\$#= $#  = total command line parameter"
+sum=0
+while [ $# -gt 0 ]
+do
+ echo "\$1 = $1"
+# sum=` expr $sum + $1 `
+ sum=`echo "$sum+$1" | bc`
+ shift
+done
+echo "sum= $sum"
+
+___________________________
+Search the syntax for case ( similar to switch case )
+			and until loop 
+			try one example each 
+__________________________________________________
+
+Practice problems
+
+1. write a regular expression for following pattern 
+		a password that should begin with an alphabet 
+						it should have max 8 charachters
+						alphabet can be followed by more alphabets or numbers or special charachters _  -  only 
+	Write a shell script to accept a password from user and check if it matches the above pattern using grep 
+	if match is found then print valid password else print invalid password
+	
+2. write a shell script that shows a menu 
+		a. create directory
+		b. check if directory is present
+		c. remove directory
+		d. show content of directory
+		e. quit 
+		
+		accept a choice from user 
+		   accept the full absolute path of the directory from user
+		   and do as per choice 
+		 Repeat till user enters choice e 
+		 
+		   
+		   
+		   
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+			 
+			
+			
+			
+			
+			
+			
+	   
+	   
+	   
+	   
+	   
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
