@@ -1,0 +1,233 @@
+[group043@infoway ~]$  vi ./cprog/forkex1.c
+[group043@infoway ~]$ gcc -o ./cprog/f ./cprog/forkex1.c
+[group043@infoway ~]$ ./cprog/f
+pid = 35004 and ppid =35003pid = 35003 and ppid =29467[group043@infoway ~]$
+[group043@infoway ~]$  vi ./cprog/forkex1.c
+[group043@infoway ~]$ gcc -o ./cprog/f ./cprog/forkex1.c
+[group043@infoway ~]$ ./cprog/f
+/n pid = 35056 and ppid =35055/n pid = 35055 and ppid =29467[group043@infoway ~]$ gcc -o ./cprog/f ./c vi ./cprog/forkex1.c
+[group043@infoway ~]$ gcc -o ./cprog/f ./cprog/forkex1.c
+[group043@infoway ~]$ ./cprog/f
+
+
+
+echo "hi"
+echo -n "hello"
+echo " bye"
+echo " end"
+
+[group043@infoway shellscript]$ bash ex3.sh
+hi
+hello bye
+ end
+
+
+
+
+echo "enter your name"
+read name
+echo "hello $name"
+
+
+
+#include <stdio.h>
+#include <sys/types.h>
+#include<unistd.h>
+#include<wait.h>
+
+void main(){
+int child_pid;
+child_pid =fork();
+printf("\n pid = %d and ppid =%d\n",getpid(),getppid());
+waitpid(child_pid,NULL,0);
+
+}
+
+
+
+#include <stdio.h>
+#include <sys/types.h>
+#include<unistd.h>
+#include<wait.h>
+
+void main(){
+int child_pid;
+child_pid =fork();
+
+if(child_pid >0){
+printf("Parent Process");
+
+printf("\n pid = %d and ppid =%d\n",getpid(),getppid());
+}
+else{
+printf("Child Process");
+
+printf("\n pid = %d and ppid =%d\n",getpid(),getppid());
+
+}
+
+}
+
+
+[group043@infoway ~]$ ./cprog/f2
+Parent Process
+ pid = 38017 and ppid =29467
+[group043@infoway ~]$ Child Process
+ pid = 38018 and ppid =1
+
+
+echo "enter name for folder"
+read name
+
+mkdir "$name"
+echo "check contents"
+
+
+[group043@infoway shellscript]$ ls
+ex1.sh  ex2.sh  ex3.sh  ex4.sh  test
+
+
+
+
+echo "enter file path "
+read p
+if [ -f "$p" ]
+then
+cat $p
+else
+echo "file doesnt exist"
+fi
+output:
+
+[group043@infoway shellscript]$ bash ex5.sh
+enter file path
+ex5.sh
+echo "enter file path "
+read p
+if [ -f "$p" ]
+then
+cat $p
+else
+echo "file doesnt exist"
+fi
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <sys/types.h>
+#include<unistd.h>
+#include<wait.h>
+
+void main(){
+int child_pid;
+child_pid =fork();
+fork();
+fork();
+printf("\n pid = %d and ppid =%d\n",getpid(),getppid());
+}
+
+
+
+[group043@infoway ~]$ vi ./cprog/forkex3.c
+[group043@infoway ~]$ ./cprog/f3
+
+ pid = 22725 and ppid =29467
+[group043@infoway ~]$
+ pid = 22727 and ppid =1
+
+ pid = 22728 and ppid =1
+
+ pid = 22726 and ppid =1
+
+ pid = 22729 and ppid =1
+
+ pid = 22730 and ppid =1
+
+ pid = 22731 and ppid =1
+
+ pid = 22732 and ppid =1
+
+
+
+
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<wait.h
+
+void main()
+{
+   int child_pid;
+   child_pid=fork();
+   printf("pid=%d, ppid=%d\n",getpid(),getppid());
+
+if(child_pid > 0)
+{
+   printf("I am the parent \n");
+}
+else
+{
+  execl("./s","./s",NULL);
+}
+
+}
+
+
+[group043@infoway cprog]$ ./e1
+pid=61573, ppid=59868
+I am the parent
+[group043@infoway cprog]$ pid=61574, ppid=1
+
+
+
+
+
+echo "enter 2 numbers"
+read num1 num2
+
+expr $num1 + $num2
+
+expr $num1 - $num2
+
+expr $num1 / $num2
+
+expr $num1 \* $num2
+
+
+
+[group043@infoway shellscript]$ bash cal.sh
+enter 2 numbers
+23 2
+25
+21
+11
+46
+
+
+
+
+
+echo "enter 3 numbers"
+read n1 n2 n3
+
+sum=`expr $n1 + $n2 + $n3 `
+
+echo "sum=$sum"
+
+average=`expr $sum / 3`
+
+echo "average=$average"
+
+
+bash avg.sh
+enter 3 numbers
+2 3 4
+sum=9
+average=3
+
+

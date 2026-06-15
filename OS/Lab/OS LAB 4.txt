@@ -1,0 +1,141 @@
+Password Validation with Regular Expression
+The Regular Expressionregex
+
+^[a-zA-Z][a-zA-Z0-9_-]{0,7}$
+
+
+
+
+1. write a regular expression for following pattern a password that should begin with an alphabet 
+it should have max 8 charachters
+alphabet can be followed by more alphabets or numbers or special charachters _  -  only 
+Write a shell script to accept a password from user and check if it matches the above pattern using grep 
+if match is found then print valid password else print invalid password
+
+-----------------------------------
+
+echo "Enter password: "
+read password
+echo ""
+
+if echo "$password" | grep -Eq '^[a-zA-Z][a-zA-Z0-9_-]{0,7}$'; then
+    echo "valid password"
+else
+    echo "invalid password"
+fi
+
+
+qwew1a
+valid password
+
+
+[group043@infoway shellscript]$ bash password.sh
+Enter password:
+21eawa
+
+invalid password
+
+---------------------------------------------------------
+2. write a shell script that shows a menu 
+		a. create directory
+		b. check if directory is present
+		c. remove directory
+		d. show content of directory
+		e. quit 
+		
+		accept a choice from user 
+		   accept the full absolute path of the directory from user
+		   and do as per choice 
+		 Repeat till user enters choice e 
+		 
+		   
+-----------------------------
+while true
+do
+    echo "a. create directory"
+    echo "b. check if directory is present"
+    echo "c. remove directory"
+    echo "d. show content of directory"
+    echo "e. quit"
+    
+    read -p "Enter choice: " choice
+    
+    if [ "$choice" = "e" ]; then
+        break
+    fi
+
+    if [[ ! "$choice" =~ ^[a-d]$ ]]; then
+        echo "invalid choice"
+        continue
+    fi
+
+    read -p "Enter full absolute path: " dir_path
+
+    case $choice in
+        a)
+            if [ -d "$dir_path" ]; then
+                echo "already exists"
+            else
+                mkdir -p "$dir_path"
+            fi
+            ;;
+        b)
+            if [ -d "$dir_path" ]; then
+                echo "present"
+            else
+                echo "not present"
+            fi
+            ;;
+        c)
+            if [ -d "$dir_path" ]; then
+                rm -rf "$dir_path"
+            else
+                echo "not found"
+            fi
+            ;;
+        d)
+            if [ -d "$dir_path" ]; then
+                ls -la "$dir_path"
+            else
+                echo "not found"
+            fi
+            ;;
+    esac
+done
+---------------------------------------------
+d. show content of directory
+e. quit
+Enter choice: b
+Enter full absolute path: ./cprog
+present
+a. create directory
+b. check if directory is present
+c. remove directory
+d. show content of directory
+e. quit
+
+
+Enter choice: d
+Enter full absolute path: ./cprog
+total 96
+drwxrwxr-x. 2 group043 group043   174 Jun 15 20:02 .
+drwx------. 9 group043 group043   231 Jun 15 20:20 ..
+-rwxrwxr-x. 1 group043 group043  8656 Jun 15 20:02 e1
+-rw-rw-r--. 1 group043 group043   275 Jun 15 20:00 execdemo.c
+-rwxrwxr-x. 1 group043 group043  8608 Jun 15 09:32 f
+-rwxrwxr-x. 1 group043 group043  8560 Jun 15 09:36 f2
+-rwxrwxr-x. 1 group043 group043  8560 Jun 15 10:25 f3
+-rw-rw-r--. 1 group043 group043   213 Jun 15 09:32 forkex1.c
+-rw-rw-r--. 1 group043 group043   650 Jun 15 09:44 forkex2.c
+-rw-rw-r--. 1 group043 group043   201 Jun 15 10:25 forkex3.c
+-rwxrwxr-x. 1 group043 group043  8504 Jun 11 13:03 h
+-rw-rw-r--. 1 group043 group043   139 Jun 11 13:02 hello.c
+-rw-r--r--. 1 group043 group043 12288 Jun 15 10:28 .hello.c.swp
+-rw-rw-r--. 1 group043 group043   139 Jun 15 09:13 seepid.c
+a. create directory
+b. check if directory is present
+c. remove directory
+d. show content of directory
+e. quit
+Enter choice:
+

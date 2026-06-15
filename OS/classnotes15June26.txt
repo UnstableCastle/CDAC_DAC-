@@ -1,0 +1,310 @@
+you will need the comparisons is 
+
+echo "enter a number"
+read $num 
+if [ $num -gt 100 ];then  #use semicolon to write then on same line
+  echo "$num greater than 100"
+elif [ $num -lt 100 ]
+then  # if no semicolon then write then on new line
+   echo "$num less than 100"
+else
+   echo "$num is 100"
+fi 
+
+
+You will need conditions in 
+if [  ]
+elif [ ]
+while [  ]
+until []
+
+
+Arithmetic comparison 
+	$num -gt  2
+	      -lt
+		  -le
+		  -ge
+		  -eq
+		  -ne
+		  
+String comparison
+		$str = 'e'  }  checks whether the two strings are equal
+		$str != 'e'  } checks for unequal strings 
+		
+
+Unary comparison 
+		if [ -f $filename ]  # check of file exists 
+		if [ -d $filename ]   # check if the directory exists
+		if [ -e $name  ] 
+				# check of the name is a file or dir existing
+				
+____________
+ chmod command = is used for giving permissions to file or folder 
+ 
+ what permissions can we give to a file ? 
+  what does it mean ? 
+ 
+   r w x  permissions to file 
+    r = read permission = we can run cat , tac , vi command on file
+    w = write permission = we can change file using vi and do :wq 
+    x = execute permission = we can run the file on prompt of in					
+			                   execl system call 
+		   
+	
+    r w x permission to folder 
+     r= read allowed = we can run ls , ls -R ,ls - l  etc on folder
+     w = write allowed = we can mkdir,rmdir, rm -r, rm in the folder				 
+						create a file in the folder using
+							vi  or touch 
+						cp a file in the folder
+						mv move a file to the folder 
+						mv rename the file in the folder 
+	 x = we can cd to that folder 
+							
+							
+	Who gets the rwx permissions ? 
+		3 levels 
+		1. owner of the file or folder = user who created the file or folder 
+		2. other users in the same group as owner 
+		3. other users not part of owner's group
+							
+		ugo = 
+          u = owner = I login as faculty and I create a file hi.c
+				owner of hi.c is faculty 
+				
+		  g = other users in the same group as owner
+				 group 
+				   students group - users s1,s2,s3
+				   teachers group - users saleel, janhavi, faculty
+				   admin group - users sanchali , ulka 
+
+				group of hi.c  - saleel , janhavi
+				
+		 o = others  of hi.c   s1,s2,s3,sanchali , ulka 
+____________________________________________________________
+Ex
+    create a file as hi.txt 
+	check the permissions using  ls -l command 
+	
+	vi ./hi.txt 
+	ls -l | grep "hi"
+
+	-----------
+	rw-rw-r--
+    u	g  o
+	
+	 remove read from user = chmod u-r hi.txt 
+	 try to cat hi.txt }} see permission denied
+	 add read to user = chmod u+r hi.txt 
+
+     try following commands and keep checking using ls -l 
+	  chmod ugo-r hi.txt
+       chmod ugo+rx hi.txt
+	   chmod uo-w hi.txt
+	   chmod uo-x  hi.txt 
+	   
+	-----------------------------------------
+	Ex create a file hello.sh  using touch 
+		give rw permissions to all three users using  = 
+		change the file add echo to it
+		  chmod ugo=rw hello.sh 
+		  
+		  ./hello.sh  }} try to run without bash} permission denied
+		  chmod ugo=rx ./hello.sh
+		  then run the program directly without using bash 
+	
+	______________________________________________
+	
+	octal way of giving permission 
+	
+	_ _ _ 
+	0 0 0 = 0
+	0 0 1 = 1
+	0 1 0 = 2
+	0 1 1 = 3
+	1 0 0 = 4
+	1 0 1 = 5
+	1 1 0 = 6
+	1 1 1 = 7 
+	
+	the three places represent rwx 
+	0 means remove that place
+	1 means add that place 
+	
+	permission  user should have rwx , group should have rw
+				others should have read only 
+				
+		rwx = 111 = 7
+        rw- = 110 = 6
+        r-- = 100 = 4
+
+    chmod 764 hello.sh 
+
+    permission all should have all 3 
+	   chmod 777 hello.sh 
+	   
+____________________________________________________________
+  GO through these commands  in llm 
+  -  create a new user - adduser 
+  - create a group 
+  - add user to group - addgrp 
+  - switch user   = su 
+___________________________________
+
+Segmentation = technique of non contiguous memory allocation by dividing 
+process into segments 
+on the basis of content
+data structure = segment table = columns = segno , base,lengthlimit
+registers = 
+PC , MMU , STBR = segment table base register = address of seg table
+STLR = holds the number of segments in the table = to verify if wrong seg number is not used
+adv = external fragmentation is reduced, no internal fragmentation
+		seg table is small
+		
+disav = ext frag not removed totally , segment table maintained
+
+______________________________________________
+Paging = technique of non contiguos memory allocation by dividing the process into
+pages 
+
+data structure = page table , page number frame number 
+
+hardware of page table 
+  = Page tables are HUGE = thousands of entries
+    because the process is divided on the basis of size 
+  = page tables are usually CACHED in TLB cache 
+		Translation look aside buffer 
+		It holds a part of page table of the current process
+		
+		
+PTBR = Page table Base Register = address of Page table 
+
+
+PC = holds page number and page offset of the next instruction 
+MMU  will  
+	check the TLB for the page number requested 
+	if TLB cache HIT , GET the page number entry and find frame number 
+	
+	calculate actual address =  Frame number -base  + page offset 
+	  of instruction 
+	  
+	If TLB cache MISS , GET the page table address from PTBR 
+		and load the page table in TLB 
+		find the frame number fro the page 
+		
+    calculate actual address =  Frame number -base  + page offset 
+	  of instruction 
+	  
+	  
+advantages of paging = External fragmentation is TOTALLY removed 
+disadvantages = page table is very huge so additional overhead 
+				to manage page table 
+				Internal fragmentation may be there . 
+	  
+pages in the TLB that are frequently used are not removed 
+		- improve HIT ratio	   
+		- pages can have BITs associated with them 
+			- dirty bit or change bits = 
+				they tell whether a page is changed or not 
+	  
+_________________________________________________________________
+
+Compare Pure Paging and Pure Segmentation 
+
+	1. process division
+	2. RAM division
+	3. data structure
+	4. hardware
+	5. adv
+	6. disadvantages 
+	  
+___________________________________________	
+	
+Demand Paging / Virtual Memory 
+
+
+The full process is NOT loaded in RAM = Partial process is loaded in RAM 
+In Non contiguous memory locations 
+
+Non contiguous memory location = prevents external fragmentation
+no loading the full process in RAM = 
+			1. per process less RAM pages are needed = 
+				degree of multiprogramming improves 
+			= increases the number of processes that LTS can be loaded
+				in the RAM at a time 
+
+			degree of multiprogramming = how many processes
+								can be in the RAM at a time
+
+
+			2. loader job is reduced = only the required pages will loaded 
+				unneccessary loading is avoided 
+				
+			3. Programmer can write code bigger than RAM size 
+	
+___________________________________________
+Remaining pages that are not loaded in the RAM are placed in 
+SWAP SPACE ( part of the HDD/SSD )	
+SWAP SPACE  = Virtual Memory  
+
+___________________________________
+
+Technique = 
+	User wants to run a program 
+	LTS loads 30 pages of the process in RAM out of 100 pages 
+		a page table of 30 entries is created 
+		 30 pages get frames 
+		 
+	Remaining 70 pages are on the swap space 
+	
+	Process starts execution after it gets the CPU 
+		one by one instructions are loaded in IR , executed by ALU 
+		and next instruction address is loaded in PC 
+	            this address has page number and page offset 
+		MMU = refers to the page table in TLB 
+				PTLR = check if page number is in the page table 
+				If the page number is in the Page table 
+				FIND the frame number 
+					Frame-base + page offset 
+	
+	
+	Let us say 30 pages are in the page table 
+	
+	PC Demands  page 10 , offset 70 
+	page 10 is in the page table  - HIT = the instruction loaded in CPU
+	
+	Next PC demands page 45 , offset 33 
+	PTLR = says that page is not in the RAM 
+	     = Page Fault Interrupt occurs 
+		 = Interrupt handler RUNS = Puts the current process in 
+				IO wait state 
+		     load the DEMANDED page from SWAP SPACE to free frame in RAM 
+			 update the page table 
+			 move the FAULTING proces from WAIT state to ready  state 
+			 
+	     If No free frame is available  ??? 
+			Page fault occurs ??? 
+			Kernel will now SWAP the current page in frame with the
+			demanded  page
+			Kernel performs Page Replacement !!!
+			Thought process of kernel  for page replacement ---
+			1. Global or local page replacement
+			2. which page should be selected ? Page replacement algorithm
+			3. should the outgoing page be rewritten on HDD/SSD
+					- depends on DIRTY bit of the page 
+					
+					
+					
+					
+					
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

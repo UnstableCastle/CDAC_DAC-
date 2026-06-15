@@ -1,0 +1,31 @@
+[group043@infoway ~]$ echo "abx123@gmail.com" | grep -E "^[A-Za-z][A-Za-z0-9]+@[a-z]+.[a-z]{2,3}$"
+abx123@gmail.com
+
+[group043@infoway ~]$ grep -v "^$" player
+Tenz
+Forsekan
+Zekkan
+JhonQT
+Aspesa
+KanGG
+King
+
+[group043@infoway ~]$ grep "^T" player
+Tenz
+
+[group043@infoway ~]$ sort player
+Aspesa
+Forsekan
+JhonQT
+KanGG
+King
+Tenz
+Zekkan
+[group043@infoway ~]$ sort -r player
+Zekkan
+Tenz
+King
+KanGG
+JhonQT
+Forsekan
+Aspesa

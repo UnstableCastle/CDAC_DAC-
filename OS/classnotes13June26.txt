@@ -43,7 +43,7 @@ OS ke kaam
 		
 		
     Variable  =
-	1. continues/consecutive locations are allocated as per process size 
+	1. continuos/consecutive locations are allocated as per process size 
 	2. free space is available but not consecutive then external fragmentation problem - process cant be loaded in RAM by LTS
     3. No internal fragmentation as no frames 	
 	
