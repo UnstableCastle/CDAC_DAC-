@@ -1,0 +1,308 @@
+Good Morning : )
+
+
+
+Process Synchronization = make process safe  from racecondition using mutex 
+Thread Synchronization = make thread safe from racecondition using mutex 
+
+1.
+Process is a program in execution
+Thread is a path of execution
+
+2. Every process must have at least one thread i.e. main thread
+
+3. A process can have many threads that run in round robin to give an effect of simultaneous execution WITHIN a process.
+
+4. A thread is a lightweight process  because - 
+		Life cycle of process has a created state - PCB created, address space is allocated ( code,data,stack, heap ) 
+		
+		Life cycle of thread has a created state - TCB created, but only a new stack per thread is added in the already existing address space .
+
+Multithreading - many threads run without waiting for other threads to complete , they run in round robin and many threads in a same process share the heap segment, data segment ( SHARE the DATA )
+
+
+When two threads SHARE DATA - Race Condition Problem MAY occur
+
+What is RACE CONDITION PROBLEM  ? 
+
+How to solve this problem ? Mutual Exclusion 
+  While one process/thread is using shared data use a LOCK and prevent other process/thread to use the shared data in between 
+  Only when first process releases the lock the second process can access the shared data by acquiring the lock 
+
+Mutual Exclusion can be achieved using Semaphore 
+Semaphore = is an integer that can always be accessed only by two atomic functions wait and signal .
+When semaphore atomic functions run - OS masks all interrupts
+
+Semaphores are special = they are not prone to race condition 
+
+wait(sema)
+   check if sema > 0 
+   if yes decrement sema--
+   continue the thread 
+   if sema = 0 then block the thread 
+
+signal(sema)
+	sema++ 
+	
+	
+To prevent race condition - mutex semaphore is used - this is a binary semaphore , its value toggles from 1 to 0, 0 to 1 
+
+
+counting semaphore = the value of this integer moves in the range of 0 to n and n to 0  , it is used as SHARED DATA 
+
+
+
+Producer Consumer problem - 
+1. There is a producer thread and a consumer thread 
+2. The two threads share Bounded Buffer 
+3. The producer will produce items - it puts each item in the shared buffer 
+4.  the consumer will collect item from buffer and consume it 
+5. when the tray/buffer is full - producer waits
+6. tray/buffer is empty then - consumer wait 
+
+
+
+producerthread()
+{
+	while(true)
+	{
+		produce_item()
+		 wait(mutex)
+		add_item_to_buffer() - Critical section
+		 signal(mutex)
+	}
+}
+
+
+consumerthread()
+{
+	while(true)
+	{
+	    wait(mutex)
+		pick_item_from_buffer() - critical section 
+		signal(mutex) 
+		consume_item() 
+	}
+}
+
+_______________________________________________________________
+Starvation = Process waits indefinitely waiting for CPU 
+           = Process waits in ready queue for CPU 
+		   = WHY is it waiting  = It has Low Priority so high priority processes get a chance while kow priority process keeps waiting 
+		   = How to solve Starvation = AGEING 
+
+Deadlock =  Processes wait indefinitely waiting for IO resources 
+			 processes wait in IO wait state 
+			 
+			WHY are they waiting ? because 4 necessary conditions occurred at a time . 
+			
+			What are the 4 necessary conditions pf process deadlock ? 
+			1. mutual exclusion = when the nature of resource is mutually exclusive then there is a possibility of deadlock 
+		
+			2. hold and wait = a process holds a resource however does not run BUT waits to acquire another resource
+			
+			3. no preemption = Kernel is Non Preemptive = kernel does not force a process to release a resource.
+			The process is supposed to yeild the resource by itself 
+			
+			4. circular wait = process A waits for a resource held by process B which waits for another resource held by process A. No process runs and releases the resource so both wait for each other .
+
+
+		A cycle in Resource Allocation Graph Indicates a deadlock situation .
+		
+		Solution of Deadlock = 
+		1. Deadlock prevention = Dont let deadlock happen
+								how ? by breaking any one of 4 necessary condition
+		2. Deadlock avoidance = Dont allocate resources if that allocation takes the system in an UNSAFE state.
+		Keep the system in SAFE state. Bankers Algorithm .
+		Grant the resource request ONLY if the system remains in SAFE state otherwise the resource request is rejected
+		
+		Such solutions are used by Server OS like unix, solaris = paid OS as they want the system to run 24 * 7 
+		
+		3. Deadlock handling = POST deadlock handling - if a cycle in RAG is detected - kernel will kill a low priority process 
+		release resources held by that process and see if the cycle breaks ,If not repeat .
+		 
+		 
+		4. Ignore = Linux based OS ignores deadlocks and if too many process are hanging due to deadlock - RESTART !!
+_______________________________________________________________
+
+Improper wait signal patterns can lead to a deadlock - 
+	the process is waiting for the SEMAPHORE resource UNLOCKING 
+
+    wait(mutex)
+	
+	
+	signal(mutex2)  
+	
+	_______________________________________________________________
+	wait(mutex)
+	
+	
+	signal(mutex) 
+		
+_______________________________________________________________
+
+LTS = Long Term Schedular =
+		Selects a process to be loaded in RAM from hard disk 
+		depends on available frames / RAM space 
+		
+MTS = Mid Term Schedular  = Swap a running process from RAM to harddisk
+				if the process is waiting or suspended 
+				
+STS = Short Term Schedular - CPU schedular ,  = selects a process waiting in the ready queue to use the CPU 
+
+
+Memory management - 
+	Demand Paging  = LTS loads a process partially in the RAM 
+					only a few pages of the process are loaded in the RAM - the process pages remain in the SWAP SPACE
+					
+					When are the pages of the process loaded in RAM ?
+						when there is a demand for the PAGE 
+						indicated by PAGE FAULT interrupt 
+						
+					Where is the new demanded page loaded ? 
+							loaded in the avaialable free frame 
+							
+					If there is no available free frame ? 
+					existing page is replaced by the new page in RAM 
+					
+					Page Replacement 
+					1. local page replacement is preferred over global page replacement - to prevent THRASHING 
+					2. which page should be replaced for the current process ? depends on the page replacement algorithm
+					
+					1. FIFO = First in First out 
+								the page that has the earliest arrival time stamp is replaced for the process
+								
+			Page Access String = 1,2,3,1,4,2,5,4
+			The number of frames available for my process are 3 
+			Calculate the total number of page faults and replacements
+			using FIFO 
+			page faults = 5, page replacements = 2
+					
+			2. OPT = Optimal Page replacement algorithm 
+					select a page for replacement that will not be needed in future 
+					
+					a. LRU = Least Recently Used page  is selected for replacement = the page whose access time stamp is oldest 
+					
+					
+				Page Access String = 1,2,3,1,4,2,5,4	
+				The number of frames available for my process are 3 
+			Calculate the total number of page faults and replacements
+			using LRU  	= 
+			page faults = 6
+			page replacements = 3 
+			         
+				    b. MRU = Most recently Used page is selected for replacement = the page whose access time is most recent is selected .
+			    
+					
+			Page Access String = 1,2,3,1,4,2,5,4	
+				The number of frames available for my process are 3 
+			Calculate the total number of page faults and replacements
+			using MRU 
+				page faults = 5
+				page replacements = 2
+				
+				
+			LRU and MRU = OPT approximations 	
+				
+					
+			3. Second Chance Algorithm = FIFO with a second chance 
+				  every page is associated with a page bit 
+				  when the page is loaded in RAM the page bit = 0 
+				  When it is referenced the page bit is made as  1
+				 
+				The schedular uses a FIFO acces = when the first arrival page is pointed for page replacement and if it has reference bit as 1 then it is not replaced , it is given a second chance and reference bit is set to  0
+				
+				when page replacement time comes the page with page bit 0 is replaced .
+				  
+				  
+			Page Access String = 0 4 1  4 2 4 3 0 
+
+				F1      F2      F3 
+				0(1)    E        E 
+				0(1)    4(1)     E
+				0 (1)   4 (1)    1(1)
+	            0(0)*   4(0)     1(0)
+                2(1)	4(0)*     1(0)	
+				2(1)    4(1)*      1(0)
+				2(1)    4(0)*      3(1)
+						0(1) 
+						
+						
+		Replacement happens on two conditions - arrival time should be oldest  + refernce bit or page bit should be  0
+		
+		if arrival is oldest but page bit is 1 = then reset to 0, give it second chance and pointer goes ahead 
+_______________________________________________________________
+
+anomaly = counter intuitive behaviour 
+
+
+Disadvantage of FIFO  = 
+Belady's anomaly  = FIFO algorithm behaves in a counter intuitive way - the number of page replacements increase if the number of free frames are increased 
+
+this does not apply for LRU ,MRU , second chance
+
+_______________________________________________________________
+
+Throttling  = Kernel will throttle a process 
+				how ? limits its CPU time , limits resource allocation 
+				Why ? To balance the system - one process need not use the system starving other processes 
+				
+			= Preventive measure by the kernel 
+
+
+prachi.godbole@gmail.com
+
+linked in 
+prachi_prudent  insta 
+
+
+
+
+
+
+
+
+
+
+
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
