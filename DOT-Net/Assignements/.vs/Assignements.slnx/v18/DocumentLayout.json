@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A3966B63-BB66-41F3-95F8-1FB285C672F1}|Question2\\Question2.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\assignements\\question2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3966B63-BB66-41F3-95F8-1FB285C672F1}|Question2\\Question2.csproj|solutionrelative:question2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F0BFE17-721B-434C-9F46-FA671A887352}|Question1\\Question1.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\assignements\\question1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F0BFE17-721B-434C-9F46-FA671A887352}|Question1\\Question1.csproj|solutionrelative:question1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\Question2\\Program.cs",
+              "RelativeDocumentMoniker": "Question2\\Program.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\Question2\\Program.cs",
+              "RelativeToolTip": "Question2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T09:02:46.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\Question1\\Program.cs",
+              "RelativeDocumentMoniker": "Question1\\Program.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\Question1\\Program.cs",
+              "RelativeToolTip": "Question1\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T08:53:11.008Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
