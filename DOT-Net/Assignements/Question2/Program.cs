@@ -25,10 +25,10 @@
             {
                 Console.WriteLine(e.Message);
             }
-            catch (Exception e3)
+            catch (Exception e2)
             {
 
-                Console.WriteLine(e3.Message);
+                Console.WriteLine(e2.Message);
             }
 
         }
