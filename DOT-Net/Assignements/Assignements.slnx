@@ -3,7 +3,16 @@
   <Project Path="Question10/Question10.csproj" Id="3e8c01b8-9d0c-42ae-b837-059b36b6d5b0" />
   <Project Path="Question11/Question11.csproj" Id="1f300bb5-8e5a-465d-9924-470df844106a" />
   <Project Path="Question12/Question12.csproj" Id="cd73135f-65e1-48e5-aef0-cd1f7d1523f8" />
+  <Project Path="Question13/Question13.csproj" Id="f5c36909-c312-4f6a-a12a-beac0fdb40d2" />
+  <Project Path="Question14/Question14.csproj" Id="bdde8ff9-3515-4db2-8a15-9278775a6b72" />
+  <Project Path="Question15/Question15.csproj" Id="3c08c340-f365-4e1b-9afa-cdad7d15e76d" />
+  <Project Path="Question16/Question16.csproj" Id="26ef4edc-3f0e-4c85-9c9d-a04900790765" />
+  <Project Path="Question17/Question17.csproj" Id="5219b080-7d31-4e46-93d0-250039535ff6" />
+  <Project Path="Question18/Question18.csproj" Id="d0445a62-e092-474c-821d-7361029b09f1" />
+  <Project Path="Question19/Question19.csproj" Id="870f01d7-3196-4ee2-b233-3567fc978100" />
   <Project Path="Question2/Question2.csproj" />
+  <Project Path="Question21/Question21.csproj" Id="c40a3f60-18d4-4806-88b1-b202150bfed9" />
+  <Project Path="Question22/Question22.csproj" Id="3808548b-06f0-49e4-a507-38309fa86cd3" />
   <Project Path="Question3/Question3.csproj" Id="a4f1c0ac-8ba9-450e-8041-884ab38983a7" />
   <Project Path="Question4/Question4.csproj" Id="723d7321-8929-431d-bff5-371bce477ca9" />
   <Project Path="Question5/Question5.csproj" Id="e92ea1cc-e5f8-4b3d-8966-6006439c35e7" />
