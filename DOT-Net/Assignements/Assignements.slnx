@@ -6,4 +6,6 @@
   <Project Path="Question5/Question5.csproj" Id="e92ea1cc-e5f8-4b3d-8966-6006439c35e7" />
   <Project Path="Question6/Question6.csproj" Id="76309731-7cea-46ea-b660-9a3d04b3f26c" />
   <Project Path="Question7/Question7.csproj" Id="5d97eb71-3a35-4d95-9745-c86a915f7633" />
+  <Project Path="Question8/Question8.csproj" Id="ff1c9e36-80a7-4c62-828c-735ac40b5415" />
+  <Project Path="Question9/Question9.csproj" Id="c6256905-874a-40f6-b988-0d2c6b73a8da" />
 </Solution>
