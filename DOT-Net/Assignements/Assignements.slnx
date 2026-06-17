@@ -1,4 +1,7 @@
 <Solution>
   <Project Path="Question1/Question1.csproj" />
   <Project Path="Question2/Question2.csproj" />
+  <Project Path="Question3/Question3.csproj" Id="a4f1c0ac-8ba9-450e-8041-884ab38983a7" />
+  <Project Path="Question4/Question4.csproj" Id="723d7321-8929-431d-bff5-371bce477ca9" />
+  <Project Path="Question5/Question5.csproj" Id="e92ea1cc-e5f8-4b3d-8966-6006439c35e7" />
 </Solution>
