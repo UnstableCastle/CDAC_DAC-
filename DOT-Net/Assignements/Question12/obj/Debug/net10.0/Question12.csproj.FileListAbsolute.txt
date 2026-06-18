@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\bin\Debug\net10.0\Question12.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\bin\Debug\net10.0\Question12.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\bin\Debug\net10.0\Question12.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\bin\Debug\net10.0\Question12.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\bin\Debug\net10.0\Question12.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\obj\Debug\net10.0\Question12.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\obj\Debug\net10.0\Question12.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\obj\Debug\net10.0\Question12.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\obj\Debug\net10.0\Question12.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\obj\Debug\net10.0\Question12.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\obj\Debug\net10.0\Question12.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\obj\Debug\net10.0\refint\Question12.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\obj\Debug\net10.0\Question12.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\obj\Debug\net10.0\Question12.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Question12\obj\Debug\net10.0\ref\Question12.dll

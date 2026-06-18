@@ -8,13 +8,27 @@
             {
 
                 Console.Write("Enter Employee No: ");
-                int empNo = int.Parse(Console.ReadLine());
+                int empNo = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+                
+                Console.WriteLine("10 - Purchase");
+                Console.WriteLine("20 - Sales");
+                Console.WriteLine("30 - Production");
+                Console.WriteLine("40 - Marketing");
+                Console.WriteLine("50 - Accounts");
+                Console.WriteLine("");
+                Console.Write("Enter Department No: "); Console.Write("Enter Department No: ");
+                int deptNo = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
 
-                Console.Write("Enter Department No: ");
-                int deptNo = int.Parse(Console.ReadLine());
-
+                Console.WriteLine("M - MANAGER");
+                Console.WriteLine("S - SUPERVISOR");
+                Console.WriteLine("A - ANALYST");
+                Console.WriteLine("s - Sales Person");
+                Console.WriteLine("a - Accountant");
+                Console.WriteLine("");
                 Console.Write("Enter Designation Code: ");
-                char code = char.Parse(Console.ReadLine());
+                char code = Convert.ToChar(Console.Read());
 
                 string dept = "", desig = "";
 
