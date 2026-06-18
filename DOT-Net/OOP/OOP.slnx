@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Engine/Engine.csproj" Id="ee7a85f0-314e-417c-bc0e-136a07ad3048" />
+  <Project Path="School/School.csproj" Id="b90fa4c1-a3aa-4e34-84c0-fec14375bc90" />
+</Solution>

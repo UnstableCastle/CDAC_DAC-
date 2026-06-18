@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\bin\Debug\net10.0\School.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\bin\Debug\net10.0\School.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\bin\Debug\net10.0\School.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\bin\Debug\net10.0\School.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\bin\Debug\net10.0\School.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\obj\Debug\net10.0\School.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\obj\Debug\net10.0\School.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\obj\Debug\net10.0\School.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\obj\Debug\net10.0\School.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\obj\Debug\net10.0\School.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\obj\Debug\net10.0\School.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\obj\Debug\net10.0\refint\School.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\obj\Debug\net10.0\School.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\obj\Debug\net10.0\School.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\OOP\School\obj\Debug\net10.0\ref\School.dll
