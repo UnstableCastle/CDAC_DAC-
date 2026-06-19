@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\bin\Debug\net10.0\Employee_Dictionary.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\bin\Debug\net10.0\Employee_Dictionary.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\bin\Debug\net10.0\Employee_Dictionary.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\bin\Debug\net10.0\Employee_Dictionary.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\bin\Debug\net10.0\Employee_Dictionary.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\obj\Debug\net10.0\Employee_Dictionary.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\obj\Debug\net10.0\Employee_Dictionary.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\obj\Debug\net10.0\Employee_Dictionary.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\obj\Debug\net10.0\Employee_Dictionary.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\obj\Debug\net10.0\Employee_Dictionary.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\obj\Debug\net10.0\Employee_Dictionary.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\obj\Debug\net10.0\refint\Employee_Dictionary.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\obj\Debug\net10.0\Employee_Dictionary.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\obj\Debug\net10.0\Employee_Dictionary.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\Employee_Dictionary\obj\Debug\net10.0\ref\Employee_Dictionary.dll

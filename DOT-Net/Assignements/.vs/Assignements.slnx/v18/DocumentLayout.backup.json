@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BDDE8FF9-3515-4DB2-8A15-9278775A6B72}|Question14\\Question14.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\assignements\\question14\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDDE8FF9-3515-4DB2-8A15-9278775A6B72}|Question14\\Question14.csproj|solutionrelative:question14\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4B38CEB7-F5F0-476A-B26A-E5CB8E2DF0F9}|StackDemo\\StackDemo.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\assignements\\stackdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B38CEB7-F5F0-476A-B26A-E5CB8E2DF0F9}|StackDemo\\StackDemo.csproj|solutionrelative:stackdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B38CEB7-F5F0-476A-B26A-E5CB8E2DF0F9}|StackDemo\\StackDemo.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\assignements\\stackdemo\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B38CEB7-F5F0-476A-B26A-E5CB8E2DF0F9}|StackDemo\\StackDemo.csproj|solutionrelative:stackdemo\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Books.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\StackDemo\\Books.cs",
+              "RelativeDocumentMoniker": "StackDemo\\Books.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\StackDemo\\Books.cs",
+              "RelativeToolTip": "StackDemo\\Books.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-19T17:41:05.092Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\Question14\\Program.cs",
-              "RelativeDocumentMoniker": "Question14\\Program.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\Question14\\Program.cs",
-              "RelativeToolTip": "Question14\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\StackDemo\\Program.cs",
+              "RelativeDocumentMoniker": "StackDemo\\Program.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\StackDemo\\Program.cs",
+              "RelativeToolTip": "StackDemo\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T11:55:22.239Z",
+              "WhenOpened": "2026-06-19T17:40:47.544Z",
               "EditorCaption": ""
             }
           ]

@@ -1,0 +1,11 @@
+<Solution>
+  <Project Path="../../../../_INFOWAY/Class_Projects/CollectionsExamples/ArrayExamples/ArrayExamples.csproj" />
+  <Project Path="../../../../_INFOWAY/Class_Projects/CollectionsExamples/Assignment/Assignment.csproj" />
+  <Project Path="../../../../_INFOWAY/Class_Projects/CollectionsExamples/StronglyTypedCollections/StronglyTypedCollections.csproj" />
+  <Project Path="../../../../_INFOWAY/Class_Projects/FileIOExamples/ConsoleExplorer/ConsoleExplorer.csproj" />
+  <Project Path="../../../../_INFOWAY/Class_Projects/FileIOExamples/FileClassExamples/FileClassExamples.csproj" />
+  <Project Path="../../../../_INFOWAY/Class_Projects/OOP/ConstructorExamples/ConstructorExamples.csproj" />
+  <Project Path="../../../../_INFOWAY/Class_Projects/OOP/InterfaceExamples/InterfaceExamples.csproj" />
+  <Project Path="../../../../_INFOWAY/Class_Projects/OOP/PolymorphismExamples/PolymorphismExamples.csproj" />
+  <Project Path="../../../../_INFOWAY/Class_Projects/OOP/StudentInterviewApp/StudentInterviewApp.csproj" />
+</Solution>

@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\bin\Debug\net10.0\QueueDemo.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\bin\Debug\net10.0\QueueDemo.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\bin\Debug\net10.0\QueueDemo.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\bin\Debug\net10.0\QueueDemo.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\bin\Debug\net10.0\QueueDemo.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\obj\Debug\net10.0\QueueDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\obj\Debug\net10.0\QueueDemo.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\obj\Debug\net10.0\QueueDemo.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\obj\Debug\net10.0\QueueDemo.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\obj\Debug\net10.0\QueueDemo.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\obj\Debug\net10.0\QueueDemo.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\obj\Debug\net10.0\refint\QueueDemo.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\obj\Debug\net10.0\QueueDemo.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\obj\Debug\net10.0\QueueDemo.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\QueueDemo\obj\Debug\net10.0\ref\QueueDemo.dll

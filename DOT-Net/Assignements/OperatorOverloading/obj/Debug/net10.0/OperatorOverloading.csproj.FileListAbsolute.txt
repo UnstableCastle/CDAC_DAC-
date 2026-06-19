@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\bin\Debug\net10.0\OperatorOverloading.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\bin\Debug\net10.0\OperatorOverloading.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\bin\Debug\net10.0\OperatorOverloading.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\bin\Debug\net10.0\OperatorOverloading.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\bin\Debug\net10.0\OperatorOverloading.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\obj\Debug\net10.0\OperatorOverloading.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\obj\Debug\net10.0\OperatorOverloading.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\obj\Debug\net10.0\OperatorOverloading.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\obj\Debug\net10.0\OperatorOverloading.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\obj\Debug\net10.0\OperatorOverloading.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\obj\Debug\net10.0\OperatorOverloading.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\obj\Debug\net10.0\refint\OperatorOverloading.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\obj\Debug\net10.0\OperatorOverloading.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\obj\Debug\net10.0\OperatorOverloading.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\OperatorOverloading\obj\Debug\net10.0\ref\OperatorOverloading.dll
