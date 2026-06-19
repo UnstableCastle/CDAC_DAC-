@@ -1,0 +1,14 @@
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\bin\Debug\net8.0\Assignment.exe
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\bin\Debug\net8.0\Assignment.deps.json
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\bin\Debug\net8.0\Assignment.runtimeconfig.json
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\bin\Debug\net8.0\Assignment.dll
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\bin\Debug\net8.0\Assignment.pdb
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\obj\Debug\net8.0\Assignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\obj\Debug\net8.0\Assignment.AssemblyInfoInputs.cache
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\obj\Debug\net8.0\Assignment.AssemblyInfo.cs
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\obj\Debug\net8.0\Assignment.csproj.CoreCompileInputs.cache
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\obj\Debug\net8.0\Assignment.dll
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\obj\Debug\net8.0\refint\Assignment.dll
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\obj\Debug\net8.0\Assignment.pdb
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\obj\Debug\net8.0\Assignment.genruntimeconfig.cache
+C:\Dotnet-June-2026\C#\CollectionsExamples\Assignment\obj\Debug\net8.0\ref\Assignment.dll

@@ -1,0 +1,14 @@
+C:\Dotnet-June-2026\C#\Assignments\Question2\bin\Debug\net8.0\Question2.exe
+C:\Dotnet-June-2026\C#\Assignments\Question2\bin\Debug\net8.0\Question2.deps.json
+C:\Dotnet-June-2026\C#\Assignments\Question2\bin\Debug\net8.0\Question2.runtimeconfig.json
+C:\Dotnet-June-2026\C#\Assignments\Question2\bin\Debug\net8.0\Question2.dll
+C:\Dotnet-June-2026\C#\Assignments\Question2\bin\Debug\net8.0\Question2.pdb
+C:\Dotnet-June-2026\C#\Assignments\Question2\obj\Debug\net8.0\Question2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dotnet-June-2026\C#\Assignments\Question2\obj\Debug\net8.0\Question2.AssemblyInfoInputs.cache
+C:\Dotnet-June-2026\C#\Assignments\Question2\obj\Debug\net8.0\Question2.AssemblyInfo.cs
+C:\Dotnet-June-2026\C#\Assignments\Question2\obj\Debug\net8.0\Question2.csproj.CoreCompileInputs.cache
+C:\Dotnet-June-2026\C#\Assignments\Question2\obj\Debug\net8.0\Question2.dll
+C:\Dotnet-June-2026\C#\Assignments\Question2\obj\Debug\net8.0\refint\Question2.dll
+C:\Dotnet-June-2026\C#\Assignments\Question2\obj\Debug\net8.0\Question2.pdb
+C:\Dotnet-June-2026\C#\Assignments\Question2\obj\Debug\net8.0\Question2.genruntimeconfig.cache
+C:\Dotnet-June-2026\C#\Assignments\Question2\obj\Debug\net8.0\ref\Question2.dll

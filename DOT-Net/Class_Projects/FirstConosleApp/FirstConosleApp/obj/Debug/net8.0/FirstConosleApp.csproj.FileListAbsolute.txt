@@ -1,0 +1,14 @@
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\bin\Debug\net8.0\FirstConosleApp.exe
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\bin\Debug\net8.0\FirstConosleApp.deps.json
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\bin\Debug\net8.0\FirstConosleApp.runtimeconfig.json
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\bin\Debug\net8.0\FirstConosleApp.dll
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\bin\Debug\net8.0\FirstConosleApp.pdb
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\obj\Debug\net8.0\FirstConosleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\obj\Debug\net8.0\FirstConosleApp.AssemblyInfoInputs.cache
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\obj\Debug\net8.0\FirstConosleApp.AssemblyInfo.cs
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\obj\Debug\net8.0\FirstConosleApp.csproj.CoreCompileInputs.cache
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\obj\Debug\net8.0\FirstConosleApp.dll
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\obj\Debug\net8.0\refint\FirstConosleApp.dll
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\obj\Debug\net8.0\FirstConosleApp.pdb
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\obj\Debug\net8.0\FirstConosleApp.genruntimeconfig.cache
+C:\Dotnet-June-2026\C#\FirstConosleApp\FirstConosleApp\obj\Debug\net8.0\ref\FirstConosleApp.dll

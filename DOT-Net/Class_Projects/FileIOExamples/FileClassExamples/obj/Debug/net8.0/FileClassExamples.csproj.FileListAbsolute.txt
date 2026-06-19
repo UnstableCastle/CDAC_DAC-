@@ -1,0 +1,14 @@
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\bin\Debug\net8.0\FileClassExamples.exe
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\bin\Debug\net8.0\FileClassExamples.deps.json
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\bin\Debug\net8.0\FileClassExamples.runtimeconfig.json
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\bin\Debug\net8.0\FileClassExamples.dll
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\bin\Debug\net8.0\FileClassExamples.pdb
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\obj\Debug\net8.0\FileClassExamples.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\obj\Debug\net8.0\FileClassExamples.AssemblyInfoInputs.cache
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\obj\Debug\net8.0\FileClassExamples.AssemblyInfo.cs
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\obj\Debug\net8.0\FileClassExamples.csproj.CoreCompileInputs.cache
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\obj\Debug\net8.0\FileClassExamples.dll
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\obj\Debug\net8.0\refint\FileClassExamples.dll
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\obj\Debug\net8.0\FileClassExamples.pdb
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\obj\Debug\net8.0\FileClassExamples.genruntimeconfig.cache
+C:\Dotnet-June-2026\C#\FileIOExamples\FileClassExamples\obj\Debug\net8.0\ref\FileClassExamples.dll

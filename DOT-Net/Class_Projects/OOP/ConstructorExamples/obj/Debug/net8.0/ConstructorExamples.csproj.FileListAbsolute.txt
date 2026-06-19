@@ -1,0 +1,14 @@
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\bin\Debug\net8.0\ConstructorExamples.exe
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\bin\Debug\net8.0\ConstructorExamples.deps.json
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\bin\Debug\net8.0\ConstructorExamples.runtimeconfig.json
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\bin\Debug\net8.0\ConstructorExamples.dll
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\bin\Debug\net8.0\ConstructorExamples.pdb
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\obj\Debug\net8.0\ConstructorExamples.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\obj\Debug\net8.0\ConstructorExamples.AssemblyInfoInputs.cache
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\obj\Debug\net8.0\ConstructorExamples.AssemblyInfo.cs
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\obj\Debug\net8.0\ConstructorExamples.csproj.CoreCompileInputs.cache
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\obj\Debug\net8.0\ConstructorExamples.dll
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\obj\Debug\net8.0\refint\ConstructorExamples.dll
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\obj\Debug\net8.0\ConstructorExamples.pdb
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\obj\Debug\net8.0\ConstructorExamples.genruntimeconfig.cache
+C:\Dotnet-June-2026\C#\OOP\ConstructorExamples\obj\Debug\net8.0\ref\ConstructorExamples.dll

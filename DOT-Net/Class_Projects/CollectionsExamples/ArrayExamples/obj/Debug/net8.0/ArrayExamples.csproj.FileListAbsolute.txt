@@ -1,0 +1,14 @@
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\bin\Debug\net8.0\ArrayExamples.exe
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\bin\Debug\net8.0\ArrayExamples.deps.json
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\bin\Debug\net8.0\ArrayExamples.runtimeconfig.json
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\bin\Debug\net8.0\ArrayExamples.dll
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\bin\Debug\net8.0\ArrayExamples.pdb
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\obj\Debug\net8.0\ArrayExamples.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\obj\Debug\net8.0\ArrayExamples.AssemblyInfoInputs.cache
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\obj\Debug\net8.0\ArrayExamples.AssemblyInfo.cs
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\obj\Debug\net8.0\ArrayExamples.csproj.CoreCompileInputs.cache
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\obj\Debug\net8.0\ArrayExamples.dll
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\obj\Debug\net8.0\refint\ArrayExamples.dll
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\obj\Debug\net8.0\ArrayExamples.pdb
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\obj\Debug\net8.0\ArrayExamples.genruntimeconfig.cache
+C:\Dotnet-June-2026\C#\CollectionsExamples\ArrayExamples\obj\Debug\net8.0\ref\ArrayExamples.dll

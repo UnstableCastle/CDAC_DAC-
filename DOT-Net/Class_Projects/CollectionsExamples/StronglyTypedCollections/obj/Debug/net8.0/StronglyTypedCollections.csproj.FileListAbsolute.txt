@@ -1,0 +1,14 @@
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\bin\Debug\net8.0\StronglyTypedCollections.exe
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\bin\Debug\net8.0\StronglyTypedCollections.deps.json
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\bin\Debug\net8.0\StronglyTypedCollections.runtimeconfig.json
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\bin\Debug\net8.0\StronglyTypedCollections.dll
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\bin\Debug\net8.0\StronglyTypedCollections.pdb
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\obj\Debug\net8.0\StronglyTypedCollections.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\obj\Debug\net8.0\StronglyTypedCollections.AssemblyInfoInputs.cache
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\obj\Debug\net8.0\StronglyTypedCollections.AssemblyInfo.cs
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\obj\Debug\net8.0\StronglyTypedCollections.csproj.CoreCompileInputs.cache
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\obj\Debug\net8.0\StronglyTypedCollections.dll
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\obj\Debug\net8.0\refint\StronglyTypedCollections.dll
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\obj\Debug\net8.0\StronglyTypedCollections.pdb
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\obj\Debug\net8.0\StronglyTypedCollections.genruntimeconfig.cache
+C:\Dotnet-June-2026\C#\CollectionsExamples\StronglyTypedCollections\obj\Debug\net8.0\ref\StronglyTypedCollections.dll
