@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4B38CEB7-F5F0-476A-B26A-E5CB8E2DF0F9}|StackDemo\\StackDemo.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\assignements\\stackdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B38CEB7-F5F0-476A-B26A-E5CB8E2DF0F9}|StackDemo\\StackDemo.csproj|solutionrelative:stackdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4F83DB5E-6AE4-4DE7-A27C-529EEF81ADEA}|FileDEmo\\FileDEmo.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\assignements\\filedemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F83DB5E-6AE4-4DE7-A27C-529EEF81ADEA}|FileDEmo\\FileDEmo.csproj|solutionrelative:filedemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B38CEB7-F5F0-476A-B26A-E5CB8E2DF0F9}|StackDemo\\StackDemo.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\assignements\\stackdemo\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B38CEB7-F5F0-476A-B26A-E5CB8E2DF0F9}|StackDemo\\StackDemo.csproj|solutionrelative:stackdemo\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{36CC6C7F-1743-4557-8DFC-E9D9B545797A}|OperatorOverloading\\OperatorOverloading.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\assignements\\operatoroverloading\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36CC6C7F-1743-4557-8DFC-E9D9B545797A}|OperatorOverloading\\OperatorOverloading.csproj|solutionrelative:operatoroverloading\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Books.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\StackDemo\\Books.cs",
-              "RelativeDocumentMoniker": "StackDemo\\Books.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\StackDemo\\Books.cs",
-              "RelativeToolTip": "StackDemo\\Books.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T17:41:05.092Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\StackDemo\\Program.cs",
-              "RelativeDocumentMoniker": "StackDemo\\Program.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\StackDemo\\Program.cs",
-              "RelativeToolTip": "StackDemo\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\FileDEmo\\Program.cs",
+              "RelativeDocumentMoniker": "FileDEmo\\Program.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\FileDEmo\\Program.cs",
+              "RelativeToolTip": "FileDEmo\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T17:40:47.544Z",
+              "WhenOpened": "2026-06-19T17:58:27.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\OperatorOverloading\\Program.cs",
+              "RelativeDocumentMoniker": "OperatorOverloading\\Program.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Assignements\\OperatorOverloading\\Program.cs",
+              "RelativeToolTip": "OperatorOverloading\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-19T17:55:03.31Z",
               "EditorCaption": ""
             }
           ]

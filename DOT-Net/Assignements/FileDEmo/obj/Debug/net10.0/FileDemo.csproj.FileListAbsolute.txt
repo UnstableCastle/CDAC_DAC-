@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\bin\Debug\net10.0\FileDemo.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\bin\Debug\net10.0\FileDemo.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\bin\Debug\net10.0\FileDemo.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\bin\Debug\net10.0\FileDemo.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\bin\Debug\net10.0\FileDemo.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\obj\Debug\net10.0\FileDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\obj\Debug\net10.0\FileDemo.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\obj\Debug\net10.0\FileDemo.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\obj\Debug\net10.0\FileDemo.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\obj\Debug\net10.0\FileDemo.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\obj\Debug\net10.0\FileDemo.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\obj\Debug\net10.0\refint\FileDemo.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\obj\Debug\net10.0\FileDemo.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\obj\Debug\net10.0\FileDemo.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Assignements\FileDEmo\obj\Debug\net10.0\ref\FileDemo.dll
