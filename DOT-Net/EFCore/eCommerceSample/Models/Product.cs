@@ -16,14 +16,18 @@ public class Product
 
     [Required(ErrorMessage = "This is a required field")]
     [DisplayName("Product description")]
-    [MaxLength(100, ErrorMessage = "Product description must not exceed 100 char")] // Fixed error message mismatch
+    [MaxLength(100, ErrorMessage = "Product description must not exceed 100 char")] 
     public string ProductDescription { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "This is a Required Field")]
     public int CategoryID { get; set; }
     public Category? Category { get; set; }
 
-    public bool? IsBlackListed { get; set; } // Capitalized I for standard C# properties
+    public int UnitPrice { get; set; }
+
+    public bool? IsBlackListed { get; set; } 
+
+    public int Quantity { get; set; }
 
     public ICollection<CartItem>? CartItems { get; set; }
 }

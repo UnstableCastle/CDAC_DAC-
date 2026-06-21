@@ -11,8 +11,8 @@ using eCommerceSample.Dal;
 namespace eCommerceSample.Migrations
 {
     [DbContext(typeof(eCommerceDbContext))]
-    [Migration("20260621115545_initail")]
-    partial class initail
+    [Migration("20260621125051_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -168,6 +168,12 @@ namespace eCommerceSample.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UnitPrice")
+                        .HasColumnType("int");
 
                     b.HasKey("ProductId");
 

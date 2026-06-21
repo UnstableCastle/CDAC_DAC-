@@ -23,4 +23,6 @@ public class eCommerceDbContext : DbContext
             optionsBuilder.UseMySQL("server=localhost;port=3306;database=eComm;user=root;password=1234");
         }
     }
+
+    
 }

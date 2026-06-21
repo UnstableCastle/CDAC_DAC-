@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace eCommerceSample.Migrations
 {
     /// <inheritdoc />
-    public partial class initail : Migration
+    public partial class update : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,7 +56,9 @@ namespace eCommerceSample.Migrations
                     ProductName = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     ProductDescription = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     CategoryID = table.Column<int>(type: "int", nullable: false),
-                    IsBlackListed = table.Column<bool>(type: "tinyint(1)", nullable: true)
+                    UnitPrice = table.Column<int>(type: "int", nullable: false),
+                    IsBlackListed = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    Quantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

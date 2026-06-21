@@ -12,9 +12,27 @@ public class Invoice
     public int CustomerId { get; set; }
     public Customer? Customer { get; set; }
 
-    public int CartId { get; set; } // Fixed spelling from 'Cartid' to 'CartId' to explicitly map relationship
+    public int CartId { get; set; }
     public Cart? Cart { get; set; }
 
     [DisplayName("Date of Payment")]
-    public DateTime InvoiceDay { get; set; } // Fixed minor spelling typo from InvoceDay
+    public DateTime InvoiceDay { get; set; }
+
+    
+    public double TotalPrice
+    {
+        get
+        {
+            if (Cart != null && Cart.CartItems != null)
+            {
+                double total = 0;
+                foreach (var item in Cart.CartItems)
+                {
+                    total += (item.Quantity * item.Price);
+                }
+                return total;
+            }
+            return 0;
+        }
+    }
 }

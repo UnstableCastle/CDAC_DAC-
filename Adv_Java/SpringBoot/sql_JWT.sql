@@ -15,12 +15,12 @@ CREATE TABLE `users` (
 
 
 CREATE TABLE `users` (
-  `id` INT auto_increment,
+  `id` INT AUTO_INCREMENT,
   `username` VARCHAR(50) NOT NULL,
   `password` VARCHAR(68) NOT NULL,
-  PRIMARY KEY (`username`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY (`username`)
 );
-
 -- Insert sample users castle 123 other test123
 INSERT INTO `users` (`username`, `password`, `enabled`) VALUES
 ('CASTLE','{bcrypt}$2a$10$OO/cImocO6ii7QKLalHgwOQZmeHQhTsRs1hew/zwphJ.Eo8YhuNuq', 1),
