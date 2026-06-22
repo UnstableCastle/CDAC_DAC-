@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple iPhone 17 Pro 256GB Deep Blue - MyWebsite</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Product Gallery Sidebar */
+        .thumb-gallery img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 2px;
+            transition: 0.2s;
+        }
+        
+        .thumb-gallery img:hover, .thumb-gallery img.active {
+            border-color: #0d6efd;
+            box-shadow: 0 0 4px rgba(13, 110, 253, 0.5);
+        }
+
+        /* Main Product Image */
+        .main-product-img {
+            max-height: 480px;
+            object-fit: contain;
+            width: 100%;
+        }
+
+        /* Offers and Info Badges */
+        .offer-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 12px;
+            background-color: #fff;
+            height: 100%;
+            font-size: 0.85rem;
+        }
+
+        .feature-icon-box {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #0d6efd;
+            width: 75px;
+        }
+
+        .feature-icon-box span {
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Boxed Action Sidebar */
+        .action-sidebar {
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            background-color: #fff;
+        }
+
+        .fulfilled-badge {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            color: #212529;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background: #212529;
+            color: white;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                MyWebsite
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <div class="row g-4">
+            
+            <div class="col-md-5">
+                <div class="d-flex">
+                    <div class="thumb-gallery d-flex flex-column gap-2 me-3">
+                        <img src="\17pro_1.jpg" class="active" alt="Thumb 1" onclick="changeImage(this)">
+                        <img src="\17pro_2.jpg" alt="Thumb 2" onclick="changeImage(this)">
+                        <img src="\17pro_3.jpg" alt="Thumb 3" onclick="changeImage(this)">
+                        <img src="\17pro_4.jpg" alt="Thumb 4" onclick="changeImage(this)">
+                        <img src="\17pro_5.jpg" alt="Thumb 5" onclick="changeImage(this)">
+                        <img src="\17pro_6.jpg" alt="Thumb 6" onclick="changeImage(this)">
+                    </div>
+                    
+                    <div class="flex-grow-1 text-center bg-white p-3 rounded shadow-sm border">
+                        <img id="productMainDisplay" src="\17pro_1.jpg" class="main-product-img img-fluid" alt="Apple iPhone 17 Pro Deep Blue">
+                        <!-- <div class="text-muted small mt-3 text-center">Click to see full view</div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="row g-4">
+                    
+                    <div class="col-lg-8">
+                        <h1 class="h4 fw-bold text-dark lh-base">Apple iPhone 17 Pro 256 GB: 15.93 cm (6.3") Display with ProMotion up to 120Hz, A19 Pro Chip, Breakthrough Battery Life, Pro Fusion Camera System with Center Stage Front Camera; Deep Blue</h1>
+                        <p class="text-primary small my-1">Visit the Apple Store</p>
+                        <div class="text-warning small mb-2">★★★★★ <span class="text-primary small">(564 ratings) | Search this page</span></div>
+                        
+                        <hr class="my-2">
+                        
+                        <div class="my-2">
+                            <!-- <span class="text-danger h3 fw-light">-4%</span> -->
+                            <span class="h2 fw-bold ms-2">₹1,34,000</span>
+                            <!-- <div class="text-muted small">M.R.P.: <del>₹1,34,900</del> | <span class="text-primary">Price history</span></div> -->
+                            <div class="fulfilled-badge mt-2">📦 Fulfilled</div>
+                            <p class="small text-muted mt-1">Inclusive of all taxes</p>
+                            <p class="small text-dark fw-bold">EMI starts at ₹4,110. No Cost EMI available <span class="text-primary fw-normal">EMI options ▾</span></p>
+                        </div>
+
+                        <hr class="my-2">
+
+                        <div class="mb-3">
+                            <h6 class="fw-bold text-dark small mb-2">🏷️ Offers</h6>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="offer-card shadow-sm">
+                                        <div class="fw-bold mb-1">No Cost EMI</div>
+                                        <div class="text-secondary small text-truncate">Upto ₹5,500.00 EMI interest savings on select Credit Cards...</div>
+                                        <a href="#" class="text-primary small d-block mt-1">2 offers ▾</a>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="offer-card shadow-sm">
+                                        <div class="fw-bold mb-1">Bank Offer</div>
+                                        <div class="text-secondary small text-truncate">Upto ₹4,000.00 discount on select Credit Cards, SBI D...</div>
+                                        <a href="#" class="text-primary small d-block mt-1">9 offers ▾</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-2">
+                        
+                        <div class="d-flex justify-content-between my-3 overflow-x-auto py-1">
+                            <div class="feature-icon-box"><span>🔄</span>10 days Service Centre</div>
+                            <div class="feature-icon-box"><span>🚚</span>Free Delivery</div>
+                            <div class="feature-icon-box"><span>🛡️</span>Warranty Policy</div>
+                            <div class="feature-icon-box"><span>💳</span>Pay on Delivery</div>
+                            <div class="feature-icon-box"><span>🥇</span>Top Brand</div>
+                        </div>
+
+                        <hr class="my-2">
+
+                        <table class="table table-sm table-borderless my-3 small">
+                            <tbody>
+                                <tr><td class="fw-bold text-muted w-50">Brand</td><td>Apple</td></tr>
+                                <tr><td class="fw-bold text-muted">Operating System</td><td>iOS</td></tr>
+                                <tr><td class="fw-bold text-muted">RAM Memory Installed Size</td><td>12 GB</td></tr>
+                                <tr><td class="fw-bold text-muted">CPU : A19Pro Speed</td><td>4.26 GHz</td></tr>
+                                <tr><td class="fw-bold text-muted">Memory Storage Capacity</td><td>256 GB </td></tr>
+                            </tbody>
+                        </table>
+
+                        <hr class="my-2">
+
+                        <h6 class="fw-bold text-dark mb-2">About this item</h6>
+                        <ul class="text-secondary lh-base ps-3" style="font-size: 0.85rem;">
+                            <li class="mb-2"><strong class="text-dark">UNIBODY DESIGN FOR EXCEPTIONAL POWER —</strong> Heat-forged aluminium unibody enclosure for the most powerful iPhone ever made.</li>
+                            <li class="mb-2"><strong class="text-dark">DURABLE CERAMIC SHIELD, FRONT AND BACK —</strong> Ceramic Shield protects the back of iPhone 17 Pro, making it 4x more resistant to cracks. And the new Ceramic Shield 2 on the front has 3x better scratch resistance.</li>
+                            <li class="mb-2"><strong class="text-dark">THE ULTIMATE PRO CAMERA SYSTEM —</strong> With all-48MP rear cameras and 8x optical-quality zoom — the longest zoom ever on an iPhone. It's the equivalent of 7 pro lenses in your pocket.</li>
+                            <li class="mb-2"><strong class="text-dark">18MP CENTER STAGE FRONT CAMERA —</strong> Flexible ways to frame your shot. Smarter group selfies, Dual Capture video for simultaneous front and rear recording, and more.</li>
+                            <li class="mb-2"><strong class="text-dark">A19 PRO CHIP, VAPOUR COOLED, LIGHTNING FAST —</strong> A19 Pro is the most powerful iPhone chip yet, delivering up to 40% better sustained performance.</li>
+                            <li class="mb-2"><strong class="text-dark">BREAKTHROUGH BATTERY LIFE —</strong> The unibody design creates massive additional battery capacity, for up to 31 hours of video playback. Charge up to 50% in 20 minutes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="action-sidebar p-3 shadow-sm bg-white">
+                            
+                            <div class="border rounded p-2 mb-3 bg-light bg-opacity-50">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="purchaseOption" id="withExchange">
+                                    <label class="form-check-label small fw-bold text-dark" for="withExchange">
+                                        With Exchange
+                                        <span class="text-danger d-block fw-normal">Up to ₹ 32,000.00 off</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="border rounded p-2 mb-3 border-primary bg-light bg-opacity-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="purchaseOption" id="withoutExchange" checked>
+                                    <label class="form-check-label small fw-bold text-dark" for="withoutExchange">
+                                        Without Exchange
+                                        <span class="text-dark d-block h5 fw-bold mt-1">₹ 1,34,000.00</span>
+                                        <!-- <span class="text-muted d-block fw-normal text-decoration-line-through">₹ 1,34,900.00</span> -->
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="fulfilled-badge mb-2">📦 Fulfilled</div>
+                            
+                            <div class="small text-dark mt-2">FREE delivery <span class="fw-bold">Wednesday, 24 June</span> to <span class="text-primary">Pune 411042</span>. <span class="text-primary small">Details ▾</span></div>
+                            <div class="small text-success fw-bold my-2">In stock</div>
+
+                            <div class="d-grid gap-2 mt-3">
+                                <button class="btn btn-warning rounded-pill text-dark btn-sm py-2 fw-medium">Add to cart</button>
+                                <button class="btn btn-danger rounded-pill bg-warning border-warning text-dark btn-sm py-2 fw-medium">Buy Now</button>
+                            </div>
+
+                            <table class="table table-sm table-borderless small text-muted mt-3 mb-1">
+                                <tbody>
+                                    <tr><td>Ships from</td><td class="text-dark">Amazon</td></tr>
+                                    <tr><td>Sold by</td><td class="text-primary">Clicktech Retail Private Ltd</td></tr>
+                                </tbody>
+                            </table>
+                            
+                            <hr class="my-2">
+                            
+                            <div class="bg-light p-2 rounded border">
+                                <label class="form-check-label small fw-bold text-dark d-block mb-1">Add a Protection Plan:</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="protectionPlan">
+                                    <label class="form-check-label text-secondary" style="font-size: 0.75rem;" for="protectionPlan">
+                                        1 Year Protect+ with AppleCare Service by Apple for <span class="text-danger fw-bold">₹16,999.00</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <hr class="my-2">
+
+                            <button class="btn btn-outline-secondary btn-sm w-100 rounded text-start d-flex justify-content-between align-items-center px-2 mt-2">
+                                <span>Add to Wish List</span> <span>▾</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>MyWebsite</h4>
+                    <p>Your trusted destination for electronics and gadgets.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>Email: info@mywebsite.com</p>
+                    <p>Phone: +91 9876543210</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                © 2026 MyWebsite. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function changeImage(thumbnailElement) {
+            // Get the main product display element
+            const mainDisplayImage = document.getElementById('productMainDisplay');
+            
+            // Swap the main display source to match the clicked thumbnail
+            mainDisplayImage.src = thumbnailElement.src;
+            
+            // Strip out active indicator border styling from all thumbnails
+            const thumbnails = document.querySelectorAll('.thumb-gallery img');
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            
+            // Target highlight borders exclusively back onto the targeted choice
+            thumbnailElement.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
