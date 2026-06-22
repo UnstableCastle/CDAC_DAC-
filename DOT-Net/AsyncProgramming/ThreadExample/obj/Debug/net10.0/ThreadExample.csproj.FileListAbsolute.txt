@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\bin\Debug\net10.0\ThreadExample.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\bin\Debug\net10.0\ThreadExample.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\bin\Debug\net10.0\ThreadExample.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\bin\Debug\net10.0\ThreadExample.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\bin\Debug\net10.0\ThreadExample.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\obj\Debug\net10.0\ThreadExample.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\obj\Debug\net10.0\ThreadExample.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\obj\Debug\net10.0\ThreadExample.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\obj\Debug\net10.0\ThreadExample.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\obj\Debug\net10.0\ThreadExample.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\obj\Debug\net10.0\ThreadExample.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\obj\Debug\net10.0\refint\ThreadExample.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\obj\Debug\net10.0\ThreadExample.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\obj\Debug\net10.0\ThreadExample.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadExample\obj\Debug\net10.0\ref\ThreadExample.dll

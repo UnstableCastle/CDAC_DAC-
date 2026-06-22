@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\bin\Debug\net10.0\ThreadSynchronization.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\bin\Debug\net10.0\ThreadSynchronization.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\bin\Debug\net10.0\ThreadSynchronization.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\bin\Debug\net10.0\ThreadSynchronization.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\bin\Debug\net10.0\ThreadSynchronization.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\obj\Debug\net10.0\ThreadSynchronization.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\obj\Debug\net10.0\ThreadSynchronization.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\obj\Debug\net10.0\ThreadSynchronization.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\obj\Debug\net10.0\ThreadSynchronization.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\obj\Debug\net10.0\ThreadSynchronization.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\obj\Debug\net10.0\ThreadSynchronization.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\obj\Debug\net10.0\refint\ThreadSynchronization.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\obj\Debug\net10.0\ThreadSynchronization.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\obj\Debug\net10.0\ThreadSynchronization.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\ThreadSynchronization\obj\Debug\net10.0\ref\ThreadSynchronization.dll

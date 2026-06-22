@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\obj\Debug\net10.0\TPLExample.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\obj\Debug\net10.0\TPLExample.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\obj\Debug\net10.0\TPLExample.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\obj\Debug\net10.0\TPLExample.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\obj\Debug\net10.0\TPLExample.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\bin\Debug\net10.0\TPLExample.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\bin\Debug\net10.0\TPLExample.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\bin\Debug\net10.0\TPLExample.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\bin\Debug\net10.0\TPLExample.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\bin\Debug\net10.0\TPLExample.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\obj\Debug\net10.0\TPLExample.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\obj\Debug\net10.0\refint\TPLExample.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\obj\Debug\net10.0\TPLExample.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\obj\Debug\net10.0\TPLExample.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\TPLExample\obj\Debug\net10.0\ref\TPLExample.dll

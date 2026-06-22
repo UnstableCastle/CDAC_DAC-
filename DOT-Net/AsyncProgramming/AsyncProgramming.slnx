@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ThreadExample/ThreadExample.csproj" />
+  <Project Path="ThreadSynchronization/ThreadSynchronization.csproj" />
+  <Project Path="TPLExample/TPLExample.csproj" />
+</Solution>

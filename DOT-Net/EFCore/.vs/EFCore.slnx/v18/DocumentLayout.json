@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\efcore\\ecommercesample\\dal\\ecommercedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|solutionrelative:ecommercesample\\dal\\ecommercedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\efcore\\ecommercesample\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|solutionrelative:ecommercesample\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\efcore\\ecommercesample\\models\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|solutionrelative:ecommercesample\\models\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\efcore\\ecommercesample\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|solutionrelative:ecommercesample\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\efcore\\ecommercesample\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|solutionrelative:ecommercesample\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\efcore\\ecommercesample\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|solutionrelative:ecommercesample\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\efcore\\ecommercesample\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|solutionrelative:ecommercesample\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\efcore\\ecommercesample\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|solutionrelative:ecommercesample\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,90 +23,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Program.cs",
-              "RelativeDocumentMoniker": "eCommerceSample\\Program.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Program.cs",
-              "RelativeToolTip": "eCommerceSample\\Program.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwEcAAABBAAAAAAAAAA==",
+              "Title": "eCommerceDbContext.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Dal\\eCommerceDbContext.cs",
+              "RelativeDocumentMoniker": "eCommerceSample\\Dal\\eCommerceDbContext.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Dal\\eCommerceDbContext.cs",
+              "RelativeToolTip": "eCommerceSample\\Dal\\eCommerceDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-21T11:31:00.506Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "eCommerceSample\\Models\\Product.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\Product.cs",
-              "RelativeToolTip": "eCommerceSample\\Models\\Product.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwB0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-21T11:21:39.299Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Category.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "eCommerceSample\\Models\\Category.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\Category.cs",
-              "RelativeToolTip": "eCommerceSample\\Models\\Category.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-20T08:48:40.574Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CartItem.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\CartItem.cs",
-              "RelativeDocumentMoniker": "eCommerceSample\\Models\\CartItem.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\CartItem.cs",
-              "RelativeToolTip": "eCommerceSample\\Models\\CartItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-21T09:23:20.036Z",
+              "WhenOpened": "2026-06-22T11:17:40.588Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Invoice.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\Invoice.cs",
-              "RelativeDocumentMoniker": "eCommerceSample\\Models\\Invoice.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\Invoice.cs",
-              "RelativeToolTip": "eCommerceSample\\Models\\Invoice.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAA1wBUAAAAcAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Program.cs",
+              "RelativeDocumentMoniker": "eCommerceSample\\Program.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Program.cs",
+              "RelativeToolTip": "eCommerceSample\\Program.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-21T11:15:59.197Z",
+              "WhenOpened": "2026-06-22T11:17:33.847Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\Cart.cs",
-              "RelativeDocumentMoniker": "eCommerceSample\\Models\\Cart.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\Cart.cs",
-              "RelativeToolTip": "eCommerceSample\\Models\\Cart.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-21T09:10:39.025Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\Customer.cs",
-              "RelativeDocumentMoniker": "eCommerceSample\\Models\\Customer.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Models\\Customer.cs",
-              "RelativeToolTip": "eCommerceSample\\Models\\Customer.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-21T11:25:38.74Z"
             }
           ]
         }

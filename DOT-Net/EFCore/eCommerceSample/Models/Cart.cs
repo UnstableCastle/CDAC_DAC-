@@ -7,7 +7,7 @@ namespace eCommerceSample.Models;
 public class Cart
 {
     [Key]
-    public int CartId { get; set; } // Capitalized C for standard convention consistency
+    public int CartId { get; set; } 
 
     public int CustomerId { get; set; }
     public Customer? Customer { get; set; }
