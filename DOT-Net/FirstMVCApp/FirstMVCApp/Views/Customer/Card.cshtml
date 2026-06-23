@@ -1,0 +1,17 @@
+﻿@model List<Customer>
+
+<h1>List of Customers</h1>
+
+<div class="d-flex flex-wrap gap-3">
+    @foreach (Customer customer in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+
+                <h5 class="card-title">@customer.Name </h5>
+                <h6 class="card-subtitle mb-2 text-muted">Customer ID: @customer.CustomerId </h6>
+                <p class="card-text">City: @customer.City </p>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,33 @@
+﻿@model List<Employee>
+
+<h1>List of Employee</h1>
+
+
+<table class="table table-striped-columns border-1 c">
+    <thead>
+
+        <tr>
+
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Employee Salary</th>
+            <th>Employee Designation</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Employee employee in Model)
+        {
+            <tr>
+                <td>@employee.EmpId</td>
+                <td>@employee.EmpName</td>
+                <td>@employee.salary</td>
+                <td>@employee.Designation</td>
+            </tr>
+
+        }
+
+
+
+    </tbody>
+</table>
