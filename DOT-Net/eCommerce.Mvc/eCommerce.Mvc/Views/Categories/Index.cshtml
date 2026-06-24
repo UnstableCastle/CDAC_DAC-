@@ -1,0 +1,28 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"]="Categories List";
+}
+
+<h1>@ViewData["PageTitle"]</h1>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Description</th>
+            <th>Show Products</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Category cat in Model)
+        {
+            <tr>
+                <td>@cat.CategoryName</td>
+                <td>@cat.CategoryDescription</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Products" asp-action="CatWiseProducts" asp-route-categoryId="@cat.CategoryId">Show Products</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

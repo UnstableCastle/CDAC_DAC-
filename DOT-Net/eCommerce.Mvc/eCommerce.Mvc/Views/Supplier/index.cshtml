@@ -1,0 +1,47 @@
+@model List<Supplier>
+@{
+    ViewData["Title"] = "Suppliers List";
+}
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Supplier Name</th>
+            <th>City</th>
+            <th>Product</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (Supplier supplier in Model)
+            {
+                <tr>
+                    <td>@supplier.SupplierName</td>
+                    <td>@supplier.City</td>
+                    <td>
+                        @if (supplier.product != null)
+                        {
+                            @supplier.product.ProductName
+                        }
+                        else
+                        {
+                            <span class="text-muted">N/A</span>
+                        }
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" asp-controller="Suppliers" asp-action="Edit" asp-route-supplierId="@supplier.SupplierId">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Suppliers" asp-action="Delete" asp-route-supplierId="@supplier.SupplierId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4" class="text-center text-muted">No suppliers available.</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,8 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Details Of - " + Model.ProductName;
+}
+
+<h1>@Model.ProductName</h1>
+<h3>@Model.Description</h3>
+<h3>@Convert.ToDecimal(@Model.UnitPrice - @Convert.ToDecimal(((@Model.UnitPrice * @Model.Discount) / 100)))</h3>

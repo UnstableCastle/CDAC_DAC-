@@ -1,0 +1,42 @@
+@model List<Shipper>
+@{
+    ViewData["Title"] = "Shippers List";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Shipper Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (Shipper shipper in Model)
+            {
+                <tr>
+                    <td>@shipper.ShipperName</td>
+                    <td>@shipper.ShipperEmail</td>
+                    <td>@shipper.ShipperPhone</td>
+                    <td>@shipper.ShipperCity</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" asp-controller="Shippers" asp-action="Edit" asp-route-shipperId="@shipper.ShipperId">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Shippers" asp-action="Delete" asp-route-shipperId="@shipper.ShipperId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center text-muted">No shippers found. The database table is empty!</td>
+            </tr>
+        }
+    </tbody>
+</table>
