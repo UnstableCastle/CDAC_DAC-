@@ -20,3 +20,38 @@ html {
 body {
   margin-bottom: 60px;
 }
+.card {
+    border: none;
+    transition: 0.3s;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        height: 250px;
+        object-fit: cover;
+    }
+
+footer {
+    margin-top: 80px;
+}
+.carousel-item img {
+    height: 550px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    bottom: 20%;
+}
+
+@media (max-width:768px) {
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .carousel-caption h1 {
+        font-size: 1.5rem;
+    }
+}

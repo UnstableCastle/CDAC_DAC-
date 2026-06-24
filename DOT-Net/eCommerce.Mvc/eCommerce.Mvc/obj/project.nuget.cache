@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AF7UOW7nLL8=",
+  "dgSpecHash": "29LPTXPlsRw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amaan\\Downloads\\Infoway.eCommerce.Mvc-20260624T165914Z-3-001\\Infoway.eCommerce.Mvc\\Infoway.eCommerce.Mvc\\eCommerce.Mvc.csproj",
+  "projectFilePath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\eCommerce.Mvc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amaan\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Amaan\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

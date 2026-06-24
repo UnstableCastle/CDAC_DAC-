@@ -3510,11 +3510,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Amaan\\Downloads\\Infoway.eCommerce.Mvc-20260624T165914Z-3-001\\Infoway.eCommerce.Mvc\\Infoway.eCommerce.Mvc\\eCommerce.Mvc.csproj",
+      "projectUniqueName": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\eCommerce.Mvc.csproj",
       "projectName": "eCommerce.Mvc",
-      "projectPath": "C:\\Users\\Amaan\\Downloads\\Infoway.eCommerce.Mvc-20260624T165914Z-3-001\\Infoway.eCommerce.Mvc\\Infoway.eCommerce.Mvc\\eCommerce.Mvc.csproj",
+      "projectPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\eCommerce.Mvc.csproj",
       "packagesPath": "C:\\Users\\Amaan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Amaan\\Downloads\\Infoway.eCommerce.Mvc-20260624T165914Z-3-001\\Infoway.eCommerce.Mvc\\Infoway.eCommerce.Mvc\\obj\\",
+      "outputPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
