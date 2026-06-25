@@ -1,8 +1,67 @@
-﻿@model Product
+﻿@model eCommerce.Mvc.Models.Product
 @{
-    ViewData["Title"] = "Details Of - " + Model.ProductName;
+    ViewData["Title"] = "Details - " + Model.ProductName;
+
+    // Calculate final price cleanly at the top
+    decimal finalPrice = Model.UnitPrice - ((Model.UnitPrice * Model.Discount) / 100);
 }
 
-<h1>@Model.ProductName</h1>
-<h3>@Model.Description</h3>
-<h3>@Convert.ToDecimal(@Model.UnitPrice - @Convert.ToDecimal(((@Model.UnitPrice * @Model.Discount) / 100)))</h3>
+@section Styles {
+    <style>
+        .main-product-img {
+            max-height: 400px;
+            object-fit: contain;
+            width: 100%;
+        }
+
+    </style>
+}
+
+<main class="container my-5">
+    <div class="row g-4">
+
+        <div class="col-md-5 text-center bg-white p-3 rounded shadow-sm border">
+            <img src="@Url.Content(Model.Picture)" class="main-product-img img-fluid" alt="@Model.ProductName">
+        </div>
+
+        <div class="col-md-7">
+            <div class="card p-4 shadow-sm h-100">
+
+                <h1 class="h3 fw-bold text-dark">@Model.ProductName</h1>
+                <p class="text-muted small">Category Segment: @Model.Gender | Made In: @Model.MadeIn</p>
+                <hr>
+
+                <div class="my-2">
+                    @if (Model.Discount > 0)
+                    {
+                        <span class="text-danger h4 fw-bold">-@Model.Discount%</span>
+                        <span class="h2 fw-bold ms-2">@finalPrice.ToString("C")</span>
+                        <div class="text-muted small">M.R.P.: <del>@Model.UnitPrice.ToString("C")</del></div>
+                    }
+                    else
+                    {
+                        <span class="h2 fw-bold">@Model.UnitPrice.ToString("C")</span>
+                    }
+                    <p class="text-success small fw-bold mt-2">● In stock (Only @Model.ProductQuantity left)</p>
+                </div>
+                <hr>
+
+                <h5 class="fw-bold text-dark">About this item</h5>
+                <p class="text-secondary">@Model.Description</p>
+                <hr class="mt-auto">
+
+                <div class="row text-center my-3 g-2 bg-light p-2 rounded">
+                    <div class="col-6 border-end">📦 <strong>Return:</strong> @Model.ReturnPolicy</div>
+                    <div class="col-6">🛡️ <strong>Warranty:</strong> @Model.WarrantyPeriod</div>
+                </div>
+
+                <div class="d-gap d-md-flex gap-2 justify-content-end mt-2">
+                    <button class="btn btn-warning px-4 py-2 fw-medium">Add to Cart</button>
+                    <button class="btn btn-danger px-4 py-2 fw-medium">Buy Now</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</main>

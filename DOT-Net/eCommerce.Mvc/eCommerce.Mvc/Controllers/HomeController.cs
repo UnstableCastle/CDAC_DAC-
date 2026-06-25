@@ -1,21 +1,28 @@
-using System.Diagnostics;
 using eCommerce.Mvc.Models;
+using eCommerce.Mvc.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
-namespace   eCommerce.Mvc.Controllers
+namespace eCommerce.Mvc.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICommonRepository<Product> _productsRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICommonRepository<Product> productsRepository)
         {
             _logger = logger;
+            _productsRepository = productsRepository;
         }
 
-        public IActionResult Index()
+        
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var products = await _productsRepository.GetAllAsync();
+            ViewData["PageTitle"] = "Welcome To Products List!";
+            return View(products);
         }
 
         public IActionResult Privacy()

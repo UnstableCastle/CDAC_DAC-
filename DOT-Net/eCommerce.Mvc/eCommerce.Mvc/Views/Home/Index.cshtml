@@ -1,6 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    int count = 0;
 }
+@model IEnumerable<eCommerce.Mvc.Models.Product>
+
 
 <div id="mainSlider" class="carousel slide mb-5" data-bs-ride="carousel">
 
@@ -11,7 +14,6 @@
     </div>
 
     <div class="carousel-inner">
-
         <div class="carousel-item active">
             <img src="~/images/A.jpg" class="d-block w-100" alt="Slide 1">
             <div class="carousel-caption bg-dark bg-opacity-50 rounded p-3">
@@ -38,20 +40,16 @@
                 <a href="#" class="btn btn-primary">Learn More</a>
             </div>
         </div>
-
     </div>
 
     <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
     </button>
-
     <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
     </button>
-
 </div>
 
-<!-- Categories Section -->
 <div class="container my-5">
     <h2 class="text-center mb-4">Shop By Category</h2>
 
@@ -94,58 +92,65 @@
     </div>
 </div>
 
-<!-- Featured Products -->
 <div class="container my-5">
     <h2 class="text-center mb-4">Featured Products</h2>
 
     <div class="row g-4">
-
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
             <div class="card shadow h-100">
-                <img src="~/images/iphone17pro.jpg" class="card-img-top" alt="iPhone">
-                <div class="card-body">
+                <img src="~/images/17pro_1.jpg" class="card-img-top" alt="iPhone">
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title">iPhone 17 Pro</h5>
-                    <p class="card-text">
+                    <p class="card-text text-muted">
                         Apple iPhone 17 Pro 256GB with A19 Pro chip and ProMotion display.
                     </p>
-                    <h4 class="text-primary">₹1,34,000</h4>
-                    <a href="#" class="btn btn-primary">View Details</a>
+                    <h4 class="text-primary mt-auto">₹1,34,000</h4>
+                    <a href="#" class="btn btn-primary mt-2">View Details</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card shadow h-100">
-                <img src="~/images/laptop.jpg" class="card-img-top" alt="Laptop">
-                <div class="card-body">
-                    <h5 class="card-title">Gaming Laptop</h5>
-                    <p class="card-text">
-                        Powerful gaming laptop with high-end graphics and performance.
-                    </p>
-                    <h4 class="text-primary">₹89,999</h4>
-                    <a href="#" class="btn btn-primary">View Details</a>
+
+        @foreach (var p in Model)
+        {
+            
+            count++;
+            if (count == 5)
+            {
+
+                break;
+            }
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100">
+                    <img src="@Url.Content(p.Picture)" class="card-img-top" alt="@p.ProductName">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@p.ProductName</h5>
+                        <p class="card-text text-muted">
+                            @p.Description
+                        </p>
+                        <h4 class="text-primary mt-auto">@p.UnitPrice.ToString("C")</h4>
+                        <a asp-controller="Products" asp-action="Details" asp-route-id="@p.ProductId" class="btn btn-primary mt-2">View Details</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
 
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
             <div class="card shadow h-100">
                 <img src="~/images/headphone.jpg" class="card-img-top" alt="Headphones">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title">Wireless Headphones</h5>
-                    <p class="card-text">
+                    <p class="card-text text-muted">
                         Premium sound quality with active noise cancellation.
                     </p>
-                    <h4 class="text-primary">₹12,999</h4>
-                    <a href="#" class="btn btn-primary">View Details</a>
+                    <h4 class="text-primary mt-auto">₹12,999</h4>
+                    <a href="#" class="btn btn-primary mt-2">View Details</a>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
-<!-- Footer -->
 <footer class="bg-dark text-white mt-5 py-4">
     <div class="container text-center">
         <h5>MyWebsite</h5>
