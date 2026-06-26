@@ -1,0 +1,24 @@
+﻿@model List<YourCartVM>
+
+@{
+    ViewData["Title"] = "Your Cart Items";
+}
+
+<div class="container text-center">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="card shadow-lg m-2 bg-body-tertiary rounded" style="width: 20rem;">
+                <img src=@Url.Content(product.Picture) class="card-img-top" alt=@product.ProductName>
+                <div class="card-body">
+                    <h5 class="card-title">@product.ProductName</h5>
+                    <p class="card-text">@product.CategoryName</p>
+                    <p class="card-text">@product.UnitPrice</p>
+                    <p class="card-text">@product.Quantity</p>
+                    <hr>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>

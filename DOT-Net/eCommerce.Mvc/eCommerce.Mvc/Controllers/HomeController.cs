@@ -20,6 +20,7 @@ namespace eCommerce.Mvc.Controllers
         
         public async Task<IActionResult> Index()
         {
+            HttpContext.Session.SetInt32("CustomerId", 1);
             var products = await _productsRepository.GetAllAsync();
             ViewData["PageTitle"] = "Welcome To Products List!";
             return View(products);

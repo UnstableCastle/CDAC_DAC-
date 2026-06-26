@@ -17,7 +17,7 @@
                         <h5 class="card-title">@product.ProductName</h5>
                         <p class="card-text">@product.Description</p>
                         <hr>
-                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@product.ProductId">Show Details</a> | <a class="btn btn-success">Add To Cart</a>
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@product.ProductId">Show Details</a> | <a class="btn btn-success" asp-action="AddToCart" asp-route-id="@product.ProductId">Add To Cart</a>
                     </div>
                 </div>
             }

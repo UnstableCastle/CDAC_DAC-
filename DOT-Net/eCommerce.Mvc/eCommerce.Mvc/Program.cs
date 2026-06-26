@@ -7,6 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession(config=> {
+
+    config.Cookie.IsEssential = true;
+    config.Cookie.HttpOnly = true;
+
+});
 
 var ecomDbConStr = builder.Configuration.GetConnectionString("EComDbConStr");
 
@@ -20,6 +26,7 @@ builder.Services.AddScoped<ICommonRepository<CartItem>, CommonRepository<CartIte
 builder.Services.AddScoped<ICommonRepository<Invoice>, CommonRepository<Invoice>>();
 builder.Services.AddScoped<ICommonRepository<Supplier>, CommonRepository<Supplier>>();
 builder.Services.AddScoped<ICommonRepository<Shipper>, CommonRepository<Shipper>>();
+builder.Services.AddScoped<ICartView, CartView>();
 
 var app = builder.Build();
 
@@ -33,7 +40,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();
