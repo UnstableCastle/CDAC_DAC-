@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Migrations\\20260628092036_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Code_First_Make_2_Tables\\Migrations\\20260628092036_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B5048CC-1166-448D-A597-F38C6A7F1944}|Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\code_first_make_2_tables\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B5048CC-1166-448D-A597-F38C6A7F1944}|Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj|solutionrelative:code_first_make_2_tables\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B5048CC-1166-448D-A597-F38C6A7F1944}|Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\code_first_make_2_tables\\dal\\schooldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B5048CC-1166-448D-A597-F38C6A7F1944}|Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj|solutionrelative:code_first_make_2_tables\\dal\\schooldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B5048CC-1166-448D-A597-F38C6A7F1944}|Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\code_first_make_2_tables\\model\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B5048CC-1166-448D-A597-F38C6A7F1944}|Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj|solutionrelative:code_first_make_2_tables\\model\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B5048CC-1166-448D-A597-F38C6A7F1944}|Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\code_first_make_2_tables\\model\\school.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B5048CC-1166-448D-A597-F38C6A7F1944}|Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj|solutionrelative:code_first_make_2_tables\\model\\school.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\employeeapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\employeeapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B5048CC-1166-448D-A597-F38C6A7F1944}|Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\code_first_make_2_tables\\code_first_make_2_tables.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{0B5048CC-1166-448D-A597-F38C6A7F1944}|Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj|solutionrelative:code_first_make_2_tables\\code_first_make_2_tables.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\model\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\model\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20260628092036_1.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Migrations\\20260628092036_1.cs",
-              "RelativeDocumentMoniker": "Code_First_Make_2_Tables\\Migrations\\20260628092036_1.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Migrations\\20260628092036_1.cs",
-              "RelativeToolTip": "Code_First_Make_2_Tables\\Migrations\\20260628092036_1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Program.cs",
+              "RelativeDocumentMoniker": "EmployeeApi\\Program.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Program.cs",
+              "RelativeToolTip": "EmployeeApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-28T09:20:37.065Z",
+              "WhenOpened": "2026-06-28T13:58:57.907Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "schoolDBContext.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Dal\\schoolDBContext.cs",
-              "RelativeDocumentMoniker": "Code_First_Make_2_Tables\\Dal\\schoolDBContext.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Dal\\schoolDBContext.cs",
-              "RelativeToolTip": "Code_First_Make_2_Tables\\Dal\\schoolDBContext.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAcwBAAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-28T07:39:27.811Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Code_First_Make_2_Tables",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj",
-              "RelativeDocumentMoniker": "Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj",
-              "RelativeToolTip": "Code_First_Make_2_Tables\\Code_First_Make_2_Tables.csproj",
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "EmployeeApi\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "EmployeeApi\\Controllers\\WeatherForecastController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-28T07:38:57.842Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T14:07:45.219Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Teacher.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Model\\Teacher.cs",
-              "RelativeDocumentMoniker": "Code_First_Make_2_Tables\\Model\\Teacher.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Model\\Teacher.cs",
-              "RelativeToolTip": "Code_First_Make_2_Tables\\Model\\Teacher.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAASAAAAAAAAAA==",
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "EmployeeApi\\WeatherForecast.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\WeatherForecast.cs",
+              "RelativeToolTip": "EmployeeApi\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-28T07:37:59.112Z",
+              "WhenOpened": "2026-06-28T14:07:32.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "EmployeeApi\\Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "EmployeeApi\\Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T14:03:11.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Model\\Employee.cs",
+              "RelativeDocumentMoniker": "EmployeeApi\\Model\\Employee.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Model\\Employee.cs",
+              "RelativeToolTip": "EmployeeApi\\Model\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T13:57:22.591Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "School.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Model\\School.cs",
-              "RelativeDocumentMoniker": "Code_First_Make_2_Tables\\Model\\School.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Model\\School.cs",
-              "RelativeToolTip": "Code_First_Make_2_Tables\\Model\\School.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-28T07:30:31.092Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Program.cs",
-              "RelativeDocumentMoniker": "Code_First_Make_2_Tables\\Program.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\Code_First_Make_2_Tables\\Program.cs",
-              "RelativeToolTip": "Code_First_Make_2_Tables\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-28T07:27:42.347Z",
+              "Title": "EmployeeApi",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\EmployeeApi.csproj",
+              "RelativeDocumentMoniker": "EmployeeApi\\EmployeeApi.csproj",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\EmployeeApi.csproj",
+              "RelativeToolTip": "EmployeeApi\\EmployeeApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-28T13:57:05.23Z",
               "EditorCaption": ""
             }
           ]

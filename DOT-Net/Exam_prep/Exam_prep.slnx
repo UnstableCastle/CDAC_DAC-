@@ -1,4 +1,6 @@
 <Solution>
+  <Project Path="Code_First_2_Table/Code_First_2_Table_WEB.csproj" Id="701fbeca-bd74-453e-a579-fb00d7afb050" />
   <Project Path="Code_First_Make_2_Tables/Code_First_Make_2_Tables.csproj" Id="0b5048cc-1166-448d-a597-f38c6a7f1944" />
+  <Project Path="EmployeeApi/EmployeeApi.csproj" Id="4ecfbc36-d329-4d0f-b482-ef7f877e3842" />
   <Project Path="Linq_/Linq_.csproj" Id="9639f589-b0b4-4989-ad64-e4152081cd8e" />
 </Solution>

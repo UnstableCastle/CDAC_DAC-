@@ -1,12 +1,122 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\employeeapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\employeeapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\exam_prep\\employeeapi\\model\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ECFBC36-D329-4D0F-B482-EF7F877E3842}|EmployeeApi\\EmployeeApi.csproj|solutionrelative:employeeapi\\model\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "EmployeeApi\\WeatherForecast.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\WeatherForecast.cs",
+              "RelativeToolTip": "EmployeeApi\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T14:07:32.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "EmployeeApi\\Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "EmployeeApi\\Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T14:03:11.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "EmployeeApi\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "EmployeeApi\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T14:07:45.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Program.cs",
+              "RelativeDocumentMoniker": "EmployeeApi\\Program.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Program.cs",
+              "RelativeToolTip": "EmployeeApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T13:58:57.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Model\\Employee.cs",
+              "RelativeDocumentMoniker": "EmployeeApi\\Model\\Employee.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\Model\\Employee.cs",
+              "RelativeToolTip": "EmployeeApi\\Model\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T13:57:22.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmployeeApi",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\EmployeeApi.csproj",
+              "RelativeDocumentMoniker": "EmployeeApi\\EmployeeApi.csproj",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\Exam_prep\\EmployeeApi\\EmployeeApi.csproj",
+              "RelativeToolTip": "EmployeeApi\\EmployeeApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-28T13:57:05.23Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
