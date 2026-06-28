@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\bin\Debug\net10.0\Linq_.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\bin\Debug\net10.0\Linq_.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\bin\Debug\net10.0\Linq_.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\bin\Debug\net10.0\Linq_.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\bin\Debug\net10.0\Linq_.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\obj\Debug\net10.0\Linq_.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\obj\Debug\net10.0\Linq_.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\obj\Debug\net10.0\Linq_.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\obj\Debug\net10.0\Linq_.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\obj\Debug\net10.0\Linq_.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\obj\Debug\net10.0\Linq_.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\obj\Debug\net10.0\refint\Linq_.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\obj\Debug\net10.0\Linq_.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\obj\Debug\net10.0\Linq_.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\Exam_prep\Linq_\obj\Debug\net10.0\ref\Linq_.dll

@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\Migrations\\20260626113743_3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:eCommerce.Mvc\\Migrations\\20260626113743_3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5429718-19AB-133F-4E0D-653FBDD53716}|eCommerce.Mvc\\eCommerce.Mvc.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\ecommerce.mvc\\ecommerce.mvc\\views\\carts\\addtocart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5429718-19AB-133F-4E0D-653FBDD53716}|eCommerce.Mvc\\eCommerce.Mvc.csproj|solutionrelative:ecommerce.mvc\\views\\carts\\addtocart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5429718-19AB-133F-4E0D-653FBDD53716}|eCommerce.Mvc\\eCommerce.Mvc.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\ecommerce.mvc\\ecommerce.mvc\\controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5429718-19AB-133F-4E0D-653FBDD53716}|eCommerce.Mvc\\eCommerce.Mvc.csproj|solutionrelative:ecommerce.mvc\\controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5429718-19AB-133F-4E0D-653FBDD53716}|eCommerce.Mvc\\eCommerce.Mvc.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\ecommerce.mvc\\ecommerce.mvc\\views\\carts\\addtocart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B5429718-19AB-133F-4E0D-653FBDD53716}|eCommerce.Mvc\\eCommerce.Mvc.csproj|solutionrelative:ecommerce.mvc\\views\\carts\\addtocart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5429718-19AB-133F-4E0D-653FBDD53716}|eCommerce.Mvc\\eCommerce.Mvc.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\ecommerce.mvc\\ecommerce.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,19 +39,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20260626113743_3.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\Migrations\\20260626113743_3.cs",
-              "RelativeDocumentMoniker": "eCommerce.Mvc\\Migrations\\20260626113743_3.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\Migrations\\20260626113743_3.cs",
-              "RelativeToolTip": "eCommerce.Mvc\\Migrations\\20260626113743_3.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-26T11:37:43.314Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "AddToCart.cshtml",
               "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\Views\\Carts\\AddToCart.cshtml",
               "RelativeDocumentMoniker": "eCommerce.Mvc\\Views\\Carts\\AddToCart.cshtml",
@@ -68,7 +51,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "YourCart.cshtml",
               "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\Views\\Carts\\YourCart.cshtml",
               "RelativeDocumentMoniker": "eCommerce.Mvc\\Views\\Carts\\YourCart.cshtml",
@@ -76,8 +59,7 @@
               "RelativeToolTip": "eCommerce.Mvc\\Views\\Carts\\YourCart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-26T11:33:08.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-26T11:33:08.443Z"
             },
             {
               "$type": "Document",
@@ -89,12 +71,11 @@
               "RelativeToolTip": "eCommerce.Mvc\\Controllers\\CartsController.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAuwDQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-26T11:32:12.899Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-26T11:32:12.899Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "eCommerce.Mvc\\Controllers\\HomeController.cs",
@@ -102,12 +83,11 @@
               "RelativeToolTip": "eCommerce.Mvc\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAuwBYAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-26T11:19:25.494Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-26T11:19:25.494Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\Program.cs",
               "RelativeDocumentMoniker": "eCommerce.Mvc\\Program.cs",
@@ -115,12 +95,11 @@
               "RelativeToolTip": "eCommerce.Mvc\\Program.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAABwAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-26T11:10:45.089Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-26T11:10:45.089Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\eCommerce.Mvc\\eCommerce.Mvc\\Views\\Products\\Index.cshtml",
               "RelativeDocumentMoniker": "eCommerce.Mvc\\Views\\Products\\Index.cshtml",
@@ -128,8 +107,7 @@
               "RelativeToolTip": "eCommerce.Mvc\\Views\\Products\\Index.cshtml",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAACYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-26T11:01:43.056Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-26T11:01:43.056Z"
             }
           ]
         }

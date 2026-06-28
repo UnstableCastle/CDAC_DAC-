@@ -1,12 +1,54 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\efcore\\ecommercesample\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|solutionrelative:ecommercesample\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\efcore\\ecommercesample\\dal\\ecommercedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9F2981-7245-313F-B23C-B769DC9ACCE7}|eCommerceSample\\eCommerceSample.csproj|solutionrelative:ecommercesample\\dal\\ecommercedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "eCommerceDbContext.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Dal\\eCommerceDbContext.cs",
+              "RelativeDocumentMoniker": "eCommerceSample\\Dal\\eCommerceDbContext.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Dal\\eCommerceDbContext.cs",
+              "RelativeToolTip": "eCommerceSample\\Dal\\eCommerceDbContext.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA0wAAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T11:17:40.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Program.cs",
+              "RelativeDocumentMoniker": "eCommerceSample\\Program.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\EFCore\\eCommerceSample\\Program.cs",
+              "RelativeToolTip": "eCommerceSample\\Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T11:17:33.847Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
