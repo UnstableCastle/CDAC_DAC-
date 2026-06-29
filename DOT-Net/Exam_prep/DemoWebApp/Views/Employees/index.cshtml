@@ -1,0 +1,54 @@
+﻿@model List<Employee>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee List</title>
+    <style>
+            /* A little basic CSS to make the table easier to read */
+            table { border-collapse: collapse; width: 50%; margin-top: 15px; }
+            th, td { border: 1px solid #dddddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>@ViewData["pageTitle"]</h1>
+    <hr>
+    <h1>@TempData["SuccessMessage"]</h1>
+
+    @* <h2>Employee Directory</h2> *@
+
+    <p>
+        <a asp-action="Create">Create New Employee</a>
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>EmpID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.empId
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.empId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.empId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.empId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
