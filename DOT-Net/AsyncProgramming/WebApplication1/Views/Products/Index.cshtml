@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Product
+
+<p>
+
+    id = @Model.id
+
+</p>
+<p>name = @Model.name</p>
+
+
+<hr />
+<h1>@ViewBag.Message</h1>
+<hr />
+<h1>
+    @ViewData["Name"]
+
+</h1>
+<hr /><h1>
+@TempData["Success"]
+</h1>

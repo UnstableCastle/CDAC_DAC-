@@ -10,7 +10,7 @@ namespace TPLExample
         {
             Console.WriteLine($"Main Method runs on Thread Id {Thread.CurrentThread.ManagedThreadId}!");
 
-            // --- PART 1: Fire-and-forget Tasks (Action) ---
+          
             var t1 = Task.Run(() =>
             {
                 Console.WriteLine($"Task-1 runs on Thread Id {Thread.CurrentThread.ManagedThreadId}!");
@@ -29,12 +29,11 @@ namespace TPLExample
                 }
             });
 
-            // Wait for both t1 and t2 to finish before moving on
+           
             Task.WaitAll(t1, t2);
             Console.WriteLine("--- Part 1 Completed ---\n");
 
-            // --- PART 2: Tasks returning values (Func<TResult>) ---
-            // Renamed to t3 and t4 to avoid scope conflicts
+          
             Task<int> t3 = Task.Run<int>(() =>
             {
                 Console.WriteLine($"Task-3 runs on Thread Id {Thread.CurrentThread.ManagedThreadId}!");
@@ -47,7 +46,7 @@ namespace TPLExample
                 return 24 * 24;
             });
 
-            // Accessing .Result automatically blocks the main thread until the task is done
+       
             Console.WriteLine($"Task-3 Result: {t3.Result}");
             Console.WriteLine($"Task-4 Result: {t4.Result}");
 

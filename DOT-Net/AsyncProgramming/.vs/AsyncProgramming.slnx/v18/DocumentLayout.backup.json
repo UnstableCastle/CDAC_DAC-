@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5DFB9C83-2A3B-B258-6BFF-FB29E21BB0FB}|TPLExample\\TPLExample.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\asyncprogramming\\tplexample\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DFB9C83-2A3B-B258-6BFF-FB29E21BB0FB}|TPLExample\\TPLExample.csproj|solutionrelative:tplexample\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9104226-FC56-4882-84F3-F76CAF8C2B34}|WebApplication1\\WebApplication1.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\asyncprogramming\\webapplication1\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9104226-FC56-4882-84F3-F76CAF8C2B34}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9104226-FC56-4882-84F3-F76CAF8C2B34}|WebApplication1\\WebApplication1.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\asyncprogramming\\webapplication1\\views\\products\\one.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9104226-FC56-4882-84F3-F76CAF8C2B34}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\products\\one.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9104226-FC56-4882-84F3-F76CAF8C2B34}|WebApplication1\\WebApplication1.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\asyncprogramming\\webapplication1\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9104226-FC56-4882-84F3-F76CAF8C2B34}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9104226-FC56-4882-84F3-F76CAF8C2B34}|WebApplication1\\WebApplication1.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\asyncprogramming\\webapplication1\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9104226-FC56-4882-84F3-F76CAF8C2B34}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00D54C6D-241A-4E68-B50F-4909C0E6A8B8}|File_io\\File_io.csproj|c:\\d drive\\dac\\cdac_dac-\\dot-net\\asyncprogramming\\file_io\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00D54C6D-241A-4E68-B50F-4909C0E6A8B8}|File_io\\File_io.csproj|solutionrelative:file_io\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\TPLExample\\Program.cs",
-              "RelativeDocumentMoniker": "TPLExample\\Program.cs",
-              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\TPLExample\\Program.cs",
-              "RelativeToolTip": "TPLExample\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "One.cshtml",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\WebApplication1\\Views\\Products\\One.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Products\\One.cshtml",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\WebApplication1\\Views\\Products\\One.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Products\\One.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-30T01:18:47.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\WebApplication1\\Views\\Products\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Products\\Index.cshtml",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\WebApplication1\\Views\\Products\\Index.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Products\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-30T01:14:17.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\WebApplication1\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Models\\Product.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\WebApplication1\\Models\\Product.cs",
+              "RelativeToolTip": "WebApplication1\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-22T11:56:47.704Z",
+              "WhenOpened": "2026-06-30T01:05:15.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\WebApplication1\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\WebApplication1\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T01:14:02.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\File_io\\Program.cs",
+              "RelativeDocumentMoniker": "File_io\\Program.cs",
+              "ToolTip": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\AsyncProgramming\\File_io\\Program.cs",
+              "RelativeToolTip": "File_io\\Program.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-30T00:48:18.333Z",
               "EditorCaption": ""
             }
           ]

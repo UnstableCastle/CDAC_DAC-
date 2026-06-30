@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\D DRIVE\\DAC\\CDAC_DAC-\\DOT-Net\\29-06-26\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8A04867C-6E18-735E-F3F9-4FEAC59FE6AA}|..\\..\\..\\..\\..\\Users\\Amaan\\Downloads\\EmpWebAPI-20260629T145507Z-3-001\\EmpWebAPI\\EmpWebAPI.csproj|c:\\users\\amaan\\downloads\\empwebapi-20260629t145507z-3-001\\empwebapi\\empwebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmpWebAPI",
+              "DocumentMoniker": "C:\\Users\\Amaan\\Downloads\\EmpWebAPI-20260629T145507Z-3-001\\EmpWebAPI\\EmpWebAPI.csproj",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\Amaan\\Downloads\\EmpWebAPI-20260629T145507Z-3-001\\EmpWebAPI\\EmpWebAPI.csproj",
+              "ToolTip": "C:\\Users\\Amaan\\Downloads\\EmpWebAPI-20260629T145507Z-3-001\\EmpWebAPI\\EmpWebAPI.csproj",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\Amaan\\Downloads\\EmpWebAPI-20260629T145507Z-3-001\\EmpWebAPI\\EmpWebAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-29T14:57:59.049Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

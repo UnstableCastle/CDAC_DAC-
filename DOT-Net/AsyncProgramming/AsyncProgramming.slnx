@@ -1,5 +1,7 @@
 <Solution>
+  <Project Path="File_io/File_io.csproj" Id="00d54c6d-241a-4e68-b50f-4909c0e6a8b8" />
   <Project Path="ThreadExample/ThreadExample.csproj" />
   <Project Path="ThreadSynchronization/ThreadSynchronization.csproj" />
   <Project Path="TPLExample/TPLExample.csproj" />
+  <Project Path="WebApplication1/WebApplication1.csproj" Id="d9104226-fc56-4882-84f3-f76caf8c2b34" />
 </Solution>

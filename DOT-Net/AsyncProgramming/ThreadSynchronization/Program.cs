@@ -57,15 +57,20 @@ internal class Program
 
     private static void Wall2() {
 
-        Monitor.Enter(o);
-        Console.WriteLine($"Wall 1 method runs on Thread id {Thread.CurrentThread.ManagedThreadId}");
-
-        for (int i = 0; i < 10; i++)
+        //Monitor.Enter(o);
+        lock (o)
         {
-          
-            Console.WriteLine($"wall - 1 - Shared resources Value = {++SharedResources}");
+
+
+            Console.WriteLine($"Wall 2 method runs on Thread id {Thread.CurrentThread.ManagedThreadId}");
+
+            for (int i = 0; i < 10; i++)
+            {
+
+                Console.WriteLine($"wall - 2 - Shared resources Value = {++SharedResources}");
+            }
+            //Monitor.Exit(o);
         }
-        Monitor.Exit(o);
 
     }
     

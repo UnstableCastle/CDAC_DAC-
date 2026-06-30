@@ -1,0 +1,15 @@
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\bin\Debug\net10.0\File_io.exe
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\bin\Debug\net10.0\File_io.deps.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\bin\Debug\net10.0\File_io.runtimeconfig.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\bin\Debug\net10.0\File_io.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\bin\Debug\net10.0\File_io.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\obj\Debug\net10.0\File_io.GeneratedMSBuildEditorConfig.editorconfig
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\obj\Debug\net10.0\File_io.AssemblyInfoInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\obj\Debug\net10.0\File_io.AssemblyInfo.cs
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\obj\Debug\net10.0\File_io.csproj.CoreCompileInputs.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\obj\Debug\net10.0\File_io.sourcelink.json
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\obj\Debug\net10.0\File_io.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\obj\Debug\net10.0\refint\File_io.dll
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\obj\Debug\net10.0\File_io.pdb
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\obj\Debug\net10.0\File_io.genruntimeconfig.cache
+C:\D DRIVE\DAC\CDAC_DAC-\DOT-Net\AsyncProgramming\File_io\obj\Debug\net10.0\ref\File_io.dll

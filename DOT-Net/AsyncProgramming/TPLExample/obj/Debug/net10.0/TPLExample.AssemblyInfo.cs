@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TPLExample")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb6180dc0915bbf129dbbda7644b61de29355882")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c496b8ccdfad6dcc93d7ad004b1f6aaee0be04bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("TPLExample")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TPLExample")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
