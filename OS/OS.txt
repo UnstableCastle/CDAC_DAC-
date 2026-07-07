@@ -1,0 +1,161 @@
+# ==========================================
+# 1. DIRECTORY SETUP & NAVIGATION
+# ==========================================
+pwd
+cd /home
+ls -R
+cd ~
+mkdir -p ./OS/Day1 ./OS/Day2 ./planets/Earth/Moon ./planets/Jupiter/Moon ./cprog ./shells
+ls -R
+
+# ==========================================
+# 2. C PROGRAMS: CREATION, COMPILATION, EXECUTION
+# ==========================================
+
+# --- Program 1: Basic PID ---
+cat << 'EOF' > ./cprog/seepid.c
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+void main(){
+    printf("pid = %d  , ppid = %d\n", getpid(), getppid());
+}
+EOF
+gcc -o ./cprog/seepid ./cprog/seepid.c
+./cprog/seepid
+
+# --- Program 2: Basic Fork ---
+cat << 'EOF' > ./cprog/forkex1.c
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <wait.h>
+void main(){
+    int child_pid = fork();
+    printf("pid = %d and ppid = %d\n", getpid(), getppid());
+    waitpid(child_pid, NULL, 0);
+}
+EOF
+gcc -o ./cprog/f1 ./cprog/forkex1.c
+./cprog/f1
+
+# --- Program 3: Parent vs Child Logic ---
+cat << 'EOF' > ./cprog/forkex2.c
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <wait.h>
+void main(){
+    int child_pid = fork();
+    if(child_pid > 0){
+        printf("Parent Process: pid = %d and ppid = %d\n", getpid(), getppid());
+        waitpid(child_pid, NULL, 0);
+    } else {
+        printf("Child Process: pid = %d and ppid = %d\n", getpid(), getppid());
+    }
+}
+EOF
+gcc -o ./cprog/f2 ./cprog/forkex2.c
+./cprog/f2
+
+# --- Program 4: Consecutive Forks ---
+cat << 'EOF' > ./cprog/forkex3.c
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <wait.h>
+void main(){
+    int child_pid = fork();
+    fork();
+    fork();
+    printf("pid = %d and ppid = %d\n", getpid(), getppid());
+    waitpid(child_pid, NULL, 0);
+}
+EOF
+gcc -o ./cprog/f3 ./cprog/forkex3.c
+./cprog/f3
+
+# ==========================================
+# 3. SHELL SCRIPTS: CREATION & EXECUTION
+# ==========================================
+
+# --- Script 1: Password Validation ---
+cat << 'EOF' > ./shells/password.sh
+echo "Enter password: "
+read password
+if echo "$password" | grep -Eq '^[a-zA-Z][a-zA-Z0-9_-]{0,7}$'; then
+    echo "valid password"
+else
+    echo "invalid password"
+fi
+EOF
+bash ./shells/password.sh
+
+# --- Script 2: Integer Calculator ---
+cat << 'EOF' > ./shells/cal.sh
+echo "enter 2 numbers"
+read num1 num2
+expr $num1 + $num2
+expr $num1 - $num2
+expr $num1 / $num2
+expr $num1 \* $num2
+EOF
+bash ./shells/cal.sh
+
+# --- Script 3: Sum and Average ---
+cat << 'EOF' > ./shells/avg.sh
+echo "enter 3 numbers"
+read n1 n2 n3
+sum=`expr $n1 + $n2 + $n3`
+echo "sum=$sum"
+average=`expr $sum / 3`
+echo "average=$average"
+EOF
+bash ./shells/avg.sh
+
+# --- Script 4: File Existence Checker ---
+cat << 'EOF' > ./shells/ex5.sh
+echo "enter file path: "
+read p
+if [ -f "$p" ]; then
+    cat "$p"
+else
+    echo "file doesnt exist"
+fi
+EOF
+bash ./shells/ex5.sh
+
+# ==========================================
+# 4. SYSTEM, PROCESS & TEXT COMMANDS
+# ==========================================
+
+# Check system environment and terminal
+env | grep "PS1"
+tty
+echo "$PATH"
+
+# Process management (run these to see active processes)
+ps
+ps -e
+ps -e -f 
+
+# Create a sample text file for grep/sort testing
+cat << 'EOF' > players.txt
+Tenz
+Forsekan
+Zekkan
+JhonQT
+Aspesa
+KanGG
+King
+EOF
+
+# Text processing examples
+grep "^T" players.txt
+grep -v "^$" players.txt
+sort players.txt
+sort -r players.txt
+wc -l players.txt
+
+# Cleanup (Optional - uncomment to run)
+# rm -rf ./OS ./planets ./cprog ./shells players.txt

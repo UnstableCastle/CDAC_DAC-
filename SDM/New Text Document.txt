@@ -1,0 +1,116 @@
+=========================
+INTRODUCTION TO DEVOPS
+=========================
+
+Revision:
+1. Git & GitHub
+2. Selenium
+3. Docker
+4. Jira
+
+Why DevOps?
+
+Initially, software was developed using the Waterfall model.
+
+Waterfall Focus:
+- Development
+- Implementation
+- Delivery
+
+Once the product was delivered, the development team's job was considered complete.
+
+Problems with Waterfall:
+- Difficult to handle requirement changes.
+- Poor collaboration.
+- Slow feedback.
+- Customer issues were addressed only after delivery.
+- Changes required significant effort.
+
+To overcome these problems, the industry adopted Agile.
+
+Agile Improvements:
+- Faster development
+- Better customer collaboration
+- Frequent releases
+- Flexibility for changing requirements
+- Continuous feedback
+
+Even Agile had one limitation.
+
+Agile mainly focused on:
+- Development
+- Testing
+- Delivery
+
+After deployment, developers usually had very little involvement.
+
+Who actually uses the software?
+
+Example:
+A banking application is delivered to a bank.
+
+Users:
+- Bank employees
+- Operational staff
+- End customers
+
+These users may face:
+- Bugs
+- Performance issues
+- Configuration problems
+- Production errors
+
+The Operations team manages these issues.
+
+This created a gap between:
+- Development Team
+- Operations Team
+
+To bridge this gap, DevOps was introduced.
+
+DevOps = Development + Operations
+
+DevOps is a culture and set of practices where Development and Operations teams work together throughout the software lifecycle.
+
+DevOps Lifecycle:
+
+Requirements
+      |
+      V
+Development
+      |
+      V
+Testing
+      |
+      V
+Deployment
+      |
+      V
+Operations
+      |
+      V
+Monitoring
+      |
+      V
+Customer Feedback
+      |
+      V
+Continuous Improvement
+
+Benefits of DevOps:
+- Better collaboration
+- Faster software delivery
+- Continuous Integration (CI)
+- Continuous Delivery/Deployment (CD)
+- Faster issue resolution
+- Better monitoring
+- Higher software quality
+- Improved customer satisfaction
+
+Key Point:
+Traditional approach = Develop → Test → Deliver
+
+DevOps approach = Develop → Test → Deploy → Operate → Monitor → Improve continuously
+
+
+end to end seemless automated process

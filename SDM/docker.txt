@@ -1,0 +1,423 @@
+============================================================
+             DOCKER, KUBERNETES & XML NOTES
+============================================================
+
+------------------------------------------------------------
+1. VIRTUALIZATION
+------------------------------------------------------------
+
+Definition:
+Virtualization allows multiple Virtual Machines (VMs) to run on a
+single physical machine using a Hypervisor.
+
+Architecture:
+
++----------------------+
+| Applications         |
++----------------------+
+| Guest OS             |
++----------------------+
+| Hypervisor           |
++----------------------+
+| Host Operating System|
++----------------------+
+| Physical Hardware    |
++----------------------+
+
+Disadvantages:
+- Heavyweight
+- Requires Guest OS for every VM
+- High RAM and CPU usage
+- Large storage requirement
+- Slow boot time
+
+------------------------------------------------------------
+2. DOCKER
+------------------------------------------------------------
+
+Definition:
+Docker is an open-source containerization platform that packages an
+application along with all its dependencies into a Container.
+
+Architecture:
+
++----------------------+
+| Application          |
++----------------------+
+| Container            |
++----------------------+
+| Docker Engine        |
++----------------------+
+| Host Operating System|
++----------------------+
+| Hardware             |
++----------------------+
+
+Docker replaces:
+- Hypervisor
+- Guest Operating System
+
+------------------------------------------------------------
+3. CONTAINER
+------------------------------------------------------------
+
+A Container is a lightweight isolated environment that contains:
+
+- Application
+- Libraries
+- Dependencies
+- Runtime
+
+Containers DO NOT contain a complete Operating System.
+
+------------------------------------------------------------
+4. VIRTUAL MACHINE vs DOCKER
+------------------------------------------------------------
+
+Virtual Machine
+---------------
+- Uses Hypervisor
+- Separate Guest OS
+- Heavy
+- Slow Startup
+- High RAM
+- Large Storage
+
+Docker
+------
+- Uses Docker Engine
+- Shares Host OS
+- Lightweight
+- Fast Startup
+- Less RAM
+- Small Image Size
+
+------------------------------------------------------------
+5. ADVANTAGES OF DOCKER
+------------------------------------------------------------
+
+* Lightweight
+* Fast Startup
+* Application Isolation
+* Secure
+* Portable
+* Easy Deployment
+* Easy Scaling
+* Less Storage
+* High Performance
+
+------------------------------------------------------------
+6. DOCKER IMAGE
+------------------------------------------------------------
+
+Definition:
+A Docker Image is a read-only template used to create containers.
+
+Image
+  |
+  +------> Container
+
+------------------------------------------------------------
+7. DOCKER CONTAINER
+------------------------------------------------------------
+
+Definition:
+A running instance of a Docker Image.
+
+Docker Image
+      |
+      V
+Running Container
+
+------------------------------------------------------------
+8. DOCKER HUB
+------------------------------------------------------------
+
+Docker Hub is an online repository used to store Docker Images.
+
+Developer
+    |
+Push Image
+    |
+Docker Hub
+    |
+Pull Image
+    |
+Developer/User
+
+------------------------------------------------------------
+9. DOCKER COMPONENTS
+------------------------------------------------------------
+
+1. Docker Client
+2. Docker Engine (Daemon)
+3. Docker Images
+4. Docker Containers
+5. Docker Registry (Docker Hub)
+
+------------------------------------------------------------
+10. DOCKER CLIENT-SERVER ARCHITECTURE
+------------------------------------------------------------
+
+Docker Client
+      |
+ REST API
+      |
+Docker Daemon
+      |
++-----------+-----------+
+| Images    |Containers |
++-----------+-----------+
+
+------------------------------------------------------------
+11. WHY KUBERNETES?
+------------------------------------------------------------
+
+Docker can manage few containers.
+
+Example:
+
+10 Containers      -> Easy
+100 Containers     -> Manageable
+10000 Containers   -> Difficult
+
+Need Kubernetes.
+
+------------------------------------------------------------
+12. KUBERNETES
+------------------------------------------------------------
+
+Definition:
+
+Kubernetes is an open-source Container Orchestration Platform.
+
+Functions:
+- Deployment
+- Scaling
+- Monitoring
+- Networking
+- Load Balancing
+- Self Healing
+
+------------------------------------------------------------
+13. FEATURES OF KUBERNETES
+------------------------------------------------------------
+
+* Auto Deployment
+* Auto Scaling
+* Self Healing
+* Load Balancing
+* High Availability
+* Rolling Updates
+* Rollback
+* Storage Management
+
+------------------------------------------------------------
+14. KUBERNETES ARCHITECTURE
+------------------------------------------------------------
+
+                 MASTER NODE
+
+ +--------------------------------------+
+ | API Server                           |
+ | ETCD                                |
+ | Scheduler                           |
+ | Controller Manager                  |
+ +--------------------------------------+
+
+               WORKER NODE
+
+ +--------------------------------------+
+ | Kubelet                             |
+ | Kube Proxy                          |
+ | Pods                                |
+ | Containers                          |
+ +--------------------------------------+
+
+------------------------------------------------------------
+15. MASTER NODE COMPONENTS
+------------------------------------------------------------
+
+API Server
+----------
+- Entry Point
+- Accepts Requests
+- Communicates with Components
+
+ETCD
+----
+- Distributed Key-Value Database
+- Stores Cluster Information
+
+Scheduler
+---------
+- Assigns Pods to Worker Nodes
+
+Controller Manager
+------------------
+- Maintains Desired State
+- Recreates Failed Pods
+
+------------------------------------------------------------
+16. WORKER NODE COMPONENTS
+------------------------------------------------------------
+
+Kubelet
+--------
+- Node Agent
+- Starts Containers
+- Stops Containers
+- Reports Node Status
+
+Kube Proxy
+----------
+- Networking
+- Service Communication
+- Load Balancing
+
+Pods
+----
+Smallest Deployable Unit in Kubernetes.
+
+------------------------------------------------------------
+17. SELF HEALING
+------------------------------------------------------------
+
+If a Container crashes,
+
+Kubernetes automatically:
+- Restarts it
+- Replaces it
+- Maintains Desired State
+
+------------------------------------------------------------
+18. LOAD BALANCING
+------------------------------------------------------------
+
+              Users
+                |
+        Load Balancer
+      /      |       \
+     C1      C2      C3
+
+Traffic is distributed equally.
+
+------------------------------------------------------------
+19. AUTO SCALING
+------------------------------------------------------------
+
+High Traffic
+
+Traffic ↑
+Pods ↑
+
+Low Traffic
+
+Traffic ↓
+Pods ↓
+
+------------------------------------------------------------
+20. HIGH AVAILABILITY
+------------------------------------------------------------
+
+Application continues running even if:
+
+- Pod fails
+- Node fails
+- Server fails
+
+------------------------------------------------------------
+21. DOCKER vs KUBERNETES
+------------------------------------------------------------
+
+Docker
+-------
+- Creates Containers
+- Container Platform
+- Manual Scaling
+
+Kubernetes
+----------
+- Manages Containers
+- Orchestration Platform
+- Automatic Scaling
+- Self Healing
+
+------------------------------------------------------------
+22. XML
+------------------------------------------------------------
+
+Definition:
+
+XML (Extensible Markup Language) is used to store and transport data.
+
+Example:
+
+<Employee>
+    <Name>Amaan</Name>
+    <Age>22</Age>
+</Employee>
+
+------------------------------------------------------------
+23. FEATURES OF XML
+------------------------------------------------------------
+
+- Self Descriptive
+- Human Readable
+- Extensible
+- Platform Independent
+- Structured Data
+
+------------------------------------------------------------
+24. XML APPLICATIONS
+------------------------------------------------------------
+
+- Data Exchange
+- Configuration Files
+- SOAP
+- RSS
+- Web Services
+- Database Transfer
+
+------------------------------------------------------------
+25. XML vs HTML
+------------------------------------------------------------
+
+XML
+----
+Stores Data
+Custom Tags
+Strict Syntax
+
+HTML
+-----
+Displays Data
+Predefined Tags
+Presentation
+
+------------------------------------------------------------
+IMPORTANT VIVA QUESTIONS
+------------------------------------------------------------
+
+1. What is Docker?
+2. What is a Container?
+3. Docker Image vs Container.
+4. Docker vs Virtual Machine.
+5. What is Docker Hub?
+6. What is Kubernetes?
+7. Why Kubernetes?
+8. Explain Kubernetes Architecture.
+9. What is ETCD?
+10. What is API Server?
+11. What is Scheduler?
+12. What is Kubelet?
+13. What is Kube Proxy?
+14. Explain Self Healing.
+15. Explain Load Balancing.
+16. Explain Auto Scaling.
+17. What is XML?
+18. XML vs HTML?
+
+============================================================
+END OF NOTES
+============================================================

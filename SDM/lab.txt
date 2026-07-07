@@ -1,0 +1,178 @@
+========================
+SELENIUM - NOTES
+========================
+
+LOCATORS
+---------
+id
+name
+className
+tagName
+linkText
+partialLinkText
+cssSelector
+xpath
+
+Example:
+By.id("username")
+By.name("login")
+By.xpath("//*[@id='APjFqb']")
+
+-------------------------
+
+DROPDOWN
+--------
+Select s = new Select(element);
+
+s.selectByVisibleText("India");
+s.selectByIndex(2);
+s.selectByValue("IN");
+
+-------------------------
+
+ACTION CLASS
+------------
+Actions action = new Actions(driver);
+
+Drag & Drop
+action.dragAndDrop(source,target).perform();
+
+Drag by Offset
+action.dragAndDropBy(element,x,y).perform();
+
+Slider
+action.dragAndDropBy(slider,50,0).perform();
+
+Resize
+action.dragAndDropBy(resizeHandle,x,y).perform();
+
+-------------------------
+
+WINDOW
+------
+driver.manage().window().maximize();
+
+-------------------------
+
+SWITCH TO
+---------
+driver.switchTo().alert();
+
+driver.switchTo().frame("frameName");
+
+driver.switchTo().window(windowID);
+
+-------------------------
+
+ALERT
+-----
+alert.accept();
+
+alert.dismiss();
+
+-------------------------
+
+CLOSE VS QUIT
+-------------
+driver.close();   // current window
+
+driver.quit();    // all browser windows
+
+-------------------------
+
+COMMON EXCEPTIONS
+-----------------
+NoSuchElementException
+
+ElementNotInteractableException
+
+StaleElementReferenceException
+
+TimeoutException
+
+NoSuchWindowException
+
+NoSuchFrameException
+
+WebDriverException
+
+-------------------------
+
+ADVANTAGES OF SELENIUM
+----------------------
+Open Source
+
+Supports Multiple Browsers
+
+Supports Multiple OS
+
+Supports Multiple Languages
+
+Large Community
+
+Web Automation
+
+Easy Integration with TestNG
+
+-------------------------
+
+DRAWBACKS OF SELENIUM
+---------------------
+No Built-in Reporting
+
+No Test Prioritization
+
+No Grouping
+
+No Test Management
+
+Only Web Application Automation
+
+-------------------------
+
+TESTNG
+------
+Testing Framework
+
+Features:
+✔ Priorities
+✔ Grouping
+✔ Reporting
+✔ Parallel Execution
+✔ Retry Failed Tests
+✔ Annotations
+
+Annotations:
+@BeforeSuite
+@BeforeTest
+@BeforeClass
+@BeforeMethod
+@Test
+@AfterMethod
+@AfterClass
+@AfterTest
+@AfterSuite
+
+-------------------------
+
+SELENIUM vs TESTNG
+------------------
+
+Selenium
+---------
+Automation Tool
+Browser Automation
+No Reporting
+No Priority
+No Grouping
+
+TestNG
+------
+Testing Framework
+Test Execution
+HTML Reports
+Priority Support
+Grouping Support
+Parallel Execution
+
+========================

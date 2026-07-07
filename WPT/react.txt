@@ -256,7 +256,7 @@ Used to achieve:
 
 
 
-CASE 4 : When dependency valu pass bs blank array and in insied callback function we use cleartime() method
+CASE 4 : When dependency value pass bs blank array and in inside callback function we use cleartime() method
 
 when dependency 
 

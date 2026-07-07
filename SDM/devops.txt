@@ -1,0 +1,160 @@
+admin@devops-server:~$ cat local_dev_setup.sh
+#!/bin/bash
+# =========================================================================
+# SYSTEM SETUP GUIDE: LOCAL DEVOPS ARCHITECTURE USING WSL2 & DOCKER
+# Target System: High-Performance Windows 11 Workspace (Intel i7 Architecture)
+# =========================================================================
+
+echo "[INIT] Initializing local environment configuration..."
+
+# -------------------------------------------------------------------------
+# STAGE 1: WINDOWS SUBSYSTEM FOR LINUX (WSL2) ACTIVATION
+# Purpose: Run native Linux binary executables without VM overhead.
+# -------------------------------------------------------------------------
+echo "[STAGE 1] Activating Windows Subsystem for Linux..."
+> Run the following command in PowerShell as Administrator:
+  $ wsl --install -d Ubuntu
+
+> Verify the architecture translation layer is version 2:
+  $ wsl --list --verbose
+  # Ensure the output shows: Ubuntu * Version 2
+
+[SYS_INFO] WSL2 maps hardware directly into a lightweight utility VM,
+           offering near-native Linux performance compared to heavy Type-2 VMs.
+
+
+# -------------------------------------------------------------------------
+# STAGE 2: CONTAINER ENGINE INTEGRATION (DOCKER)
+# Purpose: Replace static virtual machines with dynamic micro-containers.
+# -------------------------------------------------------------------------
+echo "[STAGE 2] Deploying Docker Desktop Engine..."
+> Action Items:
+  1. Download and execute the Docker Desktop Installer for Windows.
+  2. Crucial: Check the box "Use the WSL 2 based engine" during setup.
+  3. Navigate to Settings -> Resources -> WSL Integration.
+  4. Toggle the switch to enable integration with your active Ubuntu distro.
+
+> Test the container subsystem from the Ubuntu terminal interface:
+  $ docker run hello-world
+  # Status: Container pulls image from Docker Hub, executes, and exits.
+
+
+# -------------------------------------------------------------------------
+# STAGE 3: CLOUD SIMULATION & SANDBOX TESTING
+# Purpose: Safe environment execution before cloud production deployment.
+# -------------------------------------------------------------------------
+echo "[STAGE 3] Simulating a full-stack target pipeline..."
+
+# Example: Spinning up an isolated PostgreSQL database instance
+# No complex manual installations, no persistent OS system files altered:
+$ docker run --name local-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+
+# Check real-time resource isolation limits:
+$ docker stats local-postgres
+# Notice: Zero static pre-allocated RAM hoarding. Dynamic scaling only.
+
+
+# -------------------------------------------------------------------------
+# CRITICAL DEVOPS ENGINEER CHECKLIST
+# -------------------------------------------------------------------------
+cat << 'EOF'
++-------------------------------------------------------------------------+
+|                    LOCAL DEVELOPMENT BEST PRACTICES                     |
++-------------------------------------------------------------------------+
+| 1. ALWAYS shut down local containers when idle to free host cache memory.|
+|    Command: docker stop $(docker ps -a -q)                              |
+|                                                                         |
+| 2. Never expose cloud API keys or hardcoded passwords in scripts. Use   |
+|    environment variables or credential managers instead.                |
+|                                                                         |
+| 3. Use your local setup to debug container layers, configuration scripts|
+|    (Ansible), and build logs (Maven) before paying for AWS instances.   |
++-------------------------------------------------------------------------+
+EOF
+
+echo "[SUCCESS] Sandbox operational. Environment ready for local DevOps pipeline design."
+admin@devops-server:~$ _
+
+admin@devops-workspace:~$ cat git_cheat_sheet.txt
+[SYSTEM INIT] Loading Git Command Reference Manual... [OK]
+
+=============================================================
+ CATEGORY 1: LOCAL PROGRESSION (Saving Your Work)
+=============================================================
+[INFO] These commands track and save changes on your local machine only.
+
+  $ git init
+      > Initializes a brand new local repository in your current directory.
+
+  $ git status
+      > Checks the state of your working directory. Shows modified, staged, 
+        and untracked files. (Run this constantly).
+
+  $ git add <file_name>   (or 'git add .' for all files)
+      > Moves changes from the working directory to the "Staging Area" 
+        (preparing them to be saved).
+
+  $ git commit -m "Your descriptive message here"
+      > Permanently saves the staged changes into your local repository 
+        history with a timestamp and your message.
+
+
+=============================================================
+ CATEGORY 2: SYNCHRONIZATION (Talking to GitHub/Remote)
+=============================================================
+[INFO] These commands move code between your local machine and the remote hub.
+
+  $ git clone <url>
+      > Downloads an entire repository (and its history) from a remote 
+        server (like GitHub) to your local machine.
+
+  $ git push origin <branch_name>
+      > Uploads your local commits to the remote repository. 
+        (This is the trigger that usually starts the Jenkins CI/CD pipeline).
+
+  $ git pull origin <branch_name>
+      > Downloads the latest changes from the remote repository and 
+        immediately merges them into your local working copy.
+
+  $ git fetch
+      > Downloads the latest remote history but does NOT merge it into your 
+        code (safe way to see what others have done before integrating).
+
+
+=============================================================
+ CATEGORY 3: PARALLEL DEVELOPMENT (Non-Linear Branching)
+=============================================================
+[INFO] Managing multiple simultaneous features without collisions.
+
+  $ git branch
+      > Lists all local branches. The active branch is marked with an asterisk (*).
+
+  $ git branch <new_branch_name>
+      > Creates a new isolated branch based on your current code state.
+
+  $ git checkout <branch_name>   (or 'git switch <branch_name>')
+      > Moves you from one branch to another.
+
+  $ git checkout -b <new_branch_name>
+      > A shortcut that creates a new branch AND immediately moves you into it.
+
+  $ git merge <source_branch>
+      > Takes the completed code from the <source_branch> and integrates 
+        it into the branch you are currently standing on.
+
+
+=============================================================
+ CATEGORY 4: MAINTENANCE & INVESTIGATION
+=============================================================
+  $ git log
+      > Displays the chronological commit history (the "time machine" log).
+
+  $ git log --oneline --graph
+      > Shows a visual, condensed terminal graph of all branches and commits.
+
+  $ git diff
+      > Shows exactly what lines of code were added or deleted since your 
+        last commit.
+
+[SYSTEM] End of file.
+admin@devops-workspace:~$ _
