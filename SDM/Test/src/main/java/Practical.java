@@ -8,14 +8,24 @@ public class Practical {
 
 		WebDriver driver = new EdgeDriver();
 
+		try {
+			
+		
 		driver.get("https://www.google.com");
 
-
+		Thread.sleep(5000);
 		driver.manage().window().maximize();
 
-
-		driver.findElement(By.name("q")).sendKeys("unstablecastle");
+		Thread.sleep(5000);
+		driver.findElement(By.name("q")).sendKeys("rainbow");
+		Thread.sleep(5000);
 		driver.findElement(By.name("btnK")).submit();
+		Thread.sleep(5000);
 
-	}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		}
 }
