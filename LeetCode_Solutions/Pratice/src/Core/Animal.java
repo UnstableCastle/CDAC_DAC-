@@ -1,9 +1,11 @@
 package Core;
 //polymorphism
-public class Animal {
+public abstract class Animal {
 
-	public void makeSound() {
-		System.out.println("animal make sound");
+	public abstract void makeSound();
+	
+	public void sleep() {
+		System.out.println("Zzzz.... Zzzz...");
 	}
 }
 
