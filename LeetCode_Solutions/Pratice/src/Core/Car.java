@@ -18,7 +18,10 @@ public String toString() {
 
 public static void main(String[] args) {
 	Car c = new Car("toyota",2022);
-	System.out.println(c);
+	Car c2 = new Car("toyota",2022);
+	
+	System.out.println(c == c2);
+	System.out.println(c.equals(c2));
 }
 
 }
