@@ -1,4 +1,4 @@
-package Core;
+package Threads;
 //Thread
 public class MyCleaner implements Runnable{
 

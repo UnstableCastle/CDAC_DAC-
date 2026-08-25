@@ -1,4 +1,4 @@
-package Core;
+package Threads;
 
 public class MyChef extends Thread{
 
