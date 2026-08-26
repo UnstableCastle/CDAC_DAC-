@@ -27,6 +27,7 @@ public class Plate {
 		notify();
 	}
 	public static void main(String[] args) {
+		MyChef chef = new MyChef();
 		
 	}
 	
