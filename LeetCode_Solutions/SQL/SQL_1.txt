@@ -114,4 +114,88 @@ mysql> SELECT CUSTOMERS.FIRST_NAME , SUM(ACCOUNTS.BALANCE) AS TOTAL_BALANCE FROM
 +------------+---------------+
 3 rows in set (0.00 sec)
 
+mysql> START TRANSACTION;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> UPDATE ACCOUNTS SET BALANCE = BALANCE - 1000 WHERE ACCOUNT_ID = 1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE ACCOUNTS SET BALANCE = BALANCE  1000 WHERE ACCOUNT_ID = 1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1000 WHERE ACCOUNT_ID = 1' at line 1
+mysql>
+mysql> UPDATE ACCOUNTS SET BALANCE = BALANCE + 1000 WHERE ACCOUNT_ID = 4;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM ACCOUNTS;
++------------+-------------+--------------+----------+
+| ACCOUNT_ID | CUSTOMER_ID | ACCOUNT_TYPE | BALANCE  |
++------------+-------------+--------------+----------+
+|          1 |           1 | SAVING       |  4000.00 |
+|          2 |           1 | CURRENT      |  2500.00 |
+|          3 |           2 | SAVING       | 12000.00 |
+|          4 |           3 | SAVING       |  1800.00 |
++------------+-------------+--------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM ACCOUNTS;
++------------+-------------+--------------+----------+
+| ACCOUNT_ID | CUSTOMER_ID | ACCOUNT_TYPE | BALANCE  |
++------------+-------------+--------------+----------+
+|          1 |           1 | SAVING       |  5000.00 |
+|          2 |           1 | CURRENT      |  2500.00 |
+|          3 |           2 | SAVING       | 12000.00 |
+|          4 |           3 | SAVING       |   800.00 |
++------------+-------------+--------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE TABLE TRANSACTIONHISTORY (TRANSACTION_ID INT PRIMARY KEY AUTO_INCREMENT,ACCOUNT_ID INT,TRANSACTION_TYPE VARCHAR(10),AMOUNT DECIMAL(10,2),TRANSACTION_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,FOREIGN KEY (ACCOUNT_ID) REFERENCES ACCOUNTS(ACCOUNT_ID));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DELIMITER //
+mysql>
+mysql> CREATE trigger AFTER_TRANSACTIION_INSERT
+    -> AFTER insert ON TRANSACTIONHISTORY
+    -> FOR each row
+    -> BEGIN
+    ->  IF NEW.TRANSACTION_TYPE = 'DEPOSIT' THEN
+    ->     UPDATE ACCOUNTS SET BALANCE = BALANCE + NEW.ACCOUNT WHERE ACCOUNT_ID = NEW.ACCOUNT_ID;
+    ->     elseif NEW.TRANSACTION_TYPE = 'WITHDRAW' THEN
+    ->     UPDATE ACCOUNTS SET BALANCE = BALANCE = BALANCE - NEW.ACCOUNT_ID = NEW.ACCOUNT_ID;
+    ->  end if;
+    -> END
+    -> DELIMITER ;
+    -> DELIMITER //
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DELIMITER ;DELIMITER' at line 11
+mysql>
+mysql> CREATE TRIGGER After_Transaction_Insert
+    -> AFTER INSERT ON TransactionHistory
+    -> FOR EACH ROW
+    -> BEGIN
+    ->     IF NEW.transaction_type = 'DEPOSIT' THEN
+    ->         UPDATE Accounts SET balance = balance + NEW.amount WHERE account_id = NEW.account_id;
+    ->     ELSEIF NEW.transaction_type = 'WITHDRAW' THEN
+    ->         UPDATE Accounts SET balance = balance - NEW.amount WHERE account_id = NEW.account_id;
+    ->     END IF;
+    -> END //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+mysql> DELIMITER ;
+mysql> INSERT INTO TransactionHistory (account_id, transaction_type, amount)
+    -> VALUES (1, 'WITHDRAW', 500.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM ACCOUNTS WHERE ACCOUNT_ID = 1;
++------------+-------------+--------------+---------+
+| ACCOUNT_ID | CUSTOMER_ID | ACCOUNT_TYPE | BALANCE |
++------------+-------------+--------------+---------+
+|          1 |           1 | SAVING       | 4500.00 |
++------------+-------------+--------------+---------+
+1 row in set (0.00 sec)
+
 mysql>
