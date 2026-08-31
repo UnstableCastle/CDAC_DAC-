@@ -1,0 +1,97 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 9.0.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| console_bank       |
+| db1                |
+| ecom               |
+| employee_directory |
+| examdb             |
+| examdb1            |
+| img_test_db        |
+| information_schema |
+| infoway            |
+| mysql              |
+| performance_schema |
+| promptlab_db       |
+| sys                |
+| test               |
+| user_db            |
++--------------------+
+15 rows in set (0.03 sec)
+
+mysql> USE console_bank;
+Database changed
+mysql> INSERT INTO Customers (first_name, last_name, city, join_date)
+    -> VALUES ('Vikram', 'Singh', 'Delhi', '2023-12-01');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT C.FIRST_NAME,A.ACCOUNT_ID,A.BALANCE FROM CUSTOMERS C JOIN ACCOUNTS A ON C.CUSTOMER_ID =A.CUSTOMER_ID;
++------------+------------+----------+
+| FIRST_NAME | ACCOUNT_ID | BALANCE  |
++------------+------------+----------+
+| AMAAN      |          1 |  4500.00 |
+| AMAAN      |          2 |  2500.00 |
+| RAHUL      |          3 | 12000.00 |
+| NEHA       |          4 |   800.00 |
++------------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT C.FIRST_NAME,A.ACCOUNT_ID,A.BALANCE FROM CUSTOMERS C LEFT JOIN ACCOUNTS A ON C.CUSTOMER_ID = A.CUSTOMER_ID;
++------------+------------+----------+
+| FIRST_NAME | ACCOUNT_ID | BALANCE  |
++------------+------------+----------+
+| AMAAN      |          2 |  2500.00 |
+| AMAAN      |          1 |  4500.00 |
+| RAHUL      |          3 | 12000.00 |
+| NEHA       |          4 |   800.00 |
+| Vikram     |       NULL |     NULL |
++------------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT MAX(BALANCE) FROM ACCOUNTS;
++--------------+
+| MAX(BALANCE) |
++--------------+
+|     12000.00 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT CUSTOMER_ID,BALANCE FROM ACCOUNTS WHERE BALANCE = 12000;
++-------------+----------+
+| CUSTOMER_ID | BALANCE  |
++-------------+----------+
+|           2 | 12000.00 |
++-------------+----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT CUSTOMER_ID , BALANCE FROM ACCOUNTS WHERE BALANCE = (SELECT MAX(BALANCE) FROM ACCOUNTS);
++-------------+----------+
+| CUSTOMER_ID | BALANCE  |
++-------------+----------+
+|           2 | 12000.00 |
++-------------+----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT C.FIRST_NAME,A.CUSTOMER_ID,A.BALANCE FROM CUSTOMERS C JOIN ACCOUNTS A ON A.CUSTOMER_ID = C.CUSTOMER_ID WHERE BALANCE = (SELECT MAX(BALANCE) FROM ACCOUNTS);
++------------+-------------+----------+
+| FIRST_NAME | CUSTOMER_ID | BALANCE  |
++------------+-------------+----------+
+| RAHUL      |           2 | 12000.00 |
++------------+-------------+----------+
+1 row in set (0.00 sec)
+
+mysql>
