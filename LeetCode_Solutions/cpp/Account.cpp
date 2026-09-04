@@ -22,6 +22,18 @@ class Account{
         cout<<"balance = "<<balance<<endl;
     }
 
+void witdraw(double amt){
+    if(balance<amt){
+        cout<<"low balance !";
+        return;
+    }
+
+    balance -=amt;
+    cout<<"Witdraw amount = "<<amt<<" new balance = "<<balance;
+
+}
+
+
 };
 int main(){
     Account a1(5000.00);
@@ -29,5 +41,15 @@ int main(){
     a1.deposite(100);
 
     a1.getBalance();
-    return 0;
+
+    a1.witdraw(52000);
+  
+
+Account* ptr = new Account(5000.00);
+
+    // 2. Call methods using the arrow operator
+    ptr->getBalance();
+
+    delete ptr;
+  return 0;
 }
