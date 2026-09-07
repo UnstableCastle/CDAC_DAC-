@@ -17,6 +17,7 @@ public class DatabaseConnection {
 
         // JDBC operations force you to handle SQLExceptions
         try {
+        	
             System.out.println("Attempting to connect to the database...");
             
             // 2. Open the connection
