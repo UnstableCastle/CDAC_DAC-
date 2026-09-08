@@ -1,20 +1,30 @@
 <html>
-    <body>
+<head>
+    <title>Move Numbers</title>
+</head>
+<body>
+    <button onclick="moveLeft()">Left</button>
+    <span id="numbers">1 2 3</span>
+    <button onclick="moveRight()">Right</button>
 
-<button onclick="moveLeft()">Left</button>
-<span id = "numbers">1 2 3 </span>
-<button onclick="moveRight()">Right</button>
+    <script>
+        let numbers = [1, 2, 3];
 
-<script>
+        function display() {
+            document.getElementById("numbers").innerText = numbers.join(" ");
+        }
 
-let numbers  =[1 ,2 ,3];
+        function moveLeft() {
+            let first = numbers.shift();
+            numbers.push(first);
+            display();
+        }
 
-function display(){
-    document
-}
-
-
-</script>
-
-    </body>
+        function moveRight() {
+            let last = numbers.pop();
+            numbers.unshift(last);
+            display();
+        }
+    </script>
+</body>
 </html>

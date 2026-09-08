@@ -1,0 +1,29 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<input type="text" id="inputBox" value="0">
+
+<button onclick="resetValue()">Reset</button>
+<button onclick="displayValue()">Display</button>
+
+<p id="result"></p>
+
+<script>
+    function resetValue() {
+        document.getElementById("inputBox").value = 0;
+    }
+
+    function displayValue() {
+        let value = document.getElementById("inputBox").value;
+        document.getElementById("result").innerText = value;
+    }
+</script>
+
+</body>
+</html>
