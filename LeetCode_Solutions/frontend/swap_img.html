@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <img id="image1" src="C:\Users\Amaan\Pictures\WallpaperEngineOverride_randomHKHMCQ.jpg" alt="Wallpaper">
+        <img id="image2" src="C:\Users\Amaan\Pictures\asus.jpg" alt="Asus">
+ 
+        <script>
+            function swapimg() {
+                // Fix 1: Match the exact IDs used in the HTML tags above
+                let image1 = document.getElementById("image1");
+                let image2 = document.getElementById("image2");
+
+                let temp = image1.src;
+                image1.src = image2.src;
+                image2.src = temp;
+            }
+        </script>
+ 
+        <!-- Fix 2: Add parenthesis () to actually call the function -->
+        <button onclick="swapimg()">Click to Swap</button>
+
+    </body>
+</html>
