@@ -38,7 +38,7 @@ void witdraw(double amt){
 int main(){
     Account a1(7000.00);
 
-    a1.deposite(100);
+    a1.deposite(1000);
 
     a1.getBalance();
 
