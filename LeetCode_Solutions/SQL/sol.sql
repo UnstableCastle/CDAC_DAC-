@@ -33,3 +33,13 @@ ON s.student_id = e.student_id AND sub.subject_name = e.subject_name GROUP BY s.
     SUM(transaction_amount) OVER (ORDER BY transaction_date) AS running_balance
 FROM Transactions
 WHERE account_id = 101;
+
+--511
+select distinct player_id , min(event_date) as first_login from Activity group by player_id;
+
+--197
+SELECT w.id 
+FROM Weather w
+JOIN Weather w2 
+  ON DATEDIFF(w.recordDate, w2.recordDate) = 1
+WHERE w.temperature > w2.temperature;
