@@ -41,7 +41,7 @@ export default function App() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        paddingTop: "50px",
+        paddingTop: "30px",
       }}
     >
       <h2>Transaction Log</h2>
