@@ -29,9 +29,9 @@ public class Coins {
 	}
 	}
 	public static void main(String[] args) {
-		int coins[] = {1,3,4,5,6};
+		int coins[] = {3,4,5,6};
 		
-		System.out.println(changeCoin(coins, 10));
+		System.out.println(changeCoin(coins, 1));
 		
 	
 		
