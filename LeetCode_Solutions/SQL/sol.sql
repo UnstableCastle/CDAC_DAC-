@@ -25,3 +25,26 @@ SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id <> 2;
 --1280. Students and Examinations
 SELECT  s.student_id,s.student_name,sub.subject_name,COUNT(e.subject_name) AS attended_exams FROM Students s JOIN Subjects sub LEFT JOIN Examinations e
 ON s.student_id = e.student_id AND sub.subject_name = e.subject_name GROUP BY s.student_id, s.student_name, sub.subject_name ORDER BY s.student_id,sub.subject_name;
+
+--SELECT 
+    transaction_date,
+    transaction_amount,
+    -- Calculates the cumulative sum up to the current row's date
+    SUM(transaction_amount) OVER (ORDER BY transaction_date) AS running_balance
+FROM Transactions
+WHERE account_id = 101;
+
+--511
+select distinct player_id , min(event_date) as first_login from Activity group by player_id;
+
+--197
+SELECT w.id 
+FROM Weather w
+JOIN Weather w2 
+  ON DATEDIFF(w.recordDate, w2.recordDate) = 1
+WHERE w.temperature > w2.temperature;
+
+--1517
+SELECT user_id, name, mail FROM Users
+WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\\.com$'
+  AND mail LIKE BINARY '%@leetcode.com';
