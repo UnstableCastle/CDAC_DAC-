@@ -22,7 +22,7 @@ public class twoPointers {
   }
     
     public static void main(String[] args) {
-        String n = "hello";
+        String n = "hello ";
         System.out.println(isPal(n));
     
     }} 
