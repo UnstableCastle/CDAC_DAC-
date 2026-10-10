@@ -20,6 +20,7 @@ public class twoPointers {
       
   return true ;
   }
+  
     
     public static void main(String[] args) {
         String n = "hello";
