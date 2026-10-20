@@ -17,7 +17,7 @@ class Solution {
             maxA = Math.max(maxA, area);
 
     if (height[left] < height[right]) {
-// right--;
+
                 left++;
             } 
 
