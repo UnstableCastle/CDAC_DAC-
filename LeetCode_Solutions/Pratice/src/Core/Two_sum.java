@@ -1,26 +1,37 @@
 package Core;
 
+import java.util.Arrays;
+
 public class Two_sum {
-public int[] two_sum(int nums[],int target) {
-		for(int i =0; i < nums.length;i++){
+	static public int[] twoSum(int[] nums, int target) {
+		int[] result = new int[2];
+for (int i = 0; i < nums.length-1; i++) {
+	
+	int num1 = nums[i];
+	int num2 = nums[i+1];
+	
+	if(num1+num2 == target) {
+		result[0] = num1;
+		result[1] = num2;
+		break;
+	}else {
+		continue;
+		
+	}
+	
+}
+return result;
 			
-			for(int j = i+1 ; j<nums.length;j++) { 
-		
-				if(nums[i]+nums[j]==target) {
-				return new int[] {i,j};
-				}
-			}
+			
 		}
-		return new int[] {};
+	public static void main(String[] args) {
 		
-		}
-				
-public static void main(String[] args) {
-	Two_sum sum = new Two_sum();
-		int nums[] = {2,15,7,11};
-		int[] result = sum.two_sum(nums, 9); 
-	
-		System.out.println("[" + result[0] + ", " + result[1] + "]");
-	
-}
-}
+		int  arr [] = {32,23,2,1,213,21,24,2,};
+		System.out.println(Arrays.toString(twoSum(arr, 5)));
+		
+	}
+		
+	}
+
+
+

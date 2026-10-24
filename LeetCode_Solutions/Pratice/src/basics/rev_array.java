@@ -2,19 +2,16 @@ package basics;
 
 public class rev_array {
 
-	public static void reverseArray(int []arr) {
-		
-		int left = 0;
-		int right = arr.length-1;
-		
-		while(left < right) {
+	private static void reverseArray(int[] arr) {
+		int left=0;
+		int right= arr.length-1;
+		while(left<right) {
 			int temp = arr[left];
 			arr[left] = arr[right];
 			arr[right] = temp;
-			left ++;
 			right--;
+			left++;
 		}
-		
 		
 	}
 	public static void main(String[] args) {
@@ -26,6 +23,7 @@ public class rev_array {
 			System.out.println(arr[i]);
 		}
 		}
+	
 		
 		
 	
